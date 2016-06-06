@@ -1,8 +1,8 @@
 <?
     $servername = "localhost";
-    $username = "projectx_vvarsc";
-    $password = "SRuEMBd-QUDif,*z9r";
-    $dbname = "projectx_vvarsc";
+    $username = "";
+    $password = "";
+    $dbname = "";
 
 	$connection = new mysqli ($servername, $username, $password, $dbname);
 	
