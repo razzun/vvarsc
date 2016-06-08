@@ -569,7 +569,7 @@
 				});
 			imageClass.css({
 					"margin": '2px'
-				});		
+				});	
 		}
 	});
 	
