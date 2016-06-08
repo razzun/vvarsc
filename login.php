@@ -44,6 +44,59 @@
 				</div>
 			</div>
 		</div>
-	<? include_once('inc/footer.php'); ?>
+		<? include_once('inc/footer.php'); ?>
 	</div>
 </body>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.jScale.js"></script>
+<script type="text/javascript" src="http://www.wduffy.co.uk/blog/wp-content/themes/agregado/js/jquery.jscroll.min.js"></script>
+
+<!--Script to Re-Size Page to 100% Height based on viewport size -->
+<script>
+	$(document).ready(function() {
+	
+		var height = $(window).height();
+		var websiteClass = $('#CONTENT');
+		var spacerClass = $('#dynamicSpacer');
+		
+		var footer = $('#FOOTER');
+		var fHeight = footer.height();
+		
+		var minHeight = (height - websiteClass.offset().top - 16);
+		var spacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
+		
+		//Set Element Properties
+		websiteClass.css({
+			"min-height": minHeight +'px'
+		});
+		
+		spacerClass.css({
+			"height": spacerHeight +'px'
+		});
+	});
+	
+	$(window).resize(function () {
+	
+		var height = $(window).height();
+		var websiteClass = $('#CONTENT');
+		var spacerClass = $('#dynamicSpacer');
+		
+		var footer = $('#FOOTER');
+		var fHeight = footer.height();
+		
+		var minHeight = (height - websiteClass.offset().top - 16);
+		var spacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
+		
+		//Set Element Properties
+		websiteClass.css({
+			"min-height": minHeight +'px'
+		});
+		
+		spacerClass.css({
+			"height": spacerHeight +'px'
+		});		
+	});	
+
+</script>
