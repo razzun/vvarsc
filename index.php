@@ -130,7 +130,7 @@
 		var footer = $('#FOOTER');
 		var fHeight = footer.height();
 		
-		var minHeight = (height - websiteClass.offset().top - 16);
+		var minHeight = (height - websiteClass.offset().top - 8);
 		var spacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
 		
 		//Set Element Properties
@@ -152,7 +152,7 @@
 		var footer = $('#FOOTER');
 		var fHeight = footer.height();
 		
-		var minHeight = (height - websiteClass.offset().top - 16);
+		var minHeight = (height - websiteClass.offset().top - 8);
 		var spacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
 		
 		//Set Element Properties
