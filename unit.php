@@ -391,7 +391,6 @@
 	</div>
 </div> 
   
-<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
     $(document).ready(function () {
@@ -408,9 +407,37 @@
 		$(".unitHierarchyHeader_unitName.inactive").parent().parent().parent().children(".unitHierarchy_row_header_arrow").toggleClass('rotate90CW');
 		
         $(".unitHierarchy_row_header_arrow").click(function () {
+		
+			var websiteClass = $('#TEXT');
+			var currentContentHeight = websiteClass.height();
+			
             $(this).parent().parent().children(".unitHierarchyChildren").slideToggle(500);
 			$(this).toggleClass('rotate90CW');
+			
+			setTimeout(function(){	
+				resizeSpacer();
+			}.bind(this), 500); 
         });
+		
+		function resizeSpacer()
+		{
+			//Script to adjust dynamic spacer height
+			var height = $(window).height();
+			//var newContentHeight = websiteClass.height();
+			
+			var footer = $('#FOOTER');
+			var fHeight = footer.height();
+			
+			var spacerClass = $('#dynamicSpacer');
+			//var currentSpacerHeight= spacerClass.height();
+			
+			var minHeight = (height - $('#CONTENT').offset().top - 8);
+			var newSpacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
+			
+			spacerClass.css({
+				"height": newSpacerHeight +'px'
+			});			
+		}
     });
 </script>
 

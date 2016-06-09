@@ -343,7 +343,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>
 	
-<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
     $(document).ready(function () {
@@ -351,7 +350,7 @@
         $(".shipyard_mainTable_row_header_arrow").click(function () {
             $(this).parent().parent().find(".shipyard_mainTable_row_content").slideToggle(500);
 			$(this).toggleClass('rotate90CW');
-        });
+        });		
     });
 </script>
 
@@ -489,7 +488,7 @@
 				{
 					//Activate Slide Toggle
 					$(this).find(".shipyard_mainTable_row_content").slideToggle(500);
-					$(this).find('.shipyard_mainTable_row_header_arrow').toggleClass('rotate90CW');
+					$(this).find('.shipyard_mainTable_row_header_arrow').toggleClass('rotate90CW');					
 				}
 				else
 				{
@@ -570,7 +569,7 @@
 				}
 			}
 			
-		});
+		});	
     });
 </script>
 
@@ -587,7 +586,8 @@
 		$(".filter_header_arrow").click(function () {
 			$(this).parent().parent().find(".yard_filter_container").slideToggle(500);
 			$(this).toggleClass('rotate90CW');
-		});		
+		});
+		
     });
 
 </script>
