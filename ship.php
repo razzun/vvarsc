@@ -17,7 +17,7 @@
 			,s.ship_model_designation
 			,s.ship_role_primary
 			,s.ship_role_secondary
-			,s.ship_classification
+			,REPLACE(s.ship_classification,'_',' ') as `ship_classification`
 			,s.ship_link
 			,s.ship_image_link
 			,s.ship_brochure_link
