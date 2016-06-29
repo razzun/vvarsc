@@ -375,9 +375,11 @@
 						<div class ="p_rankname">
 							<? echo $rank_groupName; ?>
 						</div>
+						<!--
 						<div class ="p_rank_div_name">
 							<? echo $div_name; ?>
 						</div>
+						-->
 						<div class ="p_rank_role_name">
 							<? echo $full_role_name; ?>
 						</div>

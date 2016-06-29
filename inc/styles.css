@@ -628,7 +628,8 @@ table.tbmem a:hover {
 	min-height: 100px;
 	width: 100%;
 	display: table-cell;
-	vertical-align: middle;
+	vertical-align: top;
+	padding-top: 4px;
 }
 
 .p_rankname
