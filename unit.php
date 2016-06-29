@@ -19,7 +19,19 @@
 				#Unit Header
 				echo '<div class="unitHierarchyHeader">';
 					
-					if ($value['DivisionName'] != "Economy")
+					if ($value['DivisionName'] == "Economy")
+					{
+						if ($value['UnitLevel'] == "Division")
+						{
+							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+						}
+						else
+						{
+							echo '<div class="unitHierarchy_row_header_arrow_empty">';
+							echo '</div>';
+						}
+					}
+					else if ($value['DivisionName'] == "Military")
 					{
 						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
 						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
@@ -67,9 +79,14 @@
 							}
 							
 
+							#Unit Commander (not applied to Inactive units, or Economy "Group" within the Division
 							echo '<div class="unitHierarchyHeader_unitCO">';
 								echo '<div class="unitHierarchyHeader_key">';
-									if ($value['IsActive'] == "Active")
+									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
+									{
+										echo '';
+									}
+									else if ($value['IsActive'] == "Active")
 									{
 										echo 'Commanding Officer';
 									}
@@ -77,7 +94,11 @@
 								
 								echo '<div class="unitHierarchyHeader_value">';
 									echo '<div class="unitHierarchyHeader_value_container">';
-									if ($value['IsActive'] == "Active")
+									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
+									{
+										echo '';
+									}
+									else if ($value['IsActive'] == "Active")
 									{										
 										if ($value['UnitLeaderID'] != null)
 										{
@@ -322,10 +343,10 @@
 		
 		$connection->close();
 		
-		if ($depth < 4)
+		if (($divName == "Military" && $depth < 4)
+			|| ($divName == "Economy" && $depth < 2)
+			|| $divName == "Command")
 		{
-			if ($divName != "Economy")
-			{
 				$displayChildren1 .= "
 				<br />
 				<h3>
@@ -337,12 +358,6 @@
 				
 				$displayChildren2 .= "
 				</div>";
-			}
-			else
-			{
-				$displayChildren1 = "";
-				$displayChildren2 = "";
-			}
 		}
 		else
 		{
