@@ -16,15 +16,23 @@
 				#Unit Header
 				echo '<div class="unitHierarchyHeader">';
 					
-					#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-					if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
+					if ($value['DivisionName'] != "Economy")
 					{
-						echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
+						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
+						{
+							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+						}
+						else
+						{
+							echo '<div class="unitHierarchy_row_header_arrow_empty">';
+							echo '</div>';
+						}
 					}
 					else
 					{
 						echo '<div class="unitHierarchy_row_header_arrow_empty">';
-						echo '</div>';
+						echo '</div>';					
 					}
 					
 					echo '<div class="unitHierarchyHeader_mainContainer">';
@@ -103,6 +111,7 @@
 						,u.UnitShortName
 						,u.UnitCallsign
 						,u.DivisionID
+						,d.div_name
 						,u.IsActive
 						,CASE
 							when u.IsActive = 1 then 'Active'
@@ -127,6 +136,8 @@
 							on r.rank_id = m.ranks_rank_id
 					) m
 						on m.mem_id = u.UnitLeaderID
+					left join projectx_vvarsc2.divisions d
+						on d.div_id = u.DivisionID
 					order by
 						u.UnitID";	
     
@@ -140,6 +151,7 @@
 			,'UnitShortName' => $row['UnitShortName']
 			,'UnitCallsign' => $row['UnitCallsign']
 			,'DivisionID' => $row['DivisionID']
+			,'DivisionName' => $row['div_name']
 			,'IsActive' => $row['IsActive']
 			,'UnitLevel' => $row['UnitLevel']
 			,'ParentUnitID' => $row['ParentUnitID']

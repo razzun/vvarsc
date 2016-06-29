@@ -19,15 +19,23 @@
 				#Unit Header
 				echo '<div class="unitHierarchyHeader">';
 					
-					#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-					if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
+					if ($value['DivisionName'] != "Economy")
 					{
-						echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
+						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
+						{
+							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+						}
+						else
+						{
+							echo '<div class="unitHierarchy_row_header_arrow_empty">';
+							echo '</div>';
+						}
 					}
 					else
 					{
 						echo '<div class="unitHierarchy_row_header_arrow_empty">';
-						echo '</div>';
+						echo '</div>';					
 					}
 					
 					echo '<div class="unitHierarchyHeader_mainContainer">';
@@ -109,6 +117,7 @@
 							,u.ParentUnitID
 							,u.UnitSlogan
 							,u.UnitBackgroundImage
+							,d.div_name
 							,m.mem_id
 							,m.mem_name
 							,r.rank_name
@@ -128,6 +137,8 @@
 							on r.rank_id = m.ranks_rank_id
 						left join projectx_vvarsc2.roles r2
 							on r2.role_id = um.MemberRoleID
+						left join projectx_vvarsc2.divisions d
+							on d.div_id = u.DivisionID
 						where u.UnitID = $UnitID
 						order by
 							r.rank_orderby
@@ -138,6 +149,7 @@
 		while(($row1 = $unit_query_result->fetch_assoc()) != false) {
 		
 			$depth = $row1['UnitDepth'];
+			$divName = $row1['div_name'];
 			$unitName = $row1['UnitName'];
 			$unitSlogan = $row1['UnitSlogan'];
 			$unitDescription = $row1['UnitDescription'];
@@ -256,6 +268,7 @@
 							,u.UnitShortName
 							,u.UnitCallsign
 							,u.DivisionID
+							,d.div_name
 							,u.IsActive
 							,CASE
 								when u.IsActive = 1 then 'Active'
@@ -280,6 +293,8 @@
 								on r.rank_id = m.ranks_rank_id
 						) m
 							on m.mem_id = u.UnitLeaderID
+						left join projectx_vvarsc2.divisions d
+							on d.div_id = u.DivisionID
 						order by
 							u.UnitID";	
 		
@@ -293,6 +308,7 @@
 				,'UnitShortName' => $row['UnitShortName']
 				,'UnitCallsign' => $row['UnitCallsign']
 				,'DivisionID' => $row['DivisionID']
+				,'DivisionName' => $row['div_name']
 				,'IsActive' => $row['IsActive']
 				,'UnitLevel' => $row['UnitLevel']
 				,'ParentUnitID' => $row['ParentUnitID']
@@ -308,17 +324,25 @@
 		
 		if ($depth < 4)
 		{
-			$displayChildren1 .= "
-			<br />
-			<h3>
-				Subordinate Units
-			</h3>
-			<div class=\"table_header_block\">
-			</div>
-			<div class=\"units_tree_container\">";
-			
-			$displayChildren2 .= "
-			</div>";
+			if ($divName != "Economy")
+			{
+				$displayChildren1 .= "
+				<br />
+				<h3>
+					Subordinate Units
+				</h3>
+				<div class=\"table_header_block\">
+				</div>
+				<div class=\"units_tree_container\">";
+				
+				$displayChildren2 .= "
+				</div>";
+			}
+			else
+			{
+				$displayChildren1 = "";
+				$displayChildren2 = "";
+			}
 		}
 		else
 		{

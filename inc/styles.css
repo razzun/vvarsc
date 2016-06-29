@@ -2879,9 +2879,9 @@ admin_menu ul li {
 }
 
 .unitHierarchy_row_header_arrow_empty {
-	display:table-cell;
 	vertical-align: middle;
 	width: 32px;
+	display: table-cell;
 }
 
 .unitHierarchyHeader_unitName {
