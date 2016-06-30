@@ -3027,6 +3027,72 @@ admin_menu ul li {
 	font-size: 10pt;
 }
 
+.adminTableContainer {
+
+}
+
+.adminTable {
+	width: 95%;
+	border-spacing: 0px;
+	box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0.55);
+	margin: auto;
+	display: table;
+}
+
+.adminTableHeaderRow {
+	background: rgba(0,0,0,0.75);
+	height: 24px;
+}
+
+.adminTableHeaderRowTD {
+	font-weight: bold;
+	color: #DDD;
+	text-shadow: 0px 0px 8px #CCA300;
+	font-size: 1.1em;
+	border-bottom: 2px solid rgba(109, 185, 216, 0.8);
+}
+
+.adminTableHeaderRowTD, .adminTableRowTD {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.adminTableRow {
+	background: rgba(0,0,0,0.8);
+	transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+}
+
+.adminTableRowTD {
+	border-bottom: 1px solid #1F4858;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+}
+
+.adminTableRow td:first-child {
+	border-left: 4px solid #1F4858;
+	width: 10%;
+}
+
+.adminTable:hover .adminTableRow:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+.adminTableRow:hover td {
+	border-bottom: 1px solid rgba(0, 194, 200, 0.9);
+}
+
+.adminTableRow:hover td:first-child {
+	border-left: 4px solid rgba(0, 194, 200, 0.9);
+}
+
 /*END Hover Controls */
 
 @media only screen and (max-height: 799px) {
