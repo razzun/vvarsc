@@ -21,7 +21,8 @@
 							$errors = array(
 								1=>"Invalid user name or password, Try again",
 								2=>"Please login to access this area",
-								3=>"Unexpected Server Error Occurred with Database Connection - please inform website Admin!"
+								3=>"Unexpected Server Error Occurred with Database Connection - please inform website Admin!",
+								4=>"This Area Requires Admin Access - we're really sorry, but you're not an Admin!"
 							  );
 
 							$error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;

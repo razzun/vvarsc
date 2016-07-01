@@ -1,4 +1,13 @@
 <?php 
+    session_start();
+    $role = $_SESSION['sess_userrole'];
+    if(!isset($_SESSION['sess_username']) || $role!="admin")
+	{
+      header('Location: http://sc.vvarmachine.com/login.php?err=4');
+    }
+?>
+
+<?php 
 	$manu_query = "
 		select
 			m.manu_id
@@ -131,6 +140,12 @@
 	});
 </script>
 
+<br />
+<div class="div_filters_container">
+	<div class="div_filters_entry">
+		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
+	</div>
+</div>
 <h2>Manufacturer Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
