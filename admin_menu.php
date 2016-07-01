@@ -10,7 +10,7 @@
 <admin_menu>
     <ul>
         <li><a href="/admin_manu">Manufacturer Management</a></li>
-        <li><a href="#">Member Management</a></li>
+        <li><a href="/admin_mem">Member Management</a></li>
         <li><a href="#">Ship Management</a></li>
         <li><a href="#">Ranks Management</a></li>
     </ul>

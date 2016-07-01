@@ -3144,7 +3144,7 @@ admin_menu ul li {
 }
 
 .adminDialogFormContainer {
-	position: absolute;
+	position: fixed;
 	top: 200px;
 	left: 20%;
 	z-index: 101;
@@ -3190,7 +3190,22 @@ admin_menu ul li {
 	text-shadow: 0px 0px 8px #00A0B6;
 }
 
+.adminDialogInputLabel {
+	font-size: 9pt;
+	font-family: electrolize;
+	color: #DDD;
+	padding: 4px;
+	font-style: italic;
+	text-shadow: 0px 0px 8px #00A0B6;
+}
+
 .adminDialogTextInput {
+	display: block;
+	font-family: electrolize;
+	width: 100%;
+}
+
+.adminDialogDropDown {
 	display: block;
 	font-family: electrolize;
 }

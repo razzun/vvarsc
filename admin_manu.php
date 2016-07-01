@@ -181,13 +181,19 @@
 			<p class="validateTips">All form fields are required.</p>
 			<form class="adminDialogForm" action="/functions/function_manu_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
-					<label for="Name">Name</label>
+					<label for="Name" class="adminDialogInputLabel">
+						Name
+					</label>
 					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
 
-					<label for="ShortName">ShortName</label>
+					<label for="ShortName" class="adminDialogInputLabel">
+						ShortName
+					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
 
-					<label for="ImageURL">ImageURL</label>
+					<label for="ImageURL" class="adminDialogInputLabel">
+						ImageURL
+					</label>
 					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"required>
 				</fieldset>
 				<div class="adminDialogButtonPane">
@@ -206,15 +212,23 @@
 			<p class="validateTips">Update Manufacturer Information</p>
 			<form class="adminDialogForm" action="functions/function_manu_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
-					<label for="ID"></label>
+					<label for="ID" class="adminDialogInputLabel" style="display: none">
+					</label>
 					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" required>
-					<label for="Name">Name</label>
+					
+					<label for="Name" class="adminDialogInputLabel">
+						Name
+					</label>
 					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
 
-					<label for="ShortName">ShortName</label>
+					<label for="ShortName" class="adminDialogInputLabel">
+						ShortName
+					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
 
-					<label for="ImageURL">ImageURL</label>
+					<label for="ImageURL" class="adminDialogInputLabel">
+						ImageURL
+					</label>
 					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"required>
 				</fieldset>
 				<div class="adminDialogButtonPane">
@@ -234,15 +248,23 @@
 			<p class="validateTips">Are you sure you want to Delete this Manufacturer? Bad Things Could Happen!</p>
 			<form class="adminDialogForm" action="functions/function_manu_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
-					<label for="ID"></label>
+					<label for="ID" class="adminDialogInputLabel" style="display: none">
+					</label>
 					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
-					<label for="Name">Name</label>
+					
+					<label for="Name" class="adminDialogInputLabel">
+						Name
+					</label>
 					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" readonly>
 
-					<label for="ShortName">ShortName</label>
+					<label for="ShortName" class="adminDialogInputLabel">
+						ShortName
+					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"readonly>
 
-					<label for="ImageURL">ImageURL</label>
+					<label for="ImageURL" class="adminDialogInputLabel">
+						ImageURL
+					</label>
 					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"readonly>
 				</fieldset>
 				<div class="adminDialogButtonPane">
