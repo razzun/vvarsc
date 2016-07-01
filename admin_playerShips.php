@@ -19,11 +19,14 @@
 				,m.manu_shortName
 				,shm.shm_package
 				,shm.shm_lti
+				,m2.mem_name
 			from projectx_vvarsc2.ships_has_members shm
 			join projectx_vvarsc2.ships s
 				on s.ship_id = shm.ships_ship_id
 			join projectx_vvarsc2.manufacturers m
 				on m.manu_id = s.manufacturers_manu_id
+			join projectx_vvarsc2.members m2
+				on m2.mem_id = shm.members_mem_id
 			where shm.members_mem_id = '$player_id'
 			order by
 				m.manu_shortName
@@ -41,6 +44,7 @@
 			$manuName = $row['manu_shortName'];
 			$package = $row['shm_package'];
 			$lti = $row['shm_lti'];
+			$mem_name = $row['mem_name'];
 			
 			$displayPlayerShips .= "
 				<tr class=\"adminTableRow\" data-memid=\"$player_id\">
@@ -223,7 +227,9 @@
 		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2>PlayerShips Management</h2>
+<h2>
+	PlayerShips Management - <? echo $mem_name ?>
+</h2>
 <div id="TEXT">
 	<div id="adminMemberTableContainer" class="adminTableContainer">
 		<button id="adminCreateMember" class="adminButton adminButtonCreate">Add Ship to Member</button>
