@@ -7,30 +7,20 @@
     }
 ?>
 
-<?php 
-	require_once('dbconn/dbconn.php');
+<?php
+	require_once('../dbconn/dbconn.php');
 	
 	session_start();
 
-	$Name = "";
-	$ShortName = "";
-	$ImageURL = "";
+	$ID = "";
 	 
-	if(isset($_POST['Name']))
+	if(isset($_POST['ID']))
 	{
-		$Name = $_POST['Name'];
-	}
-	if (isset($_POST['ShortName']))
-	{
-		$ShortName = $_POST['ShortName'];
-	}
-	if (isset($_POST['ImageURL']))
-	{
-		$ImageURL = $_POST['ImageURL'];
+		$ID = $_POST['ID'];
 	}
 	 
-	$q = "INSERT into projectx_vvarsc2.manufacturers (manu_name, manu_shortName, manu_smallImage)
-			VALUES('$Name','$ShortName','$ImageURL')";
+	$q = "DELETE from projectx_vvarsc2.manufacturers
+			where manu_id = '$ID'";
 
 	$query_result = $connection->query($q);
 			

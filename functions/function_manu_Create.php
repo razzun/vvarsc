@@ -7,21 +7,16 @@
     }
 ?>
 
-<?php 
+<?php
 	
-	require_once('dbconn/dbconn.php');
+	require_once('../dbconn/dbconn.php');
 	
 	session_start();
 
-	$ID = "";
 	$Name = "";
 	$ShortName = "";
 	$ImageURL = "";
 	 
-	if(isset($_POST['ID']))
-	{
-		$ID = $_POST['ID'];
-	}
 	if(isset($_POST['Name']))
 	{
 		$Name = $_POST['Name'];
@@ -35,11 +30,8 @@
 		$ImageURL = $_POST['ImageURL'];
 	}
 	 
-	$q = "UPDATE projectx_vvarsc2.manufacturers set
-			manu_name = '$Name'
-			,manu_shortName = '$ShortName'
-			,manu_smallImage = '$ImageURL'
-			where manu_id = '$ID'";
+	$q = "INSERT into projectx_vvarsc2.manufacturers (manu_name, manu_shortName, manu_smallImage)
+			VALUES('$Name','$ShortName','$ImageURL')";
 
 	$query_result = $connection->query($q);
 			

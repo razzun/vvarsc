@@ -18,6 +18,7 @@
 	";
 	
 	$manu_query_results = $connection->query($manu_query);
+	$displayManu = "";
 	
 	while(($row = $manu_query_results->fetch_assoc()) != false)
 	{
@@ -178,7 +179,7 @@
 			</button>
 			<p class="validateTips">Enter new Manufacturer Information Below.</p>
 			<p class="validateTips">All form fields are required.</p>
-			<form class="adminDialogForm" action="function_manu_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="/functions/function_manu_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name">Name</label>
 					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
@@ -203,7 +204,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Manufacturer Information</p>
-			<form class="adminDialogForm" action="function_manu_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="functions/function_manu_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID"></label>
 					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" required>
@@ -231,7 +232,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Manufacturer? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="function_manu_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="functions/function_manu_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID"></label>
 					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
