@@ -96,6 +96,10 @@
 					case "admin_mem":
 						$content = "admin_mem.php";
 						break;
+				
+					case "admin_playerShips":
+						$content = "admin_playerShips.php";
+						break;
 					
 					/******************/
 					/** Error Pages **/

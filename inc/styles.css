@@ -3123,6 +3123,7 @@ admin_menu ul li {
 	font-weight: normal;
 	background: rgba(0,0,0,0.9);
 	cursor: pointer;
+	margin-left: 4px;
 }
 
 .adminButtonCreate {
@@ -3132,7 +3133,7 @@ admin_menu ul li {
 	margin-bottom: 8px;
 }
 
-.adminButtonEdit {
+.adminButtonEdit, .adminButtonPlayerShips {
 	font-size: 8pt;
 	text-shadow: 0px 0px 8px #CCA300;
 }
@@ -3140,7 +3141,6 @@ admin_menu ul li {
 .adminButtonDelete {
 	font-size: 8pt;
 	text-shadow: 0px 0px 8px #F00000;
-	margin-left: 4px;
 }
 
 .adminDialogFormContainer {
@@ -3197,17 +3197,24 @@ admin_menu ul li {
 	padding: 4px;
 	font-style: italic;
 	text-shadow: 0px 0px 8px #00A0B6;
+	font-weight: bold;
 }
 
 .adminDialogTextInput {
 	display: block;
 	font-family: electrolize;
 	width: 100%;
+	background: #000;
+	color: #DDD;
+	border: 1px solid rgba(0, 194, 200, 0.9);
 }
 
 .adminDialogDropDown {
 	display: block;
 	font-family: electrolize;
+	background: #000;
+	color: #DDD;
+	border: 1px solid rgba(0, 194, 200, 0.9);
 }
 
 /*END Hover Controls */

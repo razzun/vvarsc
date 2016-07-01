@@ -61,6 +61,9 @@
 					$memDivisionName
 				</td>
 				<td class=\"adminTableRowTD\">
+					<button class=\"adminButton adminButtonPlayerShips\">
+						Player Ships
+					</button>
 					<button class=\"adminButton adminButtonEdit\">
 						Edit
 					</button>
@@ -141,6 +144,10 @@
 		//Create
 		$('#adminCreateMember').click(function() {
 			var dialog = $('#dialog-form-create');
+			
+			dialog.find('#Rank').find('#Rank-default').prop('selected',true);
+			dialog.find('#Division').find('#Division-default').prop('selected',true);
+			
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
@@ -162,8 +169,12 @@
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
-			dialog.find('#Rank').find('#' + memRankID).attr("selected","selected");
-			dialog.find('#Division').find('#' + memDivisionInfo).attr("selected","selected");
+			
+			dialog.find('#Rank').find('option').prop('selected',false);
+			dialog.find('#Rank').find('#' + memRankID).prop('selected',true);
+			
+			dialog.find('#Division').find('option').prop('selected',false);
+			dialog.find('#Division').find('#' + memDivisionInfo).prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -195,8 +206,21 @@
 			});
 		});
 		
+		//PlayerShips
+		$('.adminButton.adminButtonPlayerShips').click(function() {
+			var $self = jQuery(this);
+			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
+			
+			window.location.href = "http://sc.vvarmachine.com/admin_playerShips/" + memID;
+		});	
+		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
+		
+			//Clear DropDown Selections
+			$('.adminDiaglogFormFieldset').find('#Rank').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#Division').find('option').prop('selected',false);
+			
 			//Hide All Dialog Containers
 			$('#dialog-form-create').hide();
 			$('#dialog-form-edit').hide();
@@ -206,8 +230,7 @@
 			$('.adminTable').css({
 				filter: 'none'
 			});
-		});
-		
+		});	
 	});
 </script>
 
@@ -268,6 +291,9 @@
 						Rank
 					</label>
 					<select name="Rank" id="Rank" class="adminDialogDropDown">
+						<option selected disabled value="default" id="Rank-default">
+							- Select a Rank -
+						</option>	
 						<? echo $displayRanks ?>
 					</select>
 					
@@ -275,6 +301,9 @@
 						Division
 					</label>
 					<select name="Division" id="Division" class="adminDialogDropDown">
+						<option selected disabled value="default" id="Division-default">
+							- Select a Division -
+						</option>	
 						<? echo $displayDivisions ?>
 					</select>
 				</fieldset>
