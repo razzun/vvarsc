@@ -3145,7 +3145,7 @@ admin_menu ul li {
 
 .adminDialogFormContainer {
 	position: absolute;
-	top: 100px;
+	top: 200px;
 	left: 20%;
 	z-index: 101;
 	background: rgba(0,0,0,0.8);

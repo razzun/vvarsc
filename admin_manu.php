@@ -19,23 +19,23 @@
 	
 		$displayManu .= "
 			<tr class=\"adminTableRow\">
-				<td class=\"adminTableRowTD\">
+				<td class=\"adminTableRowTD manuID\" data-id=\"$manuID\">
 					$manuID
 				</td>
-				<td class=\"adminTableRowTD\">
+				<td class=\"adminTableRowTD manuName\" data-name=\"$manuName\">
 					$manuName
 				</td>
-				<td class=\"adminTableRowTD\">
+				<td class=\"adminTableRowTD manuShortName\" data-shortname=\"$manuShortName\">
 					$manuShortName
 				</td>
-				<td class=\"adminTableRowTD\">
+				<td class=\"adminTableRowTD manuSmallImage\" data-imageurl=\"$manuSmallImage\">
 					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$manuSmallImage\" />
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button id=\"adminEditManu\" class=\"adminButton adminButtonEdit\">
+					<button class=\"adminButton adminButtonEdit\">
 						Edit
 					</button>
-					<button id=\"adminDeleteManu\" class=\"adminButton adminButtonDelete\">
+					<button class=\"adminButton adminButtonDelete\">
 						Delete
 					</button>
 				</td>
@@ -57,10 +57,11 @@
 	
 	$(function() {
 
-		var dialog = $('#dialog-form');
 		var overlay = $('#overlay');
 
+		//Create
 		$('#adminCreateManu').click(function() {
+			var dialog = $('#dialog-form-create');
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
@@ -68,16 +69,59 @@
 			});
 		});
 		
-		/*
-		$('#adminDialogSubmit').click(function() {
-			dialog.hide();
+		//Edit
+		$('.adminButton.adminButtonEdit').click(function() {
+			var dialog = $('#dialog-form-edit');
+			
+			var $self = jQuery(this);
+			
+			var manuID = $self.parent().parent().find('.adminTableRowTD.manuID').data("id");
+			var manuName = $self.parent().parent().find('.adminTableRowTD.manuName').data("name");
+			var manuShortName = $self.parent().parent().find('.adminTableRowTD.manuShortName').data("shortname");
+			var manuSmallImage = $self.parent().parent().find('.adminTableRowTD.manuSmallImage').data("imageurl");
+			
+			dialog.find('#ID').val(manuID).text();
+			dialog.find('#Name').val(manuName).text();
+			dialog.find('#ShortName').val(manuShortName).text();
+			dialog.find('#ImageURL').val(manuSmallImage).text();
+			
+			dialog.show();
+			overlay.show();
 			$('.adminTable').css({
-				filter: 'none'
+				filter: 'blur(4px)'
 			});
 		});
-		*/
-		$('#adminDialogCancel').click(function() {
-			dialog.hide();
+
+		//Delete
+		$('.adminButton.adminButtonDelete').click(function() {
+			var dialog = $('#dialog-form-delete');
+			
+			var $self = jQuery(this);
+			
+			var manuID = $self.parent().parent().find('.adminTableRowTD.manuID').data("id");
+			var manuName = $self.parent().parent().find('.adminTableRowTD.manuName').data("name");
+			var manuShortName = $self.parent().parent().find('.adminTableRowTD.manuShortName').data("shortname");
+			var manuSmallImage = $self.parent().parent().find('.adminTableRowTD.manuSmallImage').data("imageurl");
+			
+			dialog.find('#ID').val(manuID).text();
+			dialog.find('#Name').val(manuName).text();
+			dialog.find('#ShortName').val(manuShortName).text();
+			dialog.find('#ImageURL').val(manuSmallImage).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTable').css({
+				filter: 'blur(4px)'
+			});
+		});
+		
+		//Cancel
+		$('.adminDialogButton.dialogButtonCancel').click(function() {
+			//Hide All Dialog Containers
+			$('#dialog-form-create').hide();
+			$('#dialog-form-edit').hide();
+			$('#dialog-form-delete').hide();
+			
 			overlay.hide();
 			$('.adminTable').css({
 				filter: 'none'
@@ -112,7 +156,8 @@
 			<? echo $displayManu ?>
 		</table>
 		
-		<div id="dialog-form" class="adminDialogFormContainer">
+		<!--Create Form-->
+		<div id="dialog-form-create" class="adminDialogFormContainer">
 			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
 				Cancel
 			</button>
@@ -120,18 +165,73 @@
 			<p class="validateTips">All form fields are required.</p>
 			<form class="adminDialogForm" action="function_manu_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
-				  <label for="Name">Name</label>
-				  <input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
-				  
-				  <label for="ShortName">ShortName</label>
-				  <input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
-				  
-				  <label for="ImageURL">ImageURL</label>
-				  <input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"required>
+					<label for="Name">Name</label>
+					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
+
+					<label for="ShortName">ShortName</label>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
+
+					<label for="ImageURL">ImageURL</label>
+					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"required>
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
 						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+		
+		<!--Edit Form-->
+		<div id="dialog-form-edit" class="adminDialogFormContainer">
+			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+				Cancel
+			</button>
+			<p class="validateTips">Update Manufacturer Information</p>
+			<form class="adminDialogForm" action="function_manu_Edit.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<label for="ID"></label>
+					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" required>
+					<label for="Name">Name</label>
+					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
+
+					<label for="ShortName">ShortName</label>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
+
+					<label for="ImageURL">ImageURL</label>
+					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"required>
+				</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	
+		<!--Delete Form-->
+		<div id="dialog-form-delete" class="adminDialogFormContainer">
+			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+				Cancel
+			</button>
+			<p class="validateTips">Confirmation Required!</p>
+			<p class="validateTips">Are you sure you want to Delete this Manufacturer? Bad Things Could Happen!</p>
+			<form class="adminDialogForm" action="function_manu_Delete.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<label for="ID"></label>
+					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					<label for="Name">Name</label>
+					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" readonly>
+
+					<label for="ShortName">ShortName</label>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"readonly>
+
+					<label for="ImageURL">ImageURL</label>
+					<input type="text" name="ImageURL" id="ImageURL" value="" class="adminDialogTextInput"readonly>
+				</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Confirm Delete
 					</button>
 				</div>
 			</form>
