@@ -19,6 +19,8 @@
 	<? include_once('inc/meta.php'); ?>
 	</head>
 	<body>
+		<div id="overlay">
+		</div>
 		<div id="MainWebsiteInner">
 			<? include_once('inc/header.php'); ?>
 			<div id="CONTENT">
@@ -93,6 +95,13 @@
 				
 					case "admin_mem":
 						$content = "admin_mem.php";
+						break;
+					
+					/******************/
+					/** Error Pages **/
+					/******************/		
+					case "error_generic":
+						$content = "error_generic.php";
 						break;
 					
 					/******************/

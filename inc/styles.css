@@ -158,6 +158,17 @@ h1{ margin: 0; padding: 10px 0 0 0; font-family: 'Electrolize',sans-serif; font-
 	position: relative;
 }
 
+/*HIDDEN DIV THAT WILL STOP MOUSE CLICKS WHEN MODAL IS OPEN*/
+div#overlay {
+   position:fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   z-index: 100;
+   display: none;
+}
+
 #CONTENT {
 	margin-right: 8px;
 	margin-left: 8px;
@@ -3038,6 +3049,10 @@ admin_menu ul li {
 	background-color: rgba(0, 0, 0, 0.55);
 	margin: auto;
 	display: table;
+	transition: all 0.6s ease;
+	-webkit-transition: all 0.6s ease;
+	-moz-transition: all 0.6s ease;
+	-o-transition: all 0.6s ease;
 }
 
 .adminTableHeaderRow {
@@ -3058,6 +3073,10 @@ admin_menu ul li {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
+}
+
+.adminTableHeaderRow td:last-child {
+	text-align: right;
 }
 
 .adminTableRow {
@@ -3081,6 +3100,10 @@ admin_menu ul li {
 	width: 10%;
 }
 
+.adminTableRow td:last-child {
+	text-align: right;
+}
+
 .adminTable:hover .adminTableRow:hover {
 	background: rgba(0,0,0,0.3);
 }
@@ -3091,6 +3114,85 @@ admin_menu ul li {
 
 .adminTableRow:hover td:first-child {
 	border-left: 4px solid rgba(0, 194, 200, 0.9);
+}
+
+.adminButton {
+	display: inline;
+	color: #DDD;
+	font-family: Orbitron;
+	font-weight: normal;
+	background: rgba(0,0,0,0.9);
+	cursor: pointer;
+}
+
+.adminButtonCreate {
+	text-shadow: 0px 0px 8px #00A0B6;
+	font-size: 9pt;
+	margin-left: 5%;
+	margin-bottom: 8px;
+}
+
+.adminButtonEdit {
+	font-size: 8pt;
+	text-shadow: 0px 0px 8px #CCA300;
+}
+
+.adminButtonDelete {
+	font-size: 8pt;
+	text-shadow: 0px 0px 8px #F00000;
+	margin-left: 4px;
+}
+
+.adminDialogFormContainer {
+	position: absolute;
+	top: 100px;
+	left: 20%;
+	z-index: 101;
+	background: rgba(0,0,0,0.8);
+	border: 1px solid rgba(0, 194, 200, 0.9);
+	display: none;
+	padding: 4px;
+	box-shadow: 0px 0px 20px #286E80;
+}
+
+.adminDialogForm {
+}
+
+.adminDiaglogFormFieldset {
+	margin-bottom: 8px;
+}
+
+.validateTips {
+
+}
+
+.adminDialogButtonPane {
+	padding-left: 4px;
+	padding-bottom: 2px;
+}
+
+.adminDialogButton {
+	display: inline;
+	color: #DDD;
+	font-family: Orbitron;
+	font-weight: normal;
+	font-size: 9pt;
+	background: rgba(0,0,0,0.9);
+	cursor: pointer;	
+}
+
+.dialogButtonCancel {
+	float: right;
+	text-shadow: 0px 0px 8px #CCA300;
+}
+
+.dialogButtonSubmit {
+	text-shadow: 0px 0px 8px #00A0B6;
+}
+
+.adminDialogTextInput {
+	display: block;
+	font-family: electrolize;
 }
 
 /*END Hover Controls */
