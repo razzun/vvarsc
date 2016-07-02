@@ -3,7 +3,7 @@
 	$display_fleet;
 	
    	$fleet_query = "SELECT s.ship_pname,
-		GROUP_CONCAT(shm.ships_ship_ID ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_vvarID_info,
+		GROUP_CONCAT(shm.rowID ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_vvarID_info,
 		GROUP_CONCAT(s.ship_id ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_id_info,
 		GROUP_CONCAT(s.ship_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_name_info,
 		GROUP_CONCAT(COALESCE(s.ship_model_designation,'-') ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_designation_info,
