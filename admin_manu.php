@@ -75,7 +75,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		
@@ -98,7 +98,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 
@@ -121,7 +121,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		

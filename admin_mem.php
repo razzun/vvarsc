@@ -16,6 +16,7 @@
 			,r.rank_id
 			,r.rank_level
 			,r.rank_name
+			,r.rank_tinyImage as rank_image
 			,d.div_id
 			,d.div_name
 		from projectx_vvarsc2.members m
@@ -39,6 +40,7 @@
 		$memRankID = $row['rank_id'];
 		$memRankLevel = $row['rank_level'];
 		$memRankName = $row['rank_name'];
+		$rank_image = $row['rank_image'];
 		$memDivisionID = $row['div_id'];
 		$memDivisionName = $row['div_name'];
 		
@@ -46,26 +48,33 @@
 		$displayMembers .= "
 			<tr class=\"adminTableRow\">
 				<td class=\"adminTableRowTD memID\" data-id=\"$memID\">
-					$memID
+					$memID					
 				</td>
 				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
-					$memName
+					<a href=\"player/$memID\" target=\"_top\">
+						$memName
+					</a>
 				</td>
 				<td class=\"adminTableRowTD memCallsign\" data-callsign=\"$memCallsign\">
 					$memCallsign
 				</td>
 				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
-					$memRankLevel - $memRankName
+					<div class=\"clickableRow_memRank_inner\">
+						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$rank_image.png\" />
+						<div class=\"rank_image_text\">
+							$memRankLevel - $memRankName
+						</div>
+					</div>
 				</td>
 				<td class=\"adminTableRowTD memDivisionInfo\" data-divinfo=\"$memDivisionID\">
 					$memDivisionName
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonPlayerShips\">
-						Player Ships
+						Manage Ships
 					</button>
 					<button class=\"adminButton adminButtonEdit\">
-						Edit
+						Edit Member
 					</button>
 					<button class=\"adminButton adminButtonDelete\">
 						Delete
@@ -151,7 +160,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		//Edit
@@ -179,7 +188,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 
@@ -202,7 +211,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		

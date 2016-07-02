@@ -20,14 +20,14 @@
 				,shm.shm_package
 				,shm.shm_lti
 				,m2.mem_name
-			from projectx_vvarsc2.ships_has_members shm
-			join projectx_vvarsc2.ships s
+			from projectx_vvarsc2.members m2
+			left join projectx_vvarsc2.ships_has_members shm
+				on shm.members_mem_id = m2.mem_id
+			left join projectx_vvarsc2.ships s
 				on s.ship_id = shm.ships_ship_id
-			join projectx_vvarsc2.manufacturers m
+			left join projectx_vvarsc2.manufacturers m
 				on m.manu_id = s.manufacturers_manu_id
-			join projectx_vvarsc2.members m2
-				on m2.mem_id = shm.members_mem_id
-			where shm.members_mem_id = '$player_id'
+			where m2.mem_id = '$player_id'
 			order by
 				m.manu_shortName
 				,s.ship_name
@@ -140,7 +140,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		
@@ -171,7 +171,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 
@@ -194,7 +194,7 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
-				filter: 'blur(4px)'
+				filter: 'blur(2px)'
 			});
 		});
 		

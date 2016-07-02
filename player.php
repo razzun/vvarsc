@@ -8,7 +8,7 @@
     if(is_numeric($player_id)) {
     	$play_query = "SELECT
 			members.mem_id
-			,CONCAT(d.div_id,'',cast(LPAD(members.mem_id, 3, '0') as char(3))) as player_id
+			,members.mem_id as player_id
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
@@ -36,11 +36,7 @@
 			,IFNULL(u.UnitFullName,u.UnitName) as UnitName
     		,DATE_FORMAT(DATE(shm.CreatedOn),'%d %b %Y') as CreatedOn
     		,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as ModifiedOn
-			,CONCAT(
-				CONCAT(d.div_id,'',cast(LPAD(shm.ships_ship_ID, 3, '0') as char(3)))
-				,d.div_id,'',cast(LPAD(members.mem_id, 3, '0') as char(3))
-				,CAST((1000 + shm.rowID) as char(10))
-			) AS ship_vvarID
+			,shm.rowID AS ship_vvarID
         FROM projectx_vvarsc2.members
     		LEFT JOIN projectx_vvarsc2.ships_has_members shm
     			ON members.mem_id=shm.members_mem_id
