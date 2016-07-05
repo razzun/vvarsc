@@ -1,6 +1,4 @@
-<?php 
-
-?>
+<?php include_once('functions/function_auth_admin.php'); ?>
 
     <h2>VVARMachine SCD - ADMIN ZONE</h2>
     <div id="TEXT">

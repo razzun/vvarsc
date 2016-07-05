@@ -1,6 +1,4 @@
-<?php 
-
-?>
+<?php include_once('functions/function_auth_admin.php'); ?>
 
   <h3>Home</h3>
   <div id="TEXT" width="100%">
