@@ -37,7 +37,7 @@
 				</div>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
-						<a class="navbar_inner" href="/divisions/0">Divisions</a>
+						<a class="navbar_inner" href="/divisions/0">Divisions & Units</a>
 					</div>
 				</div>
 				<div class="nav_entry">
