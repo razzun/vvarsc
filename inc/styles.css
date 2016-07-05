@@ -1257,7 +1257,7 @@ img {
 {
     background-color: rgba(0,0,0,0);
     position: relative;
-	border: 1px solid rgba(70,100,140, 0.4);	
+	border: 1px solid transparent;	
 	boder-collapse: collapse;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
@@ -1285,6 +1285,10 @@ img {
 	margin-top: 30px;
 	text-align: right;
 	padding-right: 0px;
+}
+
+.fleet2_shipName_container {
+	display: none;
 }
 
 .fleet2_shipName {

@@ -641,7 +641,6 @@
 <script>
 
 	$(document).ready(function() {
-		$('.fleet2_shipName_container').addClass('hidden');
 		
 		//Items to set HTML Contents for Default
 		$('.tbinfo_right_shipTitleText').html($(this).find('.fleet2_shipName_container').html());
@@ -649,9 +648,6 @@
 		$('.tbinfo_right_shipDetails2').html($(this).find('span.tooltip2').html());
 		
 		$('.cornerToggle2').removeClass("opaque");
-		$('.fleet2').css({
-						border: '1px solid transparent'
-					});
 
 		$('html').click(function() {
 			//Items to set to Opacity 0
