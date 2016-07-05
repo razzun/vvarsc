@@ -3436,10 +3436,6 @@ admin_menu ul li {
 	/*End FleetInfo Page*/
 	
 	/*Player Page*/
-	.p_info {
-		display: table-row;
-	}
-
 	.p_qual {
 		display: table-row;
 	}
