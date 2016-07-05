@@ -530,7 +530,7 @@ table.tbmem a:hover {
 
 .p_section_header {
 	font-size: 1.1em;
-	padding-left: 16px;
+	padding-left: 8px;
 	color: #FFF;
 	font-family: Orbitron;
 	font-variant: small-caps;
@@ -586,13 +586,13 @@ table.tbmem a:hover {
 .p_rank
 {
 	padding-bottom: 4px;
+	display: table;
 }
 
 .p_rankimage_container
 {
 	width: 60px;
 	height: 60px;
-	padding-top: 8px;
 	text-align: center;
 	vertical-align: middle;
 	display: table-cell;
@@ -612,6 +612,9 @@ table.tbmem a:hover {
 .p_rankExtendedData
 {
 	padding-left: 4px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .p_rankExtendedData_rank_level
@@ -620,8 +623,8 @@ table.tbmem a:hover {
 	text-shadow: 0px 0px 8px #CCA300;
 	font-weight: bold;
 	font-style: italic;
-	opacity: 0;
 	transition: all 0.75s ease 0s;
+	opacity: 0;
 }
 
 .p_rankExtendedData_rank_name
@@ -630,8 +633,8 @@ table.tbmem a:hover {
 	text-shadow: 0px 0px 8px rgba(204, 163, 0, 0.6);
 	font-style: italic;
 	font-size: 0.8em;
-	opacity: 0;
 	transition: all 0.75s ease 0s;
+	opacity: 0;
 }
 
 .p_rankDetails
@@ -639,8 +642,7 @@ table.tbmem a:hover {
 	min-height: 100px;
 	width: 100%;
 	display: table-cell;
-	vertical-align: top;
-	padding-top: 4px;
+	vertical-align: middle;
 }
 
 .p_rankname

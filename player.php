@@ -380,14 +380,14 @@
 							<? echo $full_role_name; ?>
 						</div>
 					</div>
-					<div class = "p_rankExtendedData">
-						<span class="p_rankExtendedData_rank_level">
-							<? echo $rank_level; ?> &nbsp;
-						</span>
-						<span class="p_rankExtendedData_rank_name">
-							<? echo $rank_name; ?>
-						</span>
-					</div>
+				</div>
+				<div class = "p_rankExtendedData">
+					<span class="p_rankExtendedData_rank_level">
+						<? echo $rank_level; ?> &nbsp;
+					</span>
+					<span class="p_rankExtendedData_rank_name">
+						<? echo $rank_name; ?>
+					</span>
 				</div>
 				<div class="p_details_container">
 					<table class="p_details">
