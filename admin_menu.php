@@ -6,5 +6,6 @@
         <li><a href="/admin_mem">Member Management</a></li>
         <li><a href="#">Ship Management</a></li>
         <li><a href="#">Ranks Management</a></li>
+        <li><a href="/admin_roles">Roles Management</a></li>
     </ul>
 </admin_menu>
