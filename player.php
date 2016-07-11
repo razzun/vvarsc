@@ -1,3 +1,5 @@
+<?php include_once('functions/function_auth_user.php'); ?>
+
 <?php 
 	$player_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
 	

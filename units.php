@@ -1,3 +1,5 @@
+<?php include_once('functions/function_auth_user.php'); ?>
+
 <?
 	function generate_list($array,$parent,$level)
 	{
