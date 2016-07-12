@@ -274,7 +274,7 @@
 		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2>Unit Management (under construction)</h2>
+<h2>Unit Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<button id="adminCreateManu" class="adminButton adminButtonCreate">Add New Unit</button>

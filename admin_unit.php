@@ -282,7 +282,7 @@
 			var dialog = $('#dialog-form-createMember');
 			var $self = jQuery(this);
 			
-			var unitID = $('.adminTableRow').data("unitid");
+			var unitID = $('.adminTableHeaderRow').data("unitid");
 
 			dialog.find('#UnitID').val(unitID).text();
 			dialog.find('#MemberID').find('#MemberID-default').prop('selected',true);
@@ -301,7 +301,7 @@
 			var dialog = $('#dialog-form-assignMemberAsLeader');
 			var $self = jQuery(this);
 			
-			var unitID = $('.adminTableRow').data("unitid");
+			var unitID = $('.adminTableHeaderRow').data("unitid");
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("memid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("memname");
 			var roleName = $self.parent().parent().find('.adminTableRowTD.roleName').data("rolename");
@@ -325,7 +325,7 @@
 			
 			var $self = jQuery(this);
 			
-			var unitID = $('.adminTableRow').data("unitid");
+			var unitID = $('.adminTableHeaderRow').data("unitid");
 			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("memid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("memname");
@@ -353,7 +353,7 @@
 			
 			var $self = jQuery(this);
 			
-			var unitID = $('.adminTableRow').data("unitid");
+			var unitID = $('.adminTableHeaderRow').data("unitid");
 			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("memid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("memname");
@@ -417,7 +417,7 @@
 		<a href="http://sc.vvarmachine.com/admin_units">&#8672; Back to Unit Management</a>
 	</div>
 </div>
-<h2>Unit Management - <? echo $unitName ?> (under construction)</h2>
+<h2>Unit Management - <? echo $unitName ?></h2>
 <div id="TEXT">
 	<div id="adminUnitDetailsTableContainer" class="adminTableContainer">
 	
@@ -538,7 +538,7 @@
 		<!--Members Table-->
 		<button id="adminAddMember" class="adminButton adminButtonCreate">Add Member To Unit</button>
 		<table id="adminMemberTable" class="adminTable">
-			<tr class="adminTableHeaderRow">
+			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">
 					RowID
 				</td>
