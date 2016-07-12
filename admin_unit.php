@@ -232,8 +232,8 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script>
+	
 	$(document).ready(function() {
-		$("textarea").height( $("textarea")[0].scrollHeight );
 		var dialog0 = $('#dialog-form');
 		dialog0.hide();
 		
@@ -258,7 +258,10 @@
 		dialog.find('#Division').find('#' + unitDivision).prop('selected',true);
 		dialog.find('#Level').val(unitLevel).text();
 		dialog.find('#IsActive').find('#IsActive-' + unitIsActive).prop('selected',true);
-		dialog.find('#BackgroundImage').val(unitBackgroundImage).text();		
+		dialog.find('#BackgroundImage').val(unitBackgroundImage).text();
+		
+		//Set TextArea Input Height to Correct Values
+		$("textarea").height( $("textarea")[0].scrollHeight );
 	});
 	
 	$(function() {
