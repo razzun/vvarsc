@@ -3167,7 +3167,7 @@ admin_menu ul li {
 	border-color: rgba(0, 100, 0, 0.75);
 }
 
-.adminButtonEdit, .adminButtonPlayerShips {
+.adminButtonEdit, .adminButtonPlayerShips, .adminButtonAssignLeader {
 	border-color: RGBA(185, 145, 0, 0.75);
 }
 

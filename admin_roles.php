@@ -11,6 +11,7 @@
 		from projectx_vvarsc2.roles r
 		order by
 			r.role_orderby
+			,r.role_name
 	";
 	
 	$roles_query_results = $connection->query($roles_query);
