@@ -35,7 +35,10 @@
 			,ships.ship_price
     		,shm.shm_lti
 			,u.UnitID
-			,IFNULL(u.UnitFullName,u.UnitName) as UnitName
+			,case
+				when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+				else u.UnitFullName
+			end as UnitName
     		,DATE_FORMAT(DATE(shm.CreatedOn),'%d %b %Y') as CreatedOn
     		,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,shm.rowID AS ship_vvarID
