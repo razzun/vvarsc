@@ -232,7 +232,10 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script>
-	
+	function resizeInput() {
+		$(this).attr('size', $(this).val().length);
+	}
+
 	$(document).ready(function() {
 		var dialog0 = $('#dialog-form');
 		dialog0.hide();
@@ -262,6 +265,12 @@
 		
 		//Set TextArea Input Height to Correct Values
 		$("textarea").height( $("textarea")[0].scrollHeight );
+		
+		$('input[type="text"]')
+		// event handler
+		.keyup(resizeInput)
+		// resize on page load
+		.each(resizeInput);
 	});
 	
 	$(function() {

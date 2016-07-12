@@ -141,9 +141,20 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script>
+	function resizeInput() {
+		$(this).attr('size', $(this).val().length);
+	}
+	
 	$(document).ready(function() {
 		var dialog = $('#dialog-form');
 		dialog.hide();
+		
+		//Set TextArea Input Height to Correct Values
+		$('input[type="text"]')
+		// event handler
+		.keyup(resizeInput)
+		// resize on page load
+		.each(resizeInput);	
 	});
 	
 	$(function() {
