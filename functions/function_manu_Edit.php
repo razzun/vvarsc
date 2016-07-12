@@ -23,15 +23,15 @@
 	}
 	if(isset($_POST['Name']))
 	{
-		$Name = $_POST['Name'];
+		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 	}
 	if (isset($_POST['ShortName']))
 	{
-		$ShortName = $_POST['ShortName'];
+		$ShortName = mysqli_real_escape_string($connection, $_POST['ShortName']);
 	}
 	if (isset($_POST['ImageURL']))
 	{
-		$ImageURL = $_POST['ImageURL'];
+		$ImageURL = mysqli_real_escape_string($connection, $_POST['ImageURL']);
 	}
 	 
 	$q = "UPDATE projectx_vvarsc2.manufacturers set

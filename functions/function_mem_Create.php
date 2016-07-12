@@ -21,11 +21,11 @@
 	 
 	if(isset($_POST['Name']))
 	{
-		$Name = $_POST['Name'];
+		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 	}
 	if (isset($_POST['Callsign']))
 	{
-		$Callsign = $_POST['Callsign'];
+		$Callsign = mysqli_real_escape_string($connection, $_POST['Callsign']);
 	}
 	if (isset($_POST['Rank']))
 	{

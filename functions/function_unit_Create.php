@@ -31,15 +31,15 @@
 	}	
 	if(isset($_POST['Name']))
 	{
-		$Name = $_POST['Name'];
+		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 	}
 	if (isset($_POST['ShortName']))
 	{
-		$ShortName = $_POST['ShortName'];
+		$ShortName = mysqli_real_escape_string($connection, $_POST['ShortName']);
 	}
 	if (isset($_POST['FullName']))
 	{
-		$FullName = $_POST['FullName'];
+		$FullName = mysqli_real_escape_string($connection, $_POST['FullName']);
 	}
 	if (isset($_POST['Division']))
 	{
@@ -51,7 +51,7 @@
 	}
 	if (isset($_POST['Level']))
 	{
-		$Level = $_POST['Level'];
+		$Level = mysqli_real_escape_string($connection, $_POST['Level']);
 	}
 	
 	$pre_query = "

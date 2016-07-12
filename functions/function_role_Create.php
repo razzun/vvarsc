@@ -20,11 +20,11 @@
 	 
 	if(isset($_POST['Name']))
 	{
-		$Name = $_POST['Name'];
+		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 	}
 	if (isset($_POST['ShortName']))
 	{
-		$ShortName = $_POST['ShortName'];
+		$ShortName = mysqli_real_escape_string($connection, $_POST['ShortName']);
 	}
 	if (isset($_POST['IsPrivate']))
 	{
@@ -32,7 +32,7 @@
 	}
 	if (isset($_POST['Order']))
 	{
-		$Order = $_POST['Order'];
+		$Order = mysqli_real_escape_string($connection, $_POST['Order']);
 	}
 	 
 	$q = "INSERT into projectx_vvarsc2.roles (role_name, role_shortName, role_orderby, isPrivate)
