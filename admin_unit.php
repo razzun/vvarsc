@@ -135,6 +135,7 @@
 		";
 	}		
 	
+	//Query for UnitMembers Table
 	$unitMember_query = "
 		select
 			um.RowID
@@ -157,7 +158,11 @@
 			on r.role_id = um.MemberRoleID
 		join projectx_vvarsc2.ranks r2
 			on r2.rank_id = m.ranks_rank_id
-		where u.UnitID = '$unit_id'	
+		where u.UnitID = '$unit_id'
+		order by
+			r2.rank_orderby
+			,r.role_orderby
+			,m.mem_name
 	";
 	
 	$unitMember_query_results = $connection->query($unitMember_query);
