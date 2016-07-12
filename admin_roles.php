@@ -223,7 +223,7 @@
 					<label for="ShortName" class="adminDialogInputLabel">
 						ShortName
 					</label>
-					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput">
 
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate
@@ -273,7 +273,7 @@
 					<label for="ShortName" class="adminDialogInputLabel">
 						ShortName
 					</label>
-					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput">
 
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate
@@ -324,7 +324,7 @@
 					<label for="ShortName" class="adminDialogInputLabel">
 						ShortName
 					</label>
-					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput"required readonly>
+					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput" readonly>
 
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate

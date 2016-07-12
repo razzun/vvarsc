@@ -358,12 +358,20 @@
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("memid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("memname");
 			var roleName = $self.parent().parent().find('.adminTableRowTD.roleName').data("rolename");
+			var unitLeader = $self.parent().parent().find('.adminTableRowTD.unitLeader').data("unitLeader");
+			
+			if(unitLeader == "Yes")
+				unitLeader = 1;
+			else
+				unitLeader = 0;
 			
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#UnitID').val(unitID).text();
 			dialog.find('#MemberID').val(memID).text();
 			dialog.find('#MemberName').val(memName).text();
 			dialog.find('#RoleName').val(roleName).text();
+				
+			dialog.find('#UnitLeader').val(unitLeader).text();
 			
 			dialog.show();
 			overlay.show();
@@ -385,6 +393,7 @@
 			$('.adminDiaglogFormFieldset').find('#RoleID').find('option').prop('selected',false);
 			
 			$('.adminDiaglogFormFieldset').find('#RowID').val("").text();
+			$('.adminDiaglogFormFieldset').find('#UnitLeader').val("").text();
 			
 			/*
 			$('.adminDiaglogFormFieldset').find('#ID').val("").text();
@@ -715,6 +724,10 @@
 				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
 				</label>
 				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="UnitLeader" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitLeader" id="UnitLeader" value="" class="adminDialogTextInput" style="display: none" readonly>				
 				
 				<label for="MemberID" class="adminDialogInputLabel">
 					MemberID

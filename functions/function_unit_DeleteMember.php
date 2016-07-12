@@ -19,6 +19,7 @@
 	$UnitID = "";
 	$MemberID = "";
 	$RoleID = "";
+	$UnitLeader = "";
 	
 	if(isset($_POST['RowID']))
 	{
@@ -36,6 +37,10 @@
 	{
 		$RoleID = $_POST['RoleID'];
 	}	
+	if(isset($_POST['UnitLeader']))
+	{
+		$UnitLeader = $_POST['UnitLeader'];
+	}
 	
 	$q = "DELETE from projectx_vvarsc2.UnitMembers
 		WHERE RowID = '$RowID'
@@ -44,8 +49,15 @@
 		";
 		
 	$query_result = $connection->query($q);
+	
+	$q2 = "UPDATE projectx_vvarsc2.Units set
+			UnitLeaderID = null
+		WHERE UnitID = '$UnitID'
+		";
+		
+	$query2_result = $connection->query($q2);
 			
-	if ($query_result)
+	if ($query_result && $query2_result)
 	{
 		header("Location: http://sc.vvarmachine.com/admin_unit/$UnitID");
 	}
