@@ -3061,6 +3061,26 @@ admin_menu ul li {
 	-o-transition: all 0.3s ease;
 }
 
+.adminObjectDetails {
+	width: 95%;
+	border-spacing: 0px;
+	box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0.75);
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;	
+}
+
+.adminEntryRow {
+	display: table-row;
+	width: 100%;
+	vertical-align: middle;
+}
+
 .adminTableHeaderRow {
 	background: rgba(0,0,0,0.75);
 	height: 24px;
@@ -3233,7 +3253,19 @@ admin_menu ul li {
 	width: 100%;
 	background: #000;
 	color: #DDD;
-	border: 1px solid rgba(0, 194, 200, 0.9);
+	border: 1px solid rgba(140, 140, 140, 0.9);
+	max-width: 300px;
+}
+
+.adminDialogTextArea {
+	display: block;
+	font-family: electrolize;
+	width: 100%;
+	background: #000;
+	color: #DDD;
+	border: 1px solid rgba(140, 140, 140, 0.9);
+	max-width: 600px;
+	min-height: 100px;
 }
 
 .adminDialogDropDown {
@@ -3241,7 +3273,21 @@ admin_menu ul li {
 	font-family: electrolize;
 	background: #000;
 	color: #DDD;
-	border: 1px solid rgba(0, 194, 200, 0.9);
+	border: 1px solid rgba(140, 140, 140, 0.9);
+}
+
+.adminDetailEntryKey {
+	display: table-cell;
+	padding: 4px;
+	font-style: italic;
+	width: 10%;
+}
+
+.adminDetailEntryValue {
+	display: table-cell;
+	padding-right: 4px;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
 /*END Hover Controls */

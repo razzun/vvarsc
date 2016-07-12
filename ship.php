@@ -445,10 +445,11 @@
 			,r.rank_groupName
 			,d.div_name
 			,case
-				when r2.isPrivate = 0 then IFNULL(r2.role_shortName,r2.role_name)
+				when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
+				when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
 				when r2.role_id is null then 'n/a'
 				else '[Redacted]'
-			end as role_name
+			end as role_name			
 		from projectx_vvarsc2.ships s
 		left join projectx_vvarsc2.ships_has_members shm
 			on shm.ships_ship_id = s.ship_id

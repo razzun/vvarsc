@@ -136,7 +136,7 @@
 		$unit_query = "select
 							IFNULL(u.UnitFullName,u.UnitName) as UnitName
 							,u.UnitDepth
-							,u.UnitDescription
+							,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 							,u.ParentUnitID
 							,u.UnitSlogan
 							,u.UnitBackgroundImage
@@ -149,7 +149,10 @@
 							,r.rank_tinyImage
 							,r.rank_level
 							,r.rank_groupName
-							,IFNULL(r2.role_shortName,r2.role_name) as RoleName
+							,case
+								when r2.role_shortName = '' then r2.role_name
+								else r2.role_shortName
+							end as RoleName
 							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
 						from projectx_vvarsc2.Units u
 						left join projectx_vvarsc2.UnitMembers um
@@ -244,7 +247,7 @@
 		
 		if ($depth < 5)
 		{
-			if ($unitDescription == null)
+			if ($unitDescription == null || $unitDescription == "")
 			{
 				$displayUnitDescription1 .= "
 					<h3>

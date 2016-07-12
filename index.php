@@ -95,6 +95,14 @@
 					case "admin_roles":
 						$content = "admin_roles.php";
 						break;
+				
+					case "admin_units":
+						$content = "admin_units.php";
+						break;
+				
+					case "admin_unit":
+						$content = "admin_unit.php";
+						break;
 					
 					/******************/
 					/** Error Pages **/
