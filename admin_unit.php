@@ -18,7 +18,7 @@
 			,m.mem_name
 			,u.CreatedOn
 			,u.IsActive
-			,u.UnitDescription
+			,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 			,u.UnitBackgroundImage
 		from projectx_vvarsc2.Units u
 		left join projectx_vvarsc2.Units u2
@@ -309,8 +309,7 @@
 						Description
 					</div>
 					<div class="adminDetailEntryValue">
-						<textarea name="Description" id="Description" class="adminDialogTextArea"><? echo $unitDescription ?>
-						</textarea>
+						<textarea name="Description" id="Description" class="adminDialogTextArea"><? echo $unitDescription ?></textarea>
 					</div>
 				</div>
 				<div class="adminEntryRow unitBackgroundImage" data-backgroundimage="<? echo $unitBackgroundImage ?>">
