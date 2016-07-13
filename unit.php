@@ -134,7 +134,10 @@
 	
 	if(is_numeric($UnitID)) {
 		$unit_query = "select
-							IFNULL(u.UnitFullName,u.UnitName) as UnitName
+							case
+								when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+								else u.UnitFullName
+							end as UnitName
 							,u.UnitDepth
 							,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 							,u.ParentUnitID
