@@ -9,12 +9,12 @@
 			,s1.rank_groupName as rank
 			,s1.rank_groupImage as rank_image
 			,s1.rank_groupTinyImage as rank_tinyImage
-			,GROUP_CONCAT(s1.mem_id ORDER BY s1.mem_name SEPARATOR '|') as mem_id_info
-			,GROUP_CONCAT(s1.mem_name ORDER BY s1.mem_name SEPARATOR '|') as mem_name_info
-			,GROUP_CONCAT(s1.rank_tinyImage ORDER BY s1.mem_name SEPARATOR '|') as mem_rank_info
-			,GROUP_CONCAT(s1.mem_avatar_link ORDER BY s1.mem_name SEPARATOR '|') as mem_avatar_info
-			,GROUP_CONCAT(s1.role_name ORDER BY s1.mem_name SEPARATOR '|') as mem_role_info
-			,GROUP_CONCAT(s1.div_name ORDER BY s1.mem_name SEPARATOR '|') as mem_div_info
+			,s1.mem_id as mem_id_info
+			,s1.mem_name as mem_name_info
+			,s1.rank_tinyImage as mem_rank_info
+			,s1.mem_avatar_link as mem_avatar_info
+			,s1.role_name as mem_role_info
+			,s1.div_name as mem_div_info
 		from
 		(
 		";
@@ -85,10 +85,9 @@
 			where m.mem_sc = 1
 				and($div_id = 0 or d.div_id = $div_id)
 		) s1
-		group by
-			s1.rank_groupName
 		order by
 			s1.rank_group_orderby
+			,s1.rank_orderby
 			,s1.mem_name";
 	}
 		
@@ -165,6 +164,9 @@
 			</div>
 		";
 	}
+		
+	$previousGroup = "";
+	$currentGroup = "";
 	
 	while (($row = $div_query_results->fetch_assoc()) != false)
 	{
@@ -179,128 +181,136 @@
 		$mem_rank_info = $row['mem_rank_info'];
 		$mem_div_info = $row['mem_div_info'];
 		
-		$mem_id_array = explode('|', $mem_id_info);
-		$mem_name_array = explode('|', $mem_name_info);
-		$mem_avatar_array = explode('|', $mem_avatar_info);
-		$mem_role_array = explode('|', $mem_role_info);
-		$mem_rank_array = explode('|', $mem_rank_info);
-		$mem_div_array = explode('|', $mem_div_info);
+		$currentGroup = $rank_name;
 		
+		//If This is a New Group, Open a New Row and Title
+		if ($currentGroup != $previousGroup)
+		{
+			//If This is not 1st Row, Close Previous Row
+			if ($previousGroup != "")
+			{
+				$display_div .= "
+							</div>
+							<div class=\"divinfo_table_header_block\">
+							</div>
+						</td>
+					</tr>
+				";				
+			}
+			
+			//Open New Row
+			$display_div .= "
+				<tr class=\"divinfo_tableRow\">
+					<td class=\"divinfo_tableCell_rankDetailsContainer\">
+						<div class=\"divinfo_tableCell_rankDetailsImgContainer\">
+							<div class=\"corner corner-top-left\">
+							</div>
+							<div class=\"corner corner-top-right\">
+							</div>
+							<div class=\"corner corner-bottom-left\">
+							</div>
+							<div class=\"corner corner-bottom-right\">
+							</div>
+							<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
+						</div>
+						<div class=\"divinfo_tableCell_rankDetailsName\">
+							$rank_name
+						</div>
+					</td>
+					<td class=\"divinfo_tableCell_membersContainer\">
+						
+						<div class=\"divinfo_tableCell_membersTable\">
+			";
+		}		
+		
+		//Command Division
+		if ($mem_div_info == "Command")
+		{
+			if ($mem_role_info == "Fleet CO")
+			{
+				$display_div .= "<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm divinfo_FCO\">";
+			}
+			else
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm\">";
+			}
+		}
+		//Econ Division
+		else if ($mem_div_info == "Economy")
+		{
+			if ($mem_role_info == "Division CO")
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DCO\">";	
+			}
+			else if ($mem_role_info == "Division XO")
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DXO\">";
+			}
+			else
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ\">";
+			}
+		}
+		//Military Division
+		else if ($mem_div_info == "Military")
+		{
+			if ($mem_role_info == "Division CO")
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DCO\">";	
+			}
+			else if ($mem_role_info == "Division XO")
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DXO\">";
+			}
+			else
+			{
+				$display_div .= "
+					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil\">";
+			}
+		}	
+		else
+		{
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell\">";
+		}
 		
 		$display_div .= "
-			<tr class=\"divinfo_tableRow\">
-				<td class=\"divinfo_tableCell_rankDetailsContainer\">
-					<div class=\"divinfo_tableCell_rankDetailsImgContainer\">
-						<div class=\"corner corner-top-left\">
+				<a href=\"http://sc.vvarmachine.com/player/$mem_id_info\" target=\"_top\">
+					<div class=\"divinfo_memAvatarContainer\">
+						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/player_avatars/$mem_avatar_info.png\" />
+						<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
+							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$mem_rank_info.png\" />
 						</div>
-						<div class=\"corner corner-top-right\">
+						<div class=\"divinfo_memAvatar_textOverlay_memName\">
+							$mem_name_info
 						</div>
-						<div class=\"corner corner-bottom-left\">
+						<div class=\"divinfo_memAvatar_textOverlay_memRole\">
+							$mem_role_info
 						</div>
-						<div class=\"corner corner-bottom-right\">
-						</div>
-						<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
 					</div>
-					<div class=\"divinfo_tableCell_rankDetailsName\">
-						$rank_name
-					</div>
-				</td>
-				<td class=\"divinfo_tableCell_membersContainer\">
-					
-					<div class=\"divinfo_tableCell_membersTable\">";
-						
-						$i = 0;
-						foreach ($mem_name_array as $index => $mem_name)
-						{
-							if($mem_role_array[$index] == 'n/a') {
-								$mem_role_array[$index] = '';
-							}
-							
-							
-							//Command Division
-							if ($mem_div_array[$index] == "Command")
-							{
-								if ($mem_role_array[$index] == "Fleet CO")
-								{
-									$display_div .= "<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm divinfo_FCO\">";
-								}
-								else
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm\">";
-								}
-							}
-							//Econ Division
-							else if ($mem_div_array[$index] == "Economy")
-							{
-								if ($mem_role_array[$index] == "Division CO")
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DCO\">";	
-								}
-								else if ($mem_role_array[$index] == "Division XO")
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DXO\">";
-								}
-								else
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ\">";
-								}
-							}
-							//Military Division
-							else if ($mem_div_array[$index] == "Military")
-							{
-								if ($mem_role_array[$index] == "Division CO")
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DCO\">";	
-								}
-								else if ($mem_role_array[$index] == "Division XO")
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DXO\">";
-								}
-								else
-								{
-									$display_div .= "
-										<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil\">";
-								}
-							}	
-							else
-							{
-								$display_div .= "
-									<div class=\"divinfo_tableCell_membersTable_tableCell\">";
-							}
-							
-							$display_div .= "
-									<a href=\"http://sc.vvarmachine.com/player/$mem_id_array[$index]\" target=\"_top\">
-										<div class=\"divinfo_memAvatarContainer\">
-											<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/player_avatars/$mem_avatar_array[$index].png\" />
-											<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
-												<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$mem_rank_array[$index].png\" />
-											</div>
-											<div class=\"divinfo_memAvatar_textOverlay_memName\">
-												$mem_name
-											</div>
-											<div class=\"divinfo_memAvatar_textOverlay_memRole\">
-												$mem_role_array[$index]
-											</div>
-										</div>
-									</a>
-									
-								</div>
-							";
-						}
-					$display_div .= "
-					</div>
-					<div class=\"divinfo_table_header_block\">
-					</div>
-				</td>
-			</tr>
+				</a>
+				
+			</div>
 		";
+		
+		$previousGroup = $currentGroup;
+		
 	}
+	
+	//Close Last Row
+	$display_div .= "
+				</div>
+				<div class=\"divinfo_table_header_block\">
+				</div>
+			</td>
+		</tr>
+	";	
 	
 	$master_div_name;	
 	
