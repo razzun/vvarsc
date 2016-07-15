@@ -4,53 +4,57 @@
 	
 	$display_fleet;
 	
-   	$fleet_query = "SELECT s.ship_pname,
-		GROUP_CONCAT(shm.rowID ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_vvarID_info,
-		GROUP_CONCAT(s.ship_id ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_id_info,
-		GROUP_CONCAT(s.ship_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_name_info,
-		GROUP_CONCAT(COALESCE(s.ship_model_designation,'-') ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_designation_info,
-		GROUP_CONCAT(m.mem_id ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as mem_id_info,
-		GROUP_CONCAT(m.mem_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as mem_name_info,
-		GROUP_CONCAT(DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as shm_modifiedOn_info,
-   	    GROUP_CONCAT(s.ship_silo ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_silo_info,
-		GROUP_CONCAT(s.ship_role_primary ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_primary_info,
-		GROUP_CONCAT(man.manu_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_manu_info,
-		GROUP_CONCAT(man.manu_shortName ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_manu_short_info,
-		GROUP_CONCAT(d.div_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_division_info,
-		GROUP_CONCAT(r.rank_name ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_rank_info,
-		GROUP_CONCAT(sed.ship_length ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_length_info,
-		GROUP_CONCAT(sed.ship_width ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_width_info,
-		GROUP_CONCAT(sed.ship_height ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_height_info,
-		GROUP_CONCAT(sed.ship_mass ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_mass_info,
-		GROUP_CONCAT(sed.ship_cargo_capacity ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_cargo_info,
-		GROUP_CONCAT(sed.ship_max_crew ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_crew_info,
-		GROUP_CONCAT(sed.ship_max_powerPlant ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_powerPlant_info,
-		GROUP_CONCAT(sed.ship_max_mainThruster ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_mainThruster_info,
-		GROUP_CONCAT(sed.ship_max_maneuveringThruster ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_maneuveringThruster_info,
-		GROUP_CONCAT(sed.ship_max_shield ORDER BY s.ship_name, shm.rowID SEPARATOR '|') as ship_shield_info
-	FROM projectx_vvarsc2.ships s
-	JOIN projectx_vvarsc2.manufacturers man
-		on man.manu_id = s.manufacturers_manu_id
-	RIGHT JOIN projectx_vvarsc2.ships_has_members shm
-		ON shm.ships_ship_id = s.ship_id
-	LEFT JOIN projectx_vvarsc2.ship_extended_data sed
-		ON sed.ships_ship_id = s.ship_id
-	JOIN projectx_vvarsc2.members m
-		ON shm.members_mem_id = m.mem_id
-		AND m.mem_sc = 1
-	JOIN projectx_vvarsc2.divisions d
-		ON d.div_id = m.divisions_div_id
-	JOIN projectx_vvarsc2.ranks r
-		ON r.rank_id = m.ranks_rank_id
-    GROUP BY
-		s.ship_pname
-    ORDER BY
-		s.ship_pname";
+   	$fleet_query = "SELECT
+						s.ship_pName
+						,shm.RowID as ship_vvarID_info
+						,s.ship_id as ship_id_info
+						,s.ship_name as ship_name_info
+						,COALESCE(s.ship_model_designation,'-') as ship_designation_info
+						,m.mem_id as mem_id_info
+						,m.mem_name as mem_name_info
+						,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as shm_modifiedOn_info
+						,s.ship_silo as ship_silo_info
+						,s.ship_role_primary as ship_primary_info
+						,man.manu_name as ship_manu_info
+						,man.manu_shortName as ship_manu_short_info
+						,d.div_name as ship_division_info
+						,r.rank_name as ship_rank_info
+						,sed.ship_length as ship_length_info
+						,sed.ship_width as ship_width_info
+						,sed.ship_height as ship_height_info
+						,sed.ship_mass as ship_mass_info
+						,sed.ship_cargo_capacity as ship_cargo_info
+						,sed.ship_max_crew  as ship_crew_info
+						,sed.ship_max_powerPlant as ship_powerPlant_info
+						,sed.ship_max_mainThruster as ship_mainThruster_info
+						,sed.ship_max_maneuveringThruster as ship_maneuveringThruster_info
+						,sed.ship_max_shield as ship_shield_info
+					FROM projectx_vvarsc2.ships s
+					JOIN projectx_vvarsc2.manufacturers man
+						on man.manu_id = s.manufacturers_manu_id
+					RIGHT JOIN projectx_vvarsc2.ships_has_members shm
+						ON shm.ships_ship_id = s.ship_id
+					LEFT JOIN projectx_vvarsc2.ship_extended_data sed
+						ON sed.ships_ship_id = s.ship_id
+					JOIN projectx_vvarsc2.members m
+						ON shm.members_mem_id = m.mem_id
+						AND m.mem_sc = 1
+					JOIN projectx_vvarsc2.divisions d
+						ON d.div_id = m.divisions_div_id
+					JOIN projectx_vvarsc2.ranks r
+						ON r.rank_id = m.ranks_rank_id
+					ORDER BY
+						s.ship_pname
+						,s.ship_name
+						,shm.RowID";
     
     $fleet_query_results = $connection->query($fleet_query);
+		
+	$previousGroup = "";
+	$currentGroup = "";
 	
 	while (($row = $fleet_query_results->fetch_assoc()) != false) {
-		$ship_pname = $row['ship_pname'];
+		$ship_pname = $row['ship_pName'];
 		$ship_silo_info = $row['ship_silo_info'];
 		$mem_id_info = $row['mem_id_info'];
 		$mem_name_info = $row['mem_name_info'];
@@ -77,260 +81,250 @@
 		$ship_maneuveringThruster_info = $row['ship_maneuveringThruster_info'];
 		$ship_shield_info = $row['ship_shield_info'];
 		
+		$currentGroup = $ship_pname;
 		
-		
-		$ship_silo_array = explode('|', $ship_silo_info);
-		$mem_id_array = explode('|', $mem_id_info);
-		$mem_name_array = explode('|', $mem_name_info);
-		$modifiedOn_array = explode('|', $modifiedOn_info);
-		$ship_name_array = explode('|', $ship_name_info);
-		$ship_designation_array = explode('|', $ship_designation_info);
-		$ship_primary_array = explode('|', $ship_primary_info);
-		$ship_manu_array = explode('|', $ship_manu_info);
-		$ship_division_array = explode('|', $ship_division_info);
-		$ship_rank_array = explode('|', $ship_rank_info);
-		$ship_vvarID_array = explode('|', $ship_vvarID_info);
-		$ship_id_array = explode('|', $ship_id_info);
-		$ship_manu_short_array = explode('|', $ship_manu_short_info);
-		
-		$ship_length_array = explode('|', $ship_length_info);
-		$ship_width_array = explode('|', $ship_width_info);
-		$ship_height_array = explode('|', $ship_height_info);
-		$ship_mass_array = explode('|', $ship_mass_info);
-		$ship_cargo_array = explode('|', $ship_cargo_info);
-		$ship_crew_array = explode('|', $ship_crew_info);
-		
-		$ship_powerPlant_array = explode('|', $ship_powerPlant_info);
-		$ship_mainThruster_array = explode('|', $ship_mainThruster_info);
-		$ship_maneuveringThruster_array = explode('|', $ship_maneuveringThruster_info);
-		$ship_shield_array = explode('|', $ship_shield_info);
-		
-		$display_fleet .= "
-			<tr>
-				<td>
-				<div class=\"tbinfo_shipTitle\">
-					$ship_pname
-				</div>";
-				foreach ($ship_silo_array as $index => $ship_value)
-				{   
-					$display_fleet .= "
-					<div class=\"fleet2\">
-						<img class=\"fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_value\" />
-					
-						<div class=\"cornerToggle2 corner-top-left\">
+		//If This is a New Group, Open a New Row and Title
+		if ($currentGroup != $previousGroup)
+		{
+			//If This is not 1st Row, Close Previous Row
+			if ($previousGroup != "")
+			{
+				$display_fleet .= "
+						</td>
+					</tr>
+				";				
+			}
+			
+			//Open New Row
+			$display_fleet .= "
+				<tr>
+					<td>
+						<div class=\"tbinfo_shipTitle\">
+							$ship_pname
 						</div>
-						<div class=\"cornerToggle2 corner-top-right\">
-						</div>
-						<div class=\"cornerToggle2 corner-bottom-left\">
-						</div>
-						<div class=\"cornerToggle2 corner-bottom-right\">
-						</div>
-						<div class=\"fleet2_shipName_container\">
-							<a class=\"fleet2_shipName\" href=\"ship/$ship_id_array[$index]\" >$ship_manu_short_array[$index] $ship_name_array[$index]
-							</a>
-						</div>
-						
-						<span class=\"tooltip\">
-							<table class=\"tooltip_shipTable\">
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Designation
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_designation_array[$index]
-										</div>
-									</td>
-								</tr>
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Primary Role
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_primary_array[$index]
-										</div>
-									</td>
-								</tr>
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Length
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_length_array[$index]m
-										</div>
-									</td>
-								</tr>
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Width
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_width_array[$index]m
-										</div>
-									</td>
-								</tr>
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Height
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_height_array[$index]m
-										</div>
-									</td>
-								</tr>
-								<!--
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Null Cargo Mass
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_mass_array[$index]kg
-										</div>
-									</td>
-								</tr>
-								-->
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Cargo Capacity
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_cargo_array[$index] SCU
-										</div>
-									</td>
-								</tr>
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Max Crew
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_crew_array[$index]
-										</div>
-									</td>
-								</tr>
-								<!--
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Max Power Plant
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_powerPlant_array[$index]
-										</div>
-									</td>
-								</tr>									
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Main Thrusters
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_mainThruster_array[$index]
-										</div>
-									</td>
-								</tr>									
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Maneuvering Thrusters
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_maneuveringThruster_array[$index]
-										</div>
-									</td>
-								</tr>									
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Max Shield
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_shield_array[$index]
-										</div>
-									</td>
-								</tr>
-								-->
-							</table>
-						</span>
-						<span class=\"tooltip2\">
-							<table class=\"tooltip_shipTable\">
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										ShipID
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$ship_vvarID_array[$index]
-										</div>
-									</td>
-								</tr>									
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Owner
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										<a href=\"player/$mem_id_array[$index]\" target=\"_top\">$mem_name_array[$index]</a>
-										</div>
-									</td>
-								</tr>									
-								<tr class=\"tooltip_shipTable_row\">
-									<td class=\"tooltip_shipTable_key\">
-										<div class=\"tooltip_shipTable_key_inner\">
-										Last Modified
-										</div>
-									</td>
-									<td class=\"tooltip_shipTable_value\">
-										<div class=\"tooltip_shipTable_value_inner\">
-										$modifiedOn_array[$index]
-										</div>
-									</td>
-								</tr>
-							</table>
-						</span>
-					</div>
-					";
-				}
-						
-		$display_fleet .= "
-				</td>
-			</tr>
 			";
+		}
+		
+		$display_fleet .= "
+			<div class=\"fleet2\">
+				<img class=\"fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo_info\" />
+			
+				<div class=\"cornerToggle2 corner-top-left\">
+				</div>
+				<div class=\"cornerToggle2 corner-top-right\">
+				</div>
+				<div class=\"cornerToggle2 corner-bottom-left\">
+				</div>
+				<div class=\"cornerToggle2 corner-bottom-right\">
+				</div>
+				<div class=\"fleet2_shipName_container\">
+					<a class=\"fleet2_shipName\" href=\"ship/$ship_id_info\" >$ship_manu_short_info $ship_name_info
+					</a>
+				</div>
+				
+				<span class=\"tooltip\">
+					<table class=\"tooltip_shipTable\">
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Designation
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_designation_info
+								</div>
+							</td>
+						</tr>
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Primary Role
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_primary_info
+								</div>
+							</td>
+						</tr>
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Length
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_length_info m
+								</div>
+							</td>
+						</tr>
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Width
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_width_info m
+								</div>
+							</td>
+						</tr>
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Height
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_height_info m
+								</div>
+							</td>
+						</tr>
+						<!--
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Null Cargo Mass
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_mass_info kg
+								</div>
+							</td>
+						</tr>
+						-->
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Cargo Capacity
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_cargo_info SCU
+								</div>
+							</td>
+						</tr>
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Max Crew
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_crew_info
+								</div>
+							</td>
+						</tr>
+						<!--
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Max Power Plant
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_powerPlant_info
+								</div>
+							</td>
+						</tr>									
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Main Thrusters
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_mainThruster_info
+								</div>
+							</td>
+						</tr>									
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Maneuvering Thrusters
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_maneuveringThruster_info
+								</div>
+							</td>
+						</tr>									
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Max Shield
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_shield_info
+								</div>
+							</td>
+						</tr>
+						-->
+					</table>
+				</span>
+				<span class=\"tooltip2\">
+					<table class=\"tooltip_shipTable\">
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								ShipID
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$ship_vvarID_info
+								</div>
+							</td>
+						</tr>									
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Owner
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								<a href=\"player/$mem_id_info\" target=\"_top\">$mem_name_info</a>
+								</div>
+							</td>
+						</tr>									
+						<tr class=\"tooltip_shipTable_row\">
+							<td class=\"tooltip_shipTable_key\">
+								<div class=\"tooltip_shipTable_key_inner\">
+								Last Modified
+								</div>
+							</td>
+							<td class=\"tooltip_shipTable_value\">
+								<div class=\"tooltip_shipTable_value_inner\">
+								$modifiedOn_info
+								</div>
+							</td>
+						</tr>
+					</table>
+				</span>
+			</div>
+			";
+
+		$previousGroup = $currentGroup;
 	}
+	
+	//Close Last Row
+	$display_fleet .= "
+			</td>
+		</tr>
+		";
 	
 	$display_stats;
 	
