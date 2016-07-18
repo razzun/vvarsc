@@ -112,7 +112,10 @@
 	$parentUnits_query = "
 		select
 			u.UnitID
-			,COALESCE(u.UnitFullName,u.UnitName) as UnitName
+			,case
+				when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+				else u.UnitFullName
+			end as UnitName
 		from projectx_vvarsc2.Units u
 		where u.UnitLevel not in ('Squadron','Platoon')
 		order by

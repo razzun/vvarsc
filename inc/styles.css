@@ -3049,7 +3049,7 @@ admin_menu ul li {
 }
 
 .adminTable {
-	width: 95%;
+	width: 98%;
 	border-spacing: 0px;
 	box-sizing: border-box;
 	background-color: rgba(0, 0, 0, 0.55);
@@ -3124,7 +3124,7 @@ admin_menu ul li {
 
 .adminTableRow td:first-child {
 	border-left: 4px solid #1F4858;
-	width: 10%;
+	width: 5%;
 }
 
 .adminTableRow td:last-child {
@@ -3147,11 +3147,12 @@ admin_menu ul li {
 	display: inline;
 	color: #DDD;
 	font-family: Orbitron;
+	font-variant: all-small-caps;
 	font-weight: normal;
 	background: rgba(0,0,0,0.9);
 	cursor: pointer;
 	margin-left: 4px;
-	font-size: 9pt;
+	font-size: 10pt;
 	margin-top: 4px;
 	margin-bottom: 4px;
 	border: 2px ridge;
@@ -3159,6 +3160,7 @@ admin_menu ul li {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
+	padding-bottom: 4px;
 }
 
 .adminButtonCreate {
@@ -3183,7 +3185,7 @@ admin_menu ul li {
 .adminDialogFormContainer {
 	position: fixed;
 	top: 200px;
-	left: 20%;
+	left: 10%;
 	z-index: 101;
 	background: rgba(0,0,0,0.8);
 	border: 1px solid rgba(0, 194, 200, 0.9);
@@ -3212,8 +3214,9 @@ admin_menu ul li {
 	display: inline;
 	color: #DDD;
 	font-family: Orbitron;
+	font-variant: all-small-caps;
 	font-weight: normal;
-	font-size: 9pt;
+	font-size: 10pt;
 	background: rgba(0,0,0,0.9);
 	cursor: pointer;
 	border: 2px ridge;
@@ -3221,6 +3224,7 @@ admin_menu ul li {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
+	padding-bottom: 4px;
 }
 
 .adminDialogButton:hover {
@@ -3254,6 +3258,7 @@ admin_menu ul li {
 	color: #DDD;
 	border: 1px solid rgba(140, 140, 140, 0.9);
 	width: auto;
+	margin-bottom: 8px;
 }
 
 .adminDialogTextArea {
@@ -3273,6 +3278,7 @@ admin_menu ul li {
 	background: #000;
 	color: #DDD;
 	border: 1px solid rgba(140, 140, 140, 0.9);
+	margin-bottom: 8px;
 }
 
 .adminDetailEntryKey {
