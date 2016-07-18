@@ -3270,6 +3270,7 @@ admin_menu ul li {
 	border: 1px solid rgba(140, 140, 140, 0.9);
 	max-width: 600px;
 	min-height: 100px;
+	margin-bottom: 8px;
 }
 
 .adminDialogDropDown {
