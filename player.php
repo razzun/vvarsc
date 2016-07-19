@@ -356,7 +356,7 @@
 ?>
 
 <h2>Star Citizen Player Profile</h2>
-  <div id="TEXT">
+<div id="TEXT">
 	<div class="player_topTable_Container">
 		<div class="table_header_block">
 		</div>
@@ -491,9 +491,9 @@
 			<table id="player_ships">
 				<? echo $display_player_ships; ?>
 			</table>
-		<div>
+		</div>
 	</div>
-  </div>
+</div>
   
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>

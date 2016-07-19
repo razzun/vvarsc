@@ -1,6 +1,7 @@
 html {
 	overflow: -moz-scrollbars-vertical; 
 	overflow-y: scroll;
+	height: 100%;
 }
 
 /* STANDARD TAG REDEFINITIONS */
@@ -141,7 +142,15 @@ nav
 	display: table-cell;
 }
 
-h1{ margin: 0; padding: 10px 0 0 0; font-family: 'Electrolize',sans-serif; font-weight: normal; letter-spacing: .005em; color: White;  font-size: 24pt; }
+h1 {
+	margin: 0;
+	padding: 10px 0 0 0;
+	font-family: 'Electrolize',sans-serif;
+	font-weight: normal;
+	letter-spacing: .005em;
+	color: White;
+	font-size: 24pt;
+}
 
 #MainWebsiteInner {
 	width: 95%;
@@ -151,11 +160,11 @@ h1{ margin: 0; padding: 10px 0 0 0; font-family: 'Electrolize',sans-serif; font-
 	border: 1px solid #0F151D;
 	box-shadow: 0px 0px 20px #286E80;
 	background-color: rgba(0, 0, 0, 0.7);
-	position: relative;
 	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
 	background-position: center top;
 	background-repeat: repeat;
-	background-attachment: fixed;	
+	background-attachment: fixed;
+	min-height: 99%;
 }
 
 /*HIDDEN DIV THAT WILL STOP MOUSE CLICKS WHEN MODAL IS OPEN*/
@@ -172,6 +181,8 @@ div#overlay {
 #CONTENT {
 	margin-right: 8px;
 	margin-left: 8px;
+	padding-bottom: 140px;
+	clear: both;
 }
 
 h2 {	
@@ -223,6 +234,7 @@ h4 {
 	border-collapse: separate;
 	margin: 10px;
 }
+
 #TEXT p { 
 	margin-bottom: 1em;
 }
@@ -237,27 +249,26 @@ h4 {
 	padding-right: 36px;
 }
 
-#dynamicSpacer {
-
-}
-
 #FOOTER
 {
-    margin-top: 16px;
-    margin-bottom: 4px;
     text-align: right;
-    padding-top: 4px;
-    padding-right: 4px;
     border: 1px solid rgba(80, 70, 50, 0.8);
-    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 15, 25, 0.9);
     position: relative;
-    /* display: table-row; */
-    /* width: 100%; */
     margin-left: auto;
     margin-right: auto;
-    width: 99%;
+    width: 95%;
+	height: 140px;
+	margin-top: -140px;
+	clear: both;
 }
-#FOOTER p {	font-size: 11px;	line-height: 14px;	margin: 4px;	padding-bottom: 4px;	color: #DDDDDD;}
+#FOOTER p {
+	font-size: 11px;
+	line-height: 14px;
+	margin: 4px;
+	padding: 4px;
+	color: #DDDDDD;
+}
 
 #FOOTER a {
 	font-size: 11px;
