@@ -261,6 +261,7 @@ h4 {
 	height: 140px;
 	margin-top: -140px;
 	clear: both;
+	max-width: 1600px;
 }
 #FOOTER p {
 	font-size: 11px;
