@@ -2,6 +2,10 @@ html {
 	overflow: -moz-scrollbars-vertical; 
 	overflow-y: scroll;
 	height: 100%;
+    background-image: url("http://vvarmachine.com/uploads/galleries/Gladius_01.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;  	
 }
 
 /* STANDARD TAG REDEFINITIONS */
@@ -13,11 +17,6 @@ BODY {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-image: url("http://vvarmachine.com/uploads/galleries/Gladius_01.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;  
-	
 }
 
 TD {
@@ -152,19 +151,20 @@ h1 {
 	font-size: 24pt;
 }
 
+#MainWrapper {
+	min-height: 99%;
+	background-color: rgba(0, 0, 0, 0.65);
+	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
+	background-position: center top;
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
 #MainWebsiteInner {
 	width: 95%;
 	max-width: 1600px;
 	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid #0F151D;
-	box-shadow: 0px 0px 20px #286E80;
-	background-color: rgba(0, 0, 0, 0.7);
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
-	background-position: center top;
-	background-repeat: repeat;
-	background-attachment: fixed;
-	min-height: 99%;
 }
 
 /*HIDDEN DIV THAT WILL STOP MOUSE CLICKS WHEN MODAL IS OPEN*/
@@ -253,7 +253,7 @@ h4 {
 {
     text-align: right;
     border: 1px solid rgba(80, 70, 50, 0.8);
-    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 15, 25, 0.9);
+    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -904,10 +904,10 @@ ts.pship img {
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	position: relative;
-	background: none repeat scroll 0% 0% rgba(2, 6, 14, 0.45);
+	background-color: rgba(2, 6, 14, 0.55);
 	border: 1px solid #222;
 	padding: 4px;
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 
@@ -1049,7 +1049,7 @@ img {
 	padding-right: 6px;
 	border-top: 1px solid rgba(220, 160, 0, 0.5);
 	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
-	background-color: rgba(0, 0, 0, 0.85);
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 .tbinfo_shipTitle {
@@ -2107,12 +2107,12 @@ img.fleet:after {
     height: 68px;
     width: 68px;
     position: relative;
-    background: none repeat scroll 0% 0% rgba(2, 6, 14, 0.75);
+    background-color: rgba(2, 6, 14, 0.55);
     border: 1px solid #222;
     transition: all 0.4s ease 0s;
 	padding-left: 8px;
 	padding-right: 8px;
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .shipDetails_ownerInfo_tableRow_memInfoContainer {
@@ -2430,10 +2430,10 @@ img.fleet:after {
 	position: relative;
 	padding-left: 16px;
 	padding-right: 16px;
-    background: rgba(2, 6, 14, 0.45);
+    background-color: rgba(2, 6, 14, 0.55);
     border: 1px solid #222;	
 	transition: all 0.4s ease 0s;
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .divinfo_rankImg {
@@ -2873,7 +2873,7 @@ admin_menu ul li {
 	background-color: rgba(0, 0, 0, 0.55);
 	font-size: 12pt;
 	color: #FFF;
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .units_tree_container {
@@ -2979,7 +2979,8 @@ admin_menu ul li {
 	font-size: 8pt;
 	margin-left: 16px;
 	margin-right: 4px;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+	/*background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+	*/
 }
 
 .unitHierarchyHeader_key {

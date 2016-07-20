@@ -10,123 +10,125 @@
 	<? include_once('inc/meta.php'); ?>
 	</head>
 	<body>
-		<div id="overlay">
-		</div>
-		<div id="MainWebsiteInner">
-			<? include_once('inc/header.php'); ?>
-			<div id="CONTENT">
-			<?
-				$page = isset($_GET['page']) ? $_GET['page'] : '';
-				
-				switch($page) {
-					/****************/
-					/** Main Links **/
-					/****************/
-					case "main":
-						$content = "main.php";
-						break;
+		<div id="MainWrapper">
+			<div id="overlay">
+			</div>
+			<div id="MainWebsiteInner">
+				<? include_once('inc/header.php'); ?>
+				<div id="CONTENT">
+				<?
+					$page = isset($_GET['page']) ? $_GET['page'] : '';
 					
-					case "members":
-						$content = "members.php";
-						break;
-					
-					case "fleet":
-						$content = "fleet.php";
-						break;
-					
-					case "fleetinfo":
-						$content = "fleetinfo.php";
-						break;
+					switch($page) {
+						/****************/
+						/** Main Links **/
+						/****************/
+						case "main":
+							$content = "main.php";
+							break;
 						
-					case "shipyard":
-						$content = "shipyard.php";
-						break;
+						case "members":
+							$content = "members.php";
+							break;
 						
-					case "units":
-						$content = "units.php";
-						break;
+						case "fleet":
+							$content = "fleet.php";
+							break;
 						
-					case "divisions":
-						$content = "divisions.php";
-						break;
-					
-					case "links":
-						$content = "links.php";
-						break;
-					
-					/*****************/
-					/** Other Links **/
-					/*****************/
-					case "player":
-						$content = "player.php";
-						break;
+						case "fleetinfo":
+							$content = "fleetinfo.php";
+							break;
+							
+						case "shipyard":
+							$content = "shipyard.php";
+							break;
+							
+						case "units":
+							$content = "units.php";
+							break;
+							
+						case "divisions":
+							$content = "divisions.php";
+							break;
 						
-					case "ship":
-						$content = "ship.php";
-						break;
+						case "links":
+							$content = "links.php";
+							break;
 						
-					case "unit":
-						$content = "unit.php";
-						break;
-					
-					/*****************/
-					/** Admin Links **/
-					/*****************/
-					case "admin":
-						$content = "admin.php";
-						break;
+						/*****************/
+						/** Other Links **/
+						/*****************/
+						case "player":
+							$content = "player.php";
+							break;
+							
+						case "ship":
+							$content = "ship.php";
+							break;
+							
+						case "unit":
+							$content = "unit.php";
+							break;
+						
+						/*****************/
+						/** Admin Links **/
+						/*****************/
+						case "admin":
+							$content = "admin.php";
+							break;
 
-					case "admin_manu":
-						$content = "admin_manu.php";
-						break;
-				
-					case "admin_ship":
-						$content = "admin_ship.php";
-						break;
-				
-					case "admin_mem":
-						$content = "admin_mem.php";
-						break;
-				
-					case "admin_playerShips":
-						$content = "admin_playerShips.php";
-						break;
-				
-					case "admin_roles":
-						$content = "admin_roles.php";
-						break;
-				
-					case "admin_units":
-						$content = "admin_units.php";
-						break;
-				
-					case "admin_unit":
-						$content = "admin_unit.php";
-						break;
+						case "admin_manu":
+							$content = "admin_manu.php";
+							break;
 					
-					/******************/
-					/** Error Pages **/
-					/******************/		
-					case "error_generic":
-						$content = "error_generic.php";
-						break;
+						case "admin_ship":
+							$content = "admin_ship.php";
+							break;
 					
-					/******************/
-					/** Default Page **/
-					/******************/		
-					default:
-						$content = "main.php";
-						break;
-				}
-				
-				include_once($content);
-				?>
-				<!--
-				<div id="dynamicSpacer">
-					&nbsp;
+						case "admin_mem":
+							$content = "admin_mem.php";
+							break;
+					
+						case "admin_playerShips":
+							$content = "admin_playerShips.php";
+							break;
+					
+						case "admin_roles":
+							$content = "admin_roles.php";
+							break;
+					
+						case "admin_units":
+							$content = "admin_units.php";
+							break;
+					
+						case "admin_unit":
+							$content = "admin_unit.php";
+							break;
+						
+						/******************/
+						/** Error Pages **/
+						/******************/		
+						case "error_generic":
+							$content = "error_generic.php";
+							break;
+						
+						/******************/
+						/** Default Page **/
+						/******************/		
+						default:
+							$content = "main.php";
+							break;
+					}
+					
+					include_once($content);
+					?>
+					<!--
+					<div id="dynamicSpacer">
+						&nbsp;
+					</div>
+					-->
+
 				</div>
-				-->
-
 			</div>
 		</div>
 	</body>
