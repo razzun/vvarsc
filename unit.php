@@ -491,6 +491,6 @@
 <!-- Script for changing background image-->
 <script>
 	$(document).ready(function() {
-		$('html').css('background','url(<?php echo $unitBackgroundImage ?>) no-repeat fixed center center transparent');
+		$('body').css('background-image','url(<?php echo $unitBackgroundImage ?>)');
 	});
 </script>

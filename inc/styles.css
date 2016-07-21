@@ -2,10 +2,6 @@ html {
 	overflow: -moz-scrollbars-vertical; 
 	overflow-y: scroll;
 	height: 100%;
-    background-image: url("http://vvarmachine.com/uploads/galleries/Gladius_01.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;  	
 }
 
 /* STANDARD TAG REDEFINITIONS */
@@ -17,6 +13,11 @@ BODY {
     margin: 0;
     padding: 0;
     width: 100%;
+	background-image: url("http://vvarmachine.com/uploads/galleries/Gladius_01.jpg");
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+	background-size: cover !important;
 }
 
 TD {
@@ -152,7 +153,7 @@ h1 {
 }
 
 #MainWrapper {
-	min-height: 99%;
+	min-height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
 	background-position: center top;
@@ -165,6 +166,32 @@ h1 {
 	max-width: 1600px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/*Parallax Classes*/
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -6px;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+	background-color: rgba(0, 0, 0, 0.5);
+	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
+	background-position: center top;
+	background-repeat: repeat;
+	background-attachment: scroll;
+	transform: translateZ(-1px) scale(2);
 }
 
 /*HIDDEN DIV THAT WILL STOP MOUSE CLICKS WHEN MODAL IS OPEN*/
@@ -259,7 +286,7 @@ h4 {
     margin-right: auto;
     width: 95%;
 	height: 140px;
-	margin-top: -140px;
+	margin-top: -144px;
 	clear: both;
 	max-width: 1600px;
 }
@@ -3341,6 +3368,13 @@ admin_menu ul li {
 @media only screen and (max-width: 1199px) {
 	#MainWebsiteInner {
 		width: 100%;
+	}
+	
+	BODY {
+		background-repeat: no-repeat !important;
+		background-position: center center !important;
+		background-attachment: fixed !important;
+		background-size: cover !important;
 	}
 	
 	/*HomePage*/
