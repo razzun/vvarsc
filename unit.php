@@ -194,7 +194,7 @@
 			$mem_assigned_date = $row1['MemberAssigned'];
 			$mem_id = $row1['mem_id'];
 			
-			if ($unitBackgroundImage == null)
+			if ($unitBackgroundImage == null || $unitBackgroundImage == '')
 			{
 				$unitBackgroundImage = 'http://vvarmachine.com/uploads/galleries/Gladius_01.jpg';
 			}
@@ -256,9 +256,17 @@
 					<h3>
 						Description
 					</h3>
-					<div class=\"table_header_block\">
-					</div>
 					<div class=\"unit_description_container\">
+						<div class=\"top-line\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-topLeft\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-topRight\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-bottomLeft\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-bottomRight\">
+						</div>
 				";
 						
 				$displayUnitDescription2 .= "
@@ -273,9 +281,17 @@
 					<h3>
 						Description
 					</h3>
-					<div class=\"table_header_block\">
-					</div>
 					<div class=\"unit_description_container\">
+						<div class=\"top-line\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-topLeft\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-topRight\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-bottomLeft\">
+						</div>
+						<div class=\"corner4 corner-diag-blue-bottomRight\">
+						</div>
 				";
 						
 				$displayUnitDescription2 .= "
@@ -441,6 +457,24 @@
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
     $(document).ready(function () {
+	
+/*
+		var mainClass = $('#MainWrapper');
+		var footerClass = $('#FOOTER');
+	
+		$('.parallax__layer').css('height', mainClass.height() );
+		
+		var img = new Image;
+		img.src = $('#parallax__layer--back3').css('background-image').replace(/url\(|\)$/ig, "");
+		var bgImgWidth = img.width;
+		var bgImgHeight = img.height;		
+		
+		var scaleFactor = mainClass.height() / bgImgHeight;
+		
+		$('#parallax__layer--back3').css({
+			transform: 'translateZ(-4px) scale(5)'
+		});
+*/		
 		
 		<!--Hide All Other Nodes-->
         $(".unitHierarchyChildren").hide();
@@ -458,39 +492,25 @@
 			var websiteClass = $('#TEXT');
 			var currentContentHeight = websiteClass.height();
 			
-            $(this).parent().parent().children(".unitHierarchyChildren").slideToggle(500);
+            $(this).parent().parent().children(".unitHierarchyChildren").slideToggle();
 			$(this).toggleClass('rotate90CW');
-			
-			setTimeout(function(){	
-				resizeSpacer();
-			}.bind(this), 500); 
-        });
+        });	
+
+		/*
+		$("#MainWebsiteInner").resize(function () {
 		
-		function resizeSpacer()
-		{
-			//Script to adjust dynamic spacer height
-			var height = $(window).height();
-			//var newContentHeight = websiteClass.height();
-			
-			var footer = $('#FOOTER');
-			var fHeight = footer.height();
-			
-			var spacerClass = $('#dynamicSpacer');
-			//var currentSpacerHeight= spacerClass.height();
-			
-			var minHeight = (height - $('#CONTENT').offset().top - 8);
-			var newSpacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
-			
-			spacerClass.css({
-				"height": newSpacerHeight +'px'
-			});			
-		}
+			var mainClass2 = $(this);
+			$('.parallax__layer').css('height', mainClass2.height() );
+		});
+		*/
+		
     });
+	
 </script>
 
 <!-- Script for changing background image-->
 <script>
 	$(document).ready(function() {
-		$('body').css('background-image','url(<?php echo $unitBackgroundImage ?>)');
+		$('.background').css('background-image','url(<?php echo $unitBackgroundImage ?>)');
 	});
 </script>

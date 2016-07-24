@@ -488,6 +488,8 @@
 			Citizen Fleet Information
 		</div>
 		<div class="player_ships_container">
+			<div class="top-line-yellow">
+			</div>
 			<table id="player_ships">
 				<? echo $display_player_ships; ?>
 			</table>

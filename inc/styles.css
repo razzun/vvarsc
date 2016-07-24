@@ -1,6 +1,7 @@
 html {
-	overflow: -moz-scrollbars-vertical; 
+	/*overflow: -moz-scrollbars-vertical; 
 	overflow-y: scroll;
+	*/
 	height: 100%;
 }
 
@@ -13,11 +14,6 @@ BODY {
     margin: 0;
     padding: 0;
     width: 100%;
-	background-image: url("http://vvarmachine.com/uploads/galleries/Gladius_01.jpg");
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-attachment: fixed !important;
-	background-size: cover !important;
 }
 
 TD {
@@ -55,7 +51,7 @@ form {
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 8px;
-	background: rgba(0,0,0,0.7);
+	background: rgba(0, 0, 0, 0.65);
 	padding-top: 4px;
 	padding-bottom: 4px;	
 }
@@ -153,12 +149,14 @@ h1 {
 }
 
 #MainWrapper {
-	min-height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	min-height: 100vh;
+	/*
+	background-color: rgba(0, 0, 0, 0.65);
 	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
 	background-position: center top;
 	background-repeat: repeat;
 	background-attachment: fixed;
+	*/
 }
 
 #MainWebsiteInner {
@@ -169,31 +167,50 @@ h1 {
 }
 
 /*Parallax Classes*/
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: -6px;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-.parallax__layer--back {
-	background-color: rgba(0, 0, 0, 0.5);
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
-	background-position: center top;
-	background-repeat: repeat;
-	background-attachment: scroll;
-	transform: translateZ(-1px) scale(2);
-}
+	.parallax {
 
+	}
+
+	/* background setup */
+	.background {
+		background-image: url(../images/backgrounds/main_vanguard_2160p.jpg);
+		background-repeat:no-repeat;
+		/* custom background-position */
+		background-position:50% 50%;
+		/* ie8- graceful degradation */
+		background-position:50% 50%\9 !important;
+	}
+
+	/* fullscreen setup */
+	html, body {
+		/* give this to all tags from html to .fullscreen */
+		height:100%;
+	}
+	.fullscreen,
+	.content-a {
+		width:100%;
+		height:100%;
+		overflow:hidden;
+		background-color: rgba(0,0,0,0.3);
+	}
+	.fullscreen.overflow,
+	.fullscreen.overflow .content-a {
+		height:auto;
+		min-height:100%;
+	}
+
+	/* content centering styles */
+	.content-a {
+		/*display:table;*/
+	}
+	.content-b {
+		/*display:table-cell;*/
+		position:relative;
+		vertical-align:middle;
+		min-height: 100%;
+	}
+/*END PARALLAX CLASSES*/
+	
 /*HIDDEN DIV THAT WILL STOP MOUSE CLICKS WHEN MODAL IS OPEN*/
 div#overlay {
    position:fixed;
@@ -208,7 +225,7 @@ div#overlay {
 #CONTENT {
 	margin-right: 8px;
 	margin-left: 8px;
-	padding-bottom: 140px;
+	padding-bottom: 152px;
 	clear: both;
 }
 
@@ -254,7 +271,7 @@ h4 {
 {
 	/*padding: 12px;
 	border-bottom: 1px solid #484848;	border-top: 1px solid #484848;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	border: 1px solid #286E80;
 	border-radius: 5px;
 	border-spacing: 10px;*/
@@ -269,7 +286,7 @@ h4 {
 #HomePage_MainContainer {
 	border-bottom: 1px solid rgb(31, 72, 88);
 	border-left: 4px solid rgb(31, 72, 88);
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7);
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.65);
 	padding-bottom: 2px;
 	padding-top: 8px;
 	padding-left: 12px;
@@ -286,7 +303,7 @@ h4 {
     margin-right: auto;
     width: 95%;
 	height: 140px;
-	margin-top: -144px;
+	margin-top: -152px;
 	clear: both;
 	max-width: 1600px;
 }
@@ -322,7 +339,7 @@ table.tbFleet
 {
 	align:center;
 	width:100%;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	border-top: 1px solid #286E80;
 	border-bottom: 1px solid #286E80;
 	border-radius: 5px;
@@ -333,7 +350,7 @@ table.tbFleet
 	width: 95%;
 	border-spacing: 0px;
 	box-sizing: border-box;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	margin: auto;
 	display: table;
 }
@@ -345,7 +362,7 @@ table.tbFleet
 
 .clickableRow {
 	cursor: pointer;
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7);
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.65);
 	transition: all 0.2s ease 0s;
 	border-collapse: collapse;
 }
@@ -584,7 +601,7 @@ table.tbmem a:hover {
 
 .player_qual_row {
 	display: table;
-	background: rgba(0,0,0,0.7);
+	background: rgba(0, 0, 0, 0.65);
 	margin-bottom: 4px;
 	border-bottom: 1px solid rgba(80, 70, 50, 0.8);
 	margin-left: 4px;
@@ -810,7 +827,7 @@ table.tbmem a:hover {
 }
 
 .player_ships_container {
-
+	position: relative;
 }
 
 .player_ships_row
@@ -984,7 +1001,7 @@ img.player_fleet:hover {
 	padding: 12px 6px;
 	border-top: 1px solid rgba(185, 155, 35, 0.75);
 	border-bottom: 1px solid rgba(185, 155, 35, 0.75);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	width: 100%;
 	border-spacing: 8px;
 }
@@ -1257,11 +1274,11 @@ img {
 	font-weight:normal;
 	white-space: nowrap;
 	background: rgba(0,0,0,0);
-	background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-	background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-	background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-	background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-	background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+	background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0, 0, 0, 0.65) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0, 0, 0, 0.65) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0, 0, 0, 0.65) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0, 0, 0, 0.65) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+	background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 23%, rgba(0, 0, 0, 0.65) 45%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 
@@ -1508,7 +1525,6 @@ img.fleet:after {
 }
 
 .cornerToggle.corner-bottom-left, .cornerToggle2.corner-bottom-left, .corner.corner-bottom-left, .corner2.corner-bottom-left {
-
 	background-position: 0px -2px;
 	left: -1px;
 	bottom: -1px;
@@ -1522,6 +1538,65 @@ img.fleet:after {
 	bottom: -1px;
 	position: absolute;
 	display: block;
+}
+
+.corner4 {
+	display: block;
+	background-image: url("http://sc.vvarmachine.com/images/misc/corner-background-diag.png");
+	width: 30px;
+	height: 30px;
+}
+
+.corner-diag-blue-topLeft {
+	background-position: 0px 0px;
+	left: 0px;
+	top: -6px;
+	position: absolute;
+	display: block;
+}
+
+.corner-diag-blue-topRight {
+	background-position: -30px 0px;
+	right: 0px;
+	top: -6px;
+	position: absolute;
+	display: block;
+}
+
+.corner-diag-blue-bottomLeft {
+	background-position: 0px -30px;
+	left: 0px;
+	bottom: -6px;
+	position: absolute;
+	display: block;
+}
+
+.corner-diag-blue-bottomRight {
+	background-position: -30px -30px;
+	right: -0px;
+	bottom: -6px;
+	position: absolute;
+	display: block;
+}
+
+.top-line {
+	position: absolute;
+	top: 0px;
+	right: 0;
+	width: 256px;
+	height: 2px;
+	background: #37aac1;
+	border-bottom-left-radius: 90px;
+}
+
+.top-line-yellow {
+	position: absolute;
+	top: 0px;
+	right: 0;
+	width: 256px;
+	height: 2px;
+	background: rgb(185, 155, 35);
+	border-bottom-left-radius: 90px;
 }
 
 .tbinfo:hover  img.fleet
@@ -1595,7 +1670,7 @@ img.fleet:after {
 .tbinfo_zoomLevels_Container
 {
 	vertical-align: middle;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.65);
 	border-top: 1px solid rgba(220, 160, 0, 0.75);
 	border-bottom: 1px solid rgba(100, 72, 0, 0.6);
 	margin-bottom: 6px;
@@ -1627,7 +1702,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -1643,7 +1718,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #FFF;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -1672,7 +1747,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #FFF;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -1730,14 +1805,14 @@ img.fleet:after {
 	width: 100%;
 	display: table;
 	text-align: left;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	padding-bottom: 2px;
 }
 
 .yard_main {
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 
 .shipyard_mainTable {
@@ -1754,7 +1829,7 @@ img.fleet:after {
 	margin-bottom: 8px;
 	padding-bottom: 8px;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	padding-left: 4px;
 	padding-right: 4px;
 }
@@ -1852,7 +1927,7 @@ img.fleet:after {
 	text-decoration: none;
 	position: relative;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	border: 1px solid rgba(180, 180, 180, 0.4);
 	cursor: pointer;
 	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
@@ -1893,7 +1968,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -2101,10 +2176,11 @@ img.fleet:after {
 	padding-bottom: 4px;
 	display: inline-table;
 	width: 100%;
+	position: relative;
 }
 
 .shipDetails_rightInfo_ownerInfo_Container {
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.65);
 	border-right: 1px solid rgba(68, 68, 68, 0.7);
 }
 
@@ -2383,7 +2459,7 @@ img.fleet:after {
 	padding-right: 6px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	width: 100%;
 	border-spacing: 8px;
 }
@@ -2399,7 +2475,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -2415,7 +2491,7 @@ img.fleet:after {
 	padding-right: 8px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 	color: #FFF;
 	text-shadow: 0px 0px 8px #00A0B6;
 	cursor: pointer;
@@ -2628,7 +2704,7 @@ admin_menu ul li:hover > ul {
 }
 
 admin_menu ul li:hover {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 
 admin_menu ul li a:hover {
@@ -2789,7 +2865,7 @@ admin_menu ul li {
 	padding-right: 6px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);	
+	background-color: rgba(0, 0, 0, 0.65);	
 }
 
 .links_main_table_row {
@@ -2872,7 +2948,6 @@ admin_menu ul li {
 
 .units_main_container h3 {
 	padding-left: 12px;
-	padding-bottom: 2px;
 }
 
 .unit_details_container {
@@ -2883,23 +2958,24 @@ admin_menu ul li {
 	padding-right: 6px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	font-size: 10pt;
 	color: #A2B5D2;	
 }
 
 .unit_description_container {
 	height: 100%;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	padding-left: 6px;
-	padding-right: 6px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	padding-left: 24px;
+	padding-right: 24px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	font-size: 12pt;
 	color: #FFF;
 	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	position: relative;
 }
 
 .units_tree_container {
@@ -2910,7 +2986,7 @@ admin_menu ul li {
 	padding-right: 6px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 
 .unitHierarchy {
@@ -3107,7 +3183,7 @@ admin_menu ul li {
 	width: 98%;
 	border-spacing: 0px;
 	box-sizing: border-box;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
 	margin: auto;
 	display: table;
 	transition: all 0.3s ease;

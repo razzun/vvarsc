@@ -616,12 +616,10 @@
 		</div>
 		-->
 		<div class="shipDetails_rightInfo_Container">
-			<div class="table_header_block">
-			</div>
-			<div class="shipDetails_info_title">
-				Owners
-			</div>
 			<div class="shipDetails_rightInfo_ownerInfo_Container">
+				<div class="shipDetails_info_title">
+					Owners
+				</div>
 				<table class="shipDetails_ownerInfo_table">
 					<?echo $display_owners; ?>
 				</table>

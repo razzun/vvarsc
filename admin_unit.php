@@ -425,8 +425,14 @@
 	<div class="div_filters_entry">
 		<a href="http://sc.vvarmachine.com/admin_units">&#8672; Back to Unit Management</a>
 	</div>
+	<br />
+	<br />
+	<div class="div_filters_entry">
+		<a href="http://sc.vvarmachine.com/unit/<? echo $unitID ?>">Unit Details Page</a>
+	</div>
 </div>
 <h2>Unit Management - <? echo $unitName ?></h2>
+
 <div id="TEXT">
 	<div id="adminUnitDetailsTableContainer" class="adminTableContainer">
 	

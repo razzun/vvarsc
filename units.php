@@ -206,6 +206,24 @@
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
     $(document).ready(function () {
+
+	/*
+		var mainClass = $('#MainWrapper');
+		var footerClass = $('#FOOTER');
+	
+		$('.parallax__layer').css('height', mainClass.height() );
+		
+		var img = new Image;
+		img.src = $('#parallax__layer--back3').css('background-image').replace(/url\(|\)$/ig, "");
+		var bgImgWidth = img.width;
+		var bgImgHeight = img.height;		
+		
+		var scaleFactor = mainClass.height() / bgImgHeight;
+		
+		$('#parallax__layer--back3').css({
+			transform: 'translateZ(-4px) scale(5)'
+		});
+*/
 		
 		<!--Hide All Other Nodes-->
         $(".unitHierarchyChildren").hide();
@@ -225,30 +243,7 @@
 			
             $(this).parent().parent().children(".unitHierarchyChildren").slideToggle(500);
 			$(this).toggleClass('rotate90CW');
-			
-			setTimeout(function(){	
-				resizeSpacer();
-			}.bind(this), 500); 
-        });
-		
-		function resizeSpacer()
-		{
-			//Script to adjust dynamic spacer height
-			var height = $(window).height();
-			//var newContentHeight = websiteClass.height();
-			
-			var footer = $('#FOOTER');
-			var fHeight = footer.height();
-			
-			var spacerClass = $('#dynamicSpacer');
-			//var currentSpacerHeight= spacerClass.height();
-			
-			var minHeight = (height - $('#CONTENT').offset().top - 8);
-			var newSpacerHeight = (minHeight - spacerClass.offset().top - fHeight + 20);
-			
-			spacerClass.css({
-				"height": newSpacerHeight +'px'
-			});			
-		}
+
+        });	
     });
 </script>
