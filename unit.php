@@ -139,6 +139,7 @@
 								else u.UnitFullName
 							end as UnitName
 							,u.UnitDepth
+							,u.UnitLevel
 							,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 							,u.ParentUnitID
 							,u.UnitSlogan
@@ -152,10 +153,7 @@
 							,r.rank_tinyImage
 							,r.rank_level
 							,r.rank_groupName
-							,case
-								when r2.role_shortName = '' then r2.role_name
-								else r2.role_shortName
-							end as RoleName
+							,r2.role_name as RoleName
 							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
 						from projectx_vvarsc2.Units u
 						left join projectx_vvarsc2.UnitMembers um
@@ -175,9 +173,12 @@
 		
 		$unit_query_result = $connection->query($unit_query);
 		
+		$display_members = "";
+		
 		while(($row1 = $unit_query_result->fetch_assoc()) != false) {
 		
 			$depth = $row1['UnitDepth'];
+			$unitLevel = $row1['UnitLevel'];
 			$divName = $row1['div_name'];
 			$unitName = $row1['UnitName'];
 			$unitSlogan = $row1['UnitSlogan'];
@@ -247,6 +248,9 @@
 				";				
 			}
 		}
+		
+		$displayUnitDescription1 = "";
+		$displayUnitDescription2 = "";
 		
 		if ($depth < 5)
 		{
@@ -365,7 +369,6 @@
 			);
 		}
 		
-		$connection->close();
 		
 		if (($divName == "Military" && $depth < 4)
 			|| ($divName == "Economy" && $depth < 2)
@@ -389,6 +392,8 @@
 			$displayChildren2 = "";
 		}
 		
+		$display_selectors = "";
+		
 		if ($parentUnitID == 0)
 		{
 			$display_selectors .= "
@@ -410,7 +415,192 @@
 			";
 		}
 		
+		$unitShipsQuery = "
+			select
+				m.manu_shortName
+				,s.ship_id
+				,s.ship_name
+				,s.ship_model_designation
+				,s.ship_model_visible
+				,s.ship_link
+				,s.ship_silo
+				,s.ship_price
+				,REPLACE(s.ship_classification,'_',' ') as ship_classification
+				,sed.ship_max_crew
+				,us.Purpose
+			from projectx_vvarsc2.UnitShips us
+			join projectx_vvarsc2.ships s
+				on s.ship_id = us.ShipID
+			join projectx_vvarsc2.manufacturers m
+				on m.manu_id = s.manufacturers_manu_id
+			join projectx_vvarsc2.ship_extended_data sed
+				on sed.ships_ship_id = s.ship_id
+			where us.UnitID = $UnitID
+			order by
+				m.manu_shortName
+				,s.ship_name
+		";
 		
+		$unitShips_query_results = $connection->query($unitShipsQuery);
+		
+		$displayUnitShips = "";
+		
+		if($unitLevel == "Squadron")
+		{
+			$displayUnitShips .= "
+				<br />
+				<h3>
+					Supported Equipment
+				</h3>
+				<div class=\"player_ships_container\">
+					<div class=\"top-line-yellow\">
+					</div>
+					<table id=\"player_ships\">
+			";
+		}
+		
+		if(mysqli_num_rows($unitShips_query_results) > 0)
+		{
+			while(($row2 = $unitShips_query_results->fetch_assoc()) != false)
+			{
+				$manu_shortName = $row2['manu_shortName'];
+				$ship_id = $row2['ship_id'];
+				$ship_name = $row2['ship_name'];
+				$ship_model_designation = $row2['ship_model_designation'];
+				$ship_model_visible = $row2['ship_model_visible'];
+				$ship_link = $row2['ship_link'];
+				$ship_silo = $row2['ship_silo'];
+				$ship_price = $row2['ship_price'];
+				$ship_purpose = $row2['Purpose'];
+				$ship_classification = $row2['ship_classification'];
+				$ship_max_crew = $row2['ship_max_crew'];
+				
+				if ($ship_model_designation != NULL && $ship_model_visible != "0") {
+					$full_ship_name = "";
+					$full_ship_name .= $ship_model_designation;
+					$full_ship_name .= " \n";
+					$full_ship_name .= $ship_name;
+				}
+				else
+				{
+					$full_ship_name = $ship_name;
+				}	
+				
+				if($unitLevel == "Squadron")
+				{
+					$displayUnitShips .= "
+					<tr class=\"player_ships_row\">
+						<td class=\"player_ships_entry\">
+						
+							<div class=\"player_ships_shipTitle\">
+								<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+									<div class=\"player_ships_shipTitleText\">
+										$manu_shortName $full_ship_name
+									</div>
+								</a>	
+							</div>
+							<div class=\"player_ships_entry_details\">
+								<div class=\"shipTable2_Container\">
+									<div class=\"corner2 corner-top-left\">
+									</div>
+									<div class=\"corner2 corner-top-right\">
+									</div>
+									<div class=\"corner2 corner-bottom-left\">
+									</div>
+									<div class=\"corner2 corner-bottom-right\">
+									</div>
+									<table class=\"tooltip_shipTable2\">									
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Classification
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\">
+												$ship_classification
+												</div>
+											</td>
+										</tr>										
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Purpose
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\">
+												$ship_purpose
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Maximum Crew
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\">
+												$ship_max_crew
+												</div>
+											</td>
+										</tr>								
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Purchase Price
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\">
+												$$ship_price
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>						
+						</td>
+
+						<td class=\"player_ships_entry_ship\">
+							<div class=\"player_ships_entry_ship_inner\">
+								<div class=\"player_ships_entry_ship_inner_imageContainer\">
+									<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+										<img class=\"player_fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo\" />
+									</a>
+								</div>
+							</div>
+							<div class=\"playerShips_table_header_block2\">
+							</div>
+						</td>
+					</tr>";
+				}
+			}
+		}
+		else
+		{
+			if ($unitLevel == "Squadron")
+			{
+				$displayUnitShips .= "
+					<tr>
+						<td>
+							<em>- No Ships Currently Registered -</em>
+						</td>
+					</tr>
+				";		
+			}
+		}
+		
+		if($unitLevel == "Squadron")
+		{
+			$displayUnitShips .= "
+					</table>
+				</div>
+			";
+		}
+		
+		$connection->close();
 	}
 	else
 	{
@@ -433,7 +623,7 @@
 		
 		<? echo $displayUnitDescription1 ?>
 		<? echo nl2br($displayUnitDescriptionContent) ?>
-		<? echo $displayUnitDescription2 ?>
+		<? echo $displayUnitDescription2 ?>		
 		
 		<br />
 		<h3>
@@ -446,6 +636,8 @@
 				<?echo $display_members; ?>
 			</table>
 		</div>
+		
+		<? echo $displayUnitShips ?>
 		
 		<? echo $displayChildren1 ?>
 		<? generate_list($units,$UnitID,($depth + 1),0); ?>
@@ -513,4 +705,58 @@
 	$(document).ready(function() {
 		$('.background').css('background-image','url(<?php echo $unitBackgroundImage ?>)');
 	});
+</script>
+
+<!--Script to Resize Fleet Images-->
+<script>
+
+	$(document).ready(function() {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});
+	
+	$(window).resize(function () {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+			
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});	
+
 </script>

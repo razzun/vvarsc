@@ -20,16 +20,17 @@
 				</td>
 				<td class="links_table_cell_content">
 					<div class="links_table_cell_content_inner">
-					<a href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F5%2F10" target="_blank">Fleet Structure Document</a>
-					<br />
-					<br />
-					<a href="https://forums.robertsspaceindustries.com/discussion/53591/vvarmachine-global-pvp-pve-trading-exploration-military#latest" target="_blank">RSI Forums Recruitment Thread</a>
-					<br />
-					<br />
-					<a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">RSI Organization Page</a>
-					<br />
-					<br />
-					<a href="http://vvarmachine.com/forum/index.php?page=forumview&id=star-citizen-discussion" target="_blank">VVAR Star Citizen Forums</a>									</div>
+						<a href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F5%2F10" target="_blank">Fleet Structure Document</a>
+						<br />
+						<br />
+						<a href="https://forums.robertsspaceindustries.com/discussion/53591/vvarmachine-military-structured-self-sufficient-uee-friendly/" target="_blank">RSI Forums Recruitment Thread</a>
+						<br />
+						<br />
+						<a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">RSI Organization Page</a>
+						<br />
+						<br />
+						<a href="http://vvarmachine.com/forum/index.php?page=forumview&id=star-citizen-discussion" target="_blank">VVAR Star Citizen Forums</a>									
+					</div>
 				</td>
 			</tr>
 			<tr class="links_main_table_row">
