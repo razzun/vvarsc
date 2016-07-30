@@ -6,6 +6,8 @@
 	$display_player_ships;
 	$display_player_qualifications;
 	$ship_count;
+	
+	$loggedInPlayer = $_SESSION['sess_user_id'];
     
     if(is_numeric($player_id)) {
     	$play_query = "SELECT
@@ -349,6 +351,14 @@
 			";
 		}
 		
+		$display_edit_options = "";
+		if ($loggedInPlayer == $player_id)
+		{
+			$display_edit_options .= "
+				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile (coming soon)</button>
+			";
+		}
+		
     	$connection->close();
     } else {
         header("Location: http://sc.vvarmachine.com/?page=members");
@@ -482,7 +492,12 @@
 				</table>
 			</div>
 		</div>
+		<!--Edit Options-->
+		<div>
+			<? echo $display_edit_options ?>
+		</div>
 	</div>
+	<!--PlayerShips-->
 	<div class="player_shipsTable_Container">
 		<div class="p_section_header">
 			Citizen Fleet Information
