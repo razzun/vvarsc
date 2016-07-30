@@ -49,7 +49,7 @@
 
 			if($_SESSION['sess_userrole'] == "admin")
 			{
-				header("Location: http://sc.vvarmachine.com/index.php?page=admin");
+				header("Location: http://sc.vvarmachine.com/admin/index.php");
 			}
 			else{
 				header("Location: http://sc.vvarmachine.com/index.php");

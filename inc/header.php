@@ -62,7 +62,7 @@
 				</div>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
-						<a class="navbar_inner" href=/admin>Admin Zone</a>
+						<a class="navbar_inner" href=/admin/index.php>Admin Zone</a>
 					</div>
 				</div>
 				<div class="nav_entry">

@@ -44,7 +44,7 @@
 					$memID					
 				</td>
 				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
-					<a href=\"player/$memID\" target=\"_top\">
+					<a href=\"../player/$memID\" target=\"_top\">
 						$memName
 					</a>
 				</td>
@@ -224,7 +224,7 @@
 			var $self = jQuery(this);
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
 			
-			window.location.href = "http://sc.vvarmachine.com/admin_playerShips/" + memID;
+			window.location.href = "?page=admin_playerShips/" + memID;
 		});	
 		
 		//Cancel
@@ -250,7 +250,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
+		<a href="http://sc.vvarmachine.com/admin/index.php">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Member Management</h2>
