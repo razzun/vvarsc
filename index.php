@@ -77,35 +77,35 @@
 									/** Admin Links **/
 									/*****************/
 									case "admin":
-										$content = "admin.php";
+										$content = "admin/admin.php";
 										break;
 
 									case "admin_manu":
-										$content = "admin_manu.php";
+										$content = "admin/admin_manu.php";
 										break;
 								
 									case "admin_ship":
-										$content = "admin_ship.php";
+										$content = "admin/admin_ship.php";
 										break;
 								
 									case "admin_mem":
-										$content = "admin_mem.php";
+										$content = "admin/admin_mem.php";
 										break;
 								
 									case "admin_playerShips":
-										$content = "admin_playerShips.php";
+										$content = "admin/admin_playerShips.php";
 										break;
 								
 									case "admin_roles":
-										$content = "admin_roles.php";
+										$content = "admin/admin_roles.php";
 										break;
 								
 									case "admin_units":
-										$content = "admin_units.php";
+										$content = "admin/admin_units.php";
 										break;
 								
 									case "admin_unit":
-										$content = "admin_unit.php";
+										$content = "admin/admin_unit.php";
 										break;
 									
 									/******************/
