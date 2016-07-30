@@ -1,3 +1,16 @@
+<?
+	$display_login = "";
+	
+	if(isset($_SESSION['sess_username']))
+	{
+		$display_login .= "<a class=\"navbar_inner\" href=/logout.php>Logout</a>";
+	}
+	else
+	{
+		$display_login .= "<a class=\"navbar_inner\" href=/login.php>Login</a>";
+	}
+?>
+
 <div id="header">
 	<!--
 	<div class="HeaderContainer">
@@ -67,7 +80,10 @@
 				</div>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
+						<!--
 						<a class="navbar_inner" href=/logout.php>Logout</a>
+						-->
+						<? echo $display_login ?>
 					</div>
 				</div>
 			</div>
