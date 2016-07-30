@@ -44,14 +44,16 @@
 			$_SESSION['sess_userrole'] = $row['websiteRole'];
 
 			session_write_close();
+			
+			//print_r($_SESSION);
 
-			if( $_SESSION['sess_userrole'] == "admin")
+			if($_SESSION['sess_userrole'] == "admin")
 			{
-				header("Location: http://sc.vvarmachine.com/index.php");
+				header("Location: http://sc.vvarmachine.com/index.php?page=admin");
 			}
 			else{
 				header("Location: http://sc.vvarmachine.com/index.php");
-			}			
+			}		
 		}
 	}
 	else

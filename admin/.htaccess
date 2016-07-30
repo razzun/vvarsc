@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "VVARSC"
+AuthUserFile "/home3/projectx/.htpasswds/public_html/vvarnc/vvarsc/admin/passwd"
+require valid-user

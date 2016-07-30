@@ -1,0 +1,5 @@
+[30-Jul-2016 14:35:22 America/Denver] PHP Warning:  include_once(functions/function_auth_admin.php): failed to open stream: No such file or directory in /home3/projectx/public_html/vvarnc/vvarsc/admin/admin.php on line 1
+[30-Jul-2016 14:35:22 America/Denver] PHP Warning:  include_once(): Failed opening 'functions/function_auth_admin.php' for inclusion (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/projectx/public_html/vvarnc/vvarsc/admin/admin.php on line 1
+[30-Jul-2016 14:35:22 America/Denver] PHP Warning:  include_once(functions/function_auth_admin.php): failed to open stream: No such file or directory in /home3/projectx/public_html/vvarnc/vvarsc/admin/admin_menu.php on line 1
+[30-Jul-2016 14:35:22 America/Denver] PHP Warning:  include_once(): Failed opening 'functions/function_auth_admin.php' for inclusion (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/projectx/public_html/vvarnc/vvarsc/admin/admin_menu.php on line 1
+[30-Jul-2016 14:35:22 America/Denver] PHP Notice:  Undefined variable: _SESSION in /home3/projectx/public_html/vvarnc/vvarsc/admin/admin.php on line 9
