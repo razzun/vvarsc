@@ -7,5 +7,6 @@ RewriteEngine on
 #RewriteMap memmap txt:/www/vvarnc/vvarsc/map.txt
 
 # get variables in this order, [object], [object,action], [object,action,selection]
-RewriteRule ^([^/]*)/([^/]*)\.php$ /admin/?page=$1&pid=$2 [L]
+RewriteRule ^([^/\.]+)/admin/?$ /admin/index.php?page=$1 [L]
+RewriteRule ^([^/]*)/([^/]*)\?$ /admin/?page=$1&pid=$2 [L]
 #RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/?$ /index.php?object=$1&action=$2&selection=$3 [L,NC,QSA]
