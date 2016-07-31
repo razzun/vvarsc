@@ -52,7 +52,8 @@ form {
 	margin-right:auto;
 	margin-top: 8px;
 	padding-top: 4px;
-	padding-bottom: 4px;	
+	padding-bottom: 4px;
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
 }
 
 
@@ -90,7 +91,7 @@ nav
 
 .headerLoginLink {
 	font-weight: bold;
-	color: #1F6585 !important;
+	color: rgb(255, 220, 0) !important;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
@@ -2737,32 +2738,100 @@ img.fleet:after {
 
 /*END Hover Controls */
 /* -----------------------------------------------*/
-
-admin_menu ul li:hover > ul {
-	display: block;
+#adminMenuContainer
+{
+	min-height: 100%;
+	display: table-cell;
+	vertical-align: top;
+	position: relative;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	transition: all 0.4s ease 0s;
+	text-align: left;
+	height: inherit;
+	width: 15%;
 }
 
-admin_menu ul li:hover {
-	background-color: rgba(0, 0, 0, 0.65);
+#admin_menu
+{
+	background-color: rgba(2, 6, 14, 0.7);
+	border: 1px solid #222;
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	text-align: left;
+	display: inline-table;
+	margin-right: 12px;
+	position: relative;
 }
 
-admin_menu ul li a:hover {
+#admin_menu ul li a
+{
+	color: #DDD;
+	font-size: 10pt;
+	font-variant: small-caps;
+	font-family: orbitron;
+	text-decoration: none;
+	font-style: italic;
+}
+
+#admin_menu ul li a:hover {
 	background-color: rgba(0, 0, 0, 0.0);
 }
 
-admin_menu ul {
-	float: left;
-	display: block;
-	list-style: none;
-	margin: 0px 20px 20px 0px;
-	padding: 10px;
-	background: #4D4D4D;
-	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+#admin_menu ul {
+	padding-right: 8px;
+	padding-left: 24px;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
-admin_menu ul li {
+#admin_menu ul li {
 	margin: 0px;
 	padding: 5px;
+}
+
+#adminMainTextContainer
+{
+	display: table-cell;
+	height: 100%;
+	padding-top: 12px;
+	padding-bottom: 20px;
+	padding-left: 18px;
+	padding-right: 18px;
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
+	background-color: rgba(0, 0, 0, 0.50);
+	width: 85%;
+	position: relative;
+}
+
+#adminMainText
+{
+	background-color: rgba(0, 0, 0, 0.70);
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-right: 6px solid #1F4858;
+	border-bottom: 1px solid #1F4858;
+}
+
+#adminMainText p
+{
+	margin-bottom: 0px !important;
+	font-style: italic;
+	font-size: 10pt;
+}
+
+#adminMainText p strong
+{
+	color: #DDD;
+	text-shadow: 0px 0px 8px #00A0B6;
+	font-size: 12pt;
+	font-variant: small-caps;
+	font-family: orbitron;
+	font-style: normal;	
 }
 
 /* VISIBILITY VARIABLES FOR DYNAMIC CONTENT IN SIDE PANEL */

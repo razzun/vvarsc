@@ -22,6 +22,10 @@
 ?>
 
 <div id="header">
+	<div class="top-line">
+	</div>
+	<div class="corner4 corner-diag-blue-topRight">
+	</div>
 	<!--
 	<div class="HeaderContainer">
 		<img class="height="105" width="1200" border="0" src="http://vvarmachine.com/themes/starcitzen/images_custom/2banner_04_noBorder.png"/>
