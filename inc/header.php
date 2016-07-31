@@ -1,21 +1,23 @@
 <?
 	$display_login = "";
-	$userURL = "";
 	
 	if(isset($_SESSION['sess_username']))
 	{
 		$userName = $_SESSION['sess_username'];
 		$userID = $_SESSION['sess_user_id'];
-		$userURL .= "
+		$display_login .= "
 			<div>
-				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a>
+				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
 			</div>
-			";
-		$display_login .= "<a class=\"navbar_inner\" href=/logout.php>Logout</a>";
+		";
 	}
 	else
 	{
-		$display_login .= "<a class=\"navbar_inner\" href=/login.php>Login</a>";
+		$display_login .= "
+			<div>
+				<a class=\"headerLoginLink\" href=/login.php>Login</a>
+			</div>
+		";
 	}
 ?>
 
@@ -26,7 +28,7 @@
 	</div>
 	-->
 	<div id="nav_player_info">
-		<? echo $userURL ?>
+		<? echo $display_login ?>
 	</div>
 	<div id="nav_container">
 		<div id="nav_header">
@@ -87,14 +89,6 @@
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/admin/">Admin Zone</a>
-					</div>
-				</div>
-				<div class="nav_entry">
-					<div class="nav_entry_inner">
-						<!--
-						<a class="navbar_inner" href=/logout.php>Logout</a>
-						-->
-						<? echo $display_login ?>
 					</div>
 				</div>
 			</div>

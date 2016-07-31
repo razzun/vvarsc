@@ -47,14 +47,14 @@ form {
 }
 
 #header {
-	width:90%;
+	width:95%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 8px;
-	background: rgba(0, 0, 0, 0.65);
 	padding-top: 4px;
 	padding-bottom: 4px;	
 }
+
 
 .HeaderContainer {
 	text-align: center;
@@ -70,7 +70,7 @@ nav
 	margin-right: auto;
 	position: relative;
 	display: table;
-	width: 99%;
+	width: 100%;
 }
 
 #nav_player_info {
@@ -84,10 +84,26 @@ nav
 
 #nav_player_info a{
 	vertical-align: inherit;
+	text-decoration: none;
+	color: #FFF;
 }
+
+.headerLoginLink {
+	font-weight: bold;
+	color: #1F6585 !important;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+}
+
+.headerLoginLink:hover {
+	color: #FFF !important;
+}
+
 
 #nav_container {
 	margin: auto;
+	background: rgba(0, 0, 0, 0.65);
 }
 
 #nav_header {
