@@ -250,7 +250,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/index.php">&#8672; Back to Admin Home</a>
+		<a href="index.php">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Member Management</h2>
