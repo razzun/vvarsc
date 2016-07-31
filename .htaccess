@@ -1,6 +1,12 @@
 # Use PHP5.4 as default
 AddHandler application/x-httpd-php54 .php
 
+# Disable directory transversal
+# For security reasons, Option all cannot be overridden.
+#Options All -Indexes
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
+RedirectMatch 404 /\..*$
+
 # turn rewriting on
 RewriteEngine on
 
