@@ -109,6 +109,7 @@ nav
 
 #nav_header {
 	display: none;
+	cursor: pointer;
 }
 
 #nav_header_text {
@@ -121,10 +122,12 @@ nav
 	font-style: italic;
 	color: #EEE;
 	text-shadow: 0px 0px 16px #00A0B6;
+	width: 100%;
 }
 
 .nav_header_arrow {
 	display: none;
+	text-align: left;
 }
 
 .nav_content {
@@ -1613,10 +1616,14 @@ img.fleet:after {
 
 .corner-diag-blue-bottomRight {
 	background-position: -30px -30px;
-	right: -0px;
+	right: 0px;
 	bottom: -6px;
 	position: absolute;
 	display: block;
+}
+
+.headerCornerTopRight {
+	top: -5px;
 }
 
 .top-line {
@@ -3758,8 +3765,22 @@ img.fleet:after {
 		width: 100%;
 		padding-right: 4px;
 	}
-	
 	/*End Units Page*/
+	
+	/*Admin Page*/
+	#adminMenuContainer {
+		display: inline-block;
+		margin-bottom: 8px;
+		width: 100%;
+	}
+	
+	#adminMainTextContainer {
+		display: inline-block;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;		
+	}
+	/*End Admin Page*/
 	
 }
 

@@ -24,7 +24,7 @@
 <div id="header">
 	<div class="top-line">
 	</div>
-	<div class="corner4 corner-diag-blue-topRight">
+	<div class="corner4 corner-diag-blue-topRight headerCornerTopRight">
 	</div>
 	<!--
 	<div class="HeaderContainer">
@@ -111,9 +111,9 @@
 			$(".nav_content").show();
 		}
 		
-		$(".nav_header_arrow").click(function () {
-			$(this).parent().parent().find(".nav_content").slideToggle(500);
-			$(this).toggleClass('rotate90CW');
+		$("#nav_header").click(function () {
+			$(this).parent().find(".nav_content").slideToggle(500);
+			$(this).find('.nav_header_arrow').toggleClass('rotate90CW');
 		});		
     });
 
