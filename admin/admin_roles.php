@@ -176,7 +176,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
+		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Roles Management</h2>
@@ -213,7 +213,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Enter new Role Information Below.</p>
-			<form class="adminDialogForm" action="/functions/function_role_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_role_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name" class="adminDialogInputLabel">
 						Name
@@ -259,7 +259,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Role Information</p>
-			<form class="adminDialogForm" action="functions/function_role_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_role_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -310,7 +310,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Role? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="functions/function_role_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_role_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>

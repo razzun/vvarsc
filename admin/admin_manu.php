@@ -146,7 +146,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
+		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Manufacturer Management</h2>

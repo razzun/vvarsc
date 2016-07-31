@@ -46,7 +46,7 @@
 					$unitID
 				</td>
 				<td class=\"adminTableRowTD unitName\" data-name=\"$unitName\">
-					<a href=\"unit/$unitID\" target=\"_top\">	
+					<a href=\"../unit/$unitID\" target=\"_top\">	
 						$unitName
 					</a>	
 				</td>
@@ -63,7 +63,7 @@
 					$unitLevel
 				</td>
 				<td class=\"adminTableRowTD unitLeaderName\" data-leadername=\"$unitLeaderName\" data-id=\"$unitLeaderID\">
-					<a href=\"player/$unitLeaderID\" target=\"_top\">	
+					<a href=\"../player/$unitLeaderID\" target=\"_top\">	
 						$unitLeaderName
 					</a>
 				</td>
@@ -189,7 +189,7 @@
 			var unitID = $self.parent().parent().find('.adminTableRowTD.unitID').data("id");
 			
 			//Launch Unit Edit Page
-			window.location.href = "http://sc.vvarmachine.com/admin_unit/" + unitID;
+			window.location.href = "http://sc.vvarmachine.com/admin/?page=admin_unit&pid=" + unitID;
 			
 			/*
 			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("id");
@@ -274,7 +274,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin">&#8672; Back to Admin Home</a>
+		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Unit Management</h2>
@@ -323,7 +323,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Enter new Unit Information Below.</p>
-			<form class="adminDialogForm" action="/functions/function_unit_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ParentUnit" class="adminDialogInputLabel">
@@ -396,7 +396,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Unit Information</p>
-			<form class="adminDialogForm" action="functions/function_unit_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ID" class="adminDialogInputLabel">
@@ -474,7 +474,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Unit? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="functions/function_unit_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ID" class="adminDialogInputLabel">

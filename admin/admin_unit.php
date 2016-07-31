@@ -423,7 +423,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin_units">&#8672; Back to Unit Management</a>
+		<a href="http://sc.vvarmachine.com/admin/?page=admin_units">&#8672; Back to Unit Management</a>
 	</div>
 	<br />
 	<br />
@@ -437,7 +437,7 @@
 	<div id="adminUnitDetailsTableContainer" class="adminTableContainer">
 	
 		<!--MAIN FORM (Unit EDIT) -->
-		<form class="adminDialogForm adminObjectDetails" id="dialog-form-edit" action="/functions/function_unit_Edit.php" method="POST" role="form">
+		<form class="adminDialogForm adminObjectDetails" id="dialog-form-edit" action="http://sc.vvarmachine.com/functions/function_unit_Edit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<div class="adminEntryRow unitID" data-id="<? echo $unitID ?>">
 					<div class="adminDetailEntryKey">
@@ -594,7 +594,7 @@
 		</button>
 		<p class="validateTips">Add Member to Unit Here!</p>
 		<p class="validateTips">All Fields are Required.</p>
-		<form class="adminDialogForm" action="/functions/function_unit_AddMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_AddMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<!--
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -639,7 +639,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Please Confirm Change in Leader</p>
-		<form class="adminDialogForm" action="/functions/function_unit_AssignMemberAsLeader.php" method="POST" role="form">
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_AssignMemberAsLeader.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
@@ -674,7 +674,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update UnitMember Information</p>
-		<form class="adminDialogForm" action="/functions/function_unit_EditMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_EditMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -720,7 +720,7 @@
 		</button>
 		<p class="validateTips">Confirmation Required!</p>
 		<p class="validateTips">Are you sure you want to Remove this Member from the Unit?</p>
-		<form class="adminDialogForm" action="/functions/function_unit_DeleteMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_DeleteMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">

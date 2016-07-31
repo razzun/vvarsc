@@ -217,7 +217,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin_mem">&#8672; Back to Member Management</a>
+		<a href="http://sc.vvarmachine.com/admin/?page=admin_mem">&#8672; Back to Member Management</a>
 	</div>
 </div>
 <h2>
@@ -260,7 +260,7 @@
 			</button>
 			<p class="validateTips">Add Ship to Member Here!</p>
 			<p class="validateTips">All Fields are Required.</p>
-			<form class="adminDialogForm" action="/functions/function_playerShip_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_playerShip_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<!--
 					<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -326,7 +326,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update PlayerShip Entry</p>
-			<form class="adminDialogForm" action="/functions/function_playerShip_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_playerShip_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="RowID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -382,7 +382,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Remove the Ship from this Member?</p>
-			<form class="adminDialogForm" action="/functions/function_playerShip_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_playerShip_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="RowID" class="adminDialogInputLabel">
 						RowID

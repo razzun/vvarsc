@@ -250,7 +250,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="index.php">&#8672; Back to Admin Home</a>
+		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2>Member Management</h2>
@@ -288,7 +288,7 @@
 			</button>
 			<p class="validateTips">Enter new Member Information Below.</p>
 			<p class="validateTips">All Fields are Required.</p>
-			<form class="adminDialogForm" action="/functions/function_mem_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name" class="adminDialogInputLabel">
 						Name
@@ -334,7 +334,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Member Information</p>
-			<form class="adminDialogForm" action="functions/function_mem_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -379,7 +379,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Member? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="functions/function_mem_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
