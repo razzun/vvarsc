@@ -9,6 +9,5 @@ RewriteEngine on
 # get variables in this order, [object], [object,action], [object,action,selection]
 RewriteRule ^([^/\.]+)/?$ /index.php?page=$1 [L,NC,QSA]
 RewriteRule ^([^/\.]+)/([^/\.]+)/?$ /index.php?page=$1&pid=$2 [L,NC,QSA]
-RewriteRule ^([^/\.]+)/([^/\.]+)/?$ /admin/index.php?page=$1 [L,NC,QSA]
-RewriteRule ^([^/\.]+)/([^/\.]+)/?$ /admin/index.php?page=$1&memID=$2 [L,NC,QSA]
+RewriteRule ^([^/]*)/([^/]*)\.php$ /admin/?page=$1&pid=$2 [L]
 #RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/?$ /index.php?object=$1&action=$2&selection=$3 [L,NC,QSA]

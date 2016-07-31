@@ -1,4 +1,4 @@
-<?php include_once('functions/function_auth_admin.php'); ?>
+<?php include_once('../functions/function_auth_admin.php'); ?>
 
 <?php
 	$player_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');

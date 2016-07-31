@@ -224,7 +224,7 @@
 			var $self = jQuery(this);
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
 			
-			window.location.href = "?page=admin_playerShips/" + memID;
+			window.location.href = "?page=admin_playerShips&pid=" + memID;
 		});	
 		
 		//Cancel

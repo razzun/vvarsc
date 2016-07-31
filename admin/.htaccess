@@ -1,4 +1,11 @@
-AuthType Basic
-AuthName "VVARSC"
-AuthUserFile "/home3/projectx/.htpasswds/public_html/vvarnc/vvarsc/admin/passwd"
-require valid-user
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+
+# turn rewriting on
+RewriteEngine on
+
+#RewriteMap memmap txt:/www/vvarnc/vvarsc/map.txt
+
+# get variables in this order, [object], [object,action], [object,action,selection]
+RewriteRule ^([^/]*)/([^/]*)\.php$ /admin/?page=$1&pid=$2 [L]
+#RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/?$ /index.php?object=$1&action=$2&selection=$3 [L,NC,QSA]
