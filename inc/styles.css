@@ -970,7 +970,7 @@ ts.pship img {
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	position: relative;
-	background-color: rgba(2, 6, 14, 0.55);
+	background-color: rgba(2, 6, 14, 0.7);
 	border: 1px solid #222;
 	padding: 4px;
 	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
@@ -2233,7 +2233,7 @@ img.fleet:after {
     height: 68px;
     width: 68px;
     position: relative;
-    background-color: rgba(2, 6, 14, 0.55);
+    background-color: rgba(2, 6, 14, 0.7);
     border: 1px solid #222;
     transition: all 0.4s ease 0s;
 	padding-left: 8px;
@@ -2556,7 +2556,7 @@ img.fleet:after {
 	position: relative;
 	padding-left: 16px;
 	padding-right: 16px;
-    background-color: rgba(2, 6, 14, 0.55);
+    background-color: rgba(2, 6, 14, 0.7);
     border: 1px solid #222;	
 	transition: all 0.4s ease 0s;
 	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
