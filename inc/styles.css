@@ -940,6 +940,15 @@ ts.pship img {
 	height: 100%;
 }
 
+.player_ships_entry_buttons_buttonContainer
+{
+	text-align: right;
+	vertical-align: middle;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
 .player_ships_entry_ship_inner_imageContainer {
 	display: table-cell;
 	vertical-align: middle;

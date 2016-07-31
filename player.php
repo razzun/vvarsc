@@ -38,6 +38,7 @@
 			,ships.ship_id
 			,ships.ship_price
     		,shm.shm_lti
+			,shm.shm_package
 			,u.UnitID
 			,case
 				when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
@@ -94,7 +95,7 @@
 			$ship_cost = $row['ship_price'];
 			$ship_id = $row['ship_id'];
     		$shm_lti = $row['shm_lti'];
-    		/*$shm_package = $row['shm_package'];*/
+    		$shm_package = $row['shm_package'];
 			$shm_createdOn = $row['CreatedOn'];
 			$shm_modifiedOn = $row['ModifiedOn'];
 			$shm_ship_vvarID = $row['ship_vvarID'];
@@ -145,18 +146,16 @@
 			}
 			
     		if ($shm_lti == 1) {
-    			$shm_lti = "Yes";
+    			$shm_lti_display = "Yes";
     		} else {
-    			$shm_lti = "No";
+    			$shm_lti_display = "No";
     		}
     		
-			/*
     		if ($shm_package == 1) {
-    			$shm_package = "Yes";
+    			$shm_package_display = "Yes";
     		} else {
-    			$shm_package = "No";
+    			$shm_package_display = "No";
     		}
-			*/
 			
 			$total_ship_value += $ship_cost;
     		
@@ -167,7 +166,13 @@
 					
           		$display_player_ships .= "
 				<tr class=\"player_ships_row\">
-					<td class=\"player_ships_entry\">
+					<td class=\"player_ships_entry\"
+						data-rowid=\"$shm_ship_vvarID\"
+						data-shipid=\"$ship_id\" 
+						data-manuname=\"$manu_name\" 
+						data-shipname=\"$ship_name\" 
+						data-package=\"$shm_package\"
+						data-lti=\"$shm_lti\" >
 					
 						<div class=\"player_ships_shipTitle\">
 							<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
@@ -175,7 +180,7 @@
 									$manu_name $full_ship_name
 								</div>
 							</a>	
-						</div>
+						</div>					
 						<div class=\"player_ships_entry_details\">
 							<div class=\"shipTable2_Container\">
 								<div class=\"corner2 corner-top-left\">
@@ -223,7 +228,6 @@
 											</div>
 										</td>
 									</tr>
-									<!--
 									<tr>
 										<td class=\"tooltip_shipTable2_key\">
 											<div class=\"tooltip_shipTable2_key_inner\">
@@ -232,11 +236,10 @@
 										</td>
 										<td class=\"tooltip_shipTable2_value\">
 											<div class=\"tooltip_shipTable2_value_inner\">
-											$shm_package
+											$shm_package_display
 											</div>
 										</td>
 									</tr>
-									-->
 									<tr>
 										<td class=\"tooltip_shipTable2_key\">
 											<div class=\"tooltip_shipTable2_key_inner\">
@@ -245,7 +248,7 @@
 										</td>
 										<td class=\"tooltip_shipTable2_value\">
 											<div class=\"tooltip_shipTable2_value_inner\">
-											$shm_lti
+											$shm_lti_display
 											</div>
 										</td>
 									</tr>
@@ -265,7 +268,18 @@
 									-->
 								</table>
 							</div>
-						</div>						
+						</div>
+					";
+					if ($loggedInPlayer == $player_id)
+					{
+						$display_player_ships .= "
+							<div class=\"player_ships_entry_buttons_buttonContainer\">
+								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"margin-left:4px\">Edit</button>
+								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:4px\">Remove</button>
+							</div>
+						";
+					}
+					$display_player_ships .= "
 					</td>
 
 					<td class=\"player_ships_entry_ship\">
@@ -360,8 +374,40 @@
 		{
 			$display_edit_options .= "
 				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile</button>
+				<button id=\"playerAddShip\" class=\"adminButton adminButtonCreate\" style=\"margin-left:4px\">Add Ship</button>
 			";
 		}
+		
+		/*SHIPS QUERY FOR DROPDOWN MENU*/
+		$ships_query = "
+			select
+				s.ship_id
+				,m.manu_shortName
+				,s.ship_name
+			from projectx_vvarsc2.ships s
+			join projectx_vvarsc2.manufacturers m
+				on m.manu_id = s.manufacturers_manu_id
+			order by
+				m.manu_name
+				,s.ship_name
+		";
+		
+		$ships_query_results = $connection->query($ships_query);
+		$displayShips = "";
+		
+		while(($row = $ships_query_results->fetch_assoc()) != false)
+		{
+			$ShipID = $row['ship_id'];
+			$ManuName = $row['manu_shortName'];
+			$ShipName = $row['ship_name'];
+		
+			$displayShips .= "
+				<option value=\"$ShipID\" id=\"$ShipID\">
+					$ManuName - $ShipName
+				</option>
+			";
+		}
+		/*END SHIPS QUERY*/
 		
     	$connection->close();
     } else {
@@ -545,6 +591,161 @@
 			</div>
 		</form>
 	</div>	
+
+	<!--Add Ship Form-->
+	<div id="dialog-form-add-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add a new Ship to your Fleet!</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Create.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<!--
+					<label for="RowID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					-->
+					
+					<label for="MemberID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="MemberID" id="MemberID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					
+					<label for="ShipID" class="adminDialogInputLabel">
+						Ship
+					</label>
+					<select name="ShipID" id="ShipID" class="adminDialogDropDown">
+						<option selected disabled value="default" id="ShipID-default">
+							- Select a Ship -
+						</option>	
+						<? echo $displayShips ?>
+					</select>
+					
+					<label for="Package" class="adminDialogInputLabel">
+						Package
+					</label>
+					<select name="Package" id="Package" class="adminDialogDropDown">
+						<option selected="true" disabled="true" value="default" id="Package-default">
+							Package?
+						</option>
+						<option value="1" id="Package-1">
+							Yes
+						</option>
+						<option value="0" id="Package-0">
+							No
+						</option>
+					</select>
+					
+					<label for="LTI" class="adminDialogInputLabel">
+						LTI
+					</label>
+					<select name="LTI" id="LTI" class="adminDialogDropDown">
+						<option selected disabled value="default" id="LTI-default">
+							LTI?
+						</option>					
+						<option value="1" id="LTI-1">
+							Yes
+						</option>
+						<option value="0" id="LTI-0">
+							No
+						</option>
+					</select>
+				</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>	
+	
+	<!--Edit Ship Form-->
+	<div id="dialog-form-edit-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Update PlayerShip Entry</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Edit.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				
+				<label for="MemberID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="MemberID" id="MemberID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="ShipID" class="adminDialogInputLabel">
+					Ship
+				</label>
+				<select name="ShipID" id="ShipID" class="adminDialogDropDown">
+					<? echo $displayShips ?>
+				</select>
+				
+				<label for="Package" class="adminDialogInputLabel">
+					Package
+				</label>
+				<select name="Package" id="Package" class="adminDialogDropDown">
+					<option value="1" id="Package-1">
+						Yes
+					</option>
+					<option value="0" id="Package-0">
+						No
+					</option>
+				</select>
+				
+				<label for="LTI" class="adminDialogInputLabel">
+					LTI
+				</label>
+				<select name="LTI" id="LTI" class="adminDialogDropDown">
+					<option value="1" id="LTI-1">
+						Yes
+					</option>
+					<option value="0" id="LTI-0">
+						No
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--Remove Ship Form-->
+	<div id="dialog-form-remove-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Confirmation Required!</p>
+		<p class="validateTips">Are you sure you want to Remove this Ship from your Fleet?</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Delete.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				
+				<label for="MemberID" class="adminDialogInputLabel">
+					MemberID
+				</label>
+				<input type="none" name="MemberID" id="MemberID" value="" class="adminDialogTextInput" readonly>
+				
+				<label for="ShipID" class="adminDialogInputLabel">
+					Ship
+				</label>
+				<input type="none" name="ShipID" id="ShipID" value="" class="adminDialogTextInput" readonly>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
 </div>
   
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -650,7 +851,7 @@
 		var overlay = $('#overlay');
 		
 		//Edit Profile
-		$('.adminButton.adminButtonEdit').click(function() {
+		$('#playerEditProfile').click(function() {
 			var dialog = $('#dialog-form-edit-profile');
 			
 			var $self = jQuery(this);
@@ -673,11 +874,101 @@
 			});
 		});
 		
+		//Add Ship
+		$('#playerAddShip').click(function() {
+			var dialog = $('#dialog-form-add-ship');
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			
+			dialog.find('#MemberID').val(memID).text();
+			dialog.find('#ShipID').find('#ShipID-default').prop('selected',true);
+			dialog.find('#Package').find('#Package-default').prop('selected',true);
+			dialog.find('#LTI').find('#LTI-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+		
+		//Edit Ship
+		$('.playerEditShip').click(function() {
+			var dialog = $('#dialog-form-edit-ship');
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			var rowID = $self.parent().parent().parent().find('.player_ships_entry').data("rowid");
+			var shipID = $self.parent().parent().parent().find('.player_ships_entry').data("shipid");
+			var ispackage = $self.parent().parent().parent().find('.player_ships_entry').data("package");
+			var islti = $self.parent().parent().parent().find('.player_ships_entry').data("lti");
+			
+			dialog.find('#MemberID').val(memID).text();
+			dialog.find('#RowID').val(rowID).text();
+			
+			dialog.find('#ShipID').find('option').prop('selected',false);
+			dialog.find('#ShipID').find('#' + shipID).prop('selected',true);
+			
+			dialog.find('#Package').find('option').prop('selected',false);
+			dialog.find('#Package').find('#Package-' + ispackage).prop('selected',true);
+			
+			dialog.find('#LTI').find('option').prop('selected',false);
+			dialog.find('#LTI').find('#LTI-' + islti).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+
+		//Delete Ship
+		$('.playerDeleteShip').click(function() {
+			var dialog = $('#dialog-form-remove-ship');
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			var rowID = $self.parent().parent().parent().find('.player_ships_entry').data("rowid");
+			var shipID = $self.parent().parent().parent().find('.player_ships_entry').data("shipid");
+			var ispackage = $self.parent().parent().parent().find('.player_ships_entry').data("package");
+			var islti = $self.parent().parent().parent().find('.player_ships_entry').data("lti");
+			
+			dialog.find('#MemberID').val(memID).text();
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#ShipID').val(shipID).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
 			
+			//Clear DropDown Selections
+			$('.adminDiaglogFormFieldset').find('#MemberID').val("").text();
+			$('.adminDiaglogFormFieldset').find('#RowID').val("").text();
+			$('.adminDiaglogFormFieldset').find('#ShipID').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#Package').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#LTI').find('option').prop('selected',false);
+			
 			//Hide All Dialog Containers
 			$('#dialog-form-edit-profile').hide();
+			$('#dialog-form-add-ship').hide();
+			$('#dialog-form-edit-ship').hide();
+			$('#dialog-form-remove-ship').hide();
 			
 			overlay.hide();
 			$('.player_topTable_Container').css({
