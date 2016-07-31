@@ -48,3 +48,5 @@ Temporary Items
 
 # Custom
 dbconn.php
+error_log
+*.rej
