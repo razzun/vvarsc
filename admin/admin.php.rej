@@ -1,9 +1,0 @@
-diff a/admin.php b/admin.php	(rejected hunks)
-@@ -1,6 +0,4 @@
--<?php 
--
--?>
-+<?php include_once('functions/function_auth_admin.php'); ?>
- 
-     <h2>VVARMachine SCD - ADMIN ZONE</h2>
-     <div id="TEXT">
