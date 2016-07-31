@@ -16,10 +16,12 @@
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
+			,ranks.rank_id
     		,ranks.rank_groupName
     		,ranks.rank_image
 			,ranks.rank_level
 			,ranks.rank_name
+			,d.div_id
     		,d.div_name
 			,case
 				when roles.isPrivate = 0 then roles.role_name
@@ -76,10 +78,12 @@
     		$mem_callsign = $row['mem_callsign'];
     		$mem_gint = $row['mem_gint'];
     		$mem_avatar_link = $row['mem_avatar_link'];
+			$rank_id = $row['rank_id'];
     		$rank_groupName = $row['rank_groupName'];
     		$rank_image = $row['rank_image'];
 			$rank_level = $row['rank_level'];
 			$rank_name = $row['rank_name'];
+    		$div_id = $row['div_id'];
     		$div_name = $row['div_name'];
     		$role_name = $row['role_name'];
 			$spec_name = $row['spec_name'];
@@ -355,7 +359,7 @@
 		if ($loggedInPlayer == $player_id)
 		{
 			$display_edit_options .= "
-				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile (coming soon)</button>
+				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile</button>
 			";
 		}
 		
@@ -510,6 +514,37 @@
 			</table>
 		</div>
 	</div>
+	
+	<!--Edit Profile Form-->
+	<div id="dialog-form-edit-profile" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Update Member Information</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_mem_EditProfile.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="ID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="Name" class="adminDialogInputLabel">
+					Name
+				</label>
+				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
+				
+				<label for="Callsign" class="adminDialogInputLabel">
+					Callsign (RSI Handle)
+				</label>
+				<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required>
+				
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>	
 </div>
   
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -592,3 +627,65 @@
 	});
 </script>
 -->
+
+<script>
+	function resizeInput() {
+		$(this).attr('size', $(this).val().length);
+	}
+	
+	$(document).ready(function() {
+		var dialog = $('#dialog-form');
+		dialog.hide();
+		
+		//Set TextArea Input Height to Correct Values
+		$('input[type="text"]')
+		// event handler
+		.keyup(resizeInput)
+		// resize on page load
+		.each(resizeInput);	
+	});
+	
+	$(function() {
+
+		var overlay = $('#overlay');
+		
+		//Edit Profile
+		$('.adminButton.adminButtonEdit').click(function() {
+			var dialog = $('#dialog-form-edit-profile');
+			
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			var memName = "<? echo $mem_name ?>";
+			var memCallsign = "<? echo $mem_callsign ?>";
+			
+			dialog.find('#ID').val(memID).text();
+			dialog.find('#Name').val(memName).text();
+			dialog.find('#Callsign').val(memCallsign).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+		
+		//Cancel
+		$('.adminDialogButton.dialogButtonCancel').click(function() {
+			
+			//Hide All Dialog Containers
+			$('#dialog-form-edit-profile').hide();
+			
+			overlay.hide();
+			$('.player_topTable_Container').css({
+				filter: 'none'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'none'
+			});
+		});	
+	});
+</script>
