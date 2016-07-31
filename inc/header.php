@@ -1,11 +1,12 @@
 <?
 	$display_login = "";
+	$userURL = "";
 	
 	if(isset($_SESSION['sess_username']))
 	{
 		$userName = $_SESSION['sess_username'];
 		$userID = $_SESSION['sess_user_id'];
-		$userURL = "
+		$userURL .= "
 			<div>
 				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a>
 			</div>

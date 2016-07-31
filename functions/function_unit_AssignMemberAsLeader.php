@@ -36,7 +36,7 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin_unit/$UnitID");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_unit&pid=$UnitID");
 	}
 	else
 	{

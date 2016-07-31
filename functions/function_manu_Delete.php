@@ -26,7 +26,7 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin_manu");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_manu");
 	}
 	else
 	{

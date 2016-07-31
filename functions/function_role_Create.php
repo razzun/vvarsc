@@ -42,7 +42,7 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin_roles");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_roles");
 	}
 	else
 	{

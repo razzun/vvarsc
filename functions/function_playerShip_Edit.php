@@ -54,7 +54,7 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin_playerShips/$MemberID");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_playerShips&pid=$MemberID");
 	}
 	else
 	{

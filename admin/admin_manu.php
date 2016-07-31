@@ -1,5 +1,3 @@
-<?php include_once('functions/function_auth_admin.php'); ?>
-
 <?php 
 	$manu_query = "
 		select
@@ -183,7 +181,7 @@
 			</button>
 			<p class="validateTips">Enter new Manufacturer Information Below.</p>
 			<p class="validateTips">All form fields are required.</p>
-			<form class="adminDialogForm" action="/functions/function_manu_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name" class="adminDialogInputLabel">
 						Name
@@ -214,7 +212,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Manufacturer Information</p>
-			<form class="adminDialogForm" action="functions/function_manu_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -250,7 +248,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Manufacturer? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="functions/function_manu_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>

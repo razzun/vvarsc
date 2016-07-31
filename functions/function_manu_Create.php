@@ -8,6 +8,7 @@
 ?>
 
 <?php
+	print_r($_POST);
 	
 	require_once('../dbconn/dbconn.php');
 	
@@ -37,7 +38,7 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin_manu");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_manu");
 	}
 	else
 	{
