@@ -73,6 +73,19 @@ nav
 	width: 99%;
 }
 
+#nav_player_info {
+	text-align: right;
+	font-family: electrolize;
+	font-size: 9pt;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 8px;
+}
+
+#nav_player_info a{
+	vertical-align: inherit;
+}
+
 #nav_container {
 	margin: auto;
 }

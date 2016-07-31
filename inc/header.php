@@ -3,6 +3,13 @@
 	
 	if(isset($_SESSION['sess_username']))
 	{
+		$userName = $_SESSION['sess_username'];
+		$userID = $_SESSION['sess_user_id'];
+		$userURL = "
+			<div>
+				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a>
+			</div>
+			";
 		$display_login .= "<a class=\"navbar_inner\" href=/logout.php>Logout</a>";
 	}
 	else
@@ -17,6 +24,9 @@
 		<img class="height="105" width="1200" border="0" src="http://vvarmachine.com/themes/starcitzen/images_custom/2banner_04_noBorder.png"/>
 	</div>
 	-->
+	<div id="nav_player_info">
+		<? echo $userURL ?>
+	</div>
 	<div id="nav_container">
 		<div id="nav_header">
 			<img class="nav_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png"/>
@@ -75,7 +85,7 @@
 				</div>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
-						<a class="navbar_inner" href=/admin/index.php>Admin Zone</a>
+						<a class="navbar_inner" href="/admin/">Admin Zone</a>
 					</div>
 				</div>
 				<div class="nav_entry">
