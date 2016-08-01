@@ -116,7 +116,6 @@
 			$(this).find('.nav_header_arrow').toggleClass('rotate90CW');
 		});		
     });
-
 </script>
 
 <script>

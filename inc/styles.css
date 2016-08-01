@@ -217,8 +217,6 @@ h1 {
 		background-repeat:no-repeat;
 		/* custom background-position */
 		background-position:50% 50%;
-		/* ie8- graceful degradation */
-		background-position:50% 50%\9 !important;
 	}
 
 	/* fullscreen setup */
@@ -371,7 +369,6 @@ h4 {
 
 table.tbFleet
 {
-	align:center;
 	width:100%;
 	background-color: rgba(0, 0, 0, 0.65);
 	border-top: 1px solid #286E80;
