@@ -199,6 +199,13 @@ h1 {
 	margin-right: auto;
 }
 
+.two-line-separator {
+	height: 5px;
+	width: 100%;
+	background: url('/rsi/static/images/common/double-line-sep.png') no-repeat center top, url('/rsi/static/images/common/double-line-sep.png') no-repeat center bottom;
+	background-size: 100% 1px;
+}
+
 /*Parallax Classes*/
 	.parallax {
 
@@ -240,7 +247,7 @@ h1 {
 		/*display:table-cell;*/
 		position:relative;
 		vertical-align:middle;
-		min-height: 100%;
+		min-height: 100%;	
 	}
 /*END PARALLAX CLASSES*/
 	
@@ -302,14 +309,8 @@ h4 {
 
 #TEXT
 {
-	/*padding: 12px;
-	border-bottom: 1px solid #484848;	border-top: 1px solid #484848;
-	background-color: rgba(0, 0, 0, 0.65);
-	border: 1px solid #286E80;
-	border-radius: 5px;
-	border-spacing: 10px;*/
 	border-collapse: separate;
-	margin: 10px;
+	margin: 10px;	
 }
 
 #TEXT p { 
@@ -388,6 +389,11 @@ table.tbFleet
 	display: table;
 }
 
+.tbmem tfoot {
+	font-size: 10pt;
+	font-variant: small-caps;
+}
+
 .clickableRow_headerRow,
 .clickableRow {
 	display: table-row;
@@ -446,6 +452,7 @@ table.tbFleet
 	text-align: center;
 	font-style: italic;
 	border-bottom: 2px solid rgba(109, 185, 216, 0.8);
+	font-variant: small-caps;
 }
 
 .clickableRow_memName,
@@ -598,6 +605,9 @@ table.tbmem a:hover {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-repeat: repeat-y;
+	background-position: left bottom;	
 }
 
 .p_info
@@ -1865,18 +1875,20 @@ img.fleet:after {
 .shipyard_mainTable {
 	height: 100%;
 	width: 100%;
-	padding-left: 8px;
+	padding-left: 28px;
 	padding-right: 8px;
 	padding-top: 8px;
+    background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+    background-repeat: repeat-y;
+    background-position: left bottom;
 }
 
 .shipyard_mainTable_row {
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 	display: table;
 	margin-bottom: 8px;
-	padding-bottom: 8px;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.75);
 	padding-left: 4px;
 	padding-right: 4px;
 }
@@ -1944,9 +1956,14 @@ img.fleet:after {
 	white-space: normal;
 	margin-left: 8px;
 	font-size: 11px;
-	padding: 8px;
 	position: relative;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+	background-image: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	padding-top: 32px;
+	padding-left: 8px;
+	padding-bottom: 4px;
+	padding-right: 8px;
 }
 
 .shipyard_mainTable_row_shipOwners a {
@@ -1977,7 +1994,7 @@ img.fleet:after {
 	background-color: rgba(0, 0, 0, 0.65);
 	border: 1px solid rgba(180, 180, 180, 0.4);
 	cursor: pointer;
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .yard_filters_entry_container:hover{
@@ -2605,10 +2622,13 @@ img.fleet:after {
 	text-align: center;
 	display: table-cell;
 	border-bottom: 1px solid #1F4858;
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 	border-right: 6px solid #1F4858;
 	border-top: 1px solid rgba(18, 30, 44, 0.7);
 	transition: all 0.2s ease 0s;
+	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-repeat: repeat-y;
+	background-position: left bottom;	
 }
 
 .divinfo_tableCell_membersTable {
@@ -2738,7 +2758,7 @@ img.fleet:after {
 }
 
 .divinfo_tableRow:hover .divinfo_tableCell_membersContainer {
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.3);
 	border-right: 6px solid rgba(0, 194, 200, 0.9);
 	border-bottom: 1px solid rgba(0, 194, 200, 0.9);
 }
@@ -3097,11 +3117,14 @@ img.fleet:after {
 	height: 100%;
 	padding-top: 8px;
 	padding-bottom: 12px;
-	padding-left: 6px;
+	padding-left: 28px;
 	padding-right: 6px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 	background-color: rgba(0, 0, 0, 0.65);
+	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-repeat: repeat-y;
+	background-position: left bottom;	
 }
 
 .unitHierarchy {
@@ -3884,6 +3907,11 @@ img.fleet:after {
 	
 	.divinfo_tableRow:hover .divinfo_tableCell_rankDetailsContainer {
 		border-left: 4px solid rgba(0, 194, 200, 0.9);
+	}
+	
+	.divinfo_tableCell_membersContainer
+	{
+		background-image: none;
 	}
 	
 	.divinfo_tableCell_membersTable {
