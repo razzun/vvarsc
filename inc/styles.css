@@ -607,7 +607,7 @@ table.tbmem a:hover {
 	text-align: center;
 	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
 	background-repeat: repeat-y;
-	background-position: left bottom;	
+	background-position: left center;	
 }
 
 .p_info
@@ -3124,7 +3124,7 @@ img.fleet:after {
 	background-color: rgba(0, 0, 0, 0.65);
 	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
 	background-repeat: repeat-y;
-	background-position: left bottom;	
+	background-position: left center;	
 }
 
 .unitHierarchy {
