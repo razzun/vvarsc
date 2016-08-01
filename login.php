@@ -11,6 +11,7 @@
 					<div id="MainWrapper">
 						<div id="MainWebsiteInner">
 							<? include_once('inc/header.php'); ?>
+							<br />
 							<div class="two-line-separator">
 							</div>
 							<div id="CONTENT">
