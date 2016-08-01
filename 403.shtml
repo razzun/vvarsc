@@ -1,7 +1,9 @@
 <html><head><title>403 Permission Denied</title></head>
-<body bgcolor=white>
-<h1>403 Permission Denied</h1>
+<body bgcolor=black>
+<!--<h1>403 Permission Denied</h1>
 
-You do not have permission for this request <!--#echo var="REQUEST_URI" -->
+You do not have permission for this request--> <!--#echo var="REQUEST_URI" -->
+
+<center><img src="http://sc.vvarmachine.com/images/error/403.jpg" /></center>
 
 </body></html>
