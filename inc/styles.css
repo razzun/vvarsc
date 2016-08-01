@@ -1671,7 +1671,7 @@ img.fleet:after {
 .partialBorderBottomLeft70 {
 	border-left: 1px solid rgba(0, 153, 170, 0.9);
 	position: absolute;
-	top: 60%;
+	top: 70%;
 	bottom: 0;
 }
 
