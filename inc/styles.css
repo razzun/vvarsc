@@ -203,7 +203,7 @@ h1 {
 .two-line-separator {
 	height: 5px;
 	width: 100%;
-	background: url('/rsi/static/images/common/double-line-sep.png') no-repeat center top, url('/rsi/static/images/common/double-line-sep.png') no-repeat center bottom;
+	background: url(https://robertsspaceindustries.com/rsi/static/images/common/double-line-sep.png) no-repeat center top, url(https://robertsspaceindustries.com/rsi/static/images/common/double-line-sep.png) no-repeat center bottom;
 	background-size: 100% 1px;
 }
 

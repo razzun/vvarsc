@@ -5,6 +5,9 @@
 	</div>
 	<div class="partialBorderBottomLeft70">
 	</div>
+	<div class="two-line-separator">
+	</div>
+	<br />
 	<div id="FooterInner">
 		<div class="corner2 corner-top-left">
 		</div>

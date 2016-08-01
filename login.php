@@ -11,6 +11,8 @@
 					<div id="MainWrapper">
 						<div id="MainWebsiteInner">
 							<? include_once('inc/header.php'); ?>
+							<div class="two-line-separator">
+							</div>
 							<div id="CONTENT">
 								<h2>VVARMachine Star Citizen Division Home</h2>
 								<div id="TEXT">
