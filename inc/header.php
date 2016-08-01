@@ -5,6 +5,7 @@
 	{
 		$userName = $_SESSION['sess_username'];
 		$userID = $_SESSION['sess_user_id'];
+		$role = $_SESSION['sess_userrole'];
 		$display_login .= "
 			<div>
 				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
@@ -90,11 +91,18 @@
 						<a class="navbar_inner" href="http://vvarmachine.com/index.php?page=join&type=misc" target="_blank">Join VVAR</a>
 					</div>
 				</div>
+				<?
+					if(isset($_SESSION['sess_userrole']) && ($_SESSION['sess_userrole']) == "admin")
+					{
+				?>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/admin/">Admin Zone</a>
 					</div>
 				</div>
+				<?
+					}
+				?>
 			</div>
 		</nav>
 	</div>

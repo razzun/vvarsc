@@ -52,7 +52,7 @@
 				header("Location: http://sc.vvarmachine.com/admin/index.php");
 			}
 			else{
-				header("Location: http://sc.vvarmachine.com/index.php");
+				header("Location: http://sc.vvarmachine.com/player/".$_SESSION['sess_user_id']);
 			}		
 		}
 	}
