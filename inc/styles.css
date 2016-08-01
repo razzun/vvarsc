@@ -1944,7 +1944,6 @@ img.fleet:after {
 }
 
 .shipyard_mainTable_row_shipDesc {
-	margin-left: 8px;
 	font-size: 10pt;
 	font-style: italic;
 	position: relative;
@@ -1954,7 +1953,6 @@ img.fleet:after {
 
 .shipyard_mainTable_row_shipOwners {
 	white-space: normal;
-	margin-left: 8px;
 	font-size: 11px;
 	position: relative;
 	background-image: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png);
