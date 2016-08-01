@@ -1563,32 +1563,32 @@ img.fleet:after {
 
 .cornerToggle.corner-top-left, .cornerToggle2.corner-top-left, .corner.corner-top-left, .corner2.corner-top-left{
 	background-position: 0px 0px;
-	left: -1px;
-	top: -1px;
+	left: -2px;
+	top: -2px;
 	position: absolute;
 	display: block;
 }
 
 .cornerToggle.corner-top-right, .cornerToggle2.corner-top-right, .corner.corner-top-right, .corner2.corner-top-right {
 	background-position: -2px 0px;
-	right: -1px;
-	top: -1px;
+	right: -2px;
+	top: -2px;
 	position: absolute;
 	display: block;
 }
 
 .cornerToggle.corner-bottom-left, .cornerToggle2.corner-bottom-left, .corner.corner-bottom-left, .corner2.corner-bottom-left {
 	background-position: 0px -2px;
-	left: -1px;
-	bottom: -1px;
+	left: -2px;
+	bottom: -2px;
 	position: absolute;
 	display: block;
 }
 
 .cornerToggle.corner-bottom-right, .cornerToggle2.corner-bottom-right, .corner.corner-bottom-right, .corner2.corner-bottom-right {
 	background-position: -2px -2px;
-	right: -1px;
-	bottom: -1px;
+	right: -2px;
+	bottom: -2px;
 	position: absolute;
 	display: block;
 }
