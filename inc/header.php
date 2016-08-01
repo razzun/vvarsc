@@ -25,7 +25,9 @@
 <div id="header">
 	<div class="top-line">
 	</div>
-	<div class="corner4 corner-diag-blue-topRight headerCornerTopRight">
+	<div class="corner4 corner-diag-blue-topRight">
+	</div>
+	<div class="partialBorderTopRight50">
 	</div>
 	<!--
 	<div class="HeaderContainer">

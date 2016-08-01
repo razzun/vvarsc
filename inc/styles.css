@@ -47,13 +47,13 @@ form {
 }
 
 #header {
-	width:95%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 8px;
 	padding-top: 4px;
 	padding-bottom: 4px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	position: relative;
 }
 
 
@@ -81,6 +81,7 @@ nav
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-right: 8px;
+	margin-right: 16px;
 }
 
 #nav_player_info a{
@@ -103,6 +104,7 @@ nav
 
 
 #nav_container {
+	width: 95%;
 	margin: auto;
 	background: rgba(0, 0, 0, 0.65);
 }
@@ -132,8 +134,10 @@ nav
 
 .nav_content {
 	display: inline-table;
-	padding: 4px;
 	width: 100%;
+	vertical-align: middle;
+	padding-top: 4px;
+	padding-bottom: 4px;	
 }
 
 .nav_entry {
@@ -327,18 +331,27 @@ h4 {
 
 #FOOTER
 {
-    text-align: right;
-    border: 1px solid rgba(80, 70, 50, 0.8);
-    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
 	height: 140px;
 	margin-top: -152px;
 	clear: both;
 	max-width: 1600px;
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);	
 }
+
+#FooterInner {
+    text-align: right;
+    border: 1px solid rgba(80, 70, 50, 0.8);
+    background: url('http://www.vvarmachine.com/themes/starcitzen/images/block_background.png') repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+    margin-left: auto;
+    margin-right: auto;
+	width: 95%;
+	position: relative;
+}
+
 #FOOTER p {
 	font-size: 11px;
 	line-height: 14px;
@@ -1629,10 +1642,6 @@ img.fleet:after {
 	display: block;
 }
 
-.headerCornerTopRight {
-	top: -5px;
-}
-
 .top-line {
 	position: absolute;
 	top: 0px;
@@ -1651,6 +1660,31 @@ img.fleet:after {
 	height: 2px;
 	background: rgb(185, 155, 35);
 	border-bottom-left-radius: 90px;
+}
+
+.bottom-line-left {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 256px;
+	height: 2px;
+	background: #37aac1;
+	border-top-right-radius: 90px;
+}
+
+.partialBorderBottomLeft70 {
+	border-left: 1px solid rgba(0, 153, 170, 0.9);
+	position: absolute;
+	top: 60%;
+	bottom: 0;
+}
+
+.partialBorderTopRight50 {
+	border-right: 1px solid rgba(0, 153, 170, 0.9);
+	position: absolute;
+	top: 0;
+	bottom: 50%;
+	right: 0;
 }
 
 .tbinfo:hover  img.fleet
