@@ -583,12 +583,22 @@
 				</label>
 				<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required>
 				
+				<label for="CurrentPassword" class="adminDialogInputLabel">
+					Current Password (required to make updates)
+				</label>
+				<input type="password" name="CurrentPassword" id="CurrentPassword" value="" class="adminDialogTextInput" required>
+				
+				<label for="NewPassword" class="adminDialogInputLabel">
+					New Password (leaving this field empty means it won't be changed)
+				</label>
+				<input type="password" name="NewPassword" id="NewPassword" value="" class="adminDialogTextInput">
 			</fieldset>
-			<div class="adminDialogButtonPane">
-				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
-					Submit
-				</button>
-			</div>
+				<div class="adminDialogButtonPane">
+					<input type="button" 
+							value="Submit"
+							class="adminDialogButton dialogButtonSubmit"
+							onclick="formhash(this.form, this.form.CurrentPassword, this.form.NewPassword);" />
+				</div>	
 		</form>
 	</div>	
 
@@ -750,6 +760,7 @@
   
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>
+<script type="text/javascript" src="/js/sha512.js"></script>
 
 <!--Script to Resize Fleet Images-->
 <script>
@@ -979,4 +990,31 @@
 			});
 		});	
 	});
+</script>
+
+
+<script>
+function formhash(form, currentPassword, newPassword){
+    // Create a new element input, this will be our hashed password field. 
+    var cp = document.createElement("input");
+	var np = document.createElement("input");
+ 
+    // Add the new element to our form. 
+    form.appendChild(cp);
+    cp.name = "cp";
+    cp.type = "hidden";
+    cp.value = hex_sha512(currentPassword.value);
+	
+	form.appendChild(np);
+	np.name = "np";
+	np.type = "hidden";
+	np.value = hex_sha512(newPassword.value);
+ 
+    // Make sure the plaintext password doesn't get sent. 
+    currentPassword.value = "";
+    newPassword.value = "";
+ 
+    // Finally submit the form. 
+    form.submit();
+}
 </script>
