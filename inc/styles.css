@@ -1149,13 +1149,12 @@ img {
 	display: table-cell;
 	height: 100%;
 	table-layout: fixed;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	padding-left: 6px;
-	padding-right: 6px;
+	padding-left: 4px;
+	padding-right: 4px;
 	border-top: 1px solid rgba(220, 160, 0, 0.5);
 	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
-	background-color: rgba(0, 0, 0, 0.85);
+	background-color: rgba(0, 0, 0, 0.65);
+	border-spacing: 0px 8px;
 }
 
 .tbinfo_shipTitle {
@@ -1165,8 +1164,10 @@ img {
 	display: table-cell;
 	color: rgb(187, 187, 187);
 	border-top: 1px solid rgba(220, 160, 0, 0.5);
-	padding-right: 36px;
-	padding-left: 4px;
+	padding-right: 32px;
+	padding-left: 8px;
+	padding-top: 2px;
+	padding-bottom: 4px;
 }
 
 .tbinfo_shipTitle_selected
@@ -1311,8 +1312,17 @@ img {
 
 .tbinfo tr
 {
-
+	background-image: url(http://www.robertsspaceindustries.com/rsi/static/images/store/header/rsi_menu_glow_noise_vd.png);
+	background-repeat: repeat;
+	background-position: left bottom;
 }
+
+.tbinfo td
+{
+	padding: 0;
+	border-collapse: collapse;
+}
+
 
 /*.tbinfo tr:hover
 {
@@ -1321,8 +1331,28 @@ img {
 	-moz-box-shadow: 4px 4px 2px -3px #F7CC4F inset, 4px -4px 2px -3px #F7CC4F inset, -4px 4px 2px -3px #F7CC4F inset, -4px -4px 2px -3px #F7CC4F inset;
 }*/
 
+.tbinfoTD_inner
+{
+	background-color: rgba(0,0,0,0.8);
+	border-right: 3px solid rgba(110, 80, 0, 0.5);
+	border-bottom: 1px solid rgba(110, 80, 0, 0.5);
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	padding-bottom: 8px;
+	position: relative;
+}
 
+.tbinfo tr:hover .tbinfoTD_inner
+{
+	background-color: rgba(0,0,0,0.3);
+	border-right: 3px solid rgba(110, 80, 0, 0.9);
+	border-bottom: 1px solid rgba(110, 80, 0, 0.9);
+}
 
+.tbinfo_ships {
+	padding-left: 10px;
+}
 
 .tooltip, .tooltip2 {	
 	display:none;
@@ -1517,6 +1547,7 @@ img.fleet {
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	vertical-align: middle;
+	padding: 2px;
 }
 
 img.fleet:after {
@@ -1671,6 +1702,56 @@ img.fleet:after {
 	border-top-right-radius: 90px;
 }
 
+.partialBorder-left-blue {
+	border-left: 1px solid rgba(0, 153, 170, 0.9);
+	position: absolute;
+}
+
+.partialBorder-right-blue {
+	border-left: 1px solid rgba(0, 153, 170, 0.9);
+	position: absolute;
+}
+
+.partialBorder-left-orange1 {
+	border-left: 1px solid rgba(220, 160, 0, 0.5);
+	position: absolute;
+}
+
+.partialBorder-right-orange1 {
+	border-left: 1px solid rgba(220, 160, 0, 0.5);
+	position: absolute;
+}
+
+.border-left {
+	left: 0;
+}
+
+.border-right {
+	right: 0;
+}
+
+.border-4px {
+	height: 4px;
+}
+
+.border-top {
+	top: 0;
+}
+
+.border-top1px {
+	top: 1px;
+}
+
+.border-top50 {
+	top: 0;
+	bottom: 50%;
+}
+
+.border-bottom70 {
+	top: 70%;
+	bottom: 0;
+}
+
 .partialBorderBottomLeft70 {
 	border-left: 1px solid rgba(0, 153, 170, 0.9);
 	position: absolute;
@@ -1686,6 +1767,7 @@ img.fleet:after {
 	right: 0;
 }
 
+/*
 .tbinfo:hover  img.fleet
 {
 	opacity: 0.40;
@@ -1708,6 +1790,15 @@ img.fleet:after {
 	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 160, 182, 0.7));
 	
 }
+*/
+.tbinfo img.fleet:hover
+{
+	opacity: 0.90;
+	filter: drop-shadow(0px 0px 4px rgba(0, 160, 182, 0.7));
+	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 160, 182, 0.7));
+	
+}
+
 
 .table_header_block {
 	width: 100px;
@@ -1718,6 +1809,12 @@ img.fleet:after {
 
 .table_header_block2 {
 	width: 100px;
+	height: 2px;
+	background-color: rgba(220, 160, 0, 0.65);
+	position: absolute;
+}
+.table_header_block2_long {
+	width: 180px;
 	height: 2px;
 	background-color: rgba(220, 160, 0, 0.65);
 	position: absolute;

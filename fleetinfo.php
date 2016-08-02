@@ -90,6 +90,8 @@
 			if ($previousGroup != "")
 			{
 				$display_fleet .= "
+								</div>
+							</div>
 						</td>
 					</tr>
 				";				
@@ -99,9 +101,15 @@
 			$display_fleet .= "
 				<tr>
 					<td>
-						<div class=\"tbinfo_shipTitle\">
-							$ship_pname
-						</div>
+						<div class=\"tbinfoTD_inner\">
+							<div class=\"partialBorder-left-orange1 border-left border-top1px border-4px\">
+							</div>
+							<div class=\"tbinfo_shipTitle\">
+								<div class=\"tbinfo_shipTitleText\">
+									$ship_pname
+								</div>
+							</div>
+							<div class=\"tbinfo_ships\">
 			";
 		}
 		
@@ -453,7 +461,7 @@
 <h2>Star Citizen Fleet Infograph</h2>
 <div id="TEXT">
 	<div class="tbinfo_container">
-		<div class="table_header_block2">
+		<div class="table_header_block2_long">
 		</div>
 		<table class="tbinfo">
 			<? echo $display_fleet; ?>
@@ -528,9 +536,12 @@
 		
 		if(($( window ).width() < 900)) {
 			imageClass.jScale({w: '20%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '0.85em',
 					"display": 'none'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '4px'
 				});
 			imageClass.css({
 					"margin": '0px'
@@ -543,9 +554,12 @@
 		}	
 		else if(($( window ).width() < 1200)){
 			imageClass.jScale({w: '40%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '0.85em',
 					"display": 'table-cell'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '8px'
 				});
 			imageClass.css({
 					"margin": '1px'
@@ -553,9 +567,12 @@
 		}
 		else {
 			imageClass.jScale({w: '60%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '1em',
 					"display": 'table-cell'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '10px'
 				});
 			imageClass.css({
 					"margin": '2px'
@@ -569,9 +586,12 @@
 		
 		if(($( window ).width() < 900)) {
 			imageClass.jScale({w: '20%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '0.85em',
 					"display": 'none'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '4px'
 				});
 			imageClass.css({
 					"margin": '0px'
@@ -584,9 +604,12 @@
 		}	
 		else if(($( window ).width() < 1200)){
 			imageClass.jScale({w: '40%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '0.85em',
 					"display": 'table-cell'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '8px'
 				});
 			imageClass.css({
 					"margin": '1px'
@@ -594,9 +617,12 @@
 		}
 		else {
 			imageClass.jScale({w: '60%'});
-			$('.tbinfo_shipTitle').css({
+			$('.tbinfo_shipTitleText').css({
 					"font-size": '1em',
 					"display": 'table-cell'
+				});
+			$('.tbinfo_ships').css({
+					"padding-left": '10px'
 				});
 			imageClass.css({
 					"margin": '2px'
@@ -679,7 +705,7 @@
 			$('.tooltip_shipTable').removeClass("opaque");
 			$('.tooltip_shipTable').removeClass("opaque");
 			
-			$(this).parent().find('.tbinfo_shipTitle').addClass("tbinfo_shipTitle_selected");
+			$(this).parent().parent().find('.tbinfo_shipTitle').addClass("tbinfo_shipTitle_selected");
 			
 			var $self = jQuery(this);
 				 
