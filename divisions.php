@@ -285,7 +285,7 @@
 					<div class=\"divinfo_memAvatarContainer\">
 						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/player_avatars/$mem_avatar_info.png\" />
 						<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
-							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$mem_rank_info.png\" />
+							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$mem_rank_info.png\" />
 						</div>
 						<div class=\"divinfo_memAvatar_textOverlay_memName\">
 							$mem_name_info

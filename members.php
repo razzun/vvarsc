@@ -69,7 +69,7 @@
 				</td>
 				<td class=\"clickableRow_memRank\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$rank_image.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_image.png\" />
 						<div class=\"rank_image_text\">
 							$rank_name
 						</div>

@@ -44,12 +44,32 @@
 						</div>
 						<div class="corner corner-bottom-right">
 						</div>
-						Training Documents - Ground Combat
+						Training Resources - Ground Combat
 					</div>
 				</td>
 				<td class="links_table_cell_content">
 					<div class="links_table_cell_content_inner">
 						<a href="http://pdf.textfiles.com/manuals/MILITARY/united_states_army_fm_90-10x1%20-%2012_may_1993%20-%20part09.pdf" target="_blank">CQB Tactics and Room Clearing</a>
+					</div>
+				</td>
+			</tr>
+			<tr class="links_main_table_row">
+				<td class="links_table_cell_desc">
+					<div class="links_table_cell_desc_inner">
+						<div class="corner corner-top-left">
+						</div>
+						<div class="corner corner-top-right">
+						</div>
+						<div class="corner corner-bottom-left">
+						</div>
+						<div class="corner corner-bottom-right">
+						</div>
+						Training Resources - Space Combat
+					</div>
+				</td>
+				<td class="links_table_cell_content">
+					<div class="links_table_cell_content_inner">
+						<a href="http://imperialnews.network/lis/" target="_blank">Legacy Instructional Series</a>
 					</div>
 				</td>
 			</tr>

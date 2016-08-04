@@ -44,7 +44,7 @@
 					$memID					
 				</td>
 				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
-					<a href=\"../player/$memID\" target=\"_top\">
+					<a href=\"../player/$memID\" target=\"_blank\">
 						$memName
 					</a>
 				</td>
@@ -53,7 +53,7 @@
 				</td>
 				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/navy/$rank_image.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_image.png\" />
 						<div class=\"rank_image_text\">
 							$memRankLevel - $memRankName
 						</div>
