@@ -3689,6 +3689,18 @@ img.fleet:after {
 	vertical-align: middle;
 }
 
+/*STATIC PAGES*/
+.PayGradeDetails {
+	background-image: url("https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png");
+	background-repeat: repeat-y;
+	background-position: left bottom;
+	padding-left: 28px;
+}
+
+.PayGradeDetails_Entry_Text {
+	padding-right: 4px;
+}
+
 /*END Hover Controls */
 
 @media only screen and (max-height: 799px) {
