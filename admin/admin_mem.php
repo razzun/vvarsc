@@ -303,7 +303,7 @@
 					<label for="Rank" class="adminDialogInputLabel">
 						Rank
 					</label>
-					<select name="Rank" id="Rank" class="adminDialogDropDown">
+					<select name="Rank" id="Rank" class="adminDialogDropDown" required>
 						<option selected disabled value="default" id="Rank-default">
 							- Select a Rank -
 						</option>	
@@ -313,7 +313,7 @@
 					<label for="Division" class="adminDialogInputLabel">
 						Division
 					</label>
-					<select name="Division" id="Division" class="adminDialogDropDown">
+					<select name="Division" id="Division" class="adminDialogDropDown" required>
 						<option selected disabled value="default" id="Division-default">
 							- Select a Division -
 						</option>	

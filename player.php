@@ -16,6 +16,7 @@
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
+			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
     		,ranks.rank_groupName
     		,ranks.rank_image
@@ -79,6 +80,7 @@
     		$mem_callsign = $row['mem_callsign'];
     		$mem_gint = $row['mem_gint'];
     		$mem_avatar_link = $row['mem_avatar_link'];
+    		$mem_createdOn = $row['MemberCreatedOn'];
 			$rank_id = $row['rank_id'];
     		$rank_groupName = $row['rank_groupName'];
     		$rank_image = $row['rank_image'];
@@ -489,6 +491,18 @@
 							<td class="members_detailsTable_value">
 								<div class="members_detailsTable_value_inner">
 								<a href="https://robertsspaceindustries.com/citizens/<? echo $mem_callsign; ?>" target="_blank"><? echo $mem_callsign; ?></a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="members_detailsTable_key">
+								<div class="members_detailsTable_key_inner">
+								Enlisted
+								</div>
+							</td>
+							<td class="members_detailsTable_value">
+								<div class="members_detailsTable_value_inner">
+								<? echo $mem_createdOn; ?>
 								</div>
 							</td>
 						</tr>

@@ -164,7 +164,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-3s are highly-decorated and experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, and adapting operational methodologies to an ever-changing mission environment. Once an Officer has advanced to this payGrade, they are eligible to command an Air Wing or a Marine Company within the Military Division. However, promotion to this grade will not always be accompanied by an assignment to a higher unit.
+					O-3s are highly-decorated and experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, and adapting operational methodologies to an ever-changing mission environment. Once an Officer has advanced to this PayGrade, they are eligible to command an Air Wing or a Marine Company within the Military Division. However, promotion to this grade will not always be accompanied by an assignment to a higher unit.
 					<br />
 					<br />
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
@@ -219,7 +219,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-4 is the highest of the "Line-Officer" ranks, and is held by the most-senior Air-Wing /Company Commanders, along with Executive Officers of Air Combat Groups, and Marine Battalions. In addition to the above, O-4s can perform specialized roles at the HQ-level of their Division such as: Intelligence Officer, Finance Officer, and others. O-4s may also be seen leading Squadrons or Platoons for critical high-risk missions, where success is dependent on the highest-quality leadership personnel being directly involved in the tactical planning and execution process.
+					O-4 is the highest of the "Line-Officer" ranks, and is held by the most-senior Air-Wing /Company Commanders, along with Executive Officers of Air Combat Groups and Marine Battalions. In addition to the above, O-4s can perform specialized roles for the HQ their Division such as: Intelligence Officer, Finance Officer, and others. O-4s may also be seen leading Squadrons or Platoons for critical high-risk missions, where success is dependent on the highest-quality leadership personnel being directly involved in the tactical planning and execution process.
 					<br />
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>
@@ -277,7 +277,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-5 is the first of the two Senior Officer Ranks. Officers in this grade are usually assigned as the Commander of a Combat Group, or Marine Battalion. In addition, the rank of O-5 comes with the eligibility to serve as the Executive Officer for a Division. O-5s can also perform specialized roles at Fleet Headquarters, assisting the Fleet CO with duties such as public relations, recruitment, and technology management.
+					O-5 is the first of the two Senior Officer Ranks. Officers in this grade are usually assigned as the Commander of a Combat Group or a Marine Battalion. In addition, the rank of O-5 comes with the eligibility to serve as the Executive Officer for a Division. O-5s can also perform specialized roles at Fleet Headquarters, assisting the Fleet CO with duties such as public relations, recruitment, and technology management.
 					<br />
 					<br />
 					<strong>Advancement from O-4 to O-5 requires the following:</strong>
@@ -333,7 +333,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-6 is the second of the Senior-Officer ranks, normally being held by the Executive Officer of a Division, or the most-senior of Combat-Group and Battalion Commanders. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet. Like O-5s, O-6s can also be assigned directly to Fleet Headquarters to assist with extraneous duties listed above.
+					O-6 is the second of the Senior-Officer ranks, normally being held by the Executive Officer of a Division, or the most senior of Combat Group and Battalion Commanders. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet. Like O-5s, O-6s can also be assigned directly to Fleet Headquarters to assist with extraneous duties listed above.
 					<br />
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>

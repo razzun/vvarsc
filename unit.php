@@ -153,7 +153,12 @@
 							,r.rank_tinyImage
 							,r.rank_level
 							,r.rank_groupName
-							,r2.role_name as RoleName
+							,case
+								when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
+								when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+								when r2.role_id is null then 'n/a'
+								else '[Redacted]'
+							end as role_name
 							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
 						from projectx_vvarsc2.Units u
 						left join projectx_vvarsc2.UnitMembers um
@@ -191,7 +196,7 @@
 			$rank_level = $row1['rank_level'];
 			$rank_groupName = $row1['rank_groupName'];
 			$mem_name = $row1['mem_name'];
-			$mem_role = $row1['RoleName'];
+			$mem_role = $row1['role_name'];
 			$mem_assigned_date = $row1['MemberAssigned'];
 			$mem_id = $row1['mem_id'];
 			
