@@ -85,6 +85,11 @@
 				</div>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
+						<a class="navbar_inner" href="/wiki/">Wiki</a>
+					</div>
+				</div>
+				<div class="nav_entry">
+					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/links">Links</a>
 					</div>
 				</div>

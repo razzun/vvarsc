@@ -183,7 +183,7 @@
 
 ?>
 
-<h2>Fleet Rank and Unit Structure</h2>
+<h2>Fleet Rank Structure</h2>
 <div id="TEXT">
 
 	<div id="rankStructure_main">
@@ -228,10 +228,10 @@
 		</div>
 		<br />
 		<br />
-		<?include_once("ranks/rankDetails_enlisted.php");?>
+		<?include_once("wiki/ranks/rankDetails_enlisted.php");?>
 		<br />
 		<br />
-		<?include_once("ranks/rankDetails_officer.php");?>
+		<?include_once("wiki/ranks/rankDetails_officer.php");?>
 	</div>
 	
 </div>
