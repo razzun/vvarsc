@@ -19,6 +19,8 @@
 		</div>		
 		<div id="adminMainText">
 			<p>
+				<strong>Organized Operations - </strong> Information pertaining to the planning and execution of Military and Economic Operations in the Persistent Universe.
+				</br>
 				<strong>Ranks - </strong> Information regarding the member ranking system used in the VVarMachine Fleet.
 				</br>
 				<strong>Unit Organizational Structure - </strong> Information defining the different types of units within the VVarMachine Fleet.

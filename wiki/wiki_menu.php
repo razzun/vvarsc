@@ -8,6 +8,7 @@
 	<div class="corner corner-bottom-right">
 	</div>	
     <ul>
+        <li><a href="?page=operations">Organized Operations</a></li>
         <li><a href="?page=ranks">Ranks</a></li>
         <li><a href="?page=units">Unit Organizational Structure</a></li>
     </ul>

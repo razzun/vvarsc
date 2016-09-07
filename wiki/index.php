@@ -26,6 +26,10 @@
 									/*****************/
 									/** Wiki Links **/
 									/*****************/
+									case "operations":
+										$content = "operations.php";
+										break;
+										
 									case "ranks":
 										$content = "rankStructure.php";
 										break;
