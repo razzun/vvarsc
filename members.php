@@ -38,6 +38,7 @@
 		ON m.specialties_spec_id = sp.spec_id
 	WHERE
 		m.mem_sc = 1
+			and m.mem_name <> 'guest'
 	GROUP BY
 		m.mem_name
 	ORDER BY

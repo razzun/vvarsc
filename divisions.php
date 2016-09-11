@@ -50,7 +50,7 @@
 			left join projectx_vvarsc2.roles r2
 				on r2.role_id = um.MemberRoleID
 			where m.mem_sc = 1
-
+				and m.mem_name <> 'guest'
 			union
 			";
 		}
@@ -84,6 +84,7 @@
 				on r2.role_id = um.MemberRoleID
 			where m.mem_sc = 1
 				and($div_id = 0 or d.div_id = $div_id)
+				and m.mem_name <> 'guest'
 		) s1
 		order by
 			s1.rank_group_orderby
