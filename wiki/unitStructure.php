@@ -25,6 +25,7 @@
 				</div>
 				<h3 style="padding-left: 4px; margin-left: 0">Military Division Organization</h3>
 				<h4 style="padding-left: 8px; margin-left: 0; font-size: 12pt">Unit Types</h4>
+				<h5 style="padding-left: 8px; margin-left: 0; margin-bottom: 4px; font-size: 11pt; color: #DDD">Squadrons/Platoons</h5>
 				Our Military Division is built using a unit-hierarchy system. The lowest-level of the tree, and smallest permanent units are <strong>Squadrons</strong> and <strong>Platoons</strong>. These units are commanded by Junior Officers (O-1, O-2, O-3).
 				<br />
 				<br />
@@ -33,13 +34,13 @@
 				<br />
 				Once a Squadron or Platoon has reached its Player Capacity (not yet defined), a sister-unit can be formed alongside it. This will generally be accomplished by offering an Officer Commission to the Assistant Squadron/Platoon Leader of the existing unit, and promoting another NCO (likely a Flight/Team Leader into the role of Assistant for the existing Unit). The new leader will be promoted to O-1, and be placed in-command of the newly-created unit.
 				<br />
-				<br />
+				<h5 style="padding-left: 8px; margin-left: 0; margin-bottom: 4px; font-size: 11pt; color: #DDD">Air-Wing/Company</h5>
 				Moving up the hierarchy tree, we find the <strong>Air Wing</strong> and <strong>Company</strong>-level units. These units will only be established once there are at-minimum 3 Squadrons/Platoons existing below them. The Air Wing and Company units will be commanded by an Officer of at-least O-3 PayGrade, along with a Senior NCO serving as their adviser.
 				<br />
-				<br />
+				<h5 style="padding-left: 8px; margin-left: 0; margin-bottom: 4px; font-size: 11pt; color: #DDD">Combat Group/Battalion</h5>
 				The next level in the tree holds the <strong>Combat Group</strong> and <strong>Battalion</strong>-level units. These units are commanded by a Senior Officer (at least O-5 PayGrade), along with an O-4 Officer serving as the unit's Executive Officer (XO) and second-in-command. In addition, one or more Senior NCO members may be assigned to the unit to serve as an adviser, or perform highly-specilized roles outside of the normal duties of the units below them. As is the case with Air Wing and Company-level units, the formation of a Combat Group or Battalion will only take place when a minimum of 3 Air-Wings or Companies exist below them, and there is a need for a parent-unit to be created for oversight in planning and operational execution.
 				<br />
-				<br />
+				<h5 style="padding-left: 8px; margin-left: 0; margin-bottom: 4px; font-size: 11pt; color: #DDD">Division</h5>
 				Finally, we reach the level of the Division Headquarters (DIV HQ). While units at the level of Air Wing/Company, or Combat Group/Battalion will not exist until needed, the DIV HQ is already established with leadership assigned. This means that any lower-level units will report directly to DIV HQ until the Fleet grows enough to create their immediate parent units. Each Division HQ is commanded by a Flag Officer (Admiral) of at-least O-7 PayGrade, who is assisted by a Senior Officer of at-least O-5 PayGrade. In addition, just like Combat Groups and Battalions, Senior NCOs will be present and assigned as advisers or specialized operatives performing unconventional roles for their Division or the Fleet. DIV HQ may also include other Officers working in non-operational roles such as Intelligence, Finance, Public Relations, Recruitment, etc.
 				<br />
 				<br />
