@@ -3701,6 +3701,36 @@ img.fleet:after {
 	padding-right: 4px;
 }
 
+.WikiText {
+	margin-left: 12px;
+	background: rgba(0,0,0,0.5);
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 4px;
+	border-left: 4px solid #1F4858;
+}
+
+.WikiH3 {
+	padding-left: 4px;
+	margin-left: 0px;
+}
+
+.WikiH4 {
+	padding-left: 8px;
+	margin-left: 0px;
+	font-size: 12pt;
+}
+
+.WikiH5 {
+	padding-left: 12px;
+	font-size: 11pt;
+	color: #DDD;
+	margin: 0;
+	padding-top: 8px;
+	padding-bottom: 4px;
+}
+
 /*END Hover Controls */
 
 @media only screen and (max-height: 799px) {
