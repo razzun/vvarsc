@@ -138,12 +138,14 @@
 								when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 								else u.UnitFullName
 							end as UnitName
+							,u.UnitCallsign
 							,u.UnitDepth
 							,u.UnitLevel
 							,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 							,u.ParentUnitID
 							,u.UnitSlogan
 							,u.UnitBackgroundImage
+							,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 							,d.div_name
 							,m.mem_id
 							,m.mem_name
@@ -160,6 +162,9 @@
 								else '[Redacted]'
 							end as role_name
 							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
+							,m2.mem_id UnitLeaderID
+							,m2.mem_name UnitLeaderName
+							,r3.rank_abbr UnitLeaderRank
 						from projectx_vvarsc2.Units u
 						left join projectx_vvarsc2.UnitMembers um
 							on um.UnitID = u.UnitID
@@ -171,6 +176,10 @@
 							on r2.role_id = um.MemberRoleID
 						left join projectx_vvarsc2.divisions d
 							on d.div_id = u.DivisionID
+						left join projectx_vvarsc2.members m2
+							on m2.mem_id = u.UnitLeaderID
+						left join projectx_vvarsc2.ranks r3
+							on r3.rank_id = m2.ranks_rank_id
 						where u.UnitID = $UnitID
 						order by
 							r.rank_orderby
@@ -178,6 +187,7 @@
 		
 		$unit_query_result = $connection->query($unit_query);
 		
+		$display_details = "";
 		$display_members = "";
 		
 		while(($row1 = $unit_query_result->fetch_assoc()) != false) {
@@ -186,9 +196,14 @@
 			$unitLevel = $row1['UnitLevel'];
 			$divName = $row1['div_name'];
 			$unitName = $row1['UnitName'];
+			$unitCallsign = $row1['UnitCallsign'];
 			$unitSlogan = $row1['UnitSlogan'];
 			$unitDescription = $row1['UnitDescription'];
 			$unitBackgroundImage = $row1['UnitBackgroundImage'];
+			$unitCreatedOn = $row1['UnitCreatedOn'];
+			$unitLeaderID = $row1['UnitLeaderID'];
+			$unitLeaderRank = $row1['UnitLeaderRank'];
+			$unitLeaderName = $row1['UnitLeaderName'];
 			$parentUnitID = $row1['ParentUnitID'];
 			$rank_abbr = $row1['rank_abbr'];
 			$rank_image = $row1['rank_image'];
@@ -203,6 +218,11 @@
 			if ($unitBackgroundImage == null || $unitBackgroundImage == '')
 			{
 				$unitBackgroundImage = 'http://vvarmachine.com/uploads/galleries/Gladius_01.jpg';
+			}
+			
+			if ($unitCallsign == null)
+			{
+				$unitCallsign = "- No Callsign Created -";
 			}
 			
 			if ($mem_id != null)
@@ -253,6 +273,46 @@
 				";				
 			}
 		}
+		
+
+		$display_details .= "
+		<div class=\"shipDetails_info2\" style=\"width: auto\">
+			<table class=\"shipDetails_info1_table\">
+				<tr class=\"shipDetails_info1_table_row\">
+					<td class=\"shipDetails_info1_table_row_td_key\">
+						Slogan
+					</td>
+					<td class=\"shipDetails_info1_table_row_td_value\">
+						$unitSlogan
+					</td>
+				</tr>
+				<tr class=\"shipDetails_info1_table_row\">
+					<td class=\"shipDetails_info1_table_row_td_key\">
+						Radio Callsign
+					</td>
+					<td class=\"shipDetails_info1_table_row_td_value\">
+						<i>$unitCallsign</i>
+					</td>
+				</tr>
+				<tr class=\"shipDetails_info1_table_row\">
+					<td class=\"shipDetails_info1_table_row_td_key\">
+						Commanding Officer
+					</td>
+					<td class=\"shipDetails_info1_table_row_td_value\">
+						<a style=\"text-decoration: none\" href=\"http://sc.vvarmachine.com/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
+					</td>
+				</tr>
+				<tr class=\"shipDetails_info1_table_row\">
+					<td class=\"shipDetails_info1_table_row_td_key\">
+						Established
+					</td>
+					<td class=\"shipDetails_info1_table_row_td_value\">
+						$unitCreatedOn
+					</td>
+				</tr>
+			</table>
+		</div>
+		";		
 		
 		$displayUnitDescription1 = "";
 		$displayUnitDescription2 = "";
@@ -614,17 +674,26 @@
 
 ?>
 
+<? echo $display_selectors ?>
 <h2>
 	<? echo $unitName ?>
 </h2>
+<!--
 <h4>
 	<? echo $unitSlogan ?>
 </h4>
-<? echo $display_selectors ?>
+-->
 <div id="TEXT">
 
   <!-- Comment -->
 	<div class="units_main_container">
+	
+		<? echo $display_details ?>
+<!--
+<h3>
+	Unit Radio Callsign: <i><? echo $unitCallsign ?></i>
+</h3>
+-->
 		
 		<? echo $displayUnitDescription1 ?>
 		<? echo nl2br($displayUnitDescriptionContent) ?>
