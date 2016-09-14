@@ -665,6 +665,17 @@
 			";
 		}
 		
+		$displayEdit = "";
+		IF($_SESSION['sess_userrole'] == "admin")
+		{
+			$displayEdit = "
+				<button class=\"adminButton adminButtonEdit\" style=\"float: right\">
+					Edit Unit
+				</button>
+				<br />
+			";
+		}
+		
 		$connection->close();
 	}
 	else
@@ -687,6 +698,7 @@
 
   <!-- Comment -->
 	<div class="units_main_container">
+		<? echo $displayEdit ?>
 	
 		<? echo $display_details ?>
 <!--
@@ -831,6 +843,17 @@
 					"margin": '2px'
 				});		
 		}
-	});	
+	});
+	
+	$(function() {
+		//Edit
+		$('.adminButton.adminButtonEdit').click(function() {
+			var unitID = <?php echo $UnitID ?>;
+			
+			//Launch Unit Edit Page
+			window.location.href = "http://sc.vvarmachine.com/admin/?page=admin_unit&pid=" + unitID;
+			
+		});
+	});
 
 </script>
