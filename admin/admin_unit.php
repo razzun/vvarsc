@@ -515,8 +515,32 @@
 						Level
 					</div>
 					<div class="adminDetailEntryValue">
-						<input type="text" name="Level" id="Level" class="adminDialogTextInput">
-						</input>
+						<select name="Level" id="Level" class="adminDialogDropDown" required>
+							<option selected="true" disabled="true" value="default" id="IsActive-default">
+								Hierarchy Level
+							</option>
+							<option value="Division" id="Level-000">
+								Division
+							</option>
+							<option value="Group" id="Level-011">
+								Group
+							</option>
+							<option value="Battalion" id="Level-012">
+								Battalion
+							</option>
+							<option value="Wing" id="Level-021">
+								Wing
+							</option>
+							<option value="Company" id="Level-022">
+								Company
+							</option>
+							<option value="Squadron" id="Level-031">
+								Squadron
+							</option>
+							<option value="Platoon" id="Level-032">
+								Platoon
+							</option>
+						</select>
 					</div>
 				</div>
 				<div class="adminEntryRow unitIsActive" data-isactive="<? echo $unitIsActive ?>">
