@@ -19,6 +19,7 @@
 	$Name = "";
 	$ShortName = "";
 	$FullName = "";
+	$Callsign = "";
 	$Division = "";
 	$IsActive = "";
 	$Level = "";
@@ -40,6 +41,10 @@
 	if (isset($_POST['FullName']))
 	{
 		$FullName = mysqli_real_escape_string($connection, $_POST['FullName']);
+	}
+	if (isset($_POST['FullName']))
+	{
+		$Callsign = mysqli_real_escape_string($connection, $_POST['Callsign']);
 	}
 	if (isset($_POST['Division']))
 	{
@@ -66,6 +71,7 @@
 			UnitName = '$Name'
 			,UnitShortName = '$ShortName'
 			,UnitFullName = '$FullName'
+			,UnitCallsign = '$Callsign'
 			,DivisionID = '$Division'
 			,IsActive = $IsActive
 			,UnitLevel = '$Level'

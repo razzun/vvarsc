@@ -11,6 +11,7 @@
 			,u.UnitName
 			,u.UnitShortName
 			,u.UnitFullName
+			,u.UnitCallsign
 			,d.div_id
 			,d.div_name
 			,u.UnitLevel
@@ -39,6 +40,7 @@
 		$parentUnitID = $row['ParentUnitID'];
 		$parentUnitName = $row['ParentUnitName'];
 		$unitName = $row['UnitName'];
+		$unitCallsign = $row['UnitCallsign'];
 		$unitShortName = $row['UnitShortName'];
 		$unitFullName = $row['UnitFullName'];
 		$unitDivID = $row['div_id'];
@@ -247,6 +249,7 @@
 		var parentUnitName = dialog.find('.adminEntryRow.unitParent').data("parentname");
 		var unitName = dialog.find('.adminEntryRow.unitName').data("name");
 		var unitShortName = dialog.find('.adminEntryRow.unitShortName').data("shortname");
+		var unitCallsign = dialog.find('.adminEntryRow.unitCallsign').data("callsign");
 		var unitFullName = dialog.find('.adminEntryRow.unitFullName').data("fullname");
 		var unitDivision = dialog.find('.adminEntryRow.unitDivision').data("divid");
 		var unitLevel = dialog.find('.adminEntryRow.unitLevel').data("level");
@@ -258,6 +261,7 @@
 		dialog.find('#Name').val(unitName).text();
 		dialog.find('#ShortName').val(unitShortName).text();
 		dialog.find('#FullName').val(unitFullName).text();
+		dialog.find('#Callsign').val(unitCallsign).text();
 		dialog.find('#Division').find('#' + unitDivision).prop('selected',true);
 		dialog.find('#Level').val(unitLevel).text();
 		dialog.find('#IsActive').find('#IsActive-' + unitIsActive).prop('selected',true);
@@ -472,6 +476,15 @@
 					</div>
 					<div class="adminDetailEntryValue">
 						<input type="text" name="ShortName" id="ShortName" class="adminDialogTextInput">
+						</input>
+					</div>
+				</div>
+				<div class="adminEntryRow unitCallsign" data-callsign="<? echo $unitCallsign ?>">
+					<div class="adminDetailEntryKey">
+						Callsign
+					</div>
+					<div class="adminDetailEntryValue">
+						<input type="text" name="Callsign" id="Callsign" class="adminDialogTextInput">
 						</input>
 					</div>
 				</div>
