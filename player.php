@@ -7,7 +7,8 @@
 	$display_player_qualifications;
 	$ship_count;
 	
-	$loggedInPlayer = $_SESSION['sess_user_id'];
+	$loggedInPlayerID = $_SESSION['sess_user_id'];
+	$loggedInPlayerName = $_SESSION['sess_username'];
     
     if(is_numeric($player_id)) {
     	$play_query = "SELECT
@@ -272,7 +273,7 @@
 							</div>
 						</div>
 					";
-					if ($loggedInPlayer == $player_id)
+					if ($loggedInPlayerID == $player_id && $loggedInPlayerName != "guest")
 					{
 						$display_player_ships .= "
 							<div class=\"player_ships_entry_buttons_buttonContainer\">
@@ -372,7 +373,7 @@
 		}
 		
 		$display_edit_options = "";
-		if ($loggedInPlayer == $player_id)
+		if ($loggedInPlayerID == $player_id && $loggedInPlayerName != "guest")
 		{
 			$display_edit_options .= "
 				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile</button>
