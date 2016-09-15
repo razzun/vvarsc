@@ -428,7 +428,7 @@
 			</div>
 			<div class="p_info" valign="top" align="left">
 				<div class="p_section_header">
-					Citizen Dossier - <? echo $mem_name; ?>
+					Citizen Dossier - <? echo $mem_callsign; ?>
 				</div>
 				<div class="p_rank" align="left" valign="top">
 					<div class = "p_rankimage_container">

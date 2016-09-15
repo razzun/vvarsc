@@ -143,13 +143,13 @@
 						,u.ParentUnitID
 						,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 						,m.mem_id as UnitLeaderID
-						,m.mem_name as UnitLeaderName
+						,m.mem_callsign as UnitLeaderName
 						,m.rank_tinyImage as LeadeRankImage
 						,m.rank_abbr as LeaderRankAbbr
 					from projectx_vvarsc2.Units u
 					left join (
 						select
-							m.mem_name
+							m.mem_callsign
 							,m.mem_id
 							,r.rank_tinyImage
 							,r.rank_abbr

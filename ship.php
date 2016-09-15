@@ -49,8 +49,6 @@
 			,m.manu_name
 			,m.manu_shortName
 			,m.manu_smallImage
-			,GROUP_CONCAT(distinct mem.`mem_id` order by mem.mem_name SEPARATOR '|') as mem_id_info
-			,GROUP_CONCAT(distinct mem.`mem_name` order by mem.mem_name SEPARATOR '|') as mem_name_info
 		from projectx_vvarsc2.ships s
 		join projectx_vvarsc2.manufacturers m
 			on m.manu_id = s.manufacturers_manu_id
@@ -78,8 +76,6 @@
 		$ship_desc = $row1['ship_desc'];
 		$ship_image_link = $row1['ship_image_link'];
 		$manu_name = $row1['manu_name'];
-		$mem_id_info = $row1['mem_id_info'];
-		$mem_name_info = $row1['mem_name_info'];
 		$ship_model_designation = $row1['ship_model_designation'];
 		
 		//Info2
@@ -113,10 +109,6 @@
 		$ship_price = $row1['ship_price'];
 		$ship_brochure = $row1['ship_brochure_link'];
 		$ship_status = $row1['ship_status'];
-		
-		
-		$mem_id_array = explode('|', $mem_id_info);
-		$mem_name_array = explode('|', $mem_name_info);
 		
 		$display_ship_title .= "
 			<div class=\"shipDetails_shipTitle_container\">
@@ -435,7 +427,7 @@
 		$owners_query ="
 		select distinct
 			m.mem_id
-			,m.mem_name
+			,m.mem_callsign as mem_name
 			,m.mem_avatar_link
 			,DATE_FORMAT(DATE(m.CreatedOn),'%d %b %Y') as mem_CreatedOn
 			,r.rank_abbr

@@ -11,7 +11,7 @@
 			,d.div_name
 			,u.UnitLevel
 			,u.UnitLeaderID
-			,m.mem_name
+			,m.mem_callsign as mem_name
 			,u.CreatedOn
 			,u.IsActive
 		from projectx_vvarsc2.Units u

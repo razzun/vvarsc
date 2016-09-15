@@ -10,7 +10,7 @@
 			,s1.rank_groupImage as rank_image
 			,s1.rank_groupTinyImage as rank_tinyImage
 			,s1.mem_id as mem_id_info
-			,s1.mem_name as mem_name_info
+			,s1.mem_callsign as mem_name_info
 			,s1.rank_tinyImage as mem_rank_info
 			,s1.mem_avatar_link as mem_avatar_info
 			,s1.role_name as mem_role_info
@@ -31,7 +31,7 @@
 				,r.rank_orderby
 				,d.div_name
 				,m.mem_id
-				,m.mem_name
+				,m.mem_callsign
 				,m.mem_avatar_link
 				,case
 					when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
@@ -64,7 +64,7 @@
 				,r.rank_orderby
 				,d.div_name
 				,m.mem_id
-				,m.mem_name
+				,m.mem_callsign
 				,m.mem_avatar_link
 				,case
 					when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
@@ -89,7 +89,7 @@
 		order by
 			s1.rank_group_orderby
 			,s1.rank_orderby
-			,s1.mem_name";
+			,s1.mem_callsign";
 	}
 		
 	$div_query_results = $connection->query($div_query);

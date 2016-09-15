@@ -12,7 +12,7 @@
 				,m.manu_shortName
 				,shm.shm_package
 				,shm.shm_lti
-				,m2.mem_name
+				,m2.mem_callsign as mem_name
 			from projectx_vvarsc2.members m2
 			left join projectx_vvarsc2.ships_has_members shm
 				on shm.members_mem_id = m2.mem_id

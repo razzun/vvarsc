@@ -80,8 +80,7 @@
 		,m.`manu_name`
 		,m.`manu_shortName`
 		,m.`manu_smallImage`
-		,GROUP_CONCAT(mem.`mem_id` order by mem.mem_name SEPARATOR '|') as mem_id_info
-		,GROUP_CONCAT(mem.`mem_name` order by mem.mem_name SEPARATOR '|') as mem_name_info
+		,COUNT(distinct shm.rowID) as ship_count
 	from `projectx_vvarsc2`.`ships` s
 	join `projectx_vvarsc2`.`manufacturers` m
 		on m.`manu_id` = s.`manufacturers_manu_id`
@@ -114,6 +113,7 @@
 		$ship_classification = $row2['ship_classification'];
 		$ship_model_designation = $row2['ship_model_designation'];
 		$ship_model_visible = $row2['ship_model_visible'];
+		$ship_count = $row2['ship_count'];
 		
 		$mem_id_array = explode('|', $mem_id_info);
 		$mem_name_array = explode('|', $mem_name_info);
@@ -148,15 +148,7 @@
 						<img class=\"shipyard_mainTable_row_shipImage\" alt=\"$ship_name2\" src=\"$ship_image_link2\" />
 						<br />
 						<div class=\"shipyard_mainTable_row_shipOwners\">
-							Owners: 
-							<br />";
-							foreach ($mem_name_array as $index => $mem_name)
-							{
-								$display_fleet .= "
-								<a href=\"player/$mem_id_array[$index]\" target=\"_top\">$mem_name &nbsp;</a>
-								";
-							}
-						$display_fleet .= "
+							Fleet Ship-Count: $ship_count 
 						</div>
 						<div class=\"shipyard_mainTable_row_shipDesc_container\">
 							<div class=\"shipyard_mainTable_row_shipDesc\">

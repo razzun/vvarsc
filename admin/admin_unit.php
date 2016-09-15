@@ -16,7 +16,7 @@
 			,d.div_name
 			,u.UnitLevel
 			,u.UnitLeaderID
-			,m.mem_name
+			,m.mem_callsign as mem_name
 			,u.CreatedOn
 			,u.IsActive
 			,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
@@ -83,7 +83,7 @@
 	$member_query = "
 		select
 			m.mem_id
-			,m.mem_name
+			,m.mem_callsign as mem_name
 		from projectx_vvarsc2.members m
 		where m.mem_id not in (
 			select
@@ -93,7 +93,7 @@
 		)
 			and m.mem_sc = 1
 		order by
-			m.mem_name
+			m.mem_callsign
 	";
 	
 	$member_query_results = $connection->query($member_query);
@@ -142,7 +142,7 @@
 		select
 			um.RowID
 			,m.mem_id
-			,m.mem_name
+			,m.mem_callsign as mem_name
 			,r2.rank_level
 			,r2.rank_name
 			,r.role_id
@@ -598,7 +598,7 @@
 					MemberID
 				</td>
 				<td class="adminTableHeaderRowTD">
-					MemberName
+					Name (RSI Handle)
 				</td>
 				<td class="adminTableHeaderRowTD">
 					RankLevel

@@ -11,7 +11,7 @@
 						,s.ship_name as ship_name_info
 						,COALESCE(s.ship_model_designation,'-') as ship_designation_info
 						,m.mem_id as mem_id_info
-						,m.mem_name as mem_name_info
+						,m.mem_callsign as mem_name_info
 						,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as shm_modifiedOn_info
 						,s.ship_silo as ship_silo_info
 						,s.ship_role_primary as ship_primary_info

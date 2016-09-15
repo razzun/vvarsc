@@ -148,7 +148,7 @@
 							,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 							,d.div_name
 							,m.mem_id
-							,m.mem_name
+							,m.mem_callsign as mem_name
 							,r.rank_name
 							,r.rank_abbr
 							,r.rank_image
@@ -163,7 +163,7 @@
 							end as role_name
 							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
 							,m2.mem_id UnitLeaderID
-							,m2.mem_name UnitLeaderName
+							,m2.mem_callsign UnitLeaderName
 							,r3.rank_abbr UnitLeaderRank
 						from projectx_vvarsc2.Units u
 						left join projectx_vvarsc2.UnitMembers um
@@ -183,7 +183,7 @@
 						where u.UnitID = $UnitID
 						order by
 							r.rank_orderby
-							,m.mem_name";	
+							,m.mem_callsign";	
 		
 		$unit_query_result = $connection->query($unit_query);
 		
@@ -392,13 +392,13 @@
 							,u.ParentUnitID
 							,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 							,m.mem_id as UnitLeaderID
-							,m.mem_name as UnitLeaderName
+							,m.mem_callsign as UnitLeaderName
 							,m.rank_tinyImage as LeadeRankImage
 							,m.rank_abbr as LeaderRankAbbr
 						from projectx_vvarsc2.Units u
 						left join (
 							select
-								m.mem_name
+								m.mem_callsign
 								,m.mem_id
 								,r.rank_tinyImage
 								,r.rank_abbr

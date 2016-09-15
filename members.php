@@ -40,9 +40,9 @@
 		m.mem_sc = 1
 			and m.mem_name <> 'guest'
 	GROUP BY
-		m.mem_name
+		m.mem_callsign
 	ORDER BY
-		m.mem_name
+		m.mem_callsign
 	";	
     
     $mem_query_results = $connection->query($mem_query);
@@ -62,11 +62,11 @@
 			<tr class=\"clickableRow\" data-url=\"player/$mem_id\">
 				<td class=\"clickableRow_memName\">
 					<a href=\"player/$mem_id\" target=\"_top\">
-						$mem_name
+						$mem_callsign
 					</a>
 				</td>
 				<td class=\"clickableRow_memCallsign\">
-					$mem_callsign
+					$mem_name
 				</td>
 				<td class=\"clickableRow_memRank\">
 					<div class=\"clickableRow_memRank_inner\">
@@ -108,8 +108,8 @@
 	<table class="tbmem" id="sourceHeader">
 	   <thead>
     		<tr class="clickableRow_headerRow">
-    			<th class="clickableRow_header_memName">Player Name</th>
-				<th class="clickableRow_header_memCallsign">CallSign</th>
+    			<th class="clickableRow_header_memName">RSI Handle</th>
+				<th class="clickableRow_header_memCallsign">VVAR PlayerName</th>
     			<th class="clickableRow_header_memRank">Rank</th>
 				<th class="clickableRow_header_divInfo">Division</th>
     			<th class="clickableRow_header_memRole">Role</th>

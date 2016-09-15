@@ -19,7 +19,7 @@
 			on d.div_id = m.divisions_div_id
 		where m.mem_sc = 1
 		order by
-			m.mem_name
+			m.mem_callsign
 	";
 	
 	$members_query_results = $connection->query($members_query);
@@ -43,13 +43,13 @@
 				<td class=\"adminTableRowTD memID\" data-id=\"$memID\">
 					$memID					
 				</td>
-				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
+				<td class=\"adminTableRowTD memCallsign\" data-callsign=\"$memCallsign\">
 					<a href=\"../player/$memID\" target=\"_blank\">
-						$memName
+						$memCallsign
 					</a>
 				</td>
-				<td class=\"adminTableRowTD memCallsign\" data-callsign=\"$memCallsign\">
-					$memCallsign
+				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
+					$memName
 				</td>
 				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
 					<div class=\"clickableRow_memRank_inner\">
@@ -263,10 +263,10 @@
 					ID
 				</td>
 				<td class="adminTableHeaderRowTD">
-					Name
+					RSI Handle
 				</td>
 				<td class="adminTableHeaderRowTD">
-					Callsign
+					VVAR PlayerName
 				</td>
 				<td class="adminTableHeaderRowTD">
 					Rank Info
