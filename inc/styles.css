@@ -3849,6 +3849,14 @@ img.fleet:after {
 	.clickableRow_memSpec {
 		display: none;
 	}
+	
+	.clickableRow_headerRow th {
+		font-size: 9pt;
+	}
+	
+	.clickableRow td {
+		font-size: 8pt;
+	}
 	/*End Members Page*/
 	
 	/*Player Page*/
