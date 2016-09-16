@@ -94,7 +94,7 @@
 	}
 	
 	$access = generate_list2($units,$unit_id,'false');
-	if ($access == 'false')
+	if ($access == 'false' && $_SESSION['sess_userrole'] != 'admin')
 	{
 		session_destroy();
 		exit();
