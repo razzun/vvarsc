@@ -4,6 +4,102 @@
 <?php
 	$unit_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
 	
+	//Function For Checking Unit Leaders of Parent Units For Edit Permissions on This Unit
+	function generate_list2($array,$child,$Access)
+	{
+		static $_access = 'false';
+		foreach ($array as $value)
+		{
+			if ($_access == 'false')
+			{
+				if ($value['UnitID'] == $child)
+				{
+					if ($value['UnitLeaderID'] == $_SESSION['sess_user_id'])
+					{
+						$Access = 'true';
+						$_access = 'true';
+					}
+					//If We Didn't Find Access, check parent node.
+					if ($Access == 'false')
+					{
+						if ($value['ParentUnitID'] != '0')
+						{
+							generate_list2($array,$value['ParentUnitID'],$Access);
+						}
+					}
+					else
+						break;
+				}
+			}
+		}
+		return $_access;
+	}	
+	
+	$units_query = "select
+						u.UnitID
+						,u.UnitName
+						,u.UnitShortName
+						,u.UnitCallsign
+						,u.DivisionID
+						,d.div_name
+						,u.IsActive
+						,CASE
+							when u.IsActive = 1 then 'Active'
+							else 'Inactive'
+						end as IsActive
+						,u.UnitLevel
+						,u.ParentUnitID
+						,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
+						,m.mem_id as UnitLeaderID
+						,m.mem_callsign as UnitLeaderName
+						,m.rank_tinyImage as LeadeRankImage
+						,m.rank_abbr as LeaderRankAbbr
+					from projectx_vvarsc2.Units u
+					left join (
+						select
+							m.mem_callsign
+							,m.mem_id
+							,r.rank_tinyImage
+							,r.rank_abbr
+						from projectx_vvarsc2.members m
+						join projectx_vvarsc2.ranks r
+							on r.rank_id = m.ranks_rank_id
+					) m
+						on m.mem_id = u.UnitLeaderID
+					left join projectx_vvarsc2.divisions d
+						on d.div_id = u.DivisionID
+					order by
+						u.UnitID";	
+	
+	$units_query_results = $connection->query($units_query);
+	
+	while(($row = $units_query_results->fetch_assoc()) != false) {
+	
+		$units[$row['UnitID']] = array(
+			'UnitID' => $row['UnitID']
+			,'UnitName' => $row['UnitName']
+			,'UnitShortName' => $row['UnitShortName']
+			,'UnitCallsign' => $row['UnitCallsign']
+			,'DivisionID' => $row['DivisionID']
+			,'DivisionName' => $row['div_name']
+			,'IsActive' => $row['IsActive']
+			,'UnitLevel' => $row['UnitLevel']
+			,'ParentUnitID' => $row['ParentUnitID']
+			,'UnitCreatedOn' => $row['UnitCreatedOn']
+			,'UnitLeaderName' => $row['UnitLeaderName']
+			,'UnitLeaderID' => $row['UnitLeaderID']
+			,'LeadeRankImage' => $row['LeadeRankImage']
+			,'LeaderRankAbbr' => $row['LeaderRankAbbr']
+		);
+	}
+	
+	$access = generate_list2($units,$unit_id,'false');
+	if ($access == 'false')
+	{
+		session_destroy();
+		exit();
+	}
+	
 	$unit_details_query = "
 		select
 			u.UnitID
