@@ -1,4 +1,5 @@
-<?php include_once('functions/function_auth_admin.php'); ?>
+<?php include_once('../functions/function_auth_officer.php'); ?>
+
 
 <?php
 	$unit_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
@@ -209,7 +210,7 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 		";
-				if($unitLeader == "No")
+				if($unitLeader == "No" && $_SESSION['sess_userrole'] == "admin")
 				$displayUnitMembers .= "
 					<button class=\"adminButton adminButtonAssignLeader\">
 						Assign Leader
@@ -220,12 +221,24 @@
 						Edit
 					</button>
 					<button class=\"adminButton adminButtonDelete\">
-						Delete
+						Remove
 					</button>
 				</td>
 			</tr>
 		";
-	}	
+	}
+	
+	$display_admin_mainLink = "";
+	
+	if ($_SESSION['sess_userrole'] == "admin")
+	{	$display_admin_mainLink = "
+			<div class=\"div_filters_entry\">
+				<a href=\"http://sc.vvarmachine.com/admin/?page=admin_units\">&#8672; Back to Unit Management</a>
+			</div>
+			<br />
+			<br />
+		";
+	}
 ?>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -426,11 +439,7 @@
 
 <br />
 <div class="div_filters_container">
-	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/?page=admin_units">&#8672; Back to Unit Management</a>
-	</div>
-	<br />
-	<br />
+	<? echo $display_admin_mainLink ?>
 	<div class="div_filters_entry">
 		<a href="http://sc.vvarmachine.com/unit/<? echo $unitID ?>">Unit Details Page</a>
 	</div>

@@ -3,6 +3,7 @@
 <?
 	$UnitID = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
 	
+	//Function For Generating Child-Unit List
 	function generate_list($array,$parent,$level,$realLevel)
 	{
 		foreach ($array as $value)
@@ -130,6 +131,37 @@
 				$realLevel--;
 			}
 		}
+	}
+	
+	//Function For Checking Unit Leaders of Parent Units For Edit Permissions on This Unit
+	function generate_list2($array,$child,$Access)
+	{
+		static $_access = 'false';
+		foreach ($array as $value)
+		{
+			if ($_access == 'false')
+			{
+				if ($value['UnitID'] == $child)
+				{
+					if ($value['UnitLeaderID'] == $_SESSION['sess_user_id'])
+					{
+						$Access = 'true';
+						$_access = 'true';
+					}
+					//If We Didn't Find Access, check parent node.
+					if ($Access == 'false')
+					{
+						if ($value['ParentUnitID'] != '0')
+						{
+							generate_list2($array,$value['ParentUnitID'],$Access);
+						}
+					}
+					else
+						break;
+				}
+			}
+		}
+		return $_access;
 	}
 	
 	if(is_numeric($UnitID)) {
@@ -665,8 +697,11 @@
 			";
 		}
 		
+		$access = generate_list2($units,$UnitID,'false');
+		
 		$displayEdit = "";
-		IF($_SESSION['sess_userrole'] == "admin")
+		IF(($_SESSION['sess_userrole'] == "admin") ||
+			($_SESSION['sess_userrole'] == "officer") && $access == "true" )
 		{
 			$displayEdit = "
 				<button class=\"adminButton adminButtonEdit\" style=\"float: right\">

@@ -3,7 +3,7 @@
 	putenv("TZ=US/Pacific");
 
 	include_once('../dbconn/dbconn.php');
-	include_once('../functions/function_auth_admin.php');
+	include_once('../functions/function_auth_officer.php');
 ?>
 <html>
 	<head>
