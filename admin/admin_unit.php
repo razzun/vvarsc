@@ -1,34 +1,38 @@
 <?php include_once('../functions/function_auth_officer.php'); ?>
+<?php include_once('../functions/function_getUnitsForUser.php'); ?>
 
 
 <?php
 	$unit_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
 	
 	//Function For Checking Unit Leaders of Parent Units For Edit Permissions on This Unit
-	function generate_list2($array,$child,$Access)
+	function generate_list2($array,$child,$Access,$memberUnits)
 	{
 		static $_access = 'false';
 		foreach ($array as $value)
 		{
-			if ($_access == 'false')
+			foreach ($memberUnits as $value2)
 			{
-				if ($value['UnitID'] == $child)
+				if ($_access == 'false')
 				{
-					if ($value['UnitLeaderID'] == $_SESSION['sess_user_id'])
+					if ($value['UnitID'] == $child)
 					{
-						$Access = 'true';
-						$_access = 'true';
-					}
-					//If We Didn't Find Access, check parent node.
-					if ($Access == 'false')
-					{
-						if ($value['ParentUnitID'] != '0')
+						if ($value['UnitID'] == $value2['UnitID'])
 						{
-							generate_list2($array,$value['ParentUnitID'],$Access);
+							$Access = 'true';
+							$_access = 'true';
 						}
+						//If We Didn't Find Access, check parent node.
+						if ($Access == 'false')
+						{
+							if ($value['ParentUnitID'] != '0')
+							{
+								generate_list2($array,$value['ParentUnitID'],$Access,$memberUnits);
+							}
+						}
+						else
+							break;
 					}
-					else
-						break;
 				}
 			}
 		}
@@ -93,7 +97,12 @@
 		);
 	}
 	
-	$access = generate_list2($units,$unit_id,'false');
+	if($_SESSION['sess_userrole'] == "officer")
+	{
+		$memberUnits = array();
+		$memberUnits = getUnitsForUser($connection, $_SESSION['sess_user_id']);
+		$access = generate_list2($units,$unit_id,'false',$memberUnits);
+	}
 	if ($access == 'false' && $_SESSION['sess_userrole'] != 'admin')
 	{
 		session_destroy();
