@@ -17,6 +17,7 @@
 	$ID = "";
 	$Name = "";
 	$ShortName = "";
+	$DisplayName = "";
 	$IsPrivate = "";
 	$Order = "";
 	
@@ -32,6 +33,10 @@
 	{
 		$ShortName = mysqli_real_escape_string($connection, $_POST['ShortName']);
 	}
+	if (isset($_POST['DisplayName']))
+	{
+		$DisplayName = mysqli_real_escape_string($connection, $_POST['DisplayName']);
+	}
 	if (isset($_POST['IsPrivate']))
 	{
 		$IsPrivate = $_POST['IsPrivate'];
@@ -44,6 +49,7 @@
 	$q = "UPDATE projectx_vvarsc2.roles set
 			role_name = '$Name'
 			,role_shortName = '$ShortName'
+			,role_displayName = '$DisplayName'
 			,role_orderBy = '$Order'
 			,isPrivate = '$IsPrivate'
 		WHERE role_id = '$ID$'";

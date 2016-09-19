@@ -6,6 +6,7 @@
 			r.role_id
 			,r.role_name
 			,r.role_shortName
+			,r.role_displayName
 			,r.isPrivate
 			,r.role_orderby
 		from projectx_vvarsc2.roles r
@@ -22,6 +23,7 @@
 		$roleID = $row['role_id'];
 		$roleName = $row['role_name'];
 		$roleShortName = $row['role_shortName'];
+		$roleDisplayName = $row['role_displayName'];
 		$isPrivate = $row['isPrivate'];
 		$orderBy = $row['role_orderby'];
 	
@@ -35,6 +37,9 @@
 				</td>
 				<td class=\"adminTableRowTD roleShortName\" data-shortname=\"$roleShortName\">
 					$roleShortName
+				</td>
+				<td class=\"adminTableRowTD roleDisplayName\" data-displayname=\"$roleDisplayName\">
+					$roleDisplayName
 				</td>
 				<td class=\"adminTableRowTD isPrivate\" data-isprivate=\"$isPrivate\">
 					$isPrivate
@@ -105,12 +110,14 @@
 			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("id");
 			var roleName = $self.parent().parent().find('.adminTableRowTD.roleName').data("name");
 			var roleShortName = $self.parent().parent().find('.adminTableRowTD.roleShortName').data("shortname");
+			var roleDisplayName = $self.parent().parent().find('.adminTableRowTD.roleDisplayName').data("displayname");
 			var roleIsPrivate = $self.parent().parent().find('.adminTableRowTD.isPrivate').data("isprivate");
 			var roleOrderBy = $self.parent().parent().find('.adminTableRowTD.orderBy').data("orderby");
 			
 			dialog.find('#ID').val(roleID).text();
 			dialog.find('#Name').val(roleName).text();
 			dialog.find('#ShortName').val(roleShortName).text();
+			dialog.find('#DisplayName').val(roleDisplayName).text();
 			
 			dialog.find('#IsPrivate').find('option').prop('selected',false);
 			dialog.find('#IsPrivate').find('#IsPrivate-' + roleIsPrivate).prop('selected',true);
@@ -133,12 +140,14 @@
 			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("id");
 			var roleName = $self.parent().parent().find('.adminTableRowTD.roleName').data("name");
 			var roleShortName = $self.parent().parent().find('.adminTableRowTD.roleShortName').data("shortname");
+			var roleDisplayName = $self.parent().parent().find('.adminTableRowTD.roleDisplayName').data("displayname");
 			var roleIsPrivate = $self.parent().parent().find('.adminTableRowTD.isPrivate').data("isprivate");
 			var roleOrderBy = $self.parent().parent().find('.adminTableRowTD.orderBy').data("orderby");
 			
 			dialog.find('#ID').val(roleID).text();
 			dialog.find('#Name').val(roleName).text();
 			dialog.find('#ShortName').val(roleShortName).text();
+			dialog.find('#DisplayName').val(roleDisplayName).text();
 			dialog.find('#IsPrivate').val(roleIsPrivate).text();
 			dialog.find('#Order').val(roleOrderBy).text();
 			
@@ -156,6 +165,7 @@
 			$('.adminDiaglogFormFieldset').find('#ID').val("").text();
 			$('.adminDiaglogFormFieldset').find('#Name').val("").text();
 			$('.adminDiaglogFormFieldset').find('#ShortName').val("").text();
+			$('.adminDiaglogFormFieldset').find('#DisplayName').val("").text();
 			$('.adminDiaglogFormFieldset').find('#IsPrivate').find('option').prop('selected',false);
 			$('.adminDiaglogFormFieldset').find('#Order').val("").text();
 			
@@ -195,6 +205,9 @@
 					ShortName
 				</td>
 				<td class="adminTableHeaderRowTD">
+					DisplayName
+				</td>
+				<td class="adminTableHeaderRowTD">
 					IsPrivate
 				</td>
 				<td class="adminTableHeaderRowTD">
@@ -224,6 +237,11 @@
 						ShortName
 					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput">
+
+					<label for="DisplayName" class="adminDialogInputLabel">
+						DisplayName
+					</label>
+					<input type="text" name="DisplayName" id="DisplayName" value="" class="adminDialogTextInput">
 
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate
@@ -275,6 +293,11 @@
 					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput">
 
+					<label for="DisplayName" class="adminDialogInputLabel">
+						DisplayName
+					</label>
+					<input type="text" name="DisplayName" id="DisplayName" value="" class="adminDialogTextInput">
+
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate
 					</label>
@@ -325,6 +348,11 @@
 						ShortName
 					</label>
 					<input type="text" name="ShortName" id="ShortName" value="" class="adminDialogTextInput" readonly>
+
+					<label for="DisplayName" class="adminDialogInputLabel">
+						DisplayName
+					</label>
+					<input type="text" name="DisplayName" id="DisplayName" value="" class="adminDialogTextInput" readonly>
 
 					<label for="IsPrivate" class="adminDialogInputLabel">
 						IsPrivate

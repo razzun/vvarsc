@@ -90,7 +90,7 @@
 									{
 										echo '';
 									}
-									else if ($value['IsActive'] == "Active")
+									else if ($value['IsActive'] == "Active" && ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != ''))
 									{
 										echo 'Commanding Officer';
 									}
@@ -104,13 +104,13 @@
 									}
 									else if ($value['IsActive'] == "Active")
 									{										
-										if ($value['UnitLeaderID'] != null)
+										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
 										{
 											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
 											echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
 										}
 										else
-											echo '- No Leader Assigned -';
+											echo '';
 									}
 									echo '</div>';
 								echo '</div>';
@@ -190,6 +190,7 @@
 							,r.rank_image
 							,r.rank_tinyImage
 							,r.rank_level
+							,r.rank_name
 							,r.rank_groupName
 							,case
 								when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
@@ -245,6 +246,7 @@
 			$rank_image = $row1['rank_image'];
 			$rank_tinyImage = $row1['rank_tinyImage'];
 			$rank_level = $row1['rank_level'];
+			$rank_name = $row1['rank_name'];
 			$rank_groupName = $row1['rank_groupName'];
 			$mem_name = $row1['mem_name'];
 			$mem_role = $row1['role_name'];
@@ -282,7 +284,7 @@
 									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo2\">
-									- $rank_groupName
+									- $rank_name ($rank_groupName)
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									- $mem_role
@@ -291,7 +293,7 @@
 									Assigned $mem_assigned_date
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo5\">
-									$rank_abbr // $rank_level
+									$rank_abbr  // $rank_level
 								</div>
 							</div>
 						</td>

@@ -26,6 +26,7 @@
 			,d.div_id
     		,d.div_name
 			,case
+				when roles.isPrivate = 0 and roles.role_displayName != '' then roles.role_displayName
 				when roles.isPrivate = 0 then roles.role_name
 				when roles.role_id is null then 'n/a'
 				else '- Role Information Classified - '

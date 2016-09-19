@@ -296,7 +296,9 @@
 					$memID
 				</td>
 				<td class=\"adminTableRowTD memName\" data-memname=\"$memName\">
-					$memName
+					<a href=\"http://sc.vvarmachine.com/player/$memID\" target=\"_blank\">
+						$memName
+					</a>
 				</td>
 				<td class=\"adminTableRowTD rankLevel\" data-ranklevel=\"$rankLevel\">
 					$rankLevel

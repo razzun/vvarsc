@@ -434,6 +434,7 @@
 			,r.rank_image
 			,r.rank_tinyImage
 			,r.rank_level
+			,r.rank_name
 			,r.rank_groupName
 			,d.div_name
 			,case
@@ -470,6 +471,7 @@
 			$rank_image = $row2['rank_image'];
 			$rank_tinyImage = $row2['rank_tinyImage'];
 			$rank_level = $row2['rank_level'];
+			$rank_name = $row2['rank_name'];
 			$rank_groupName = $row2['rank_groupName'];
 			$mem_id = $row2['mem_id'];
 			$mem_name = $row2['mem_name'];
@@ -485,7 +487,7 @@
 			}
 			
 			if ($mem_role == "n/a") {
-				$mem_role = "- No Assigned Role -";
+				$mem_role = "No Role Assigned";
 			}
 			
 			$display_owners .="
@@ -507,10 +509,10 @@
 								<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo2\">
-								- $rank_groupName // $mem_role
+								- $rank_name ($rank_groupName)
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
-								- $div_name
+								- $mem_role // $div_name
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
 								Enlisted $mem_CreatedOn

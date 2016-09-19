@@ -15,6 +15,7 @@
 
 	$Name = "";
 	$ShortName = "";
+	$DisplayName = "";
 	$IsPrivate = "";
 	$Order = "";
 	 
@@ -26,6 +27,10 @@
 	{
 		$ShortName = mysqli_real_escape_string($connection, $_POST['ShortName']);
 	}
+	if (isset($_POST['DisplayName']))
+	{
+		$DisplayName = mysqli_real_escape_string($connection, $_POST['DisplayName']);
+	}
 	if (isset($_POST['IsPrivate']))
 	{
 		$IsPrivate = $_POST['IsPrivate'];
@@ -35,8 +40,21 @@
 		$Order = mysqli_real_escape_string($connection, $_POST['Order']);
 	}
 	 
-	$q = "INSERT into projectx_vvarsc2.roles (role_name, role_shortName, role_orderby, isPrivate)
-			VALUES('$Name','$ShortName','$Order','$IsPrivate')";
+	$q = "
+		INSERT into projectx_vvarsc2.roles (
+			role_name
+			,role_shortName
+			,role_displayName
+			,role_orderby
+			,isPrivate
+		) VALUES (
+			'$Name'
+			,'$ShortName'
+			,'$DisplayName'
+			,'$Order'
+			,'$IsPrivate'
+		)
+	";
 
 	$query_result = $connection->query($q);
 			

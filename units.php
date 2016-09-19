@@ -84,7 +84,7 @@
 									{
 										echo '';
 									}
-									else if ($value['IsActive'] == "Active")
+									else if ($value['IsActive'] == "Active" && ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != ''))
 									{
 										echo 'Commanding Officer';
 									}
@@ -98,13 +98,13 @@
 									}
 									else if ($value['IsActive'] == "Active")
 									{										
-										if ($value['UnitLeaderID'] != null)
+										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
 										{
 											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
 											echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
 										}
 										else
-											echo '- No Leader Assigned -';
+											echo '';
 									}
 									echo '</div>';
 								echo '</div>';

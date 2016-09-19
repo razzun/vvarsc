@@ -421,7 +421,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-7 is the second of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing-level and Company-level units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-7 is the second of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing and MSWT units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7, while retaining their current assignment.
@@ -496,7 +496,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Combat Group-sized or Battalion-Sized units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Combat Group units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					<strong>Advancement from E-7 to E-8 requires the following:</strong>
