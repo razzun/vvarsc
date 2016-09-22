@@ -17,7 +17,7 @@
 	";
 	
 	$enlistedTable = "
-		<table class=\"adminTable\" style=\"width: auto; display: table-row\">
+		<table class=\"adminTable\">
 			<tr class=\"adminTableHeaderRow\">
 				<th class=\"adminTableHeaderRowTD\">
 					PayGrade
@@ -43,18 +43,7 @@
 		$rank_abbr_usmc = $row1['rank_abbr_usmc'];
 		$rank_name_usmc = $row1['rank_name_usmc'];
 		$rank_tinyImage_usmc = $row1['rank_tinyImage_usmc'];
-		$rank_groupName = $row1['rank_groupName'];
-		
-		$rankNameNavy = "- not used -";
-		if ($rank_abbr_navy != null && $rank_name_navy != null)
-		{
-			$rankNameNavy = "$rank_abbr_navy - $rank_name_navy";
-		}
-		$rankNameUSMC = "- not used -";
-		if ($rank_abbr_usmc != null && $rank_name_usmc != null)
-		{
-			$rankNameUSMC = "$rank_abbr_usmc - $rank_name_usmc";
-		}		
+		$rank_groupName = $row1['rank_groupName'];		
 		
 		$enlistedTable .= "
 			<tr class=\"adminTableRow\">
@@ -65,7 +54,10 @@
 					<div class=\"clickableRow_memRank_inner\">
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_navy.png\" />
 						<div class=\"rank_image_text\">
-							$rankNameNavy
+							$rank_abbr_navy
+						</div>
+						<div class=\"rank_image_text canHide\">
+							- $rank_name_navy
 						</div>
 					</div>
 				</td>
@@ -73,7 +65,10 @@
 					<div class=\"clickableRow_memRank_inner\">
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_usmc.png\" />
 						<div class=\"rank_image_text\">
-							$rankNameUSMC
+							$rank_abbr_usmc
+						</div>
+						<div class=\"rank_image_text canHide\">
+							- $rank_name_usmc
 						</div>
 					</div>
 				</td>
@@ -105,7 +100,7 @@
 	";
 	
 	$officerTable = "
-		<table class=\"adminTable\" style=\"width: auto; display: table-row\">
+		<table class=\"adminTable\">
 			<tr class=\"adminTableHeaderRow\">
 				<th class=\"adminTableHeaderRowTD\">
 					PayGrade
@@ -133,16 +128,8 @@
 		$rank_tinyImage_common = $row1['rank_tinyImage_common'];
 		$rank_groupName = $row1['rank_groupName'];
 		
-		$rankNameNavy = "- not used- ";
-		if ($rank_abbr_navy != null && $rank_name_navy != null)
-		{
-			$rankNameNavy = "$rank_abbr_navy - $rank_name_navy";
-		}
-		$rankNameCommon = "- not used -";
-		if ($rank_abbr_common != null && $rank_name_common!= null)
-		{
-			$rankNameCommon = "$rank_abbr_common - $rank_name_common";
-		}			
+		if ($rank_name_common == null)
+			$rank_name_common = "not used -";
 		
 		if ($rank_tinyImage_common == null)
 			$rank_tinyImage_common = $rank_tinyImage_navy;
@@ -156,7 +143,10 @@
 					<div class=\"clickableRow_memRank_inner\">
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_navy.png\" />
 						<div class=\"rank_image_text\">
-							$rankNameNavy
+							$rank_abbr_navy
+						</div>
+						<div class=\"rank_image_text canHide\">
+							- $rank_name_navy
 						</div>
 					</div>
 				</td>
@@ -164,7 +154,10 @@
 					<div class=\"clickableRow_memRank_inner\">
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_common.png\" />
 						<div class=\"rank_image_text\">
-							$rankNameCommon
+							$rank_abbr_common
+						</div>
+						<div class=\"rank_image_text canHide\">
+							- $rank_name_common
 						</div>
 					</div>
 				</td>
@@ -228,10 +221,10 @@
 		</div>
 		<br />
 		<br />
-		<?include_once("wiki/ranks/rankDetails_enlisted.php");?>
+		<?include_once("ranks/rankDetails_enlisted.php");?>
 		<br />
 		<br />
-		<?include_once("wiki/ranks/rankDetails_officer.php");?>
+		<?include_once("ranks/rankDetails_officer.php");?>
 	</div>
 	
 </div>

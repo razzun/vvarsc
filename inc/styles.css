@@ -3737,6 +3737,10 @@ img.fleet:after {
 
 /*END Hover Controls */
 
+.canHide {
+
+}
+
 @media only screen and (max-height: 799px) {
 	.yard_stats_2 {
 		display: none;
@@ -3921,6 +3925,24 @@ img.fleet:after {
 		font-size: 1.0em;
 	}
 	/*End Links Page*/
+	
+	.adminTable {
+		width: 100%;
+	}
+	
+	.adminTableHeaderRowTD {
+		font-size: 9pt;
+		font-weight: normal;
+		font-style: italic;
+	}
+	
+	.adminTableRowTD  {
+		font-size: 8pt;
+	}
+	
+	.adminTableRowTD .rank_image_text {
+		font-size: 8pt;
+	}
 }
 
 @media only screen and (max-width: 639px) {
@@ -3980,6 +4002,10 @@ img.fleet:after {
 		width: 90%;
 		margin-left: auto;
 		margin-right: auto;		
+	}
+	
+	.canHide {
+		display: none;
 	}
 	/*End Admin Page*/
 	

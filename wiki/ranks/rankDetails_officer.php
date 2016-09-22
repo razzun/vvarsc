@@ -114,7 +114,7 @@
 					<br />
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Months TIG for their Division at O-1</li>
+						<li>Minimum One Month TIG for their Division at O-1</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
@@ -169,7 +169,7 @@
 					<br />
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
 					<ol>
-						<li>Minimum Three Months TIG for their Unit at O-2</li>
+						<li>Minimum Two Months TIG for their Unit at O-2</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
