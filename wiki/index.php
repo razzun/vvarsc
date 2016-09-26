@@ -27,6 +27,10 @@
 									/*****************/
 									/** Wiki Links **/
 									/*****************/
+									case "marineTeams":
+										$content = "marineTeams.php";
+										break;
+										
 									case "operations":
 										$content = "operations.php";
 										break;

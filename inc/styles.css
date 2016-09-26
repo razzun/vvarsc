@@ -2822,11 +2822,17 @@ img.fleet:after {
 	position: relative;
 	text-align: left;
 	border-left: 1px solid rgba(100,100,100,0.4);
+	background: rgba(0,0,0,1);
 }
 
 .divinfo_memAvatarImg {
 	/*opacity: 0.75;*/
 	background: rgba(0,0,0,1);
+	transition: all 0.4s ease 0s;
+}
+
+.divinfo_tableCell_membersTable_tableCell:hover .divinfo_memAvatarImg {
+	opacity: 0.5;
 }
 
 .divinfo_memAvatar_textOverlay_memName {
@@ -4118,6 +4124,8 @@ img.fleet:after {
 		background-image: none;
 	}
 	
+	
+	
 	.divinfo_tableCell_membersTable {
 		margin-top: 0px;
 		padding: 0px;
@@ -4144,6 +4152,7 @@ img.fleet:after {
 	.divinfo_memAvatarContainer {
 		display: table;
 		border: none;
+		background: none;
 	}
 	
 	.divinfo_memAvatar_textOverlay_memName,
