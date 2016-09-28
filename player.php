@@ -574,7 +574,7 @@
 		<h4 style="padding-left: 0px; margin-left: 0px">
 			Member Biography
 		</h4>
-		<div class="unit_description_container" style="margin-bottom: 8px">
+		<div class="unit_description_container" style="margin-bottom: 16px">
 			<div class="top-line">
 			</div>
 			<div class="corner4 corner-diag-blue-topLeft">
@@ -585,7 +585,7 @@
 			</div>
 			<div class="corner4 corner-diag-blue-bottomRight">
 			</div>
-			<? echo $DisplayMemberBio ?>
+			<? echo nl2br($DisplayMemberBio) ?>
 		</div>
 		<!--Edit Options-->
 		<div>
@@ -631,7 +631,7 @@
 				<label for="Biography" class="adminDialogInputLabel">
 					Biography Info
 				</label>
-				<textarea name="Biography" id="Biography" class="adminDialogTextArea">
+				<textarea name="Biography" id="Biography" class="adminDialogTextArea"><? echo $MemberBio ?>
 				</textarea>			
 				
 				<label for="CurrentPassword" class="adminDialogInputLabel">
@@ -923,12 +923,10 @@
 			var memID = "<? echo $mem_id ?>";
 			var memName = "<? echo $mem_name ?>";
 			var memCallsign = "<? echo $mem_callsign ?>";
-			var memBio = "<? echo $MemberBio ?>";
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
-			dialog.find('#Biography').val(memBio).text();
 			dialog.find('#CurrentPassword').val("").text();
 			dialog.find('#NewPassword').val("").text();
 			
