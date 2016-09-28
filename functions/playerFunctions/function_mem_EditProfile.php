@@ -20,6 +20,7 @@
 	$Callsign = "";
 	$CurrentPassword = "";
 	$NewPassword = "";
+	$MemberBio = "";
 	 
 	if(isset($_POST['ID']))
 	{
@@ -41,6 +42,10 @@
 	{
 		$NewPassword = $_POST['np'];
 	}
+	if (isset($_POST['Biography']))
+	{
+		$MemberBio =  mysqli_real_escape_string($connection, $_POST['Biography']);
+	}
 	
 	if($ID == $SessionMemID)
 	{
@@ -53,6 +58,7 @@
 						mem_name = '$Name'
 						,mem_callsign = '$Callsign'
 						,password = '$NewPassword'
+						,member_bio = '$MemberBio'
 					where mem_id = '$ID'
 						and password = '$CurrentPassword'
 				";				
@@ -63,6 +69,7 @@
 				$q = "UPDATE projectx_vvarsc2.members set
 						mem_name = '$Name'
 						,mem_callsign = '$Callsign'
+						,member_bio = '$MemberBio'
 					where mem_id = '$ID'
 						and password = '$CurrentPassword'
 				";					

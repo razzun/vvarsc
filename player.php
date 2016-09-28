@@ -17,6 +17,7 @@
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
+			,members.member_bio
 			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
     		,ranks.rank_groupName
@@ -108,6 +109,7 @@
 			$ship_model_visible = $row['ship_model_visible'];
 			$UnitID = $row['UnitID'];
 			$UnitName = $row['UnitName'];
+			$MemberBio = $row['member_bio'];
 			
 			if ($ship_model_designation != NULL && $ship_model_visible != "0") {
 				$full_ship_name = "";
@@ -147,6 +149,16 @@
 			else
 			{
 				$div_name .= " Division";
+			}
+			
+			$DisplayMemberBio = "";
+			if ($MemberBio == NULL || $MemberBio == "")
+			{
+				$DisplayMemberBio = "- No Biography Information Found -";
+			}
+			else
+			{
+				$DisplayMemberBio = $MemberBio;
 			}
 			
     		if ($shm_lti == 1) {
@@ -558,6 +570,23 @@
 				</table>
 			</div>
 		</div>
+		
+		<h4 style="padding-left: 0px; margin-left: 0px">
+			Member Biography
+		</h4>
+		<div class="unit_description_container" style="margin-bottom: 8px">
+			<div class="top-line">
+			</div>
+			<div class="corner4 corner-diag-blue-topLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-topRight">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomRight">
+			</div>
+			<? echo $DisplayMemberBio ?>
+		</div>
 		<!--Edit Options-->
 		<div>
 			<? echo $display_edit_options ?>
@@ -592,12 +621,18 @@
 				<label for="Name" class="adminDialogInputLabel">
 					Name
 				</label>
-				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus>
+				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required autofocus readonly>
 				
 				<label for="Callsign" class="adminDialogInputLabel">
 					Callsign (RSI Handle)
 				</label>
-				<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required>
+				<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required readonly>
+				
+				<label for="Biography" class="adminDialogInputLabel">
+					Biography Info
+				</label>
+				<textarea name="Biography" id="Biography" class="adminDialogTextArea">
+				</textarea>			
 				
 				<label for="CurrentPassword" class="adminDialogInputLabel">
 					Current Password (required to make updates)
@@ -866,11 +901,13 @@
 		dialog.hide();
 		
 		//Set TextArea Input Height to Correct Values
+		$("textarea").height( $("textarea")[0].scrollHeight );
+		
 		$('input[type="text"]')
 		// event handler
 		.keyup(resizeInput)
 		// resize on page load
-		.each(resizeInput);	
+		.each(resizeInput);
 	});
 	
 	$(function() {
@@ -886,10 +923,15 @@
 			var memID = "<? echo $mem_id ?>";
 			var memName = "<? echo $mem_name ?>";
 			var memCallsign = "<? echo $mem_callsign ?>";
+			var memBio = "<? echo $MemberBio ?>";
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
+			dialog.find('#Biography').val(memBio).text();
+			dialog.find('#CurrentPassword').val("").text();
+			dialog.find('#NewPassword').val("").text();
+			
 			
 			dialog.show();
 			overlay.show();
@@ -1021,10 +1063,13 @@ function formhash(form, currentPassword, newPassword){
     cp.type = "hidden";
     cp.value = hex_sha512(currentPassword.value);
 	
-	form.appendChild(np);
-	np.name = "np";
-	np.type = "hidden";
-	np.value = hex_sha512(newPassword.value);
+	if (newPassword.value != "")
+	{
+		form.appendChild(np);
+		np.name = "np";
+		np.type = "hidden";
+		np.value = hex_sha512(newPassword.value);
+	}
  
     // Make sure the plaintext password doesn't get sent. 
     currentPassword.value = "";
