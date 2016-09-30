@@ -17,7 +17,7 @@
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
-			,members.member_bio
+			,TRIM(Replace(members.member_bio,'\t','')) as member_bio
 			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
     		,ranks.rank_groupName

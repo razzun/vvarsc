@@ -3741,6 +3741,12 @@ img.fleet:after {
 	padding-bottom: 4px;
 }
 
+.WikiOL {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 16px;
+}
+
 /*END Hover Controls */
 
 .canHide {

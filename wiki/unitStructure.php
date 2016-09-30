@@ -14,6 +14,7 @@
 			<p style="text-align: center; font-style: italic">
 				The VVarMachine Combined Fleet uses a Hierarchical Military Unit Structure, with design elements incorporated from the organization of the US Navy, AirForce, and Marine Corps. In broad terms, our fleet is arranged into two branches <strong>(Divisions)</strong>. Our Military Division will focus on combat-related duties, and our Economic Division will focus on generating revenue to support the war-effort.
 			</p>
+			<h3 id="MilDivOrganization" style="padding-left: 4px; margin-left: 0">Military Division Organization</h3>
 			<div class="shipDetails_info1_table_ship_desc" style="font-style: normal">
 				<div class="corner corner-top-left">
 				</div>
@@ -23,7 +24,6 @@
 				</div>
 				<div class="corner corner-bottom-right">
 				</div>
-				<h3 style="padding-left: 4px; margin-left: 0">Military Division Organization</h3>
 				<h4 class="WikiH4">Unit Types</h4>
 				<h5 class="WikiH5">Squadrons & Platoons</h5>
 				<div class="WikiText">
@@ -68,6 +68,41 @@
 					For Marine Platoons, these are numbered in-order of creation within an MSWT ("1st Platoon", "2nd Platoon", etc), where names will be reused between MSWTs.
 				</div>
 			</div>
+			<br />
+			<h3 id="EconDivOrganization" style="padding-left: 4px; margin-left: 0">Economic Division Organization</h3>
+			<div class="shipDetails_info1_table_ship_desc" style="font-style: normal">
+				<div class="corner corner-top-left">
+				</div>
+				<div class="corner corner-top-right">
+				</div>
+				<div class="corner corner-bottom-left">
+				</div>
+				<div class="corner corner-bottom-right">
+				</div>
+				<h4 class="WikiH4">Unit Types</h4>
+				<div class="WikiText">
+					At this time, our Economic Division doesn't contain permanent Organizational Units (OrgUnits) like our Military Division. Due to the ECONDIV's primary responsibility being the financing and supply of our MILDIV Forces, the required tasks to be performed by the ECONDIV will vary with a high degree of frequency, based on the needs of the MILDIV at a given time. Despite this difference in organization, our ECONDIV will still utilize the <a href="http://sc.vvarmachine.com/wiki/?page=ranks">Rank Structure</a> defined for our Fleet, along with a certification system designed to identify members who have attained skills in particular areas of gameplay, and assign them into positions of leadership (both NCO and Officer positions) for commanding <a href="http://sc.vvarmachine.com/wiki/?page=operations">Operational Units</a> (OpUnits) during a given mission or campaign.
+				</div>
+				<h4 class="WikiH4">Economic Division Roles/Tasks</h4>
+				<div class="WikiText">
+					Players assigned to the ECONDIV may choose to identify themselves as a specialist in a certain area of gameplay, just like those in the MILDIV who have joined a permanent, specialized Squadron or Platoon. Some examples of these specialities are listed below:
+					<br />
+					<br />
+					<ul class="WikiOL">
+						<li>Mining, Resource Extraction, and Processing</li>
+						<li>Exploration and Survey</li>
+						<li>Materials Transport (both Finished Goods and Raw Materials)</li>
+						<li>Science, Research, and Materials Crafting</li>
+					</ul>
+					<br />
+					Officers within the ECONDIV are primarily tasked with the Planning of Organized Operations, and oversight of the Fleet's finance system. Unlike the MILDIV Officers, those of the ECONDIV may not hold a speciality in a certain area of gameplay, and thus will not always be tasked with leading OpUnits for Missions of a certain type. As with the MILDIV, the size of the OpUnit will define the Rank/PayGrade of its designated Commander during the mission. In most cases during operations requiring cooperation from both Divisions, ECONDIV forces will fall under the command of a MILDIV Officer responsible for leading the <strong>Section</strong> or <strong>Task Force</strong> built to accomplish the given mission. This directive is put in-place to utilize the the advanced training given to MILDIV Officers, especially in regard to Asset Escort-Protocols for Fighters and Marines. In other words, once the ECONDIV Officer(s) have completed the planning for the Economic aspects of the Operation, their plans are turned-over to the MILDIV Officer(s) to plan and execute the allocation of members towards protection of the ECONDIV assets. Once the Operation launches, both ECONDIV and MILDIV commanders should be in-sync on the Economic Goals of mission, but the direct oversight of the ECONDIV assets will be assigned to the MILDIV commander of the OpUnit providing protection.
+				</div>
+				<h4 class="WikiH4">Qualification System</h4>
+				<div class="WikiText">
+					Information on this system is being actively developed by ECONDIV HQ and will be forthcoming in the near future.
+				</div>
+			</div>			
+			
 		</div>
 	</div>
 	
