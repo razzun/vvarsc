@@ -4,7 +4,7 @@
 	<div id="HomePage_MainContainer">
 		<img height="125" width="125" class="TextWrapLeft" src="http://sc.vvarmachine.com/images/sc_logo_sm.png">
 		<p>
-			This website is designed to give VVARMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVARMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/WARMACHINE" target="_blank">https://robertsspaceindustries.com/orgs/WARMACHINE</a>
+			This website is designed to give VVARMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVARMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>
 		</p>
 		<p>
 			You can also visit our Star Citizen partners (AMP) at <a href="http://ampalliance.net" target="_blank">http://ampalliance.net</a> or their RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/AMP" target="_blank">https://robertsspaceindustries.com/orgs/AMP</a>

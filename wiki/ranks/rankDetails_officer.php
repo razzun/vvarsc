@@ -63,6 +63,14 @@
 					font-size: 10pt
 				">
 					Newly-Commissioned Officers will start at this rank. For Military Officers, this will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-2 and assigned as the CO of a Squadron or Platoon. For Economy Officers, no unit-assignment is granted, as there are no permanent units within the Division. O-1s are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
+					<br />
+					<br />
+					<strong>Entering the role of O-1 and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
+					<ol>
+						<li>Minimum Two Weeks TIG for the Fleet</li>
+						<li>Listing of VVAR as the Member's Primary Organization on RSI</li>
+						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
+					</ol>
 				</p>
 			</div>
 		</div>
@@ -116,7 +124,7 @@
 					<ol>
 						<li>Minimum One Month TIG for their Division at O-1</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
 					</ol>
 				</p>
 			</div>
