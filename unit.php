@@ -90,6 +90,20 @@
 									{
 										echo '';
 									}
+									else if ($value['IsActive'] == "Active"
+										&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+										&& $value['UnitLevel'] == "Squadron"
+									)
+									{
+										echo 'Squadron Leader';
+									}
+									else if ($value['IsActive'] == "Active"
+										&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+										&& $value['UnitLevel'] == "Platoon"
+									)
+									{
+										echo 'Platoon Leader';
+									}
 									else if ($value['IsActive'] == "Active" && ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != ''))
 									{
 										echo 'Commanding Officer';
