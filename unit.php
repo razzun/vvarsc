@@ -195,6 +195,7 @@
 							,u.ParentUnitID
 							,u.UnitSlogan
 							,u.UnitBackgroundImage
+							,u.UnitEmblemImage
 							,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 							,d.div_name
 							,m.mem_id
@@ -251,6 +252,7 @@
 			$unitSlogan = $row1['UnitSlogan'];
 			$unitDescription = $row1['UnitDescription'];
 			$unitBackgroundImage = $row1['UnitBackgroundImage'];
+			$unitEmblemImage = $row1['UnitEmblemImage'];
 			$unitCreatedOn = $row1['UnitCreatedOn'];
 			$unitLeaderID = $row1['UnitLeaderID'];
 			$unitLeaderRank = $row1['UnitLeaderRank'];
@@ -363,6 +365,9 @@
 					</td>
 				</tr>
 			</table>
+			<div style=\"display: table-cell; vertical-align: middle\">
+				<img src=\"$unitEmblemImage\" height=\"60px\"/>
+			</div>
 		</div>
 		";		
 		

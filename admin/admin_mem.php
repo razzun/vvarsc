@@ -6,6 +6,7 @@
 			m.mem_id
 			,m.mem_name
 			,m.mem_callsign
+			,m.membership_type
 			,r.rank_id
 			,r.rank_level
 			,r.rank_name
@@ -36,6 +37,7 @@
 		$rank_image = $row['rank_image'];
 		$memDivisionID = $row['div_id'];
 		$memDivisionName = $row['div_name'];
+		$membershipType = $row['membership_type'];
 		
 	
 		$displayMembers .= "
@@ -61,6 +63,9 @@
 				</td>
 				<td class=\"adminTableRowTD memDivisionInfo\" data-divinfo=\"$memDivisionID\">
 					$memDivisionName
+				</td>
+				<td class=\"adminTableRowTD membershipType\" data-memtype=\"$membershipType\">
+					$membershipType
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonPlayerShips\">
@@ -160,6 +165,7 @@
 			
 			dialog.find('#Rank').find('#Rank-default').prop('selected',true);
 			dialog.find('#Division').find('#Division-default').prop('selected',true);
+			dialog.find('#MembershipType').find('#MembershipType-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -178,6 +184,7 @@
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
+			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
@@ -188,6 +195,9 @@
 			
 			dialog.find('#Division').find('option').prop('selected',false);
 			dialog.find('#Division').find('#' + memDivisionInfo).prop('selected',true);
+			
+			dialog.find('#MembershipType').find('option').prop('selected',false);
+			dialog.find('#MembershipType').find('#MembershipType-' + memTypeInfo).prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -207,6 +217,7 @@
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
+			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
@@ -233,6 +244,7 @@
 			//Clear DropDown Selections
 			$('.adminDiaglogFormFieldset').find('#Rank').find('option').prop('selected',false);
 			$('.adminDiaglogFormFieldset').find('#Division').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#MembershipType').find('option').prop('selected',false);
 			
 			//Hide All Dialog Containers
 			$('#dialog-form-create').hide();
@@ -272,7 +284,10 @@
 					Rank Info
 				</td>
 				<td class="adminTableHeaderRowTD">
-					Division Info
+					Rank Info
+				</td>
+				<td class="adminTableHeaderRowTD">
+					MembershipType
 				</td>
 				<td class="adminTableHeaderRowTD">
 					Actions
@@ -319,6 +334,20 @@
 						</option>	
 						<? echo $displayDivisions ?>
 					</select>
+					<label for="MembershipType" class="adminDialogInputLabel">
+						MembershipType
+					</label>
+					<select name="MembershipType" id="MembershipType" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="MembershipType-default">
+							- Select a MembershipType -
+						</option>
+						<option value="0" id="MembershipType-0">
+							Affiliate
+						</option>
+						<option value="1" id="MembershipType-1">
+							Main
+						</option>
+					</select>
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
@@ -362,6 +391,20 @@
 					</label>
 					<select name="Division" id="Division" class="adminDialogDropDown">
 						<? echo $displayDivisions ?>
+					</select>
+					<label for="MembershipType" class="adminDialogInputLabel">
+						MembershipType
+					</label>
+					<select name="MembershipType" id="MembershipType" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="MembershipType-default">
+							- Select a MembershipType -
+						</option>
+						<option value="0" id="MembershipType-0">
+							Affiliate
+						</option>
+						<option value="1" id="MembershipType-1">
+							Main
+						</option>
 					</select>
 				</fieldset>
 				<div class="adminDialogButtonPane">

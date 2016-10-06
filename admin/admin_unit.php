@@ -127,6 +127,7 @@
 			,u.IsActive
 			,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
 			,u.UnitBackgroundImage
+			,u.UnitEmblemImage
 		from projectx_vvarsc2.Units u
 		left join projectx_vvarsc2.Units u2
 			on u2.UnitID = u.ParentUnitID
@@ -158,6 +159,7 @@
 		$unitIsActive = $row['IsActive'];
 		$unitDescription = $row['UnitDescription'];
 		$unitBackgroundImage = $row['UnitBackgroundImage'];
+		$unitEmblemImage = $row['UnitEmblemImage'];
 	}
 	
 	//Query for Divisions Drop-Down Menu
@@ -375,6 +377,7 @@
 		var unitLevel = dialog.find('.adminEntryRow.unitLevel').data("level");
 		var unitIsActive = dialog.find('.adminEntryRow.unitIsActive').data("isactive");
 		var unitBackgroundImage = dialog.find('.adminEntryRow.unitBackgroundImage').data("backgroundimage");
+		var unitEmblemImage = dialog.find('.adminEntryRow.unitEmblemImage').data("emblemimage");
 		
 		dialog.find('#ID').val(unitID).text();
 		dialog.find('#ParentUnitName').val(parentUnitName).text();
@@ -386,6 +389,7 @@
 		dialog.find('#Level').val(unitLevel).text();
 		dialog.find('#IsActive').find('#IsActive-' + unitIsActive).prop('selected',true);
 		dialog.find('#BackgroundImage').val(unitBackgroundImage).text();
+		dialog.find('#EmblemImage').val(unitEmblemImage).text();
 		
 		//Set TextArea Input Height to Correct Values
 		$("textarea").height( $("textarea")[0].scrollHeight );
@@ -691,6 +695,15 @@
 					</div>
 					<div class="adminDetailEntryValue">
 						<input type="text" name="BackgroundImage" id="BackgroundImage" class="adminDialogTextInput">
+						</input>
+					</div>
+				</div>	
+				<div class="adminEntryRow unitEmblemImage" data-emblemimage="<? echo $unitEmblemImage ?>">
+					<div class="adminDetailEntryKey">
+						EmblemImage
+					</div>
+					<div class="adminDetailEntryValue">
+						<input type="text" name="EmblemImage" id="EmblemImage" class="adminDialogTextInput">
 						</input>
 					</div>
 				</div>				

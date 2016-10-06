@@ -51,6 +51,11 @@
 					
 					echo '<div class="unitHierarchyHeader_mainContainer">';
 					
+								/*
+								echo '<div>';
+									echo '<img src="'.$value['UnitEmblemImage'].'" height="40px" />';
+								echo '</div>';
+								*/
 						echo '<div class="unitHierarchyHeader_textContainer">';
 							if ($value['IsActive'] == "Active")
 							{
@@ -155,6 +160,7 @@
 						end as IsActive
 						,u.UnitLevel
 						,u.ParentUnitID
+						,u.UnitEmblemImage
 						,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
 						,m.mem_id as UnitLeaderID
 						,m.mem_callsign as UnitLeaderName
@@ -196,6 +202,7 @@
 			,'UnitLeaderID' => $row['UnitLeaderID']
 			,'LeadeRankImage' => $row['LeadeRankImage']
 			,'LeaderRankAbbr' => $row['LeaderRankAbbr']
+			,'UnitEmblemImage' => $row['UnitEmblemImage']
 		);
 	}
 	

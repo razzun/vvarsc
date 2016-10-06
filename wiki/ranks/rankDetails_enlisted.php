@@ -282,7 +282,9 @@
 					<ol>
 						<li>Minimum One Month TIS with the Fleet</li>
 						<li>Minimum Two Weeks Time-in-Grade (TIG) for their Unit at E-4</li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
+						<li>Listing of VVAR as the Member's Primary Organization on RSI</li>
+						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
+						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
 				</p>
 			</div>
@@ -300,7 +302,7 @@
 					margin-left: 0;
 					font-size: 12pt
 				">
-					E-6 [ Senior NCO ]
+					E-6 [ NCO ]
 				</h4>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -346,7 +348,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-6 is the first of the Senior NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. E-6 Members are typically seen performing the role of Assistant Squadron or Platoon Leader, working closely with the Unit's CO on duties such as personnel training, unit branding / public relations, recruitment, and operational planning.
+					E-6 is the highest of the NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. E-6 Members are typically seen performing the role of Assistant Squadron or Platoon Leader, working closely with the Unit's CO on duties such as personnel training, unit branding / public relations, recruitment, and operational planning.
 					<br />
 					<br />
 					In periods of Fleet re-structuring due to expansion, E-6 Members may be selected for a <strong>Commission</strong> to Officer Status (O-1) to begin their path towards commanding a newly created Unit of the same type.
@@ -421,7 +423,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-7 is the second of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing and MSWT units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-7 is the first of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing and MSWT units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles at the DIV HQ and FLEET HQ Level, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7, while retaining their current assignment.

@@ -25,7 +25,8 @@
 		FROM projectx_vvarsc2.members m
 		WHERE m.mem_name = '$username'
 			AND m.password = '$password'
-			AND m.mem_sc = '1'";
+			AND m.mem_sc = '1'
+			AND m.membership_type = '1'";
 
 	$query_result = $connection->query($q);
 			

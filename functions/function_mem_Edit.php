@@ -19,6 +19,7 @@
 	$Callsign = "";
 	$Rank = "";
 	$Division = "";
+	$MembershipType = "";
 	 
 	if(isset($_POST['ID']))
 	{
@@ -40,12 +41,17 @@
 	{
 		$Division = $_POST['Division'];
 	}
+	if (isset($_POST['MembershipType']))
+	{
+		$MembershipType = $_POST['MembershipType'];
+	}
 	 
 	$q = "UPDATE projectx_vvarsc2.members set
 			mem_name = '$Name'
 			,mem_callsign = '$Callsign'
 			,ranks_rank_id = '$Rank'
 			,divisions_div_id = '$Division'
+			,membership_type = $MembershipType
 		where mem_id = '$ID'
 	";
 

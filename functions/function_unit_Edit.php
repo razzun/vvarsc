@@ -25,6 +25,7 @@
 	$Level = "";
 	$Description = "";
 	$BackgroundImage = "";
+	$EmblemImage = "";
 	
 	if(isset($_POST['ID']))
 	{
@@ -66,6 +67,10 @@
 	{
 		$BackgroundImage = mysqli_real_escape_string($connection, $_POST['BackgroundImage']);
 	}
+	if(isset($_POST['EmblemImage']))
+	{
+		$EmblemImage = mysqli_real_escape_string($connection, $_POST['EmblemImage']);
+	}
 	
 	$q = "UPDATE projectx_vvarsc2.Units set
 			UnitName = '$Name'
@@ -77,6 +82,7 @@
 			,UnitLevel = '$Level'
 			,UnitDescription = '$Description'
 			,UnitBackgroundImage = '$BackgroundImage'
+			,UnitEmblemImage = '$EmblemImage'
 		WHERE UnitID = '$ID'";
 	
 	print_r($q);
