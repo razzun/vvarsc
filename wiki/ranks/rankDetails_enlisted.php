@@ -141,7 +141,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					Advancement for a new Member from E-2 to E-3 can be immediately attained by registering on all VVarMachine Website Domains and Communication Services (Discord, TeamSpeak3).
+					Advancement for a new Member from E-2 to E-3 can be attained following the completion of the minimum two-week Vetting and Evaluation Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet.
 					<br />
 					NOTE: Because advancement beyond E-3 requires registration with a Division/Unit, many casual members will choose to stay at this rank.
 				</p>

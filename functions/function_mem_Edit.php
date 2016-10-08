@@ -20,6 +20,7 @@
 	$Rank = "";
 	$Division = "";
 	$MembershipType = "";
+	$InfoSecLevel = "";
 	 
 	if(isset($_POST['ID']))
 	{
@@ -45,13 +46,18 @@
 	{
 		$MembershipType = $_POST['MembershipType'];
 	}
+	if (isset($_POST['InfoSecLevel']))
+	{
+		$InfoSecLevel = $_POST['InfoSecLevel'];
+	}
 	 
 	$q = "UPDATE projectx_vvarsc2.members set
 			mem_name = '$Name'
 			,mem_callsign = '$Callsign'
 			,ranks_rank_id = '$Rank'
 			,divisions_div_id = '$Division'
-			,membership_type = $MembershipType
+			,membership_type = '$MembershipType'
+			,InfoSecLevelID = '$InfoSecLevel'
 		where mem_id = '$ID'
 	";
 

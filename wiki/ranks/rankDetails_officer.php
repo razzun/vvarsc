@@ -67,7 +67,7 @@
 					<br />
 					<strong>Entering the role of O-1 and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
 					<ol>
-						<li>Minimum Two Weeks TIG for the Fleet</li>
+						<li>Minimum One Month TIS for the Fleet</li>
 						<li>Listing of VVAR as the Member's Primary Organization on RSI</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
@@ -122,6 +122,7 @@
 					<br />
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
+						<li>Minimum Two Months TIS for the Fleet</li>
 						<li>Minimum One Month TIG for their Division at O-1</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>

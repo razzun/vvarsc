@@ -17,6 +17,7 @@
     	    ,members.mem_name
     		,members.mem_callsign
     		,members.mem_avatar_link
+			,members.membership_type
 			,TRIM(Replace(members.member_bio,'\t','')) as member_bio
 			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
@@ -110,6 +111,17 @@
 			$UnitID = $row['UnitID'];
 			$UnitName = $row['UnitName'];
 			$MemberBio = $row['member_bio'];
+			$MembershipType = $row['membership_type'];
+			$displayMembershipType = "";
+			
+			if ($MembershipType == 1)
+			{
+				$displayMembershipType = 'Main';
+			}
+			else
+			{
+				$displayMembershipType = 'Affiliate';
+			}
 			
 			if ($ship_model_designation != NULL && $ship_model_visible != "0") {
 				$full_ship_name = "";
@@ -517,6 +529,18 @@
 							<td class="members_detailsTable_value">
 								<div class="members_detailsTable_value_inner">
 								<? echo $mem_createdOn; ?>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="members_detailsTable_key">
+								<div class="members_detailsTable_key_inner">
+								Membership Type
+								</div>
+							</td>
+							<td class="members_detailsTable_value">
+								<div class="members_detailsTable_value_inner">
+								<? echo $displayMembershipType; ?>
 								</div>
 							</td>
 						</tr>

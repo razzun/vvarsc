@@ -13,11 +13,16 @@
 			,r.rank_tinyImage as rank_image
 			,d.div_id
 			,d.div_name
+			,lk1.InfoSecLevelID
+			,lk1.InfoSecLevelName
+			,lk1.InfoSecLevelShortName
 		from projectx_vvarsc2.members m
 		left join projectx_vvarsc2.ranks r
 			on r.rank_id = m.ranks_rank_id
 		left join projectx_vvarsc2.divisions d
 			on d.div_id = m.divisions_div_id
+		join projectx_vvarsc2.LK_InfoSecLevels lk1
+			on lk1.InfoSecLevelID = m.InfoSecLevelID
 		where m.mem_sc = 1
 		order by
 			m.mem_callsign
@@ -38,7 +43,20 @@
 		$memDivisionID = $row['div_id'];
 		$memDivisionName = $row['div_name'];
 		$membershipType = $row['membership_type'];
+		$infoSecLevelID = $row['InfoSecLevelID'];
+		$infoSecLevelName = $row['InfoSecLevelName'];
+		$infoSecLevelShortName = $row['InfoSecLevelShortName'];
 		
+		$displayMembershipType = "";
+		
+		if ($membershipType == 1)
+		{
+			$displayMembershipType = 'Main';
+		}
+		else
+		{
+			$displayMembershipType = 'Affiliate';
+		}
 	
 		$displayMembers .= "
 			<tr class=\"adminTableRow\">
@@ -65,7 +83,10 @@
 					$memDivisionName
 				</td>
 				<td class=\"adminTableRowTD membershipType\" data-memtype=\"$membershipType\">
-					$membershipType
+					$displayMembershipType
+				</td>
+				<td class=\"adminTableRowTD infoSecLevel\" data-infoseclevel=\"$infoSecLevelID\">
+					$infoSecLevelShortName
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonPlayerShips\">
@@ -166,6 +187,7 @@
 			dialog.find('#Rank').find('#Rank-default').prop('selected',true);
 			dialog.find('#Division').find('#Division-default').prop('selected',true);
 			dialog.find('#MembershipType').find('#MembershipType-default').prop('selected',true);
+			dialog.find('#InfoSecLevel').find('#InfoSecLevel-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -185,6 +207,7 @@
 			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
 			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
+			var memInfoSecLevelInfo = $self.parent().parent().find('.adminTableRowTD.infoSecLevel').data("infoseclevel");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
@@ -198,6 +221,9 @@
 			
 			dialog.find('#MembershipType').find('option').prop('selected',false);
 			dialog.find('#MembershipType').find('#MembershipType-' + memTypeInfo).prop('selected',true);
+			
+			dialog.find('#InfoSecLevel').find('option').prop('selected',false);
+			dialog.find('#InfoSecLevel').find('#InfoSecLevel-' + memInfoSecLevelInfo).prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -290,6 +316,9 @@
 					MembershipType
 				</td>
 				<td class="adminTableHeaderRowTD">
+					InfoSEC Level
+				</td>
+				<td class="adminTableHeaderRowTD">
 					Actions
 				</td>
 			</tr>
@@ -348,6 +377,26 @@
 							Main
 						</option>
 					</select>
+					<label for="InfoSecLevel" class="adminDialogInputLabel">
+						InfoSEC Clearance Level
+					</label>
+					<select name="InfoSecLevel" id="InfoSecLevel" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="InfoSecLevel-default">
+							- Select a Clearance Level for InfoSEC -
+						</option>
+						<option value="1" id="InfoSecLevel-1">
+							1 - Low Security
+						</option>
+						<option value="2" id="InfoSecLevel-2">
+							2 - Medium Security
+						</option>
+						<option value="3" id="InfoSecLevel-3">
+							3 - High Security
+						</option>
+						<option value="4" id="InfoSecLevel-4">
+							4 - Classified / Top-Secret
+						</option>
+					</select>
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
@@ -404,6 +453,26 @@
 						</option>
 						<option value="1" id="MembershipType-1">
 							Main
+						</option>
+					</select>
+					<label for="InfoSecLevel" class="adminDialogInputLabel">
+						InfoSEC Clearance Level
+					</label>
+					<select name="InfoSecLevel" id="InfoSecLevel" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="InfoSecLevel-default">
+							- Select a Clearance Level for InfoSEC -
+						</option>
+						<option value="1" id="InfoSecLevel-1">
+							1 - Low Security
+						</option>
+						<option value="2" id="InfoSecLevel-2">
+							2 - Medium Security
+						</option>
+						<option value="3" id="InfoSecLevel-3">
+							3 - High Security
+						</option>
+						<option value="4" id="InfoSecLevel-4">
+							4 - Classified / Top-Secret
 						</option>
 					</select>
 				</fieldset>

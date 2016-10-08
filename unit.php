@@ -330,43 +330,55 @@
 		
 
 		$display_details .= "
-		<div class=\"shipDetails_info2\" style=\"width: auto\">
-			<table class=\"shipDetails_info1_table\">
-				<tr class=\"shipDetails_info1_table_row\">
-					<td class=\"shipDetails_info1_table_row_td_key\">
-						Slogan
-					</td>
-					<td class=\"shipDetails_info1_table_row_td_value\">
-						$unitSlogan
-					</td>
-				</tr>
-				<tr class=\"shipDetails_info1_table_row\">
-					<td class=\"shipDetails_info1_table_row_td_key\">
-						Radio Callsign
-					</td>
-					<td class=\"shipDetails_info1_table_row_td_value\">
-						<i>$unitCallsign</i>
-					</td>
-				</tr>
-				<tr class=\"shipDetails_info1_table_row\">
-					<td class=\"shipDetails_info1_table_row_td_key\">
-						Commanding Officer
-					</td>
-					<td class=\"shipDetails_info1_table_row_td_value\">
-						<a style=\"text-decoration: none\" href=\"http://sc.vvarmachine.com/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
-					</td>
-				</tr>
-				<tr class=\"shipDetails_info1_table_row\">
-					<td class=\"shipDetails_info1_table_row_td_key\">
-						Established
-					</td>
-					<td class=\"shipDetails_info1_table_row_td_value\">
-						$unitCreatedOn
-					</td>
-				</tr>
-			</table>
-			<div style=\"display: table-cell; vertical-align: middle\">
-				<img src=\"$unitEmblemImage\" height=\"60px\"/>
+		<div class=\"play\" style=\"width: 100%\">				
+			<div class=\"pavatar\" height=\"200\" width=\"200\" style=\"
+				padding-top: 8px;
+				padding-bottom: 8px;
+				padding-right: 0px;
+				padding-left: 16px
+			\">
+				<img src=\"$unitEmblemImage\" height=\"200px\"/>
+			</div>
+			<div class=\"p_info\" style=\"width: 100%; vertical-align: top\">
+				<h2 style=\"margin-left: 0px; padding-left: 4px\">
+					$unitName
+				</h2>
+				<div class=\"shipDetails_info2\" style=\"height: 100%\">
+					<table class=\"shipDetails_info1_table\">
+						<tr class=\"shipDetails_info1_table_row\">
+							<td class=\"shipDetails_info1_table_row_td_key\">
+								Slogan
+							</td>
+							<td class=\"shipDetails_info1_table_row_td_value\">
+								$unitSlogan
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info1_table_row\">
+							<td class=\"shipDetails_info1_table_row_td_key\">
+								Radio Callsign
+							</td>
+							<td class=\"shipDetails_info1_table_row_td_value\">
+								<i>$unitCallsign</i>
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info1_table_row\">
+							<td class=\"shipDetails_info1_table_row_td_key\">
+								Commanding Officer
+							</td>
+							<td class=\"shipDetails_info1_table_row_td_value\">
+								<a style=\"text-decoration: none\" href=\"http://sc.vvarmachine.com/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info1_table_row\">
+							<td class=\"shipDetails_info1_table_row_td_key\">
+								Established
+							</td>
+							<td class=\"shipDetails_info1_table_row_td_value\">
+								$unitCreatedOn
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		";		
@@ -751,9 +763,6 @@
 ?>
 
 <? echo $display_selectors ?>
-<h2>
-	<? echo $unitName ?>
-</h2>
 <!--
 <h4>
 	<? echo $unitSlogan ?>

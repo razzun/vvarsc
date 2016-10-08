@@ -9,8 +9,8 @@
 		m.mem_id
 		,m.mem_name
 		,m.mem_callsign
-		,r.rank_groupTinyImage as rank_image
-		,r.rank_groupName as rank_name
+		,r.rank_tinyImage as rank_image
+		,CONCAT(r.rank_level,' ',r.rank_abbr) as rank_name
 		,REPLACE(d.div_name,'Command ','') AS div_info
 		,case
 			when ro.isPrivate = 0 then ro.role_name
