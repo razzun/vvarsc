@@ -334,10 +334,10 @@
 			<div class=\"pavatar\" height=\"200\" width=\"200\" style=\"
 				padding-top: 8px;
 				padding-bottom: 8px;
-				padding-right: 0px;
-				padding-left: 16px
+				padding-right: 8px;
+				padding-left: 32px
 			\">
-				<img src=\"$unitEmblemImage\" height=\"200px\"/>
+				<img src=\"$unitEmblemImage\" height=\"200px\" width=\"200px\" />
 			</div>
 			<div class=\"p_info\" style=\"width: 100%; vertical-align: top\">
 				<h2 style=\"margin-left: 0px; padding-left: 4px\">

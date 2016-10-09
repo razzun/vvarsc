@@ -68,7 +68,6 @@
 					<strong>Entering the role of O-1 and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
 					<ol>
 						<li>Minimum One Month TIS for the Fleet</li>
-						<li>Listing of VVAR as the Member's Primary Organization on RSI</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
 				</p>

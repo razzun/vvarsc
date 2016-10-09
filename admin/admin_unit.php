@@ -639,6 +639,9 @@
 							<option selected="true" disabled="true" value="default" id="IsActive-default">
 								Hierarchy Level
 							</option>
+							<option value="Fleet" id="Level-0">
+								Fleet
+							</option>
 							<option value="Division" id="Level-000">
 								Division
 							</option>

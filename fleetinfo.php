@@ -1,7 +1,6 @@
 <?php include_once('functions/function_auth_user.php'); ?>
 
 <?
-	
 	$display_fleet;
 	
    	$fleet_query = "SELECT

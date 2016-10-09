@@ -282,7 +282,6 @@
 					<ol>
 						<li>Minimum One Month TIS with the Fleet</li>
 						<li>Minimum Two Weeks Time-in-Grade (TIG) for their Unit at E-4</li>
-						<li>Listing of VVAR as the Member's Primary Organization on RSI</li>
 						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>

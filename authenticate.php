@@ -22,6 +22,7 @@
 			,m.password
 			,m.mem_sc
 			,m.websiteRole
+			,m.InfoSecLevelID
 		FROM projectx_vvarsc2.members m
 		WHERE m.mem_name = '$username'
 			AND m.password = '$password'
@@ -47,6 +48,7 @@
 			$_SESSION['sess_user_id'] = $row['mem_id'];
 			$_SESSION['sess_username'] = $row['mem_name'];
 			$_SESSION['sess_userrole'] = $row['websiteRole'];
+			$_SESSION['sess_infoseclevel'] = $row['InfoSecLevelID'];
 
 			session_write_close();
 			
