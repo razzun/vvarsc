@@ -1082,6 +1082,22 @@
 	});
 </script>
 
+<!--Script to Show/Hide Rank Detail Elements-->
+<script>
+
+    $(document).ready(function() {
+        $('.p_rankimage').hover(function() {
+            $('.p_rankExtendedData_rank_level').addClass("opaque");
+            $('.p_rankExtendedData_rank_name').addClass("opaque");
+            $('.p_rankExtendedData_rank_date').addClass("opaque");
+        },
+        function() {
+            $('.p_rankExtendedData_rank_level').removeClass("opaque");
+            $('.p_rankExtendedData_rank_name').removeClass("opaque");
+            $('.p_rankExtendedData_rank_date').removeClass("opaque");
+        });
+    });
+</script>
 
 <script>
 function formhash(form, currentPassword, newPassword){
