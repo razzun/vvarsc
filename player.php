@@ -837,14 +837,14 @@
 				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
 				
 				<label for="MemberID" class="adminDialogInputLabel">
-					MemberID
+					Member
 				</label>
 				<input type="none" name="MemberID" id="MemberID" value="" class="adminDialogTextInput" readonly>
 				
 				<label for="ShipID" class="adminDialogInputLabel">
 					Ship
 				</label>
-				<input type="none" name="ShipID" id="ShipID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="ShipName" id="ShipName" value="" class="adminDialogTextInput" readonly>
 			</fieldset>
 			<div class="adminDialogButtonPane">
 				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
@@ -1035,14 +1035,15 @@
 			var $self = jQuery(this);
 			
 			var memID = "<? echo $mem_id ?>";
+			
 			var rowID = $self.parent().parent().parent().find('.player_ships_entry').data("rowid");
-			var shipID = $self.parent().parent().parent().find('.player_ships_entry').data("shipid");
+			var shipName = $self.parent().parent().parent().find('.player_ships_entry').data("shipname");
 			var ispackage = $self.parent().parent().parent().find('.player_ships_entry').data("package");
 			var islti = $self.parent().parent().parent().find('.player_ships_entry').data("lti");
 			
 			dialog.find('#MemberID').val(memID).text();
 			dialog.find('#RowID').val(rowID).text();
-			dialog.find('#ShipID').val(shipID).text();
+			dialog.find('#ShipName').val(shipName).text();
 			
 			dialog.show();
 			overlay.show();

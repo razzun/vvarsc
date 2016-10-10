@@ -534,7 +534,7 @@
 			*/
 			
 			//Hide All Dialog Containers
-			$('#dialog-form-AssignMemberAsLeader').hide();
+			$('#dialog-form-assignMemberAsLeader').hide();
 			$('#dialog-form-createMember').hide();
 			$('#dialog-form-editMember').hide();
 			$('#dialog-form-deleteMember').hide();
