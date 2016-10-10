@@ -713,7 +713,7 @@
 			</fieldset>
 			<div class="adminDialogButtonPane">
 				<button id="adminDialogSubmit" class="adminButton adminButtonEdit" type="submit" title="Update Unit">
-					<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_edit.png">			
+					<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_save.png">		
 					Save Changes
 				</button>
 			</div>			
