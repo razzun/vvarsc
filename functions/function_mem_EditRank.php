@@ -9,35 +9,34 @@
 
 <?php
 	print_r($_POST);
+	
 	require_once('../dbconn/dbconn.php');
 	
 	session_start();
 
-	$RowID = "";
-	$MemberID = "";
-	$ShipID = "";
+	$ID = "";
+	$Rank = "";
 	 
-	if(isset($_POST['RowID']))
+	if(isset($_POST['ID']))
 	{
-		$RowID = $_POST['RowID'];
+		$ID = $_POST['ID'];
 	}
-	if(isset($_POST['MemberID']))
+	if (isset($_POST['Rank']))
 	{
-		$MemberID = $_POST['MemberID'];
-	}
-	if (isset($_POST['ShipID']))
-	{
-		$ShipID = $_POST['ShipID'];
+		$Rank = $_POST['Rank'];
 	}
 	 
-	$q = "DELETE from projectx_vvarsc2.ships_has_members where RowID = '$RowID'
-		";
+	$q = "UPDATE projectx_vvarsc2.members set
+			ranks_rank_id = '$Rank'
+			,RankModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+		where mem_id = '$ID'
+	";
 
 	$query_result = $connection->query($q);
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin/?page=admin_playerShips&pid=$MemberID");
+		header("Location: http://sc.vvarmachine.com/admin/?page=admin_mem");
 	}
 	else
 	{

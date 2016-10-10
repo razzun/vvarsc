@@ -746,7 +746,12 @@
 			($_SESSION['sess_userrole'] == "officer") && $access == "true" )
 		{
 			$displayEdit = "
-				<button class=\"adminButton adminButtonEdit\" style=\"float: right\">
+				<button class=\"adminButton adminButtonEdit\" title=\"Edit Unit \"style=\"
+					float: right;
+					margin-left: 0px;
+					margin-right: 2%;
+				\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					Edit Unit
 				</button>
 				<br />

@@ -74,11 +74,11 @@
 					$unitIsActive
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit\">
-						Edit
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Unit\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\">
-						Delete
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Unit\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -165,7 +165,7 @@
 		var overlay = $('#overlay');
 
 		//Create
-		$('#adminCreateManu').click(function() {
+		$('#adminCreateUnit').click(function() {
 			var dialog = $('#dialog-form-create');
 			var $self = jQuery(this);
 			
@@ -280,7 +280,14 @@
 <h2>Unit Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
-		<button id="adminCreateManu" class="adminButton adminButtonCreate">Add New Unit</button>
+		<button id="adminCreateUnit" class="adminButton adminButtonCreate" title="Add New Unit" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			Add New Unit
+		</button>
 		<table id="adminUnitsTable" class="adminTable">
 			<tr class="adminTableHeaderRow">
 				<td class="adminTableHeaderRowTD">

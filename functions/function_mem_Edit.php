@@ -17,7 +17,6 @@
 	$ID = "";
 	$Name = "";
 	$Callsign = "";
-	$Rank = "";
 	$Division = "";
 	$MembershipType = "";
 	$InfoSecLevel = "";
@@ -33,10 +32,6 @@
 	if (isset($_POST['Callsign']))
 	{
 		$Callsign = mysqli_real_escape_string($connection, $_POST['Callsign']);
-	}
-	if (isset($_POST['Rank']))
-	{
-		$Rank = $_POST['Rank'];
 	}
 	if (isset($_POST['Division']))
 	{
@@ -54,7 +49,6 @@
 	$q = "UPDATE projectx_vvarsc2.members set
 			mem_name = '$Name'
 			,mem_callsign = '$Callsign'
-			,ranks_rank_id = '$Rank'
 			,divisions_div_id = '$Division'
 			,membership_type = '$MembershipType'
 			,InfoSecLevelID = '$InfoSecLevel'

@@ -48,11 +48,11 @@
 					$orderBy
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit\">
-						Edit
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Role\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\">
-						Delete
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Role\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -87,7 +87,7 @@
 		var overlay = $('#overlay');
 
 		//Create
-		$('#adminCreateManu').click(function() {
+		$('#adminCreateRole').click(function() {
 			var dialog = $('#dialog-form-create');
 			var $self = jQuery(this);
 			
@@ -192,7 +192,14 @@
 <h2>Roles Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
-		<button id="adminCreateManu" class="adminButton adminButtonCreate">Add New Role</button>
+		<button id="adminCreateRole" class="adminButton adminButtonCreate" title="Add Role" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;			
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			Add New Role
+		</button>
 		<table id="adminRolesTable" class="adminTable">
 			<tr class="adminTableHeaderRow">
 				<td class="adminTableHeaderRowTD">

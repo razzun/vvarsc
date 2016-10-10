@@ -326,11 +326,11 @@
 					</button>
 				";
 				$displayUnitMembers .= "
-					<button class=\"adminButton adminButtonEdit\">
-						Edit
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member Role\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\">
-						Remove
+					<button class=\"adminButton adminButtonDelete\" title=\"Remove Member\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -712,15 +712,23 @@
 				</div>				
 			</fieldset>
 			<div class="adminDialogButtonPane">
-				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
-					Update Unit
+				<button id="adminDialogSubmit" class="adminButton adminButtonEdit" type="submit" title="Update Unit">
+					<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_edit.png">			
+					Save Changes
 				</button>
 			</div>			
 		</form>
 		
 		<br />
 		<!--Members Table-->
-		<button id="adminAddMember" class="adminButton adminButtonCreate">Add Member To Unit</button>
+		<button id="adminAddMember" class="adminButton adminButtonCreate" title="Add Member to Unit" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;			
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
+			Add Member To Unit		
+		</button>
 		<table id="adminMemberTable" class="adminTable">
 			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">

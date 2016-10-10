@@ -555,12 +555,13 @@ table.tbmem tr:nth-child(odd) {
 
 .clickableRow_memRank_Image {
 	display: table-cell;
+	vertical-align: middle;
 }
 
 .rank_image_text
 {
     display: table-cell;
-    vertical-align: top;
+    vertical-align: middle;
 	font-size: 10pt;
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
@@ -726,7 +727,7 @@ table.tbmem a:hover {
 	padding-left: 4px;
 	display: table-cell;
 	vertical-align: middle;
-	text-align: center;
+	text-align: left;
 }
 
 .p_rankExtendedData_rank_level
@@ -736,17 +737,15 @@ table.tbmem a:hover {
 	font-weight: bold;
 	font-style: italic;
 	transition: all 0.75s ease 0s;
-	opacity: 0;
 }
 
-.p_rankExtendedData_rank_name
+.p_rankExtendedData_rank_name, .p_rankExtendedData_rank_date
 {
 	color: rgb(240, 240, 240);
 	text-shadow: 0px 0px 8px rgba(204, 163, 0, 0.6);
 	font-style: italic;
 	font-size: 0.8em;
 	transition: all 0.75s ease 0s;
-	opacity: 0;
 }
 
 .p_rankDetails
@@ -3553,27 +3552,36 @@ img.fleet:after {
 	font-family: Orbitron;
 	font-variant: all-small-caps;
 	font-weight: normal;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.0);
 	cursor: pointer;
 	margin-left: 4px;
 	font-size: 10pt;
 	margin-top: 4px;
 	margin-bottom: 4px;
-	border: 2px ridge;
+	border: none;
 	transition: all 0.4s ease;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
-	padding-bottom: 4px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0px;
 }
 
 .adminButtonCreate {
 	margin-left: 5%;
-	margin-bottom: 8px;
 	border-color: rgba(0, 100, 0, 0.75);
 }
 
-.adminButtonEdit, .adminButtonPlayerShips, .adminButtonAssignLeader {
+.adminButtonImage {
+	vertical-align: middle;
+	opacity: 0.4;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+}
+
+.adminButtonEdit, .adminButtonPlayerShips, .adminButtonAssignLeader, .adminButtonEditRank {
 	border-color: RGBA(185, 145, 0, 0.75);
 }
 
@@ -3584,6 +3592,10 @@ img.fleet:after {
 .adminButton:hover {
 	text-shadow: 0px 0px 8px #FFF;
 	color: #EEE;
+}
+
+.adminButton:hover .adminButtonImage {
+	opacity: 1;
 }
 
 .adminDialogFormContainer {
@@ -3627,7 +3639,6 @@ img.fleet:after {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
-	padding-bottom: 4px;
 }
 
 .adminDialogButton:hover {

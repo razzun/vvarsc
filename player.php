@@ -25,6 +25,7 @@
     		,ranks.rank_image
 			,ranks.rank_level
 			,ranks.rank_name
+			,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
 			,d.div_id
     		,d.div_name
 			,case
@@ -90,6 +91,7 @@
     		$rank_image = $row['rank_image'];
 			$rank_level = $row['rank_level'];
 			$rank_name = $row['rank_name'];
+			$rankModifiedOn = $row['RankModifiedOn'];
     		$div_id = $row['div_id'];
     		$div_name = $row['div_name'];
     		$role_name = $row['role_name'];
@@ -302,8 +304,12 @@
 					{
 						$display_player_ships .= "
 							<div class=\"player_ships_entry_buttons_buttonContainer\">
-								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"margin-left:4px\">Edit</button>
-								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:4px\">Remove</button>
+								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"margin-left:4px\" title=\"Edit Ship\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+								</button>
+								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:4px\" title=\"Delete Ship\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+								</button>
 							</div>
 						";
 					}
@@ -397,12 +403,32 @@
 			";
 		}
 		
-		$display_edit_options = "";
+		$display_edit_options_profile = "";
+		$display_edit_options_ships = "";
 		if ($loggedInPlayerID == $player_id && $loggedInPlayerName != "guest")
 		{
-			$display_edit_options .= "
-				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\">Edit Profile</button>
-				<button id=\"playerAddShip\" class=\"adminButton adminButtonCreate\" style=\"margin-left:4px\">Add Ship</button>
+			$display_edit_options_profile .= "
+				<button id=\"playerEditProfile\" class=\"adminButton adminButtonEdit\" title=\"Edit Profile\" style=\"
+					float: right;
+					margin-left: 0px;
+					margin-right: 2%;
+				\" >
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					Edit Profile
+				</button>
+				<br />
+				<br />
+			";
+			$display_edit_options_ships .= "
+				<button id=\"playerAddShip\" class=\"adminButton adminButtonCreate\" title=\"Add Ship\" style=\"
+					float: right;
+					margin-left: 0px;
+					margin-right: 2%;
+				\" >
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					Add Ship
+				</button>
+				<br />
 			";
 		}
 		
@@ -446,6 +472,7 @@
 <h2>Star Citizen Player Profile</h2>
 <div id="TEXT">
 	<div class="player_topTable_Container">
+		<? echo $display_edit_options_profile ?>
 		<div class="table_header_block">
 		</div>
 		<div class="play">
@@ -464,11 +491,6 @@
 						<div class ="p_rankname">
 							<? echo $rank_groupName; ?>
 						</div>
-						<!--
-						<div class ="p_rank_div_name">
-							<? echo $div_name; ?>
-						</div>
-						-->
 						<div class ="p_rank_role_name">
 							<? echo $full_role_name; ?>
 						</div>
@@ -480,6 +502,10 @@
 					</span>
 					<span class="p_rankExtendedData_rank_name">
 						<? echo $rank_name; ?>
+					</span>
+					<br />
+					<span class="p_rankExtendedData_rank_date">
+						Grade Assigned: <? echo $rankModifiedOn; ?>
 					</span>
 				</div>
 				<div class="p_details_container">
@@ -611,13 +637,10 @@
 			</div>
 			<? echo nl2br($DisplayMemberBio) ?>
 		</div>
-		<!--Edit Options-->
-		<div>
-			<? echo $display_edit_options ?>
-		</div>
 	</div>
 	<!--PlayerShips-->
 	<div class="player_shipsTable_Container">
+		<? echo $display_edit_options_ships ?>
 		<div class="p_section_header">
 			Citizen Fleet Information
 		</div>
@@ -891,20 +914,6 @@
 
 </script>
 
-<!--Script to Show/Hide The Right-Hand-Detail Elements-->
-<script>
-
-	$(document).ready(function() {
-		$('.p_rankimage').hover(function() {
-			$('.p_rankExtendedData_rank_level').addClass("opaque");
-			$('.p_rankExtendedData_rank_name').addClass("opaque");
-		},
-		function() {
-			$('.p_rankExtendedData_rank_level').removeClass("opaque");
-			$('.p_rankExtendedData_rank_name').removeClass("opaque");
-		});
-	});
-</script>
 
 <!-- Script for changing background image-->
 <!--

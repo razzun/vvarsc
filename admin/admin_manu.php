@@ -33,11 +33,11 @@
 					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$manuSmallImage\" />
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit\">
-						Edit
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Manufacturer\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\">
-						Delete
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Manufacturer\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -152,7 +152,14 @@
 <h2>Manufacturer Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
-		<button id="adminCreateManu" class="adminButton adminButtonCreate">Add New Manufacturer</button>
+		<button id="adminCreateManu" class="adminButton adminButtonCreate" title="Add Manufacturer" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;			
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			Add New Manufacturer
+		</button>
 		<table id="adminManuTable" class="adminTable">
 			<tr class="adminTableHeaderRow">
 				<td class="adminTableHeaderRowTD">

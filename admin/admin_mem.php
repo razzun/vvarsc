@@ -73,6 +73,9 @@
 				</td>
 				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
 					<div class=\"clickableRow_memRank_inner\">
+						<button class=\"adminButton adminButtonEditRank\" style=\"display: table-cell\" title=\"Edit Member Rank\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						</button>
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_image.png\" />
 						<div class=\"rank_image_text\">
 							$memRankLevel - $memRankName
@@ -89,14 +92,11 @@
 					$infoSecLevelShortName
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonPlayerShips\">
-						Manage Ships
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonEdit\">
-						Edit Member
-					</button>
-					<button class=\"adminButton adminButtonDelete\">
-						Delete
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Member\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -195,6 +195,7 @@
 				filter: 'blur(2px)'
 			});
 		});
+		
 		//Edit
 		$('.adminButton.adminButtonEdit').click(function() {
 			var dialog = $('#dialog-form-edit');
@@ -204,7 +205,6 @@
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
 			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
 			var memInfoSecLevelInfo = $self.parent().parent().find('.adminTableRowTD.infoSecLevel').data("infoseclevel");
@@ -212,9 +212,6 @@
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
-			
-			dialog.find('#Rank').find('option').prop('selected',false);
-			dialog.find('#Rank').find('#' + memRankID).prop('selected',true);
 			
 			dialog.find('#Division').find('option').prop('selected',false);
 			dialog.find('#Division').find('#' + memDivisionInfo).prop('selected',true);
@@ -256,13 +253,30 @@
 			});
 		});
 		
-		//PlayerShips
-		$('.adminButton.adminButtonPlayerShips').click(function() {
-			var $self = jQuery(this);
-			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
+		//Edit Rank
+		$('.adminButton.adminButtonEditRank').click(function() {
+			var dialog = $('#dialog-form-editRank');
 			
-			window.location.href = "?page=admin_playerShips&pid=" + memID;
-		});	
+			var $self = jQuery(this);
+			
+			var memID = $self.parent().parent().parent().find('.adminTableRowTD.memID').data("id");
+			var memName = $self.parent().parent().parent().find('.adminTableRowTD.memName').data("name");
+			var memCallsign = $self.parent().parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
+			var memRankID = $self.parent().parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
+			
+			dialog.find('#ID').val(memID).text();
+			dialog.find('#Name').val(memName).text();
+			dialog.find('#Callsign').val(memCallsign).text();
+			
+			dialog.find('#Rank').find('option').prop('selected',false);
+			dialog.find('#Rank').find('#' + memRankID).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTable').css({
+				filter: 'blur(2px)'
+			});
+		});
 		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
@@ -275,13 +289,14 @@
 			//Hide All Dialog Containers
 			$('#dialog-form-create').hide();
 			$('#dialog-form-edit').hide();
+			$('#dialog-form-editRank').hide();
 			$('#dialog-form-delete').hide();
 			
 			overlay.hide();
 			$('.adminTable').css({
 				filter: 'none'
 			});
-		});	
+		});
 	});
 </script>
 
@@ -294,7 +309,14 @@
 <h2>Member Management</h2>
 <div id="TEXT">
 	<div id="adminMemberTableContainer" class="adminTableContainer">
-		<button id="adminCreateMember" class="adminButton adminButtonCreate">Add New Member</button>
+	<button id="adminCreateMember" class="adminButton adminButtonCreate" title="Add New Member" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			Add New Member
+		</button>
 		<table id="adminMemberTable" class="adminTable">
 			<tr class="adminTableHeaderRow">
 				<td class="adminTableHeaderRowTD">
@@ -428,13 +450,6 @@
 					</label>
 					<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required>
 					
-					<label for="Rank" class="adminDialogInputLabel">
-						Rank
-					</label>
-					<select name="Rank" id="Rank" class="adminDialogDropDown">
-						<? echo $displayRanks ?>
-					</select>
-					
 					<label for="Division" class="adminDialogInputLabel">
 						Division
 					</label>
@@ -484,6 +499,43 @@
 			</form>
 		</div>
 	
+		<!--Update Rank Form-->
+		<div id="dialog-form-editRank" class="adminDialogFormContainer">	
+			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+				Cancel
+			</button>
+			<p class="validateTips">Update Member Rank</p>
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_EditRank.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<label for="ID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					
+					<label for="Name" class="adminDialogInputLabel">
+						Name
+					</label>
+					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required readonly>
+					
+					<label for="Callsign" class="adminDialogInputLabel">
+						Callsign (RSI Handle)
+					</label>
+					<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required readonly>
+					
+					<label for="Rank" class="adminDialogInputLabel">
+						Rank
+					</label>
+					<select name="Rank" id="Rank" class="adminDialogDropDown">
+						<? echo $displayRanks ?>
+					</select>
+				</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+			
 		<!--Delete Form-->
 		<div id="dialog-form-delete" class="adminDialogFormContainer">
 			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
