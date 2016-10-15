@@ -627,11 +627,13 @@
 						<td class=\"player_ships_entry\">
 						
 							<div class=\"player_ships_shipTitle\">
-								<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
-									<div class=\"player_ships_shipTitleText\">
-										$manu_shortName $full_ship_name
-									</div>
-								</a>	
+								<div class=\"player_ships_shipTitleContainer\">
+									<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+										<div class=\"player_ships_shipTitleText\">
+											$manu_shortName $full_ship_name
+										</div>
+									</a>
+								</div>
 							</div>
 							<div class=\"player_ships_entry_details\">
 								<div class=\"shipTable2_Container\">

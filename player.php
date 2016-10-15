@@ -205,11 +205,28 @@
 						data-lti=\"$shm_lti\" >
 					
 						<div class=\"player_ships_shipTitle\">
-							<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
-								<div class=\"player_ships_shipTitleText\">
-									$manu_name $full_ship_name
-								</div>
-							</a>	
+					";
+					if ($loggedInPlayerID == $player_id && $loggedInPlayerName != "guest")
+					{
+						$display_player_ships .= "
+							<div class=\"player_ships_entry_buttons_buttonContainer\">
+								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"		margin-right:0px\" title=\"Edit Ship\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+								</button>
+								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:0px\" title=\"Delete Ship\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+								</button>
+							</div>
+						";
+					}
+					$display_player_ships .= "	
+							<div class=\"player_ships_shipTitleContainer\">
+								<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+									<div class=\"player_ships_shipTitleText\">
+										$manu_name $full_ship_name
+									</div>
+								</a>
+							</div>
 						</div>					
 						<div class=\"player_ships_entry_details\">
 							<div class=\"shipTable2_Container\">
@@ -299,21 +316,6 @@
 								</table>
 							</div>
 						</div>
-					";
-					if ($loggedInPlayerID == $player_id && $loggedInPlayerName != "guest")
-					{
-						$display_player_ships .= "
-							<div class=\"player_ships_entry_buttons_buttonContainer\">
-								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"margin-left:4px\" title=\"Edit Ship\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
-								</button>
-								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:4px\" title=\"Delete Ship\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
-								</button>
-							</div>
-						";
-					}
-					$display_player_ships .= "
 					</td>
 
 					<td class=\"player_ships_entry_ship\">
@@ -484,29 +486,38 @@
 					Citizen Dossier - <? echo $mem_callsign; ?>
 				</div>
 				<div class="p_rank" align="left" valign="top">
+					<div class="partialBorder-left-blue border-left border-top1px border-4px">
+					</div>			
+					<div class="partialBorder-right-blue border-right border-top1px border-4px">
+					</div>		
 					<div class = "p_rankimage_container">
 						<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
 					</div>
-					<div class = "p_rankDetails">
-						<div class ="p_rankname">
-							<? echo $rank_groupName; ?>
-						</div>
-						<div class ="p_rank_role_name">
-							<? echo $full_role_name; ?>
-						</div>
+					<div class = "p_rankExtendedData">
+						<span class="p_rankExtendedData_rank_level">
+							<? echo $rank_level; ?> &nbsp;
+						</span>
+						<span class="p_rankExtendedData_rank_name">
+							<? echo $rank_name; ?>
+						</span>
+						<br />
+						<span class="p_rankExtendedData_rank_date">
+							Grade Assigned: <? echo $rankModifiedOn; ?>
+						</span>
 					</div>
 				</div>
-				<div class = "p_rankExtendedData">
-					<span class="p_rankExtendedData_rank_level">
-						<? echo $rank_level; ?> &nbsp;
-					</span>
-					<span class="p_rankExtendedData_rank_name">
-						<? echo $rank_name; ?>
-					</span>
-					<br />
-					<span class="p_rankExtendedData_rank_date">
-						Grade Assigned: <? echo $rankModifiedOn; ?>
-					</span>
+				<div class = "p_rankDetails">
+					<div class ="p_rankname">
+						<? echo $rank_groupName; ?>
+					</div>
+					<div class ="p_rank_role_name">
+						<? echo $full_role_name; ?>
+					</div>
+
+					<div class="partialBorder-right-blue border-right border-bottom1px border-4px">
+					</div>	
+					<div class="partialBorder-left-blue border-left border-bottom1px border-4px">
+					</div>				
 				</div>
 				<div class="p_details_container">
 					<table class="p_details">
@@ -1002,10 +1013,10 @@
 			var $self = jQuery(this);
 			
 			var memID = "<? echo $mem_id ?>";
-			var rowID = $self.parent().parent().parent().find('.player_ships_entry').data("rowid");
-			var shipID = $self.parent().parent().parent().find('.player_ships_entry').data("shipid");
-			var ispackage = $self.parent().parent().parent().find('.player_ships_entry').data("package");
-			var islti = $self.parent().parent().parent().find('.player_ships_entry').data("lti");
+			var rowID = $self.parent().parent().parent().parent().find('.player_ships_entry').data("rowid");
+			var shipID = $self.parent().parent().parent().parent().find('.player_ships_entry').data("shipid");
+			var ispackage = $self.parent().parent().parent().parent().find('.player_ships_entry').data("package");
+			var islti = $self.parent().parent().parent().parent().find('.player_ships_entry').data("lti");
 			
 			dialog.find('#MemberID').val(memID).text();
 			dialog.find('#RowID').val(rowID).text();
@@ -1036,10 +1047,10 @@
 			
 			var memID = "<? echo $mem_id ?>";
 			
-			var rowID = $self.parent().parent().parent().find('.player_ships_entry').data("rowid");
-			var shipName = $self.parent().parent().parent().find('.player_ships_entry').data("shipname");
-			var ispackage = $self.parent().parent().parent().find('.player_ships_entry').data("package");
-			var islti = $self.parent().parent().parent().find('.player_ships_entry').data("lti");
+			var rowID = $self.parent().parent().parent().parent().find('.player_ships_entry').data("rowid");
+			var shipName = $self.parent().parent().parent().parent().find('.player_ships_entry').data("shipname");
+			var ispackage = $self.parent().parent().parent().parent().find('.player_ships_entry').data("package");
+			var islti = $self.parent().parent().parent().parent().find('.player_ships_entry').data("lti");
 			
 			dialog.find('#MemberID').val(memID).text();
 			dialog.find('#RowID').val(rowID).text();
@@ -1083,8 +1094,8 @@
 </script>
 
 <!--Script to Show/Hide Rank Detail Elements-->
+<!--
 <script>
-
     $(document).ready(function() {
         $('.p_rankimage').hover(function() {
             $('.p_rankExtendedData_rank_level').addClass("opaque");
@@ -1098,6 +1109,7 @@
         });
     });
 </script>
+-->
 
 <script>
 function formhash(form, currentPassword, newPassword){

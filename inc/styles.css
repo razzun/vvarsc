@@ -550,7 +550,6 @@ table.tbmem tr:nth-child(odd) {
 
 .clickableRow_memRank_inner {
 	display: table;
-	margin-left: 5%;
 }
 
 .clickableRow_memRank_Image {
@@ -588,7 +587,6 @@ table.tbmem a:hover {
 
 
 .play {
-	border-spacing: 2px;
 	margin-bottom: 10px;
 	background-color: rgba(0, 0, 0, 0.75);
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
@@ -648,6 +646,7 @@ table.tbmem a:hover {
 	font-family: Orbitron;
 	font-variant: small-caps;
 	margin-top: 8px;
+	margin-bottom: 4px;
 }
 
 .player_qualifications {
@@ -698,8 +697,10 @@ table.tbmem a:hover {
 
 .p_rank
 {
-	padding-bottom: 4px;
 	display: table;
+	width: 100%;
+	position: relative;
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
 }
 
 .p_rankimage_container
@@ -709,7 +710,9 @@ table.tbmem a:hover {
 	text-align: center;
 	vertical-align: middle;
 	display: table-cell;
-	padding-right: 8px;
+	padding-top: 8px;
+	padding-left: 8px;
+	padding-right: 4px;
 }
 
 .p_rankimage
@@ -717,10 +720,12 @@ table.tbmem a:hover {
 	transition: all 0.4s ease 0s;
 }
 
+/*
 .p_rankimage:hover
 {
 	filter: drop-shadow(0px 0px 8px rgba(210, 210, 210, 0.35));
 }
+*/
 
 .p_rankExtendedData
 {
@@ -736,7 +741,6 @@ table.tbmem a:hover {
 	text-shadow: 0px 0px 8px #CCA300;
 	font-weight: bold;
 	font-style: italic;
-	opacity: 0;
 	transition: all 0.75s ease 0s;
 }
 
@@ -746,7 +750,6 @@ table.tbmem a:hover {
 	text-shadow: 0px 0px 8px rgba(204, 163, 0, 0.6);
 	font-style: italic;
 	font-size: 0.8em;
-	opacity: 0;
 	transition: all 0.75s ease 0s;
 }
 
@@ -754,19 +757,23 @@ table.tbmem a:hover {
 {
 	min-height: 100px;
 	width: 100%;
-	display: table-cell;
+	display: table;
 	vertical-align: middle;
+	margin-bottom: 4px;
+	position: relative;
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 }
 
 .p_rankname
 {
-	text-align: left;
+	text-align: right;
 	font-size: 10pt;
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	display: block;
 	font-family: Orbitron;
 	font-variant: small-caps;
+	padding-right: 8px;
 }
 
 .p_rank_div_name
@@ -782,12 +789,14 @@ table.tbmem a:hover {
 
 .p_rank_role_name
 {
-	text-align: left;
+	text-align: right;
 	display: block;
 	font-style: italic;
 	padding-top: 2px;
 	font-size: 8pt;
 	color: #BBB;
+	padding-right: 8px;
+	padding-bottom: 8px;
 }
 
 .p_rank_role_name a {
@@ -796,7 +805,7 @@ table.tbmem a:hover {
 
 .p_details_container {
 	width: 100%;
-	border-top: 1px solid rgba(80, 70, 50, 0.8);
+	/*border-top: 1px solid rgba(80, 70, 50, 0.8);*/
 }
 
 .p_details
@@ -921,14 +930,14 @@ table.tbmem a:hover {
 {	
 	font-size: 1.3em;
 	color: #DDD;
-	text-align: left;
-	display: inline;
+	text-align: right;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
 	text-shadow: 0px 0px 8px #CCA300;
 	font-family: Orbitron;
 	font-weight: normal;
+	padding-right: 8px;
 	
 }
 
@@ -944,6 +953,12 @@ table.tbmem a:hover {
     -webkit-transform:skewX(-45deg);
 	float: left;
 	margin-top: -5px;
+}
+
+.player_ships_shipTitleContainer {
+	display: table-cell;
+	text-align: right;
+	vertical-align: middle;
 }
 
 tr.player_detail_row
@@ -986,11 +1001,12 @@ ts.pship img {
 
 .player_ships_entry_buttons_buttonContainer
 {
-	text-align: right;
+	text-align: left;
 	vertical-align: middle;
-	width: 90%;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
+	display: table-cell;
+	white-space: nowrap;	
 }
 
 .player_ships_entry_ship_inner_imageContainer {
@@ -1043,8 +1059,9 @@ img.player_fleet:hover {
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
-	padding-bottom: 4px;
 	text-align: center;
+	width: 100%;
+	display: inline-table;
 }
 
 .player_ships_shipTitle a
@@ -1750,6 +1767,14 @@ img.fleet:after {
 .border-top50 {
 	top: 0;
 	bottom: 50%;
+}
+
+.border-bottom {
+	bottom: 0;
+}
+
+.border-bottom1px {
+	bottom: 1px;
 }
 
 .border-bottom70 {
@@ -3534,6 +3559,7 @@ img.fleet:after {
 
 .adminTableRow td:last-child {
 	text-align: right;
+	padding-right: 0px;
 }
 
 .adminTable:hover .adminTableRow:hover {
@@ -3557,6 +3583,7 @@ img.fleet:after {
 	background: rgba(0,0,0,0.0);
 	cursor: pointer;
 	margin-left: 4px;
+	margin-right: 4px;
 	font-size: 10pt;
 	margin-top: 4px;
 	margin-bottom: 4px;

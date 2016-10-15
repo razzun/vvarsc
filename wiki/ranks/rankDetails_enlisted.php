@@ -392,7 +392,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E7_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E7.png" />
+					<img class="divinfo_rankImg" align="center" alt="E7_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E7_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -467,7 +467,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E8_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E8.png" />
+					<img class="divinfo_rankImg" align="center" alt="E8_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E8_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -539,7 +539,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E9_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E9.png" />
+					<img class="divinfo_rankImg" align="center" alt="E9_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E9_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="

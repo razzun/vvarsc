@@ -73,7 +73,10 @@
 				</td>
 				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
 					<div class=\"clickableRow_memRank_inner\">
-						<button class=\"adminButton adminButtonEditRank\" style=\"display: table-cell\" title=\"Edit Member Rank\">
+						<button class=\"adminButton adminButtonEditRank\" style=\"
+								display: table-cell;
+								margin-left: 0px;
+							\" title=\"Edit Member Rank\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 						</button>
 						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_image.png\" />
@@ -92,10 +95,10 @@
 					$infoSecLevelShortName
 				</td>
 				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\">
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\" style=\"margin-right: 0px;\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\" title=\"Delete Member\">
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Member\" style=\"margin-left: 0px;\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
@@ -326,19 +329,19 @@
 					RSI Handle
 				</td>
 				<td class="adminTableHeaderRowTD">
-					VVAR PlayerName
+					UserName
 				</td>
 				<td class="adminTableHeaderRowTD">
 					Rank Info
 				</td>
 				<td class="adminTableHeaderRowTD">
-					Rank Info
+					Division
 				</td>
 				<td class="adminTableHeaderRowTD">
 					MembershipType
 				</td>
 				<td class="adminTableHeaderRowTD">
-					InfoSEC Level
+					InfoSEC
 				</td>
 				<td class="adminTableHeaderRowTD">
 					Actions

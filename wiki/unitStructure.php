@@ -33,7 +33,7 @@
 					For air units, a Flight normally consists of at least 2 ships, and the number of ships per Flight will vary based on the type of equipment operated by each Squadron during a particular operation. In some cases, especially with larger multi-crew ships, a single vessel may comprise the entire Flight.
 					<br />
 					<br />
-					For ground units, a Platoon consists of 16 Members. Personnel include a Commanding Officer, a Senior-Enlisted (likely an E-6) serving as the assistant Platoon Leader, and two 7-man Squads of Marine Operators, each lead by an E-5.
+					For ground units, a Platoon consists of 16 Members. Personnel include a Commanding Officer, a Senior-Enlisted (at least E-6) serving as the assistant Platoon Leader, and two 7-man Squads of Marine Operators, each lead by an E-5 or higher.
 					<br />
 					<br />
 					Once a Squadron or Platoon has reached its Player Capacity (not yet defined for Squadrons), a sister-unit can be formed alongside it. This will generally be accomplished by offering an Officer Commission to the Assistant Squadron/Platoon Leader of the existing unit, and promoting another NCO (likely a Flight/Squad Leader into the role of Assistant for the existing Unit). The new leader will be promoted to O-1, and will serve as an apprentice and Assistant CO in his/her current unit before being placed in-command of the newly-created unit.
