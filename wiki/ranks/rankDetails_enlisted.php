@@ -275,7 +275,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-5 is the second of the NCO ranks, and is the required PayGrade to enter into a leadership position within a Permanent Unit. The Rank of E-5 signifies that a Member has attained a sufficient qualification in their Unit's performed task(s) to lead and develop the skills of other NCOs below them. E-5s are typically seen performing the role of Flight Leader or Team Leader within Squadrons and Platoons, respectively.
+					E-5 is the second of the NCO ranks, and is the required PayGrade to enter into a leadership position within a Permanent Unit. The Rank of E-5 signifies that a Member has attained a sufficient qualification in their Unit's performed task(s) to lead and develop the skills of other NCOs below them. E-5s are typically seen performing the role of Flight Leader or Squad Leader within Squadrons and Platoons, respectively.
 					<br />
 					<br />
 					<strong>Advancement from E-4 to E-5 requires the following:</strong>

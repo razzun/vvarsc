@@ -3787,6 +3787,53 @@ img.fleet:after {
 	padding-left: 16px;
 }
 
+#formations {
+
+}
+
+#formations_inner {
+	position: relative;
+	min-height: 480px;
+}
+
+#formations_description {
+	display: none;
+}
+
+.formation_ship {
+	position: absolute;
+	padding: 4px;
+	vertical-align: middle;
+	text-align: center;
+	-webkit-transition: all 1.0s ease;
+	-moz-transition: all 1.0s ease;
+	-o-transition: all 1.0s ease;
+}
+
+.formation_ship img {
+	-ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+	position: relative;
+}
+
+.formation_ship_text1 {
+	margin-bottom: 4px;
+	color: #DDD;
+	font-size: 14pt;
+	text-shadow: 0px 0px 8px #00A0B6;
+	position: absolute;
+}
+
+.formation_ship_text2 {
+	margin-top: 4px;
+	color: #DDD;
+	font-size: 10pt;
+	text-shadow: 0px 0px 8px #00A0B6;
+	font-variant: small-caps;
+	font-style: italic;
+}
+
 /*END Hover Controls */
 
 .canHide {
