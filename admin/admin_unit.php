@@ -337,57 +337,60 @@
 		";
 	}
 	
-	//Query For UnitShips Table
-	$unitShips_query = "
-		select
-			us.RowID
-			,s.ship_id
-			,s.ship_name
-			,us.Purpose
-		from projectx_vvarsc2.Units u
-		left join projectx_vvarsc2.UnitShips us
-			on us.UnitID = u.UnitID
-		left join projectx_vvarsc2.ships s
-			on s.ship_id = us.ShipID	
-		where u.UnitID = '$unit_id'	
-	";
-	
-	$unitShips_query_results = $connection->query($unitShips_query);
-	$displayUnitShips = "";
-	
-	while(($row = $unitShips_query_results->fetch_assoc()) != false)
+	if ($unitLevel == 'Squadron')
 	{
-		$rowID = $row['RowID'];
-		$shipID = $row['ship_id'];
-		$shipName = $row['ship_name'];
-		$purpose = $row['Purpose'];
-	
-		$displayUnitShips .= "
-			<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
-				<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
-					$rowID
-				</td>
-				<td class=\"adminTableRowTD shipID\" data-shipid=\"$shipID\">
-					$shipID
-				</td>
-				<td class=\"adminTableRowTD shipName\" data-shipname=\"$shipName\">
-					<a href=\"http://sc.vvarmachine.com/ship/$shipID\" target=\"_blank\">
-						$shipName
-					</a>
-				</td>
-				<td class=\"adminTableRowTD purpose\" data-purpose=\"$purpose\">
-					$purpose
-				</td>
-				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit Ship\" title=\"Edit Ship\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
-					</button>
-					<button class=\"adminButton adminButtonDelete Ship\" title=\"Remove Ship\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
-					</button>
-				</td>
-			</tr>
+		//Query For UnitShips Table
+		$unitShips_query = "
+			select
+				us.RowID
+				,s.ship_id
+				,s.ship_name
+				,us.Purpose
+			from projectx_vvarsc2.Units u
+			left join projectx_vvarsc2.UnitShips us
+				on us.UnitID = u.UnitID
+			left join projectx_vvarsc2.ships s
+				on s.ship_id = us.ShipID	
+			where u.UnitID = '$unit_id'	
 		";
+		
+		$unitShips_query_results = $connection->query($unitShips_query);
+		$displayUnitShips = "";
+		
+		while(($row = $unitShips_query_results->fetch_assoc()) != false)
+		{
+			$rowID = $row['RowID'];
+			$shipID = $row['ship_id'];
+			$shipName = $row['ship_name'];
+			$purpose = $row['Purpose'];
+		
+			$displayUnitShips .= "
+				<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
+					<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
+						$rowID
+					</td>
+					<td class=\"adminTableRowTD shipID\" data-shipid=\"$shipID\">
+						$shipID
+					</td>
+					<td class=\"adminTableRowTD shipName\" data-shipname=\"$shipName\">
+						<a href=\"http://sc.vvarmachine.com/ship/$shipID\" target=\"_blank\">
+							$shipName
+						</a>
+					</td>
+					<td class=\"adminTableRowTD purpose\" data-purpose=\"$purpose\">
+						$purpose
+					</td>
+					<td class=\"adminTableRowTD\">
+						<button class=\"adminButton adminButtonEdit Ship\" title=\"Edit Ship\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						</button>
+						<button class=\"adminButton adminButtonDelete Ship\" title=\"Remove Ship\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						</button>
+					</td>
+				</tr>
+			";
+		}
 	}
 	
 	/*SHIPS QUERY FOR DROPDOWN MENU*/
@@ -483,6 +486,16 @@
 		.keyup(resizeInput)
 		// resize on page load
 		.each(resizeInput);
+		
+		//Hide Ships Table for non-squadron units
+		var unitLevel = "<? echo $unitLevel ?>";
+		
+		if (unitLevel != 'Squadron')
+		{
+			$('#adminShipTable').hide();
+			$('#adminAddUnitShip').hide();
+			$('#UnitShipsHeader').hide();
+		}
 	});
 	
 	$(function() {
@@ -894,7 +907,7 @@
 			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
 			Add Member To Unit		
 		</button>
-		<h3>Unit Personnel</h3>
+		<h3 id="UnitMembersHeader">Unit Personnel</h3>
 		<table id="adminMemberTable" class="adminTable">
 			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">
@@ -938,7 +951,7 @@
 			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
 			Add Ship	
 		</button>
-		<h3>Unit Equipment</h3>
+		<h3 id="UnitShipsHeader">Unit Equipment</h3>
 		<table id="adminShipTable" class="adminTable">
 			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">
