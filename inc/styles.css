@@ -3808,6 +3808,8 @@ img.fleet:after {
 	-webkit-transition: all 1.0s ease;
 	-moz-transition: all 1.0s ease;
 	-o-transition: all 1.0s ease;
+	width: 100px;
+	height: 120px;	
 }
 
 .formation_ship img {

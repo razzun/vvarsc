@@ -1,7 +1,7 @@
 <?php include_once('functions/function_auth_user.php'); ?>
 
 <?
-	$div_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
+	$div_id = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	if(is_numeric($div_id)) {
 		$div_query = "select
@@ -94,8 +94,8 @@
 		
 	$div_query_results = $connection->query($div_query);
 	
-	$display_div;
-	$display_selectors;
+	$display_div = "";
+	$display_selectors = "";
 	
 	if ($div_id == 0) {
 		$master_div_name = "All Members";

@@ -10,7 +10,7 @@
 <?php
 	
 	print_r($_POST);
-	
+
 	require_once('../dbconn/dbconn.php');
 	
 	session_start();
@@ -50,14 +50,17 @@
 		
 	$query_result = $connection->query($q);
 	
-	$q2 = "UPDATE projectx_vvarsc2.Units set
-			UnitLeaderID = null
-		WHERE UnitID = '$UnitID'
-		";
-		
-	$query2_result = $connection->query($q2);
+	if ($UnitLeader == 1)
+	{
+		$q2 = "UPDATE projectx_vvarsc2.Units set
+				UnitLeaderID = null
+			WHERE UnitID = '$UnitID'
+			";
 			
-	if ($query_result && $query2_result)
+		$query2_result = $connection->query($q2);
+	}
+			
+	if ($query_result)
 	{
 		header("Location: http://sc.vvarmachine.com/admin/?page=admin_unit&pid=$UnitID");
 	}

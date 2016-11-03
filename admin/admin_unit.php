@@ -326,16 +326,100 @@
 					</button>
 				";
 				$displayUnitMembers .= "
-					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member Role\">
+					<button class=\"adminButton adminButtonEdit Member\" title=\"Edit Member Role\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\" title=\"Remove Member\">
+					<button class=\"adminButton adminButtonDelete Member\" title=\"Remove Member\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
 		";
 	}
+	
+	//Query For UnitShips Table
+	$unitShips_query = "
+		select
+			us.RowID
+			,s.ship_id
+			,s.ship_name
+			,us.Purpose
+		from projectx_vvarsc2.Units u
+		left join projectx_vvarsc2.UnitShips us
+			on us.UnitID = u.UnitID
+		left join projectx_vvarsc2.ships s
+			on s.ship_id = us.ShipID	
+		where u.UnitID = '$unit_id'	
+	";
+	
+	$unitShips_query_results = $connection->query($unitShips_query);
+	$displayUnitShips = "";
+	
+	while(($row = $unitShips_query_results->fetch_assoc()) != false)
+	{
+		$rowID = $row['RowID'];
+		$shipID = $row['ship_id'];
+		$shipName = $row['ship_name'];
+		$purpose = $row['Purpose'];
+	
+		$displayUnitShips .= "
+			<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
+				<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
+					$rowID
+				</td>
+				<td class=\"adminTableRowTD shipID\" data-shipid=\"$shipID\">
+					$shipID
+				</td>
+				<td class=\"adminTableRowTD shipName\" data-shipname=\"$shipName\">
+					<a href=\"http://sc.vvarmachine.com/ship/$shipID\" target=\"_blank\">
+						$shipName
+					</a>
+				</td>
+				<td class=\"adminTableRowTD purpose\" data-purpose=\"$purpose\">
+					$purpose
+				</td>
+				<td class=\"adminTableRowTD\">
+					<button class=\"adminButton adminButtonEdit Ship\" title=\"Edit Ship\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					</button>
+					<button class=\"adminButton adminButtonDelete Ship\" title=\"Remove Ship\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+					</button>
+				</td>
+			</tr>
+		";
+	}
+	
+	/*SHIPS QUERY FOR DROPDOWN MENU*/
+	$ships_query = "
+		select
+			s.ship_id
+			,m.manu_shortName
+			,s.ship_name
+		from projectx_vvarsc2.ships s
+		join projectx_vvarsc2.manufacturers m
+			on m.manu_id = s.manufacturers_manu_id
+		order by
+			m.manu_name
+			,s.ship_name
+	";
+	
+	$ships_query_results = $connection->query($ships_query);
+	$displayShips = "";
+	
+	while(($row = $ships_query_results->fetch_assoc()) != false)
+	{
+		$ShipID = $row['ship_id'];
+		$ManuName = $row['manu_shortName'];
+		$ShipName = $row['ship_name'];
+	
+		$displayShips .= "
+			<option value=\"$ShipID\" id=\"$ShipID\">
+				$ManuName - $ShipName
+			</option>
+		";
+	}
+	/*END SHIPS QUERY*/	
 	
 	$display_admin_mainLink = "";
 	
@@ -448,7 +532,7 @@
 		});
 		
 		//Edit Member
-		$('.adminButton.adminButtonEdit').click(function() {
+		$('.adminButton.adminButtonEdit.Member').click(function() {
 			var dialog = $('#dialog-form-editMember');
 			
 			var $self = jQuery(this);
@@ -476,7 +560,7 @@
 		});
 		
 		//Delete Member
-		$('.adminButton.adminButtonDelete').click(function() {
+		$('.adminButton.adminButtonDelete.Member').click(function() {
 			var dialog = $('#dialog-form-deleteMember');
 			
 			var $self = jQuery(this);
@@ -486,7 +570,7 @@
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("memid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("memname");
 			var roleName = $self.parent().parent().find('.adminTableRowTD.roleName').data("rolename");
-			var unitLeader = $self.parent().parent().find('.adminTableRowTD.unitLeader').data("unitLeader");
+			var unitLeader = $self.parent().parent().find('.adminTableRowTD.unitLeader').data("unitleader");
 			
 			if(unitLeader == "Yes")
 				unitLeader = 1;
@@ -507,6 +591,82 @@
 				filter: 'blur(2px)'
 			});
 		});
+		
+		//Add Ship
+		$('#adminAddUnitShip').click(function() {
+			var dialog = $('#dialog-form-add-ship');
+			var $self = jQuery(this);
+			
+			var unitID = "<? echo $unit_id ?>";
+			
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#ShipID').find('#ShipID-default').prop('selected',true);
+			dialog.find('#Package').find('#Package-default').prop('selected',true);
+			dialog.find('#LTI').find('#LTI-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+		
+		//Edit Ship
+		$('.adminButton.adminButtonEdit.Ship').click(function() {
+			var dialog = $('#dialog-form-edit-ship');
+			var $self = jQuery(this);
+			
+			var unitID = "<? echo $unit_id ?>";
+			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
+			var shipID = $self.parent().parent().find('.adminTableRowTD.shipID').data("shipid");
+			var shipName = $self.parent().parent().find('.adminTableRowTD.shipName').data("shipname");
+			var purpose = $self.parent().parent().find('.adminTableRowTD.purpose').data("purpose");
+			
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#ShipID').val(shipID).text();
+			dialog.find('#ShipName').val(shipName).text();
+			dialog.find('#Purpose').val(purpose).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});
+
+		//Delete Ship
+		$('.adminButton.adminButtonDelete.Ship').click(function() {
+			var dialog = $('#dialog-form-remove-ship');
+			var $self = jQuery(this);
+			
+			var unitID = "<? echo $unit_id ?>";
+			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
+			var shipID = $self.parent().parent().find('.adminTableRowTD.shipID').data("shipid");
+			var shipName = $self.parent().parent().find('.adminTableRowTD.shipName').data("shipname");
+			var purpose = $self.parent().parent().find('.adminTableRowTD.purpose').data("purpose");
+			
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#ShipID').val(shipID).text();
+			dialog.find('#ShipName').val(shipName).text();
+			dialog.find('#Purpose').val(purpose).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+		});		
 		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
@@ -535,9 +695,14 @@
 			
 			//Hide All Dialog Containers
 			$('#dialog-form-assignMemberAsLeader').hide();
+			
 			$('#dialog-form-createMember').hide();
 			$('#dialog-form-editMember').hide();
 			$('#dialog-form-deleteMember').hide();
+			
+			$('#dialog-form-add-ship').hide();
+			$('#dialog-form-edit-ship').hide();
+			$('#dialog-form-remove-ship').hide();
 			
 			overlay.hide();
 			$('.adminTableContainer').css({
@@ -729,6 +894,7 @@
 			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
 			Add Member To Unit		
 		</button>
+		<h3>Unit Personnel</h3>
 		<table id="adminMemberTable" class="adminTable">
 			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">
@@ -761,6 +927,38 @@
 			</tr>
 			<? echo $displayUnitMembers ?>
 		</table>
+		
+		<br />
+		<!--Ships Table-->
+		<button id="adminAddUnitShip" class="adminButton adminButtonCreate" title="Add Ship" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;			
+		">
+			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
+			Add Ship	
+		</button>
+		<h3>Unit Equipment</h3>
+		<table id="adminShipTable" class="adminTable">
+			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
+				<td class="adminTableHeaderRowTD">
+					RowID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					ShipID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Ship Name
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Purpose
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Actions
+				</td>
+			</tr>
+			<? echo $displayUnitShips ?>
+		</table>		
 		
 	</div>
 	
@@ -934,4 +1132,127 @@
 			</div>
 		</form>
 	</div>
+
+	<!--Add Ship Form-->
+	<div id="dialog-form-add-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add a new Ship to your Unit!</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Create.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<!--
+					<label for="RowID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					-->
+					
+					<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					
+					<label for="ShipID" class="adminDialogInputLabel">
+						Ship
+					</label>
+					<select name="ShipID" id="ShipID" class="adminDialogDropDown">
+						<option selected disabled value="default" id="ShipID-default">
+							- Select a Ship -
+						</option>	
+						<? echo $displayShips ?>
+					</select>
+					
+					<label for="Purpose" class="adminDialogInputLabel">
+						Purpose
+					</label>
+					<input type="none" name="Purpose" id="Purpose" value="" class="adminDialogTextInput">
+				</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>	
+	
+	<!--Edit Ship Form-->
+	<div id="dialog-form-edit-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Update UnitShip Entry</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Edit.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				
+				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="ShipID" class="adminDialogInputLabel">
+					ShipID
+				</label>
+				<input type="none" name="ShipID" id="ShipID" value="" class="adminDialogTextInput"readonly>
+				
+				<label for="ShipName" class="adminDialogInputLabel">
+					ShipName
+				</label>
+				<input type="none" name="ShipName" id="ShipName" value="" class="adminDialogTextInput"readonly>
+				
+				<label for="Purpose" class="adminDialogInputLabel">
+					Purpose
+				</label>
+				<input type="none" name="Purpose" id="Purpose" value="" class="adminDialogTextInput">
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--Remove Ship Form-->
+	<div id="dialog-form-remove-ship" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Confirmation Required!</p>
+		<p class="validateTips">Are you sure you want to Remove this Ship from your Unit?</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Delete.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				
+				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="ShipID" class="adminDialogInputLabel">
+					ShipID
+				</label>
+				<input type="none" name="ShipID" id="ShipID" value="" class="adminDialogTextInput"readonly>
+				
+				<label for="ShipName" class="adminDialogInputLabel">
+					ShipName
+				</label>
+				<input type="none" name="ShipName" id="ShipName" value="" class="adminDialogTextInput"readonly>
+				
+				<label for="Purpose" class="adminDialogInputLabel">
+					Purpose
+				</label>
+				<input type="none" name="Purpose" id="Purpose" value="" class="adminDialogTextInput">
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
 </div>

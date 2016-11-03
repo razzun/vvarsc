@@ -2,7 +2,7 @@
 <?php include_once('functions/function_getUnitsForUser.php'); ?>
 
 <?
-	$UnitID = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
+	$UnitID = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	//Function For Generating Child-Unit List
 	function generate_list($array,$parent,$level,$realLevel)
@@ -502,7 +502,8 @@
 				,'LeaderRankAbbr' => $row['LeaderRankAbbr']
 			);
 		}
-		
+		$displayChildren1 = "";
+		$displayChildren2 = "";
 		
 		if (($divName == "Military" && $depth < 4)
 			|| ($divName == "Economy" && $depth < 2)

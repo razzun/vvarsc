@@ -20,9 +20,13 @@
 	{
 		$ID = $_POST['ID'];
 	}
-	 
+	
 	$q = "DELETE from projectx_vvarsc2.members where mem_id = '$ID'";
+	$q2 = "DELETE from projectx_vvarsc2.ships_has_members where RowID > 1 and members_mem_id = '$ID'";
+	$q3 = "DELETE from projectx_vvarsc2.UnitMembers where RowID > 1 and MemberID = '$ID'";
 
+	$query2_result = $connection->query($q2);
+	$query3_result = $connection->query($q3);
 	$query_result = $connection->query($q);
 			
 	if ($query_result)

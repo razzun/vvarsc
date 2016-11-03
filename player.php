@@ -1,7 +1,7 @@
 <?php include_once('functions/function_auth_user.php'); ?>
 
 <?php 
-	$player_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
+	$player_id = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	$display_player_ships;
 	$display_player_qualifications;
@@ -78,12 +78,13 @@
         $play_query_results = $connection->query($play_query);
 		
 		$total_ship_value = 0;
+		$display_player_ships = "";
+		$ship_count = 0;
     	
     	while(($row = $play_query_results->fetch_assoc()) != false) {
     	    $mem_id = $row['mem_id'];
     	    $mem_name = $row['mem_name'];
     		$mem_callsign = $row['mem_callsign'];
-    		$mem_gint = $row['mem_gint'];
     		$mem_avatar_link = $row['mem_avatar_link'];
     		$mem_createdOn = $row['MemberCreatedOn'];
 			$rank_id = $row['rank_id'];
@@ -330,7 +331,7 @@
 						</div>
 					</td>
 				</tr>";      		
-        		  $ship_count++;
+				$ship_count++;
     		}
     	}
 		
@@ -355,6 +356,7 @@
 		";
 		
 		$qualification_query_results = $connection->query($qualification_query);
+		$display_player_qualifications = "";
 		
 		while(($row2 = $qualification_query_results->fetch_assoc()) != false)
 		{

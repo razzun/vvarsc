@@ -205,13 +205,17 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-4 is the first of the NCO Ranks. This rank signifies a Member's induction into a permanent Unit or Division, and the beginning of their qualification phase towards further promotion. E-4s are the backbone of the VVarMachine Fleet - they can perform any non-leadership Role within their Squadron or Platoon.
+					E-4 is the first of the NCO Ranks. This rank signifies a Member's formal induction into a permanent Unit or Division, and the beginning of their qualification phase towards further promotion. E-4s are the backbone of the VVarMachine Fleet - they can perform any non-leadership Role within their Squadron or Platoon.
 					<br />
 					<br />
 					<strong>Advancement from E-3 to E-4 requires the following:</strong>
 					<ol>
-						<li>Registration with an established Military Unit, or the Economic Division</li>
-						<li>Minimum Two Weeks Time-in-Service (TIS) with the Fleet</li>
+						<li>Minimum One Month Time-in-Service (TIS) with the Fleet</li>
+						<li>Minimum Two Weeks Time-in-Grade (TIG) for their unit at E-3</li>
+						<!--
+						<li>Listing of VVAR as the Member's Primary Organization on the RSI Website</li>
+						-->
+						<li>Formal acceptance into their Unit by their Commanding Officer</li>
 					</ol>
 				</p>
 			</div>
@@ -280,8 +284,11 @@
 					<br />
 					<strong>Advancement from E-4 to E-5 requires the following:</strong>
 					<ol>
-						<li>Minimum One Month TIS with the Fleet</li>
-						<li>Minimum Two Weeks Time-in-Grade (TIG) for their Unit at E-4</li>
+						<li>Minimum Two Months TIS with the Fleet</li>
+						<li>Minimum One Month TIG for their Unit at E-4</li>
+						<!--
+						<li>Removal of any non-allied or other organizations as affiliations on RSI Website</li>
+						-->
 						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
