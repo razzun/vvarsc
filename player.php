@@ -28,12 +28,6 @@
 			,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
 			,d.div_id
     		,d.div_name
-			,case
-				when roles.isPrivate = 0 and roles.role_displayName != '' then roles.role_displayName
-				when roles.isPrivate = 0 then roles.role_name
-				when roles.role_id is null then 'n/a'
-				else '- Role Information Classified - '
-			end as role_name
     		,manufacturers.manu_shortName
 			,specialties.spec_name
     		,ships.ship_name
@@ -45,11 +39,6 @@
 			,ships.ship_price
     		,shm.shm_lti
 			,shm.shm_package
-			,u.UnitID
-			,case
-				when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
-				else u.UnitFullName
-			end as UnitName
     		,DATE_FORMAT(DATE(shm.CreatedOn),'%d %b %Y') as CreatedOn
     		,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,shm.rowID AS ship_vvarID
@@ -66,12 +55,6 @@
     			ON members.divisions_div_id = d.div_id
 			LEFT JOIN projectx_vvarsc2.specialties
 				ON specialties.spec_id = members.specialties_spec_id
-			LEFT JOIN projectx_vvarsc2.UnitMembers um
-				on um.MemberID = members.mem_id
-			LEFT JOIN projectx_vvarsc2.Units u
-				on u.UnitID = um.UnitID
-    		left JOIN projectx_vvarsc2.roles
-    			ON um.MemberRoleID = roles.role_id
         WHERE members.mem_sc = 1 AND members.mem_id = $player_id
         ORDER BY manufacturers.manu_name,ships.ship_name";
     	
@@ -95,7 +78,6 @@
 			$rankModifiedOn = $row['RankModifiedOn'];
     		$div_id = $row['div_id'];
     		$div_name = $row['div_name'];
-    		$role_name = $row['role_name'];
 			$spec_name = $row['spec_name'];
     		$manu_name = $row['manu_shortName'];
     		$ship_name = $row['ship_name'];
@@ -111,8 +93,6 @@
 			$temp_player_id = $row['player_id'];
 			$ship_model_designation = $row['ship_model_designation'];
 			$ship_model_visible = $row['ship_model_visible'];
-			$UnitID = $row['UnitID'];
-			$UnitName = $row['UnitName'];
 			$MemberBio = $row['member_bio'];
 			$MembershipType = $row['membership_type'];
 			$displayMembershipType = "";
@@ -139,31 +119,6 @@
     		
 			if ($spec_name == NULL) {
 				$spec_name = "- No Speciality Selected -";
-			}
-			
-			if ($role_name == NULL || $role_name == "n/a") {
-				$full_role_name = "- No Assigned Role -";
-			}
-			else
-			{
-				if ($UnitName != NULL)
-				{
-					$role_name .= " - ";
-					$role_name .= $UnitName;
-					$full_role_name = "<a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $role_name </a>";
-				}
-				else
-				{
-					$full_role_name = $role_name;
-				}
-			}
-			
-			if ($div_name == NULL || $div_name == "n/a") {
-				$div_name = "- No Division Assigned -";
-			}
-			else
-			{
-				$div_name .= " Division";
 			}
 			
 			$DisplayMemberBio = "";
@@ -334,6 +289,84 @@
 				$ship_count++;
     		}
     	}
+		
+		$roles_query = "
+			SELECT
+				ranks.rank_id
+				,ranks.rank_groupName
+				,ranks.rank_image
+				,ranks.rank_level
+				,ranks.rank_name
+				,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
+				,d.div_id
+				,d.div_name
+				,case
+					when roles.isPrivate = 0 and roles.role_displayName != '' then roles.role_displayName
+					when roles.isPrivate = 0 then roles.role_name
+					when roles.role_id is null then 'n/a'
+					else '- Role Information Classified - '
+				end as role_name
+				,u.UnitID
+				,case
+					when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+					else u.UnitFullName
+				end as UnitName
+			FROM projectx_vvarsc2.members
+			JOIN projectx_vvarsc2.ranks
+				ON members.ranks_rank_id = ranks.rank_id
+			JOIN projectx_vvarsc2.divisions d
+				ON members.divisions_div_id = d.div_id
+			LEFT JOIN projectx_vvarsc2.specialties
+				ON specialties.spec_id = members.specialties_spec_id
+			LEFT JOIN projectx_vvarsc2.UnitMembers um
+				on um.MemberID = members.mem_id
+			LEFT JOIN projectx_vvarsc2.Units u
+				on u.UnitID = um.UnitID
+			left JOIN projectx_vvarsc2.roles
+				ON um.MemberRoleID = roles.role_id
+			WHERE members.mem_sc = 1
+				AND members.mem_id = $player_id
+			ORDER BY
+				roles.role_orderby		
+		";
+		
+		$roles_query_results = $connection->query($roles_query);
+		$displayRoles = "";
+		
+		while(($row = $roles_query_results->fetch_assoc()) != false) {
+    		$role_name = $row['role_name'];
+			$UnitID = $row['UnitID'];
+			$UnitName = $row['UnitName'];
+			
+			if ($role_name == NULL || $role_name == "n/a") {
+				$full_role_name = "- No Assigned Role -";
+			}
+			else
+			{
+				if ($UnitName != NULL)
+				{
+					$role_name .= " - ";
+					$role_name .= $UnitName;
+					$full_role_name = "<a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $role_name </a>";
+				}
+				else
+				{
+					$full_role_name = $role_name;
+				}
+			}
+			
+			if ($div_name == NULL || $div_name == "n/a") {
+				$div_name = "- No Division Assigned -";
+			}
+			else
+			{
+				$div_name .= " Division";
+			}
+			
+			$displayRoles .= "
+				$full_role_name <br />
+			";
+		}
 		
 		$qualification_query = "
 		select
@@ -513,7 +546,7 @@
 						<? echo $rank_groupName; ?>
 					</div>
 					<div class ="p_rank_role_name">
-						<? echo $full_role_name; ?>
+						<? echo $displayRoles; ?>
 					</div>
 
 					<div class="partialBorder-right-blue border-right border-bottom1px border-4px">

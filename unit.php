@@ -300,7 +300,7 @@
 									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo2\">
-									- $rank_name ($rank_groupName)
+									- $rank_groupName
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									- $mem_role
