@@ -1223,6 +1223,102 @@ img {
 	position: relative;
 }
 
+.operations_menu_inner_items_container {
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	background-color: rgba(0, 0, 0, 0.65);
+	-webkit-transition: all 0.6s ease;
+	-moz-transition: all 0.6s ease;
+	-o-transition: all 0.6s ease;
+	position: relative;
+	padding-left: 24px;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;	
+	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-repeat: repeat-y;
+	background-position: left bottom;	
+}
+
+.operationsListItemContainer {
+	border-left: 4px solid #1F4858;
+	border-bottom: 1px solid #1F4858;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	padding: 4px;
+	transition: all 0.4s ease 0s;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.operations_selected {
+	border-left: 4px solid rgba(220, 160, 0, 0.65);
+	border-bottom: 1px solid rgba(220, 160, 0, 0.65);
+}
+
+.operationsListItemContainer:hover {
+	border-left: 4px solid rgba(0, 194, 200, 0.9);
+	border-bottom: 1px solid rgba(0, 194, 200, 0.9);
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.operationsListItem_Title {
+	font-variant: small-caps;
+	font-size: 10pt;
+	font-family: orbitron;
+}
+
+.operationsListItem_Mission {
+	padding-left: 8px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-size: 8pt;
+	color: #DDD;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 276px;
+	white-space: nowrap;	
+}
+
+.operationsListItem_Type {
+	padding-left: 8px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-size: 9pt;
+	color: #DDD;
+	font-variant: small-caps;
+	font-style: italic;
+}
+
+.operationsListItem_Type_Value {
+	font-weight: bold;
+	display: inline;
+}
+
+.operationsListItem_MetaData_Right {
+	padding-left: 8px;
+	margin-top: 4px;
+	font-size: 8pt;
+	color: #DDD;
+	text-align: right;
+}
+
+.operationsListItem_Title a,.operationsListItem_MetaData_Right a {
+	text-decoration: none;
+	transition: all 0.6s ease 0s;
+}
+
+.operationsDetails_main {
+	display: table-cell;
+	height: 100%;
+	table-layout: fixed;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-top: 1px solid rgba(220, 160, 0, 0.5);
+	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
+	border-spacing: 0px 8px;
+	padding: 8px;
+}
+
 .tbinfo_right_item
 {
 	padding-bottom: 6px;
@@ -1233,10 +1329,102 @@ img {
 	margin-left: 4px;
 }
 
+.operations_h3 {
+	padding-left: 0px;
+	padding-top: 0px;
+}
+
+.operations_h4 {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.operations_h5 {
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 4px;
+	padding-top: 0px;
+	color: #EEE;
+	font-size: 11pt;
+}
+
+.operations_h6 {
+	font-size: 9pt;
+	margin-top: 0px;
+	margin-bottom: 4px;
+	color: #DDD;
+	text-shadow: 0px 0px 8px #00A0B6;
+	font-family: orbitron;
+	font-weight: normal;
+}
+
+.OperationText {
+	margin-left: 0px;
+	background: none;
+}
+
+.OpUnitShipsList {
+	padding: 8px;
+}
+
+.OpUnit_Ships {
+	height: 100%;
+	table-layout: fixed;
+	padding: 12px 6px;
+	border-top: 1px solid rgba(185, 155, 35, 0.75);
+	border-bottom: 1px solid rgba(185, 155, 35, 0.75);
+	background-color: rgba(0, 0, 0, 0.65);
+	width: 100%;
+}
+
+.OpUnitMemberList {
+	padding-top: 8px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.operations_memRank {
+	padding-right: 8px;
+	white-space: nowrap;
+	vertical-align: middle;
+	text-align: left;
+	transition: all 0.2s ease 0s;
+}
+
+.OpUnit_Members {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 20px;
+}
+
+.operations_rank_image_text {
+	display: table-cell;
+	font-size: 9pt;
+	color: #DDD;
+	text-shadow: 0px 0px 8px #00A0B6;
+	white-space: nowrap;
+	padding-left: 4px;
+	vertical-align: middle;
+}
+
+.operations_rank_image_text a{
+	font-size: inherit;
+}
+
 #tbinfo_right_inner
 {
 	margin-top: 12px;
 	margin-left: 8px;
+}
+
+#operations_menu_inner
+{
+	margin-top: 12px;
+	margin-right: 8px;
+}
+
+.operation_main_container {
+	display: table-cell;
 }
 
 .tbinfo_right_yard_stats_container
