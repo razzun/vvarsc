@@ -322,6 +322,7 @@
 				</table>
 			</div>
 		</div>
+		<!--
 		<div class="yard_right_container">
 			<div class="yard_stats_container">
 				<div class="table_header_block">
@@ -331,6 +332,7 @@
 				</table>
 			</div>
 		</div>
+		-->
 	</div>
 </div>
 

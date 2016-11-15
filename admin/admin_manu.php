@@ -79,6 +79,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});			
 		});
 		
 		//Edit
@@ -100,6 +103,9 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
 				filter: 'blur(2px)'
 			});
 		});
@@ -125,6 +131,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
 		});
 		
 		//Cancel
@@ -138,6 +147,9 @@
 			$('.adminTable').css({
 				filter: 'none'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'none'
+			});
 		});
 		
 	});
@@ -149,7 +161,7 @@
 		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2>Manufacturer Management</h2>
+<h2 id="MainPageHeaderText">Manufacturer Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<button id="adminCreateManu" class="adminButton adminButtonCreate" title="Add Manufacturer" style="

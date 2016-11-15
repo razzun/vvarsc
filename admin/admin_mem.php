@@ -197,6 +197,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
 		});
 		
 		//Edit
@@ -230,6 +233,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
 		});
 
 		//Delete
@@ -252,6 +258,9 @@
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
 				filter: 'blur(2px)'
 			});
 		});
@@ -279,6 +288,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
 		});
 		
 		//Cancel
@@ -299,6 +311,9 @@
 			$('.adminTable').css({
 				filter: 'none'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'none'
+			});
 		});
 	});
 </script>
@@ -309,7 +324,7 @@
 		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2>Member Management</h2>
+<h2 id="MainPageHeaderText">Member Management</h2>
 <div id="TEXT">
 	<div id="adminMemberTableContainer" class="adminTableContainer">
 	<button id="adminCreateMember" class="adminButton adminButtonCreate" title="Add New Member" style="

@@ -518,6 +518,10 @@
 			$('.adminTableContainer').css({
 				filter: 'blur(2px)'
 			});		
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 			
 		});
 		
@@ -541,6 +545,10 @@
 			$('.adminTableContainer').css({
 				filter: 'blur(2px)'
 			});		
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 			
 		});
 		
@@ -570,6 +578,10 @@
 			$('.adminTableContainer').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 		
 		//Delete Member
@@ -603,6 +615,10 @@
 			$('.adminTableContainer').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 		
 		//Add Ship
@@ -625,6 +641,10 @@
 			$('.player_shipsTable_Container').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 		
 		//Edit Ship
@@ -652,6 +672,10 @@
 			$('.player_shipsTable_Container').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 
 		//Delete Ship
@@ -679,6 +703,10 @@
 			$('.player_shipsTable_Container').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});		
 		
 		//Cancel
@@ -721,6 +749,10 @@
 			$('.adminTableContainer').css({
 				filter: 'none'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'none'
+			});
+
 		});
 		
 	});
@@ -733,7 +765,7 @@
 		<a href="http://sc.vvarmachine.com/unit/<? echo $unitID ?>">Unit Details Page</a>
 	</div>
 </div>
-<h2>Unit Management - <? echo $unitName ?></h2>
+<h2 id="MainPageHeaderText">Unit Management - <? echo $unitName ?></h2>
 
 <div id="TEXT">
 	<div id="adminUnitDetailsTableContainer" class="adminTableContainer">

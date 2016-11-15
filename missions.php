@@ -4,18 +4,12 @@
 
 <?
 	$canEdit = false;
-	$MaintainEdit = 'false';
 	
 	if (($_SESSION['sess_userrole'] == "admin") ||
 			($_SESSION['sess_userrole'] == "officer"))
 	{
 		$canEdit = true;
 	}
-	
-	if ($_SESSION['maintain_edit'] == 'true')
-		$MaintainEdit = 'true';
-	else
-		$MaintainEdit = 'false';
 ?>
 
 <?php include_once('inc/ListQueries/operation_queries.php'); ?>
@@ -58,7 +52,7 @@
 
 	$connection->close();
 ?>
-<h2 id="MainPageHeaderText">Operation Plan Templates</h2>
+<h2 id="MainPageHeaderText">Mission Plans</h2>
 <div id="TEXT">
 	<div id="operations_topMenu_container">
 		<!--
@@ -77,59 +71,18 @@
 				</div>
 			</div>
 		</div>
-		-->
 		<? echo $displayMainActionButtons; ?>
+		-->
 	</div>
 	<div class="tbinfo_container">
-		<? echo $displayCreateOpTemplateButton; ?>
 		<div id="operations_list_menu_full">	
 			<div class="operations_menu_inner_items_container">
-				<? echo $display_operationsList; ?>
+				<? echo $display_missionsList; ?>
 			</div>
 		</div>
 	</div>
 	
 	<!--Forms-->
-	<!--Create Operation Form-->
-	<div id="dialog-form-create-operation" class="adminDialogFormContainer" style="max-width:80%;min-width:50%">
-		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
-			Cancel
-		</button>
-		<p class="validateTips">Enter Operation Template Main Info Below</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplate.php" method="POST" role="form">
-			<fieldset class="adminDiaglogFormFieldset">				
-				<label for="OperationName" class="adminDialogInputLabel">
-					Operation Name
-				</label>
-				<input type="text" name="OperationName" id="OperationName" value="" class="adminDialogTextInput" required autofocus>
-				
-				<label for="OperationType" class="adminDialogInputLabel">
-					Operation Type
-				</label>
-				<input type="text" name="OperationType" id="OperationType" value="" class="adminDialogTextInput" required>
-				
-				<label for="StartingLocation" class="adminDialogInputLabel">
-					Starting Location
-				</label>
-				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput">
-				
-				<label for="MissionSummary" class="adminDialogInputLabel">
-					Mission Summary
-				</label>
-				<textarea name="MissionSummary" id="MissionSummary" class="adminDialogTextArea"><? echo $operationDetails_Mission ?></textarea>
-				
-				<label for="ObjectiveDetails" class="adminDialogInputLabel">
-					Objective Details
-				</label>
-				<textarea name="ObjectiveDetails" id="ObjectiveDetails" class="adminDialogTextArea"><? echo $operationDetails_Description ?></textarea>
-			</fieldset>
-				<div class="adminDialogButtonPane">
-					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
-						Submit
-					</button>
-				</div>	
-		</form>
-	</div>	
 
 </div>
   
@@ -142,62 +95,7 @@
 
 <!--FORM CONTROLS-->
 <script>
-	function resizeInput() {
-		$(this).attr('size', $(this).val().length);
-	}
-	
-	$(document).ready(function() {
-		var dialog = $('#dialog-form');
-		dialog.hide();
-		
-		//Set TextArea Input Height to Correct Values
-		$("textarea").height( $("textarea")[0].scrollHeight );
-		
-		$('input[type="text"]')
-		// event handler
-		.keyup(resizeInput)
-		// resize on page load
-		.each(resizeInput);
-	});
-	
-	$(function() {
-	
-		var overlay = $('#overlay');
-		
-		//Edit Operation
-		$('#ButtonAddOpTemplate').click(function() {
-			var dialog = $('#dialog-form-create-operation');
-			
-			var $self = jQuery(this);
-			
-			dialog.show();
-			overlay.show();
-			$('.operation_main_container').css({
-				filter: 'blur(2px)'
-			});
-			$('#MainPageHeaderText').css({
-				filter: 'blur(2px)'
-			});
-		});
-		
-		//Cancel
-		$('.adminDialogButton.dialogButtonCancel').click(function() {
-			
-			//Clear DropDown Selections
-			$('.adminDiaglogFormFieldset').find('select').find('option').prop('selected',false);
-			
-			//Hide All Dialog Containers
-			$('#dialog-form-create-operation').hide();
-			
-			overlay.hide();
-			$('.operation_main_container').css({
-				filter: 'none'
-			});
-			$('#MainPageHeaderText').css({
-				filter: 'none'
-			});
-		});	
-	});
+
 </script>
 
 <!--Script to Show/Hide Admin Buttons-->

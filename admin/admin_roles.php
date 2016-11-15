@@ -99,6 +99,10 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 		
 		//Edit
@@ -129,6 +133,10 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
 		});
 
 		//Delete
@@ -156,6 +164,9 @@
 			$('.adminTable').css({
 				filter: 'blur(2px)'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
 		});
 		
 		//Cancel
@@ -178,6 +189,9 @@
 			$('.adminTable').css({
 				filter: 'none'
 			});
+			$('#MainPageHeaderText').css({
+				filter: 'none'
+			});
 		});
 		
 	});
@@ -189,7 +203,7 @@
 		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2>Roles Management</h2>
+<h2 id="MainPageHeaderText">Roles Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<button id="adminCreateRole" class="adminButton adminButtonCreate" title="Add Role" style="

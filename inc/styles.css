@@ -549,7 +549,18 @@ table.tbmem tr:nth-child(odd) {
 */
 
 .clickableRow_memRank_inner {
-	display: table;
+	display: inline-table;
+}
+
+.operations_memRank_inner {
+	display: inline-table;
+	margin-left: 12px;
+	border-spacing: 0px;
+}
+
+.clickableRow_memRank_Image_Container {
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .clickableRow_memRank_Image {
@@ -1224,19 +1235,58 @@ img {
 }
 
 .operations_menu_inner_items_container {
-	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	background-color: rgba(0, 0, 0, 0.65);
 	-webkit-transition: all 0.6s ease;
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	position: relative;
-	padding-left: 24px;
+	padding-left: 4px;
 	padding-right: 4px;
 	padding-top: 4px;
-	padding-bottom: 4px;	
+	padding-bottom: 4px;
+}
+
+#operations_topMenu_container {
+	display:inline-table;
+	width: 100%;
+	margin-bottom: 8px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+}
+
+#operations_menu_container, #missions_menu_container
+{
+	position: fixed;
+	z-index: 101;
+	left: -1000%;
+	top: 24px;
+	transition: all 0.4s ease 0s;
+	background: rgba(0,0,0,0.75);
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	border-bottom: 1px solid rgba(102, 102, 102, 0.9);
+}
+
+#operations_list_menu {
+	/*
 	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
 	background-repeat: repeat-y;
-	background-position: left bottom;	
+	background-position: left bottom;
+	*/
+}
+
+#operations_list_menu_full {
+	display: table;
+	height: 100%;
+	table-layout: fixed;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-top: 1px solid rgba(220, 160, 0, 0.5);
+	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.65);
+	border-spacing: 0px 8px;
+	padding: 8px;
+	width: 100%;
 }
 
 .operationsListItemContainer {
@@ -1252,6 +1302,10 @@ img {
 .operations_selected {
 	border-left: 4px solid rgba(220, 160, 0, 0.65);
 	border-bottom: 1px solid rgba(220, 160, 0, 0.65);
+}
+
+.operations_toggleSelected {
+
 }
 
 .operationsListItemContainer:hover {
@@ -1294,11 +1348,10 @@ img {
 }
 
 .operationsListItem_MetaData_Right {
-	padding-left: 8px;
-	margin-top: 4px;
 	font-size: 8pt;
 	color: #DDD;
 	text-align: right;
+	width: 100%;
 }
 
 .operationsListItem_Title a,.operationsListItem_MetaData_Right a {
@@ -1307,7 +1360,7 @@ img {
 }
 
 .operationsDetails_main {
-	display: table-cell;
+	display: table;
 	height: 100%;
 	table-layout: fixed;
 	padding-left: 4px;
@@ -1317,6 +1370,7 @@ img {
 	background-color: rgba(0, 0, 0, 0.65);
 	border-spacing: 0px 8px;
 	padding: 8px;
+	width: 99%;
 }
 
 .tbinfo_right_item
@@ -1373,7 +1427,6 @@ img {
 	padding: 12px 6px;
 	border-top: 1px solid rgba(185, 155, 35, 0.75);
 	border-bottom: 1px solid rgba(185, 155, 35, 0.75);
-	background-color: rgba(0, 0, 0, 0.65);
 	width: 100%;
 }
 
@@ -1389,26 +1442,30 @@ img {
 	vertical-align: middle;
 	text-align: left;
 	transition: all 0.2s ease 0s;
+	border-spacing: 2px;
 }
 
 .OpUnit_Members {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	padding-left: 20px;
+	padding-left: 4px;
 }
 
 .operations_rank_image_text {
 	display: table-cell;
 	font-size: 9pt;
 	color: #DDD;
-	text-shadow: 0px 0px 8px #00A0B6;
+	/*text-shadow: 0px 0px 8px #00A0B6;*/
 	white-space: nowrap;
 	padding-left: 4px;
 	vertical-align: middle;
 }
 
 .operations_rank_image_text a{
-	font-size: inherit;
+	font-size: 10pt;
+	display: inline;
+	vertical-align: middle;
+	
 }
 
 #tbinfo_right_inner
@@ -1417,14 +1474,11 @@ img {
 	margin-left: 8px;
 }
 
-#operations_menu_inner
-{
-	margin-top: 12px;
-	margin-right: 8px;
-}
 
 .operation_main_container {
-	display: table-cell;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
 }
 
 .tbinfo_right_yard_stats_container
@@ -2848,7 +2902,7 @@ img.fleet:after {
 /* ---------------Page: DivisionInfo--------------*/
 
 .divinfo_container {
-	width: 90%;
+	width: 95%;
 	margin: auto;	
 }
 
@@ -3824,6 +3878,8 @@ img.fleet:after {
 	display: none;
 	padding: 4px;
 	box-shadow: 0px 0px 20px #286E80;
+	max-height: 70vh;
+	overflow-y: scroll;	
 }
 
 .adminDialogForm {
