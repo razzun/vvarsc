@@ -161,7 +161,7 @@ nav
 	display: table-cell;
 	text-decoration: none;
 	color: #DDD;
-	font-size: 1.0em;
+	font-size: 10pt;
 	font-variant: small-caps;
 	font-weight: normal;
 	font-family: orbitron;
@@ -1244,9 +1244,9 @@ img {
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	position: relative;
-	/*
-	padding-left: 4px;
+	padding-left: 8px;
 	padding-right: 4px;
+	/*
 	padding-top: 4px;
 	padding-bottom: 4px;
 	*/
@@ -1293,6 +1293,7 @@ img {
 	border-spacing: 0px 8px;
 	padding: 8px;
 	width: 100%;
+	position: relative;
 }
 
 .operationsListItemContainer {
@@ -1359,6 +1360,7 @@ img {
 	text-align: right;
 	float: right;
 	width: 60%;
+	margin-right: 4px;
 }
 
 .operationsListItem_Title a,.operationsListItem_MetaData_Right a {
@@ -1523,6 +1525,11 @@ img {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
+}
+
+#operations_list_menu, #missions_list_menu {
+	background-color: rgba(0,0,0,0.5);
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .tbinfo_right_yard_stats_container

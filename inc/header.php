@@ -1,6 +1,7 @@
 <?
 	$display_login = "";
 	$display_officerLinks = "";
+	$display_adminZone = "";
 	
 	if(isset($_SESSION['sess_username']))
 	{
@@ -28,6 +29,17 @@
 			<div class=\"nav_entry\">
 				<div class=\"nav_entry_inner\">
 					<a class=\"navbar_inner\" href=\"/operations/\">OpPlan Templates</a>
+				</div>
+			</div>
+		";
+	}
+	
+	if ($role == 'admin')
+	{
+		$display_adminZone .= "
+			<div class=\"nav_entry\">
+				<div class=\"nav_entry_inner\">
+					<a class=\"navbar_inner\" href=\"/admin/\">Admin Zone</a>
 				</div>
 			</div>
 		";
@@ -71,10 +83,12 @@
 						<a class="navbar_inner" href="/">Home</a>
 					</div>
 				</div>
+				<!--
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F25" target="_blank">About Us &#38; CoC</a></div>
 					</div>
+				-->
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/members">Members</a>
@@ -111,23 +125,7 @@
 						<a class="navbar_inner" href="/links">Links</a>
 					</div>
 				</div>
-				<div class="nav_entry">
-					<div class="nav_entry_inner">
-						<a class="navbar_inner" href="http://vvarmachine.com/index.php?page=join&type=misc" target="_blank">Join VVAR</a>
-					</div>
-				</div>
-				<?
-					if(isset($_SESSION['sess_userrole']) && ($_SESSION['sess_userrole']) == "admin")
-					{
-				?>
-				<div class="nav_entry">
-					<div class="nav_entry_inner">
-						<a class="navbar_inner" href="/admin/">Admin Zone</a>
-					</div>
-				</div>
-				<?
-					}
-				?>
+				<? echo $display_adminZone; ?>
 			</div>
 		</nav>
 	</div>

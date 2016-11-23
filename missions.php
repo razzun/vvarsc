@@ -76,7 +76,15 @@
 	</div>
 	<div class="tbinfo_container">
 		<div id="operations_list_menu_full">
+			<div class="top-line-yellow">
+			</div>
+			<div class="partialBorder-left-orange1 border-left border-top1px border-4px">
+			</div>
 			<? echo $display_dateSorted_missionsList; ?>
+			<div class="partialBorder-left-orange1 border-right border-bottom1px border-4px">
+			</div>
+			<div class="partialBorder-right-orange1 border-left border-bottom1px border-4px">
+			</div>
 		</div>
 	</div>
 	

@@ -1267,15 +1267,20 @@
 					<div class=\"div_filters_container\" id=\"filtersContainer_OpMenu_Hide\" style=\"
 						background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
 						margin-left: 0px;
-						width: 100%;
 						text-align: right;
+						float: right;
 					\">
 						<div class=\"div_filters_entry\">
 							<div id=\"operations_menu_toggle_off\">
 								Close Operations List
 							</div>
 						</div>
-					</div>		
+					</div>
+					<h4 class=\"operations_h4\" style=\"
+						padding-left:4px;
+					\">
+						Operation Templates
+					</h4>		
 					<div class=\"operations_menu_inner_items_container\">
 						$display_operationsList
 					</div>
@@ -1287,15 +1292,20 @@
 					<div class=\"div_filters_container\" id=\"filtersContainer_MissionMenu_Hide\" style=\"
 						background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
 						margin-left: 0px;
-						width: 100%;
 						text-align: right;
+						float: right;
 					\">
 						<div class=\"div_filters_entry\">
 							<div id=\"missions_menu_toggle_off\">
 								Close Missions List
 							</div>
 						</div>
-					</div>		
+					</div>
+					<h4 class=\"operations_h4\" style=\"
+						padding-left:4px;
+					\">
+						Upcoming Missions
+					</h4>	
 					<div class=\"operations_menu_inner_items_container\">
 						$display_missionsList
 					</div>
@@ -1352,9 +1362,13 @@
 	</div>
 	<div class="tbinfo_container">
 		<div id="operations_menu_container">
+			<div class="partialBorder-left-blue border-left border-top border-4px">
+			</div>
 			<? echo $display_operationsListContainer; ?>
 		</div>
 		<div id="missions_menu_container">
+			<div class="partialBorder-left-blue border-left border-top border-4px">
+			</div>
 			<? echo $display_missionsListContainer; ?>
 		</div>
 		<div class="operation_main_container">

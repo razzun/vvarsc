@@ -107,7 +107,7 @@
 		from projectx_vvarsc2.Missions o
 		join projectx_vvarsc2.members m
 			on m.mem_id = o.ModifiedBy
-		#where o.StartDate >= CURDATE()
+		where o.StartDate >= UTC_TIMESTAMP()
 		order by
 			o.StartDate
 	";
@@ -190,8 +190,6 @@
 
 <?
 	//Date-Sorted Missions for List Page
-	if ($MissionID == null)
-		$MissionID = "";
 		
 	$display_dateSorted_missionsList = "";
 	
