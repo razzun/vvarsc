@@ -58,9 +58,17 @@
 		<img class="height="105" width="1200" border="0" src="http://vvarmachine.com/themes/starcitzen/images_custom/2banner_04_noBorder.png"/>
 	</div>
 	-->
-	<div id="nav_player_info">
+	<div id="nav_player_info" style="float:right">
 		<? echo $display_login ?>
 	</div>
+
+	<iframe src="http://free.timeanddate.com/clock/i5h0wbhu/fn16/fs12/fcddd/tct/pct/ftb/tt0/tw1/td2/th1/ta1/tb2" frameborder="0" width="230" height="17" allowTransparency="true" style="
+		float:left;
+		margin-left: 16px;
+	">
+	</iframe>
+
+
 	<div id="nav_container">
 		<div id="nav_header">
 			<img class="nav_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png"/>

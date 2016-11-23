@@ -16,7 +16,7 @@
 
 <?
 	$displayMainActionButtons = "";
-	$displayCreateOperationButton = "";
+	$displayCreateOpTemplateButton = "";
 	if ($canEdit)
 	{
 		$displayMainActionButtons = "
@@ -109,6 +109,7 @@
 </script>
 
 <!--Script to Show/Hide Admin Buttons-->
+<!--
 <script>
 	//Hide all Admin Buttons on Page Load
 	$(document).ready(function() {
@@ -146,6 +147,7 @@
 	
 	//adminButton
 </script>
+-->
 
 <!--Script to Keep TopMenu Fixed While Scrolling Vertically-->
 <script>

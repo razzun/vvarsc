@@ -128,7 +128,7 @@
 		if ($missionListItem_ID == $MissionID)
 		{
 			$display_missionsList .= "
-				<div class=\"operationsListItemContainer missions_selected\"
+				<div class=\"operationsListItemContainer operations_selected\"
 					data-operationid=\"$missionListItem_ID\"
 					data-targetid=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
 				>

@@ -1285,13 +1285,12 @@ img {
 	display: table;
 	height: 100%;
 	table-layout: fixed;
-	padding-left: 4px;
-	padding-right: 4px;
 	border-top: 1px solid rgba(220, 160, 0, 0.5);
 	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
 	background-color: rgba(0, 0, 0, 0.65);
 	border-spacing: 0px 8px;
-	padding: 8px;
+	padding-right: 8px;
+	padding-left: 8px;
 	width: 100%;
 	position: relative;
 }
