@@ -45,12 +45,14 @@
 		$MemberID = $_POST['MemberID'];
 	}
 	
+	if ($MemberID == 0)
+		$MemberID = null;
+	
 	if ($MemberID != null)
 	{
 		$q = "
 			UPDATE projectx_vvarsc2.MissionShipMembers set
-				OpUnitMemberRoleID = '$OpUnitMemberRoleID'
-				,MemberID = $MemberID
+				MemberID = $MemberID
 				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID
@@ -61,7 +63,7 @@
 	{
 		$q = "
 			UPDATE projectx_vvarsc2.MissionShipMembers set
-				OpUnitMemberRoleID = '$OpUnitMemberRoleID'
+				MemberID = null
 				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID

@@ -8,7 +8,10 @@
 				else u.UnitFullName
 			end as UnitName
 			,u.UnitLevel as UnitType
+			,u.OpUnitTypeID as OpUnitTypeID
 		from projectx_vvarsc2.Units u
+		where u.IsActive = 1
+			and (u.OpUnitTypeID is not null and u.OpUnitTypeID != '')
 		order by
 			u.UnitLevel
 			,u.UnitName
@@ -22,9 +25,12 @@
 		$UnitID = $row['UnitID'];
 		$UnitName = $row['UnitName'];
 		$UnitType = $row['UnitType'];
+		$OpUnitTypeID = $row['OpUnitTypeID'];
+		
+		$Value = $OpUnitTypeID.'_'.$UnitID;
 	
 		$displayOrgUnitsSelectors .= "
-			<option value=\"$UnitID\" id=\"UnitID-$UnitID\">
+			<option value=\"$Value\" id=\"UnitID-$UnitID\">
 				$UnitName
 			</option>
 		";
@@ -34,10 +40,13 @@
 <?
 	/*List LK_OpUnitTypes*/
 	$getOpUnitTypes_query = "
-		select
+		select distinct
 			lk1.OpUnitTypeID as ID
 			,lk1.OpUnitTypeDescription as Description
 		from projectx_vvarsc2.LK_OpUnitTypes lk1
+		join projectx_vvarsc2.Units u
+			on u.OpUnitTypeID = lk1.OpUnitTypeID
+			and u.IsActive = 1
 		order by
 			lk1.OpUnitTypeDescription
 	";

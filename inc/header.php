@@ -1,5 +1,6 @@
 <?
 	$display_login = "";
+	$display_officerLinks = "";
 	
 	if(isset($_SESSION['sess_username']))
 	{
@@ -17,6 +18,17 @@
 		$display_login .= "
 			<div>
 				<a class=\"headerLoginLink\" href=/login.php>Login</a>
+			</div>
+		";
+	}
+	
+	if ($role == 'officer' || $role == 'admin')
+	{
+		$display_officerLinks .= "
+			<div class=\"nav_entry\">
+				<div class=\"nav_entry_inner\">
+					<a class=\"navbar_inner\" href=\"/operations/\">OpPlan Templates</a>
+				</div>
 			</div>
 		";
 	}
@@ -83,6 +95,12 @@
 						<a class="navbar_inner" href="/shipyard">Shipyard</a>
 					</div>
 				</div>
+				<div class="nav_entry">
+					<div class="nav_entry_inner">
+						<a class="navbar_inner" href="/missions/">Missions</a>
+					</div>
+				</div>
+				<? echo $display_officerLinks; ?>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/wiki/">Wiki</a>

@@ -44,9 +44,7 @@
 	$_SESSION['maintain_edit'] = 'true';
 	$q = "
 		UPDATE projectx_vvarsc2.MissionUnits set
-			UnitID = $UnitID
-			,MissionUnitType = '$MissionUnitType'
-			,MissionUnitObjectives = '$OpUnitObjectives'
+			MissionUnitObjectives = '$OpUnitObjectives'
 		where MissionUnitID = '$MissionUnitID'
 			and MissionID = '$MissionID'
 	";

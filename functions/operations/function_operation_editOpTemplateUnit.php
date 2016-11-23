@@ -43,14 +43,14 @@
 	 
 	$q = "
 		UPDATE projectx_vvarsc2.OpTemplateUnits set
-			UnitID = $UnitID
+			UnitID = SUBSTRING('$UnitID',(LOCATE('_','$UnitID') + 1),LENGTH('$UnitID'))
 			,OpTemplateUnitType = '$OpTemplateUnitType'
 			,OpUnitObjectives = '$OpUnitObjectives'
 		where OpTemplateUnitID = '$OpTemplateUnitID'
 			and OpTemplateID = '$OpTemplateID'
 	";
 	
-	//print_r($q);
+	print_r($q);
 	
 	$_SESSION['maintain_edit'] = 'true';
 

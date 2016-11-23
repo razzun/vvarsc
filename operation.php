@@ -92,6 +92,8 @@
 					<button id=\"ButtonCreateMission\" class=\"adminButton adminButtonEdit\" title=\"Create Mission from Template\"style=\"
 						margin-left: 0px;
 						margin-right: 2%;
+						margin-top: 0px;
+						margin-bottom: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
 						Create Mission from Template
@@ -99,6 +101,8 @@
 					<button id=\"ButtonEditToggle\" class=\"adminButton adminButtonEdit\" title=\"Edit Toggle\"style=\"
 						margin-left: 0px;
 						margin-right: 2%;
+						margin-top: 0px;
+						margin-bottom: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 						Toggle Edit Options
@@ -118,15 +122,13 @@
 					width: 50%;
 				\">
 					<button id=\"ButtonEditOperation\" class=\"adminButton adminButtonEdit\" title=\"Edit Operation\"style=\"
-						margin-left: 0px;
-						margin-right: 0px;
+						margin: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
 					<!--
 					<button id=\"ButtonDeleteOperation\" class=\"adminButton adminButtonDelete\" title=\"Delete Operation\"style=\"
-						margin-left: 0px;
-						margin-right: 0px;
+						margin: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
@@ -253,6 +255,8 @@
 					<button id=\"ButtonAddOpUnit\" class=\"adminButton adminButtonCreate\" title=\"Add Unit\"style=\"
 						margin-left: 0px;
 						margin-right: 2%;
+						margin-top: 0px;
+						margin-bottom: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
 						Add Unit
@@ -407,6 +411,7 @@
 				</div>
 				<div class=\"yard_filters\" style=\"
 					margin-bottom: 16px;
+					border-spacing: 0px;
 					background-color: rgba(0,0,0,0.5);
 					background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 				\"
@@ -427,16 +432,15 @@
 						text-align: right;
 						margin-right: 8px;
 						width: 50%;
+						margin-top: 4px;
 					\">
 						<button id=\"ButtonEditOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonEdit ButtonEditOpUnit\" title=\"Edit Unit\"style=\"
-							margin-left: 0px;
-							margin-right: 0px;
+							margin: 0px;
 						\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 						</button>
 						<button id=\"ButtonDeleteOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnit\" title=\"Delete Unit\"style=\"
-							margin-left: 0px;
-							margin-right: 0px;
+							margin: 0px;
 						\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 						</button>
@@ -446,25 +450,39 @@
 		
 			$display_opUnits_list .= "
 					$display_opUnit_edit
-					<div class=\"PayGradeDetails_Entry_Header\">
-						<h5 h5 class=\"operations_h5\" style=\"
+					<div class=\"PayGradeDetails_Entry_Header\" style=\"
+						cursor: pointer;
+						vertical-align: middle;
+						margin-top: 6px;
+						display: table;
+					\">
+						<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"http://vvarmachine.com/uploads/galleries/SC_Button01.png\" align=\"middle\">
+						<h5 class=\"operations_h5\" style=\"
 							padding-left: 8px;
 							padding-right: 8px;
-							margin-left: 0;
+							margin: 0;
 							font-size: 12pt;
 							font-style: italic;
+							cursor: pointer;
+							display: table-cell;
+							vertical-align: middle;
+							width: 100%;
 						\">
 							$opUnitsListItem_OpUnitTypeDescription
 						</h5>
 					</div>
-					<div class=\"WikiText OperationText\" style=\"
-						margin-left: 8px;
-						background: none;
+					<div class=\"shipyard_mainTable_row_content\" style=\"
+						padding-top: 0px;
+						border-top: none;
 					\">
-						Source Unit: <a href=\"http://sc.vvarmachine.com/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
-						<br />
-						Callsign: <i>$callSign</i>
-					</div>
+						<div class=\"WikiText OperationText\" style=\"
+							margin-left: 8px;
+							background: none;
+						\">
+							Source Unit: <a href=\"http://sc.vvarmachine.com/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
+							<br />
+							Callsign: <i>$callSign</i>
+						</div>
 			";
 			
 			//Objectives for Unit
@@ -501,6 +519,8 @@
 							<button id=\"ButtonAddOpUnitMember_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonCreate ButtonAddOpUnitMember\" title=\"Add Member\"style=\"
 								margin-left: 0px;
 								margin-right: 2%;
+								margin-top: 0px;
+								margin-bottom: 0px;
 							\">
 								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
 								Add Member
@@ -512,7 +532,7 @@
 				//GET MEMBERS FOR THIS OpUnit
 				$display_opUnit_member_list = "
 					$display_opUnitMembers_list_edit
-					<div class=\"OpUnitMemberList\">
+					<div class=\"OpUnitMemberList\" style=\"padding-bottom: 8px;\">
 						<h6 class=\"operations_h6\">
 							Personnel
 						</h6>
@@ -597,14 +617,12 @@
 								display: table-cell;
 							\">
 								<button id=\"ButtonEditOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpUnitMember\" title=\"Edit OpUnitMember\"style=\"
-									margin-left: 0px;
-									margin-right: 0px;
+									margin: 0px;
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 								</button>
 								<button id=\"ButtonDeleteOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitMember\" title=\"Delete OpUnit Member\"style=\"
-									margin-left: 0px;
-									margin-right: 0px;
+									margin: 0px;
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 								</button>
@@ -628,6 +646,7 @@
 							$display_opUnitMember_edit
 							<div class=\"operations_rank_image_text\" style=\"
 								vertical-align: inherit;
+								width:120px;
 							\">
 								$opUnitMemberListItem_RoleName
 							</div>
@@ -692,6 +711,8 @@
 							<button id=\"ButtonAddOpUnitShip_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonCreate ButtonAddOpUnitShip\" title=\"Add Ship\"style=\"
 								margin-left: 0px;
 								margin-right: 2%;
+								margin-top: 0px;
+								margin-bottom: 0px;
 							\">
 								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
 								Add Ship
@@ -782,8 +803,7 @@
 								data-shipid=$opUnitShipsListItem_ShipID
 							>
 								<button id=\"ButtonDeleteOpUnitShip_$opUnitShipsListItem_OpShipID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitShip\" title=\"Delete OpUnit Ship\"style=\"
-									margin-left: 0px;
-									margin-right: 0px;
+									margin: 0px;
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 								</button>
@@ -853,6 +873,8 @@
 								<button id=\"ButtonAddOpUnitShipMember_$opUnitShipsListItem_OpShipID\" class=\"adminButton adminButtonCreate ButtonAddOpUnitShipMember\" title=\"Add Member\"style=\"
 									margin-left: 0px;
 									margin-right: 2%;
+									margin-top: 0px;
+									margin-bottom: 0px;
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
 									Add Member
@@ -952,14 +974,12 @@
 									display: table-cell;
 								\">
 									<button id=\"ButtonEditOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpShipMember\" title=\"Edit OpShip Member\"style=\"
-										margin-left: 0px;
-										margin-right: 0px;
+										margin: 0px;
 									\">
 										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 									</button>
 									<button id=\"ButtonDeleteOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpShipMember\" title=\"Delete OpShip Member\"style=\"
-										margin-left: 0px;
-										margin-right: 0px;
+										margin: 0px;
 									\">
 										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 									</button>
@@ -981,7 +1001,10 @@
 						{
 							$display_opUnitShipMembers .= "
 								$display_opShipMember_edit
-								<div class=\"operations_rank_image_text\">
+								<div class=\"operations_rank_image_text\" style=\"
+									vertical-align: inherit;
+									width:120px;
+								\">
 									$opShipMembersListItem_RoleName
 								</div>
 								<div class=\"operations_memRank_inner\">
@@ -1028,7 +1051,7 @@
 									</div>								
 								</div>
 							</td>
-							<td class=\"player_ships_entry_ship\">
+							<td class=\"player_ships_entry_ship\" style=\"width:auto;\">
 								<div class=\"player_ships_entry_ship_inner\">
 									<div class=\"player_ships_entry_ship_inner_imageContainer\">
 										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
@@ -1058,6 +1081,7 @@
 			
 			//Close Unit Entry
 			$display_opUnits_list .= "
+					</div>
 				</div>
 			";
 			
@@ -1070,6 +1094,73 @@
 				</div>
 			</div>
 		";
+		
+		
+		//Button and Hidden Containers for Navigation
+		$display_operationsListContainer = "";
+		$display_missionsListContainer = "";
+		$display_operationsListButton = "";
+		$display_missionsListButton = "";
+		
+		if ($canEdit)
+		{
+			$display_operationsListContainer = "
+				<div id=\"operations_list_menu\">
+					<div class=\"div_filters_container\" id=\"filtersContainer_OpMenu_Hide\" style=\"
+						background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
+						margin-left: 0px;
+						width: 100%;
+						text-align: right;
+					\">
+						<div class=\"div_filters_entry\">
+							<div id=\"operations_menu_toggle_off\">
+								Close Operations List
+							</div>
+						</div>
+					</div>		
+					<div class=\"operations_menu_inner_items_container\">
+						$display_operationsList
+					</div>
+				</div>
+			";
+			
+			$display_missionsListContainer = "
+				<div id=\"missions_list_menu\">
+					<div class=\"div_filters_container\" id=\"filtersContainer_MissionMenu_Hide\" style=\"
+						background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
+						margin-left: 0px;
+						width: 100%;
+						text-align: right;
+					\">
+						<div class=\"div_filters_entry\">
+							<div id=\"missions_menu_toggle_off\">
+								Close Missions List
+							</div>
+						</div>
+					</div>		
+					<div class=\"operations_menu_inner_items_container\">
+						$display_missionsList
+					</div>
+				</div>
+			";
+			
+			$display_operationsListButton = "	
+				<div class=\"div_filters_entry\">
+					<div id=\"operations_menu_toggle_on\">
+						Operation Templates
+					</div>
+				</div>
+			";
+			
+			
+			$display_missionsListButton = "
+				<div class=\"div_filters_entry\" style=\"margin-left: 8px\">
+					<div id=\"missions_menu_toggle_on\">
+						Missions
+					</div>
+				</div>
+			";
+		}
 		
 	}
 	else
@@ -1095,58 +1186,18 @@
 				margin-left: 8px;
 			">
 				<a href="http://sc.vvarmachine.com/operations">&#8672; Back to List</a>
-			</div>		
-			<div class="div_filters_entry">
-				<div id="operations_menu_toggle_on">
-					Operation Templates
-				</div>
 			</div>
-			<div class="div_filters_entry" style="margin-left: 8px">
-				<div id="missions_menu_toggle_on">
-					Missions
-				</div>
-			</div>
+			<? echo $display_operationsListButton; ?>
+			<? echo $display_missionsListButton; ?>
 		</div>
 		<? echo $displayMainActionButtons; ?>
 	</div>
 	<div class="tbinfo_container">
 		<div id="operations_menu_container">
-			<div id="operations_list_menu">
-				<div class="div_filters_container" id="filtersContainer_OpMenu_Hide" style="
-					background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
-					margin-left: 0px;
-					width: 100%;
-					text-align: right;
-				">
-					<div class="div_filters_entry">
-						<div id="operations_menu_toggle_off">
-							Close Operations List
-						</div>
-					</div>
-				</div>		
-				<div class="operations_menu_inner_items_container">
-					<? echo $display_operationsList; ?>
-				</div>
-			</div>
+			<? echo $display_operationsListContainer; ?>
 		</div>
 		<div id="missions_menu_container">
-			<div id="missions_list_menu">
-				<div class="div_filters_container" id="filtersContainer_MissionMenu_Hide" style="
-					background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
-					margin-left: 0px;
-					width: 100%;
-					text-align: right;
-				">
-					<div class="div_filters_entry">
-						<div id="missions_menu_toggle_off">
-							Close Missions List
-						</div>
-					</div>
-				</div>		
-				<div class="operations_menu_inner_items_container">
-					<? echo $display_missionsList; ?>
-				</div>
-			</div>
+			<? echo $display_missionsListContainer; ?>
 		</div>
 		<div class="operation_main_container">
 			<div class="table_header_block2_long">
@@ -1216,16 +1267,16 @@
 		<p class="validateTips">Add Operational Unit</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitType" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitTypeLabel" class="adminDialogInputLabel">
 					Operational Unit Type
 				</label>
 				<select name="OpTemplateUnitType" id="OpTemplateUnitType" class="adminDialogDropDown">
-					<option selected disabled value="default" id="OpUnitTypeID-default">
+					<option selected disabled value="0" id="OpUnitTypeID-0">
 						- Select a Type -
 					</option>	
 					<? echo $displayOpUnitTypesSelectors ?>
@@ -1237,8 +1288,45 @@
 				<select name="UnitID" id="UnitID" class="adminDialogDropDown">
 					<option selected disabled value="default" id="UnitID-default">
 						- Select a Unit -
-					</option>	
+					</option>
 					<? echo $displayOrgUnitsSelectors ?>
+				</select>
+				
+				<label for="PlayerCount" id="PlayerCountLabel" class="adminDialogInputLabel">
+					Player Count
+				</label>
+				<select name="PlayerCount" id="PlayerCount" class="adminDialogDropDown">
+					<option selected disabled value="default" id="PlayerCount-default">
+						- Select # of Players -
+					</option>
+					<option value="2" id="PlayerCount-2">
+						2
+					</option>
+					<option value="4" id="PlayerCount-4">
+						4
+					</option>
+					<option value="5" id="PlayerCount-5">
+						5
+					</option>
+					<option value="6" id="PlayerCount-6">
+						6
+					</option>
+					<option value="7" id="PlayerCount-7">
+						7
+					</option>
+					<option value="8" id="PlayerCount-8">
+						8
+					</option>
+				</select>
+				
+				<label for="ShipID" id="ShipIDLabel" class="adminDialogInputLabel">
+					Ship
+				</label>
+				<select name="ShipID" id="ShipID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="ShipID-default">
+						- Select a Ship -
+					</option>
+					<? echo $displayGetAllShipsSelectors; ?>
 				</select>
 				
 			</fieldset>
@@ -1258,15 +1346,15 @@
 		<p class="validateTips">Update Operational Unit</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpTemplateUnitType" class="adminDialogInputLabel">
 					Operational Unit Type
@@ -1310,15 +1398,15 @@
 		<p class="validateTips">Delete Operational Unit</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpTemplateUnitType" class="adminDialogInputLabel">
 					Operational Unit Type
@@ -1357,15 +1445,15 @@
 		<p class="validateTips">Add Unit Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly  style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1394,20 +1482,20 @@
 		<p class="validateTips">Update Unit Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="RowID" class="adminDialogInputLabel">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
 				</label>
-				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1436,20 +1524,20 @@
 		<p class="validateTips">Delete Unit Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="RowID" class="adminDialogInputLabel">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
 				</label>
-				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1478,15 +1566,15 @@
 		<p class="validateTips">Add Unit Ship</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitShip.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="ShipID" class="adminDialogInputLabel">
 					Ship
@@ -1515,20 +1603,20 @@
 		<p class="validateTips">Delete Unit Ship</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitShip.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="RowID" class="adminDialogInputLabel">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
 				</label>
-				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="ShipID" class="adminDialogInputLabel">
 					Ship
@@ -1557,20 +1645,20 @@
 		<p class="validateTips">Add Ship Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateShipID" class="adminDialogInputLabel">
+				<label for="OpTemplateShipID" class="adminDialogInputLabel" style="display:none">
 					Operation Ship ID
 				</label>
-				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1599,24 +1687,25 @@
 		<p class="validateTips">Update Ship Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="RowID" class="adminDialogInputLabel">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
 				</label>
-				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateShipID" class="adminDialogInputLabel">
+				<label for="OpTemplateShipID" class="adminDialogInputLabel" style="display:none">
 					Operation Ship ID
-				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly>
+				</label>
+				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1645,24 +1734,25 @@
 		<p class="validateTips">Delete Ship Member</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="RowID" class="adminDialogInputLabel">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
 				</label>
-				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateID" class="adminDialogInputLabel">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateUnitID" class="adminDialogInputLabel">
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
 					Operation Unit ID
 				</label>
-				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
-				<label for="OpTemplateShipID" class="adminDialogInputLabel">
+				<label for="OpTemplateShipID" class="adminDialogInputLabel" style="display:none">
 					Operation Ship ID
-				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly>
+				</label>
+				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
@@ -1691,18 +1781,18 @@
 		<p class="validateTips">Create Mission from Template</p>
 		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_createMissionFromOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-				<label for="ID" class="adminDialogInputLabel">
+				<label for="ID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
 				</label>
-				<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" readonly>
+				<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" readonly style="display:none">
 				
 				<label for="OperationName" class="adminDialogInputLabel">
-					Operation Name
+					Mission Name
 				</label>
 				<input type="text" name="OperationName" id="OperationName" value="" class="adminDialogTextInput" required autofocus readonly>
 				
 				<label for="OperationType" class="adminDialogInputLabel">
-					Operation Type
+					Mission Type
 				</label>
 				<input type="text" name="OperationType" id="OperationType" value="" class="adminDialogTextInput" required readonly>
 				
@@ -1712,9 +1802,9 @@
 				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" readonly>
 				
 				<label for="StartDate" class="adminDialogInputLabel">
-					Mission Start Date (US Mountain TimeZone, Format: YYYY-MM-DD HH:MM:SS)
+					Mission Start Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
 				</label>
-				<input type="text" name="StartDate" id="StartDate" value="" class="adminDialogTextInput">
+				<input type="text" name="StartDate" id="StartDate" value="" class="adminDialogTextInput" required>
 				
 				<label for="MissionSummary" class="adminDialogInputLabel">
 					Mission Summary
@@ -1816,7 +1906,15 @@
 			
 			dialog.find('select').find('option').prop('selected',false);
 			dialog.find('#UnitID').find('#UnitID-default').prop('selected',true);
-			dialog.find('#OpTemplateUnitType').find('#OpUnitTypeID-default').prop('selected',true);
+			dialog.find('#OpTemplateUnitType').find('#OpUnitTypeID-0').prop('selected',true);
+			dialog.find('#PlayerCount').find('#PlayerCount-default').prop('selected',true);
+			dialog.find('#ShipID').find('#ShipID-default').prop('selected',true);
+			
+			//Hide PlayerCount and ShipID Selectors by Default
+			dialog.find('#ShipIDLabel').hide();
+			dialog.find('#ShipID').hide();
+			dialog.find('#PlayerCountLabel').hide();
+			dialog.find('#PlayerCount').hide();
 			
 			dialog.show();
 			overlay.show();
@@ -1829,8 +1927,69 @@
 			$('#filtersContainer_OpMenu_Show').css({
 				filter: 'blur(2px)'
 			});
-		});
-		
+			
+			dialog.find('#OpTemplateUnitType').change(function() {     
+				if(typeof $(this).data('options') === "undefined"){
+					$(this).data('options',dialog.find(('#UnitID option')));
+				}
+				var select2 = dialog.find('#UnitID');
+				var id = $(this).val();
+				var filter = id + '_';
+				var defaultOption = select2.find('#UnitID-default');
+				var options = $(this).data('options').filter('[value^=' + filter + ']');
+				var optionsList = defaultOption.add(options);
+				
+				select2.html(optionsList);
+				select2.find('#UnitID-default').prop('selected',true);
+				
+				var shipIDSelector = dialog.find('#ShipID');
+				var shipIDSelectorLabel = dialog.find('#ShipIDLabel');
+				var playerCountSelector = dialog.find('#PlayerCount');
+				var playerCountSelectorLabel = dialog.find('#PlayerCountLabel');
+				
+				var playerCountDefaultOptionLabel = dialog.find('#PlayerCount-default');
+				
+				shipIDSelector.hide();
+				shipIDSelectorLabel.hide();
+				playerCountSelector.hide();
+				playerCountSelectorLabel.hide();
+			
+				//Command
+				if (id == "1")
+				{
+					
+				}
+				//Marine
+				else if (id == "2")
+				{
+					//Show PlayerCount
+					playerCountSelectorLabel.html('Member Count');
+					playerCountDefaultOptionLabel.html('- Select # of Players -');
+					playerCountSelector.show();
+					playerCountSelectorLabel.show();
+					
+					dialog.find('#PlayerCount').find('option').show();
+				}
+				//Air Flight
+				else if (id != null)
+				{
+					//Show PlayerCount
+					playerCountSelectorLabel.html('Ship Count');
+					playerCountDefaultOptionLabel.html('- Select # of Ships -');
+					playerCountSelectorLabel.show();
+					playerCountSelector.show();
+					
+					playerCountSelector.find('option').hide();
+					playerCountSelector.find('#PlayerCount-2').show();
+					playerCountSelector.find('#PlayerCount-4').show();
+					
+					//Show ShipID
+					dialog.find('#ShipIDLabel').show();
+					dialog.find('#ShipID').show();
+				}
+			});
+			dialog.find('#OpTemplateUnitType').trigger('change');
+		});	
 		//Edit Unit
 		$('.ButtonEditOpUnit').click(function() {
 			var dialog = $('#dialog-form-edit-opUnit');
@@ -1875,6 +2034,31 @@
 			$('#filtersContainer_OpMenu_Show').css({
 				filter: 'blur(2px)'
 			});
+			
+			dialog.find('#OpTemplateUnitType').change(function() {     
+				if(typeof $(this).data('options') === "undefined"){
+					$(this).data('options',dialog.find(('#UnitID option')));
+				}
+				var select2 = dialog.find('#UnitID');
+				var id = $(this).val();
+				var filter = id + '_';
+				var defaultOption = select2.find('#UnitID-default');
+				var options = $(this).data('options').filter('[value^=' + filter + ']');
+				var optionsList = defaultOption.add(options);
+				
+				select2.html(optionsList);
+				
+				var exists = select2.has('#UnitID-' + unitID);
+				if (exists.length)
+				{
+					select2.find('#UnitID-' + unitID).prop('selected',true);
+				}
+				else
+				{
+					select2.find('#UnitID-default').prop('selected',true);
+				}
+			});
+			dialog.find('#OpTemplateUnitType').trigger('change');			
 		});
 		//Remove Unit
 		$('.ButtonDeleteOpUnit').click(function() {
@@ -1916,8 +2100,8 @@
 			
 			var $self = jQuery(this);
 			
-			var opTemplateID = $self.parent().parent().data("operationid");
-			var opTemplateUnitID = $self.parent().parent().data("opunitid");
+			var opTemplateID = $self.parent().parent().parent().data("operationid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("opunitid");
 						
 			dialog.find('#OpTemplateID').val(opTemplateID).text();
 			dialog.find('#OpTemplateUnitID').val(opTemplateUnitID).text();
@@ -1943,10 +2127,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 						
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#OpTemplateID').val(opTemplateID).text();
@@ -1974,10 +2158,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 						
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#OpTemplateID').val(opTemplateID).text();
@@ -2392,4 +2576,27 @@
 
 	});
 
+</script>
+
+<!--Script to Show/Hide Rows when Arrows are clicked on each row-->
+<script language="javascript">
+    $(document).ready(function () {
+        $(".shipyard_mainTable_row_content").show();
+		$(".shipyard_mainTable_row_header_arrow").addClass('rotate90CW');
+		
+        $(".PayGradeDetails_Entry_Header").click(function () {
+            $(this).parent().find(".shipyard_mainTable_row_content").slideToggle(500);
+			$(this).find('.shipyard_mainTable_row_header_arrow').toggleClass('rotate90CW');
+        });		
+    });
+</script>
+
+
+<!--Link CONTROLS-->
+<script>
+	$(document).ready(function($) {
+		$(".operationsListItemContainer").click(function() {
+			window.document.location = $(this).data("targetid");
+		});
+	});	
 </script>

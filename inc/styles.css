@@ -553,9 +553,10 @@ table.tbmem tr:nth-child(odd) {
 }
 
 .operations_memRank_inner {
-	display: inline-table;
+	display: table-cell;
 	margin-left: 12px;
 	border-spacing: 0px;
+	vertical-align: middle;
 }
 
 .clickableRow_memRank_Image_Container {
@@ -925,7 +926,7 @@ table.tbmem a:hover {
 
 .player_ships_entry {
 	display: table-cell;
-	width: 35%;
+	width: 30%;
 	border-left: 4px solid rgba(80, 70, 50, 0.6);
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -1219,9 +1220,12 @@ img {
 	vertical-align: top;
 }
 
-.yard_stats_1,
 .yard_stats_2 {
-	
+	max-height: 250px;
+	overflow-y: scroll;
+	border-top: 1px solid rgba(102, 102, 102, 0.9);
+	border-bottom: 1px solid rgba(102, 102, 102, 0.9);
+	margin-top: 2px;
 }
 
 .tbinfo_right_items_container
@@ -1235,15 +1239,17 @@ img {
 }
 
 .operations_menu_inner_items_container {
-	background-color: rgba(0, 0, 0, 0.65);
+	/*background-color: rgba(0, 0, 0, 0.65);*/
 	-webkit-transition: all 0.6s ease;
 	-moz-transition: all 0.6s ease;
 	-o-transition: all 0.6s ease;
 	position: relative;
+	/*
 	padding-left: 4px;
 	padding-right: 4px;
 	padding-top: 4px;
 	padding-bottom: 4px;
+	*/
 }
 
 #operations_topMenu_container {
@@ -1292,11 +1298,11 @@ img {
 .operationsListItemContainer {
 	border-left: 4px solid #1F4858;
 	border-bottom: 1px solid #1F4858;
-	margin-top: 4px;
 	margin-bottom: 4px;
 	padding: 4px;
 	transition: all 0.4s ease 0s;
 	background-color: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
 }
 
 .operations_selected {
@@ -1351,12 +1357,19 @@ img {
 	font-size: 8pt;
 	color: #DDD;
 	text-align: right;
-	width: 100%;
+	float: right;
+	width: 60%;
 }
 
 .operationsListItem_Title a,.operationsListItem_MetaData_Right a {
 	text-decoration: none;
 	transition: all 0.6s ease 0s;
+}
+
+.operation_startDate_text {
+	font-size: 9pt;
+	font-style: oblique;
+	color: rgba(85, 160, 175, 0.9);	
 }
 
 .operationsDetails_main {
@@ -1437,18 +1450,15 @@ img {
 }
 
 .operations_memRank {
-	padding-right: 8px;
 	white-space: nowrap;
 	vertical-align: middle;
 	text-align: left;
 	transition: all 0.2s ease 0s;
-	border-spacing: 2px;
 }
 
 .OpUnit_Members {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	padding-left: 4px;
 }
 
 .operations_rank_image_text {
@@ -1462,10 +1472,44 @@ img {
 }
 
 .operations_rank_image_text a{
-	font-size: 10pt;
+	font-size: 8pt;
 	display: inline;
 	vertical-align: middle;
-	
+}
+
+.MissionStatus, .MissionOutcome {
+	font-size: 9pt;
+	font-variant: small-caps;
+	font-style: italic;
+}
+
+.MissionStatus_Planned {
+	color: rgb(200, 170, 0);
+}
+
+.MissionStatus_Approved, .MissionStatus_Completed {
+	color: rgb(15, 150, 0);
+}
+
+.MissionOutcome_Success {
+	color: rgb(15, 150, 0);
+}
+
+.MissionOutcome_Upcoming {
+}
+
+.MissionOutcome_Failure {
+	color: rgb(150, 20, 0);
+}
+
+.MissionListItem_Past {
+	background-color: rgba(60,60,60,0.8);
+	border-left: 4px solid #888;
+	border-bottom: 1px solid #888;	
+}
+
+.OperationText_Hideable {
+
 }
 
 #tbinfo_right_inner
@@ -2456,8 +2500,8 @@ img.fleet:after {
 }
 
 .yard_stats {
-	border-top: 1px solid rgba(0, 153, 170, 0.9);
-	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
+	/*border-top: 1px solid rgba(0, 153, 170, 0.9);
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);*/
 	width: 100%;
 	display: table;
 	text-align: left;
@@ -4354,6 +4398,11 @@ img.fleet:after {
 	}
 	/*End Admin Page*/
 	
+	.operationsListItem_MetaData_Right {
+		width: 100%;
+		margin-right: 8px;
+	}
+	
 }
 
 @media only screen and (max-width: 499px) {
@@ -4506,6 +4555,16 @@ img.fleet:after {
 		background: none;
 	}
 	/*End Divisions Page*/
+	
+	.unit_description_container {
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 24px;
+	}
+	
+	.operations_memRank_inner .clickableRow_memRank_Image_Container {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 359px) {

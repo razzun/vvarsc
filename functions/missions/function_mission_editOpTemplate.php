@@ -20,6 +20,8 @@
 	$StartDate = "";
 	$Mission = "";
 	$Description = "";
+	$MissionStatus = "";
+	$MissionOutcome = "";
 	 
 	if(isset($_POST['MissionID']))
 	{
@@ -49,6 +51,14 @@
 	{
 		$Description = mysqli_real_escape_string($connection, $_POST['ObjectiveDetails']);
 	}
+	if(isset($_POST['MissionStatusID']))
+	{
+		$MissionStatus = $_POST['MissionStatusID'];
+	}
+	if(isset($_POST['MissionOutcomeID']))
+	{
+		$MissionOutcome = $_POST['MissionOutcomeID'];
+	}
 	 
 	$q = "
 		UPDATE projectx_vvarsc2.Missions set
@@ -58,6 +68,8 @@
 			,StartDate = '$StartDate'
 			,Mission = '$Mission'
 			,Description = '$Description'
+			,MissionStatus = $MissionStatus
+			,MissionOutcome = $MissionOutcome
 			,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 			,ModifiedBy = '$userID'
 		where MissionID = '$MissionID'

@@ -75,10 +75,8 @@
 		-->
 	</div>
 	<div class="tbinfo_container">
-		<div id="operations_list_menu_full">	
-			<div class="operations_menu_inner_items_container">
-				<? echo $display_missionsList; ?>
-			</div>
+		<div id="operations_list_menu_full">
+			<? echo $display_dateSorted_missionsList; ?>
 		</div>
 	</div>
 	
@@ -93,9 +91,13 @@
 <script type="text/javascript" src="http://www.wduffy.co.uk/blog/wp-content/themes/agregado/js/jquery.jscroll.min.js">
 </script>
 
-<!--FORM CONTROLS-->
+<!--Link CONTROLS-->
 <script>
-
+	$(document).ready(function($) {
+		$(".operationsListItemContainer").click(function() {
+			window.document.location = $(this).data("url");
+		});
+	});	
 </script>
 
 <!--Script to Show/Hide Admin Buttons-->

@@ -16,6 +16,8 @@
 	$OpTemplateID = "";
 	$OpTemplateUnitType = "";
 	$UnitID = "";
+	$PlayerCount = "";
+	$ShipID = "";
 	 
 	if(isset($_POST['OpTemplateID']))
 	{
@@ -29,31 +31,31 @@
 	{
 		$UnitID = $_POST['UnitID'];
 	}
+	if(isset($_POST['PlayerCount']))
+	{
+		$PlayerCount = $_POST['PlayerCount'];
+	}
+	if(isset($_POST['ShipID']))
+	{
+		$ShipID = $_POST['ShipID'];
+	}
 	 
 	$q = "
-		INSERT INTO projectx_vvarsc2.OpTemplateUnits (
-			OpTemplateUnitType
-			,OpTemplateID
-			,UnitID
-			,OpUnitObjectives
-			,PackageNumber
-			,Callsign
-		)
-		VALUES (
-			'$OpTemplateUnitType'
-			,'$OpTemplateID'
-			,'$UnitID'
-			,null
-			,1
-			,null
-		)
+		call projectx_vvarsc2.BuildOpTemplateUnit(
+			'$OpTemplateID'
+			,'$OpTemplateUnitType'
+			,SUBSTRING('$UnitID',(LOCATE('_','$UnitID') + 1),LENGTH('$UnitID'))
+			,'$PlayerCount'
+			,'$ShipID'
+			,'$userID'
+		);
 	";
 	
 	print_r($q);
 	
 	$_SESSION['maintain_edit'] = 'true';
 
-	$query_result = $connection->query($q);
+	$query_result = $connection->multi_query($q);
 			
 	if ($query_result)
 	{
