@@ -1271,6 +1271,8 @@ img {
 	background: rgba(0,0,0,0.75);
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(102, 102, 102, 0.9);
+	max-height: 90vh;
+	overflow-y: scroll;
 }
 
 #operations_list_menu {
@@ -3164,6 +3166,9 @@ img.fleet:after {
 	color: #DDD;
 	text-shadow: 0px 0px 8px #EDBD00;
 	font-weight: normal;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 90%;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {

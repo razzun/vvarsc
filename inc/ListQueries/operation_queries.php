@@ -14,9 +14,12 @@
 			,DATE_FORMAT(DATE(o.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,o.ModifiedBy
 			,m.mem_callsign as ModifiedByName
+			,r.rank_tinyImage as ModifiedByRankImage
 		from projectx_vvarsc2.OpTemplates o
 		join projectx_vvarsc2.members m
 			on m.mem_id = o.ModifiedBy
+		join projectx_vvarsc2.ranks r
+			on r.rank_id = m.ranks_rank_id
 		order by
 			o.OpTemplateName
 	";
@@ -32,6 +35,7 @@
 		$operationListItem_ModifiedOn = $row1['ModifiedOn'];
 		$operationListItem_ModifiedByID = $row1['ModifiedBy'];
 		$operationListItem_ModifiedByName = $row1['ModifiedByName'];
+		$operationListItem_ModifiedByRankImage = $row1['ModifiedByRankImage'];
 		
 		if ($operationListItem_ID == $OperationID)
 		{
@@ -53,6 +57,29 @@
 		}
 		
 		$display_operationsList .= "
+					<div class=\"operationsListItem_MetaData_Right\">
+						<div class=\"clickableRow_memRank_inner\">
+							<div class=\"operations_rank_image_text\" style=\"
+								font-size: 8pt;
+								display: block;
+							\">
+								Last Modified: $operationListItem_ModifiedOn
+							</div>
+							<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationListItem_ModifiedByRankImage.png\"/ style=\"
+								display: inline;
+							\">
+							<div class=\"operations_rank_image_text\" style=\"
+								display: inline;
+								padding-left: 0px;
+							\">
+								<a href=\"http://sc.vvarmachine.com/player/$operationListItem_ModifiedByID\" style=\"
+									padding-left: 4px;
+								\">
+									$operationListItem_ModifiedByName
+								</a>
+							</div>							
+						</div>
+					</div>
 					<div class=\"operationsListItem_Title\">
 						<a href=\"http://sc.vvarmachine.com/operation/$operationListItem_ID\">
 							$operationListItem_Number - $operationListItem_Name
@@ -71,15 +98,6 @@
 					\">
 						$operationListItem_Mission
 					</div>
-					<!--
-					<div class=\"operationsListItem_MetaData_Right\">
-						<div class=\"clickableRow_memRank_inner\" style=\"
-							width: 100%
-						\">
-							Modified: $operationListItem_ModifiedOn						
-						</div>
-					</div>
-					-->
 				</div>
 		";
 	}
@@ -214,11 +232,11 @@
 				else 'Future'
 			end as DateGrouping
 			,case
-				when o.StartDate < UTC_TIMESTAMP() then '4'
+				when o.StartDate < UTC_TIMESTAMP() then '5'
 				when DAY(UTC_TIMESTAMP()) = DAY(o.StartDate) then '1'
 				when WEEK(UTC_TIMESTAMP()) = WEEK(o.StartDate) then '2'
 				when MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate) then '3'
-				else 'Future'
+				else '4'
 			end as DateGroupingOrderBy
 		from projectx_vvarsc2.Missions o
 		join projectx_vvarsc2.members m
@@ -227,12 +245,13 @@
 			on lk1.MissionStatus = o.MissionStatus
 		join projectx_vvarsc2.LK_MissionOutcome lk2
 			on lk2.MissionOutcome = o.MissionOutcome
-		where (
+		/*where (
 			o.StartDate >= UTC_TIMESTAMP() OR
 			MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate)
-			)
+			)*/
 		order by
 			13
+			,o.StartDate
 	";
 	
 	$missionsList_query_result = $connection->query($missionsList_query);

@@ -116,7 +116,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-2s are proficient and qualified Squadron/Platoon Leaders. These Officers have proven to be successful in all aspects of unit management listed above, and they are well-regarded and respected by their subordinates. They display a high-level of maturity, and methodical decision-making ability when commanding their Unit, and inspire confidence in those which they lead.
+					O-2s are proficient and qualified Squadron/Platoon Leaders. They have successfully passed their OIT phase, and have taken-on the responsibility of leading and managing their unit in all regards. O-2s also gain the ability to create and manage Operational Templates and Mission Plans for the Fleet's activities during the operational planning phase.
 					<br />
 					<br />
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
@@ -394,7 +394,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-7 is the first of the Flag Officer Ranks, granting the eligibility for a Member to serve as the Commanding Officer for a Division. This is also the highest-rank that can be granted to Officers performing specialized duties at Fleet Headquarters.
+					O-7 is the first of the Flag Officer Ranks, granting the eligibility for a Member to serve as the Commanding Officer for a Division. This is the highest-rank that can be granted to Officers not assigned as the Commander of a Division, or those performing specialized duties at Fleet Headquarters.
 					<br />
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>

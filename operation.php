@@ -205,6 +205,7 @@
 				font-style: normal;
 				margin-top: 0px;
 				padding-bottom: 12px;
+				background-color: rgba(0, 0, 0, 0.75);
 			\">
 				<div class=\"corner corner-top-left\">
 				</div>
@@ -296,6 +297,8 @@
 				ou.OpTemplateUnitID
 				,ou.OpTemplateUnitType
 				,lk1.OpUnitTypeDescription
+				,lk1.Support_AirFlight
+				,lk1.Support_GroundTeam
 				,TRIM(LEADING '\t' from ou.OpUnitObjectives) as OpUnitObjectives
 				,u.UnitID
 				,u.UnitLevel as UnitType
@@ -326,6 +329,8 @@
 			$opUnitsListItem_OpUnitID = $row3['OpTemplateUnitID'];
 			$opUnitsListItem_OpUnitTypeID = $row3['OpTemplateUnitType'];
 			$opUnitsListItem_OpUnitTypeDescription = $row3['OpUnitTypeDescription'];
+			$opUnitsListItem_Support_AirFlight = $row3['Support_AirFlight'];
+			$opUnitsListItem_Support_GroundTeam = $row3['Support_GroundTeam'];
 			$opUnitsListItem_OpUnitObjectives = nl2br($row3['OpUnitObjectives']);
 			$opUnitsListItem_UnitID = $row3['UnitID'];
 			$opUnitsListItem_UnitName = $row3['UnitName'];
@@ -412,14 +417,14 @@
 				<div class=\"yard_filters\" style=\"
 					margin-bottom: 16px;
 					border-spacing: 0px;
-					background-color: rgba(0,0,0,0.5);
-					background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 				\"
 					data-opunitid=$opUnitsListItem_OpUnitID
 					data-operationid=$OperationID
 					data-opunittype=$opUnitsListItem_OpUnitTypeID
 					data-unitid=$opUnitsListItem_UnitID
 					data-unittype=$opUnitsListItem_UnitType
+					data-supportairflight=$opUnitsListItem_Support_AirFlight
+					data-supportgroundteam=$opUnitsListItem_Support_GroundTeam
 				>
 			";
 			
@@ -505,7 +510,7 @@
 			}
 			
 			
-			if ($opUnitsListItem_UnitType != "Squadron")
+			if ($opUnitsListItem_Support_GroundTeam == "1")
 			{
 				$display_opUnitMembers_list_edit = "";
 				if ($canEdit)
@@ -991,7 +996,7 @@
 							<div class=\"operations_memRank\"
 								data-rowid=$opShipMembersListItem_RowID
 								data-optemplateid=$OperationID
-								data-optemplateunitid=$opUnitMemberListItem_OpUnitID
+								data-optemplateunitid=$opUnitsListItem_OpUnitID
 								data-optemplateshipid=$opShipMembersListItem_OpShipID
 								data-opunitmemberroleid=$opShipMembersListItem_OpUnitMemberRoleID
 							>	
@@ -1312,6 +1317,9 @@
 				<select name="PlayerCount" id="PlayerCount" class="adminDialogDropDown">
 					<option selected disabled value="default" id="PlayerCount-default">
 						- Select # of Players -
+					</option>
+					<option value="1" id="PlayerCount-1">
+						1
 					</option>
 					<option value="2" id="PlayerCount-2">
 						2
@@ -1994,6 +2002,7 @@
 					playerCountSelector.show();
 					
 					playerCountSelector.find('option').hide();
+					playerCountSelector.find('#PlayerCount-1').show();
 					playerCountSelector.find('#PlayerCount-2').show();
 					playerCountSelector.find('#PlayerCount-4').show();
 					
@@ -2141,10 +2150,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
 						
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#OpTemplateID').val(opTemplateID).text();
@@ -2172,10 +2181,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
 						
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#OpTemplateID').val(opTemplateID).text();

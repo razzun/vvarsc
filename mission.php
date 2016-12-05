@@ -260,6 +260,7 @@
 				font-style: normal;
 				margin-top: 0px;
 				padding-bottom: 12px;
+				background-color: rgba(0, 0, 0, 0.75);
 			\">
 				<div class=\"corner corner-top-left\">
 				</div>
@@ -351,6 +352,8 @@
 				ou.MissionUnitID
 				,ou.MissionUnitType
 				,lk1.OpUnitTypeDescription
+				,lk1.Support_AirFlight
+				,lk1.Support_GroundTeam
 				,TRIM(LEADING '\t' from ou.MissionUnitObjectives) as MissionUnitObjectives
 				,u.UnitID
 				,u.UnitLevel as UnitType
@@ -381,6 +384,8 @@
 			$opUnitsListItem_OpUnitID = $row3['MissionUnitID'];
 			$opUnitsListItem_OpUnitTypeID = $row3['MissionUnitType'];
 			$opUnitsListItem_OpUnitTypeDescription = $row3['OpUnitTypeDescription'];
+			$opUnitsListItem_Support_AirFlight = $row3['Support_AirFlight'];
+			$opUnitsListItem_Support_GroundTeam = $row3['Support_GroundTeam'];
 			$opUnitsListItem_OpUnitObjectives = nl2br($row3['MissionUnitObjectives']);
 			$opUnitsListItem_UnitID = $row3['UnitID'];
 			$opUnitsListItem_UnitName = $row3['UnitName'];
@@ -467,14 +472,14 @@
 				<div class=\"yard_filters\" style=\"
 					margin-bottom: 16px;
 					border-spacing: 0px;
-					background-color: rgba(0,0,0,0.5);
-					background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 				\"
 					data-opunitid=$opUnitsListItem_OpUnitID
 					data-operationid=$MissionID
 					data-opunittype=$opUnitsListItem_OpUnitTypeID
 					data-unitid=$opUnitsListItem_UnitID
 					data-unittype=$opUnitsListItem_UnitType
+					data-supportairflight=$opUnitsListItem_Support_AirFlight
+					data-supportgroundteam=$opUnitsListItem_Support_GroundTeam
 				>
 			";
 			
@@ -579,7 +584,7 @@
 			}
 			
 			
-			if ($opUnitsListItem_UnitType != "Squadron")
+			if ($opUnitsListItem_Support_GroundTeam == "1")
 			{
 				$display_opUnitMembers_list_edit = "";
 				/*
@@ -1130,7 +1135,7 @@
 							<div class=\"operations_memRank\"
 								data-rowid=$opShipMembersListItem_RowID
 								data-optemplateid=$MissionID
-								data-optemplateunitid=$opUnitMemberListItem_OpUnitID
+								data-optemplateunitid=$opUnitsListItem_OpUnitID
 								data-optemplateshipid=$opShipMembersListItem_OpShipID
 								data-opunitmemberroleid=$opShipMembersListItem_OpUnitMemberRoleID
 								data-memberid=$opShipMembersListItem_MemberID

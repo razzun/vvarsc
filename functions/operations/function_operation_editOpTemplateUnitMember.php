@@ -44,7 +44,8 @@
 			and OpTemplateUnitID = '$OpTemplateUnitID'
 	";
 	
-	//print_r($q);
+	print_r($q);
+	
 	
 	$_SESSION['maintain_edit'] = 'true';
 
