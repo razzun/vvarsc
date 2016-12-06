@@ -52,7 +52,8 @@
 	{
 		$q = "
 			UPDATE projectx_vvarsc2.MissionShipMembers set
-				MemberID = $MemberID
+				OpUnitMemberRoleID = $OpUnitMemberRoleID
+				,MemberID = $MemberID
 				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID
@@ -63,7 +64,8 @@
 	{
 		$q = "
 			UPDATE projectx_vvarsc2.MissionShipMembers set
-				MemberID = null
+				OpUnitMemberRoleID = $OpUnitMemberRoleID
+				,MemberID = null
 				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID
@@ -72,7 +74,7 @@
 
 	}
 	
-	//print_r($q);
+	print_r($q);
 	$_SESSION['maintain_edit'] = 'true';
 
 	$query_result = $connection->query($q);
@@ -87,4 +89,5 @@
 	}
 	
 	$connection->close();
+
 ?>

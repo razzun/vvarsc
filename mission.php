@@ -1578,7 +1578,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" disabled>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
 					<option selected disabled value="" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
@@ -1638,7 +1638,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" disabled>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
 					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
@@ -1652,7 +1652,7 @@
 					<option selected disabled value="" id="MemberID-default">
 						- Select a Member -
 					</option>
-					<option value="0" id="MemberID-default">
+					<option value="0" id="MemberID-0">
 						-- Unassigned --
 					</option>		
 					<? echo $displayGetMembersSelectors; ?>

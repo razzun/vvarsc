@@ -45,7 +45,7 @@
 		if ($MemberAssigned == "Yes")
 		{
 			$displayGetMembersSelectors .= "
-				<option value=\"$MemberID\" id=\"MemberID-$MemberID\" disabled>
+				<option value=\"$MemberID\" id=\"MemberID-$MemberID\" style=\"display:none;\">
 					[$Rank_Level] - $Rank_Abbr $MemberName
 				</option>
 			";
