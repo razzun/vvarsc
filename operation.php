@@ -552,7 +552,7 @@
 						,om.OpUnitMemberRoleID
 						,om.RoleName
 						,om.RoleOrderBy
-						,om.mem_name
+						,CONCAT(om.rank_abbr, ' ', om.mem_name) as mem_name
 						,om.rank_tinyImage
 						,om.rank_orderBy
 					from
@@ -564,7 +564,8 @@
 							,om.OpUnitMemberRoleID
 							,mr.RoleName
 							,mr.RoleOrderBy
-							,CONCAT(r.rank_abbr, ' ', m.mem_callsign) as mem_name
+							,m.mem_callsign as mem_name
+							,r.rank_abbr
 							,r.rank_tinyImage
 							,r.rank_orderBy
 						from projectx_vvarsc2.OpTemplateUnitMembers om
@@ -585,6 +586,7 @@
 							,mr.RoleName
 							,mr.RoleOrderBy
 							,null as mem_name
+							,null as rank_abbr
 							,null as rank_tinyImage
 							,null as rank_orderBy
 						from projectx_vvarsc2.OpTemplateUnitMembers om
@@ -595,7 +597,6 @@
 					) om
 					order by
 						om.RoleOrderBy
-						,om.MemberID desc
 						,om.RoleName
 						,om.rank_orderBy
 						,om.mem_name
@@ -908,7 +909,7 @@
 							,osm.OpUnitMemberRoleID
 							,osm.RoleName
 							,osm.RoleOrderBy
-							,osm.mem_name
+							,CONCAT(osm.rank_abbr, ' ', osm.mem_name) as mem_name
 							,osm.rank_tinyImage
 							,osm.rank_orderBy
 						from 
@@ -920,7 +921,8 @@
 								,osm.OpUnitMemberRoleID
 								,mr.RoleName
 								,mr.RoleOrderBy
-								,CONCAT(r.rank_abbr, ' ', m.mem_callsign) as mem_name
+								,m.mem_callsign as mem_name
+								,r.rank_abbr
 								,r.rank_tinyImage
 								,r.rank_orderBy
 							from projectx_vvarsc2.OpTemplateShipMembers osm
@@ -941,6 +943,7 @@
 								,mr.RoleName
 								,mr.RoleOrderBy
 								,null as mem_name
+								,null as rank_abbr
 								,null as rank_tinyImage
 								,null as rank_orderBy
 							from projectx_vvarsc2.OpTemplateShipMembers osm
@@ -951,7 +954,6 @@
 						) osm
 						order by
 							osm.RoleOrderBy
-							,osm.MemberID desc
 							,osm.RoleName
 							,osm.rank_orderBy
 							,osm.mem_name
