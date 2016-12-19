@@ -235,6 +235,7 @@
 						where u.UnitID = $UnitID
 						order by
 							r.rank_orderby
+							,r2.role_orderby
 							,m.mem_callsign";	
 		
 		$unit_query_result = $connection->query($unit_query);

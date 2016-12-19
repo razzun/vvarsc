@@ -634,6 +634,19 @@ table.tbmem a:hover {
 	background-position: left center;	
 }
 
+.pavatar_image_container {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 4px;
+	border-left: 1px solid rgba(0, 153, 170, 0.4);
+	border-right: 1px solid rgba(0, 153, 170, 0.4);
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;	
+}
+
 .p_info
 {
 	padding-left: 8px;
@@ -641,14 +654,20 @@ table.tbmem a:hover {
 	padding-bottom: 16px;
 	display: table-cell;
 	vertical-align: middle;
+	border-right: 1px solid rgba(0, 153, 170, 0.4);
+	width: 70%;
 }
 
 /* -----------------------------------------------*/
 /* ---------------Player Qualifications-----------*/
+#p_qual_container {
+	display: inline-table;
+	width: 90%;
+}
+
 .p_qual {
-	border-left: 1px solid rgba(0, 153, 170, 0.4);
 	vertical-align: middle;
-	display: table-cell;
+	margin-right: 4px;
 }
 
 .p_section_header {
@@ -662,9 +681,7 @@ table.tbmem a:hover {
 }
 
 .player_qualifications {
-	width: 100%;
-	margin: 4px;
-	padding-left: 14px;
+	width: 90%;
 }
 
 .player_qual_row {
@@ -707,12 +724,25 @@ table.tbmem a:hover {
 
 /* -----------------------------------------------*/
 
-.p_rank
+#p_rank_container {
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
+	position: relative;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+#p_rank_outer {
+	display: table-cell;
+	width: 50%;
+	border-right: 1px solid #666;
+}
+
+#p_rank
 {
 	display: table;
 	width: 100%;
 	position: relative;
-	border-top: 1px solid rgba(0, 153, 170, 0.9);
 }
 
 .p_rankimage_container
@@ -745,6 +775,7 @@ table.tbmem a:hover {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: left;
+	padding-right: 12px;
 }
 
 .p_rankExtendedData_rank_level
@@ -765,7 +796,7 @@ table.tbmem a:hover {
 	transition: all 0.75s ease 0s;
 }
 
-.p_rankDetails
+#p_rankDetails
 {
 	min-height: 100px;
 	width: 100%;
@@ -773,19 +804,18 @@ table.tbmem a:hover {
 	vertical-align: middle;
 	margin-bottom: 4px;
 	position: relative;
-	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 }
 
 .p_rankname
 {
-	text-align: right;
+	text-align: left;
 	font-size: 10pt;
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	display: block;
 	font-family: Orbitron;
 	font-variant: small-caps;
-	padding-right: 8px;
+	padding-left: 8px;
 }
 
 .p_rank_div_name
@@ -801,19 +831,45 @@ table.tbmem a:hover {
 
 .p_rank_role_name
 {
-	text-align: right;
+	text-align: left;
 	display: block;
 	font-style: italic;
 	padding-top: 2px;
 	font-size: 8pt;
 	color: #BBB;
-	padding-right: 8px;
-	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 .p_rank_role_name a {
 	text-decoration: none;
 }
+
+#p_rank_stats {
+	display:table-cell;
+	padding-left: 4px;
+	padding-right: 4px;
+	vertical-align: top;
+}
+
+.p_rank_stats_entry {
+	padding-bottom: 4px;
+}
+
+.p_rank_stats_entry_key {
+	font-size: 8pt;
+	font-family: electrolize;
+	color: #AAA;
+}
+
+.p_rank_stats_entry_value {
+	font-size: 10pt;
+	font-family: electrolize;
+	font-variant: all-small-caps;
+	padding-left: 4px;
+	color: #EEE;
+}
+
 
 .p_details_container {
 	width: 100%;
@@ -4360,10 +4416,17 @@ img.fleet:after {
 	/*End FleetInfo Page*/
 	
 	/*Player Page*/
-	.p_qual {
-		display: table-row;
+	.p_info {
+		border-right: none;
+	}
+	
+	#p_qual_container {
+		width: 100%;
 	}
 	.player_ships_entry_ship {
+		display: none;
+	}
+	.p_rankExtendedData_rank_date {
 		display: none;
 	}
 	/*End Player Page*/

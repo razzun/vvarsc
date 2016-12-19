@@ -18,7 +18,8 @@
     		,members.mem_callsign
     		,members.mem_avatar_link
 			,members.membership_type
-			,TRIM(Replace(members.member_bio,'\t','')) as member_bio
+			,TRIM(LEADING '\t' from members.member_bio) as member_bio
+			##,TRIM(Replace(members.member_bio,'\t','')) as member_bio
 			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
     		,ranks.rank_groupName
@@ -368,6 +369,7 @@
 			";
 		}
 		
+		//QUALIFICATIONS
 		$qualification_query = "
 		select
 			q.qualification_name
@@ -439,6 +441,151 @@
 				</tr>
 			";
 		}
+		
+		//MISSION STATISTICS
+		$missionStats_query = "
+			select
+				COUNT(distinct um.MissionID) as Missions
+				,COUNT(case when um.IsLeadership = 1 then 1 else null end) as MissionsAsLeader
+			from
+			(
+				select
+					um.MissionID
+					,r.RoleName
+					,r.IsLeadership
+				from projectx_vvarsc2.MissionUnitMembers um
+				join projectx_vvarsc2.OpUnitTypeMemberRoles r
+					on r.OpUnitMemberRoleID = um.OpUnitMemberRoleID
+				join projectx_vvarsc2.Missions m
+					on m.MissionID = um.MissionID
+				join projectx_vvarsc2.LK_MissionStatus lk
+					on lk.MissionStatus = m.MissionStatus
+					and lk.Description = 'Completed'
+				where um.MemberID = $player_id
+
+				union
+
+				select
+					sm.MissionID
+					,r.RoleName
+					,r.IsLeadership
+				from projectx_vvarsc2.MissionShipMembers sm
+				join projectx_vvarsc2.OpUnitTypeMemberRoles r
+					on r.OpUnitMemberRoleID = sm.OpUnitMemberRoleID
+				join projectx_vvarsc2.Missions m
+					on m.MissionID = sm.MissionID
+				join projectx_vvarsc2.LK_MissionStatus lk
+					on lk.MissionStatus = m.MissionStatus
+					and lk.Description = 'Completed'
+				where sm.MemberID = $player_id
+			) um		
+		";
+		
+		$missionStats_query_results = $connection->query($missionStats_query);
+		
+		while(($row = $missionStats_query_results->fetch_assoc()) != false)
+		{
+			$completedMissions = $row['Missions'];
+			$completedMissionsAsLeader = $row['MissionsAsLeader'];
+		}
+		
+		//PLAYER STATISTICS
+		$playerStats_query = "
+			select
+				CONCAT(a2.TimeInFleet_Years,a2.TimeInFleet_Months,a2.TimeInFleet_Days) as 'TimeInFleet'
+				,CONCAT(a2.TimeInGrade_Years,a2.TimeInGrade_Months,a2.TimeInGrade_Days) as 'TimeInGrade'
+			from 
+			(
+				select
+					case
+						when a.TIF_Years = 1 then CONCAT(a.TIF_Years, ' Year, ')
+						when a.TIF_Years = 0 then ''
+						else CONCAT(a.TIF_YEARS, ' Years, ')
+					end as 'TimeInFleet_Years'
+					,case
+						when a.TIF_Months = 1 then CONCAT(a.TIF_Months, ' Month, ')
+						when a.TIF_Months = 0 then ''
+						else CONCAT(a.TIF_Months, ' Months, ')
+					end as 'TimeInFleet_Months'
+					,case
+						when a.TIF_Days = 1 then CONCAT(a.TIF_Days, ' Day')
+						when a.TIF_Days = 0 then ''
+						else CONCAT(a.TIF_Days, ' Days')
+					end as 'TimeInFleet_Days'
+					,case
+						when a.TIG_Years = 1 then CONCAT(a.TIG_Years, ' Year, ')
+						when a.TIG_Years = 0 then ''
+						else CONCAT(a.TIG_Years, ' Years, ')
+					end as 'TimeInGrade_Years'
+					,case
+						when a.TIG_Months = 1 then CONCAT(a.TIG_Months, ' Month, ')
+						when a.TIG_Months = 0 then ''
+						else CONCAT(a.TIG_Months, ' Months, ')
+					end as 'TimeInGrade_Months'
+					,case
+						when a.TIG_Days = 1 then CONCAT(a.TIG_Days, ' Day')
+						when a.TIG_Days = 0 then ''
+						else CONCAT(a.TIG_Days, ' Days')
+					end as 'TimeInGrade_Days'
+				from
+				(
+					select
+						TIMESTAMPDIFF( YEAR, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) as 'TIF_Years'
+						,TIMESTAMPDIFF( MONTH, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) % 12 as 'TIF_Months'
+						,FLOOR(TIMESTAMPDIFF( DAY, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR))% 30.4375) as 'TIF_Days'
+						,TIMESTAMPDIFF( YEAR, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) as 'TIG_Years'
+						,TIMESTAMPDIFF( MONTH, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) % 12 as 'TIG_Months'
+						,FLOOR(TIMESTAMPDIFF( DAY, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR))% 30.4375) as 'TIG_Days'
+					from projectx_vvarsc2.members m
+					where m.mem_id = $player_id
+				) a
+			) a2
+		";
+		
+		$playerStats_query_results = $connection->query($playerStats_query);
+		
+		while(($row = $playerStats_query_results->fetch_assoc()) != false)
+		{
+			$timeInFleet = $row['TimeInFleet'];
+			$timeInGrade = $row['TimeInGrade'];
+		}
+		
+		$display_playerStats .= "
+			<div class=\"p_rank_stats_entry\">
+				<div class=\"p_rank_stats_entry_key\">
+					Time-In-Service
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$timeInFleet
+				</div>
+			</div>
+			<div class=\"p_rank_stats_entry\">
+				<div class=\"p_rank_stats_entry_key\">
+					Time-In-Grade
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$timeInGrade
+				</div>
+			</div>
+			<!--
+			<div class=\"p_rank_stats_entry\">
+				<div class=\"p_rank_stats_entry_key\">
+					Total Missions Completed
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$completedMissions
+				</div>
+			</div>
+			-->
+			<div class=\"p_rank_stats_entry\" style=\"padding-bottom: 0px;\":>
+				<div class=\"p_rank_stats_entry_key\">
+					Total Missions Completed
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$completedMissions
+				</div>
+			</div>
+		";
 		
 		$display_edit_options_profile = "";
 		$display_edit_options_ships = "";
@@ -513,46 +660,71 @@
 		<div class="table_header_block">
 		</div>
 		<div class="play">
-			<div class="pavatar" height="200" width="200">		
-				<img height="200" width="200" alt="<? echo $mem_name; ?>" src="http://sc.vvarmachine.com/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
+			<div class="pavatar">
+				<div class="pavatar_image_container">
+					<div class="corner corner-top-left">
+					</div>
+					<div class="corner corner-top-right">
+					</div>
+					<div class="corner corner-bottom-left">
+					</div>
+					<div class="corner corner-bottom-right">
+					</div>
+					<img height="200" width="200" alt="<? echo $mem_name; ?>" src="http://sc.vvarmachine.com/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
+				</div>
 			</div>
 			<div class="p_info" valign="top" align="left">
 				<div class="p_section_header">
 					Citizen Dossier - <? echo $mem_callsign; ?>
 				</div>
-				<div class="p_rank" align="left" valign="top">
-					<div class="partialBorder-left-blue border-left border-top1px border-4px">
+				<div id="p_rank_container">
+					<div class="partialBorder-left-blue border-left border-top border-4px">
 					</div>			
-					<div class="partialBorder-right-blue border-right border-top1px border-4px">
-					</div>		
-					<div class = "p_rankimage_container">
-						<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
+					<div class="partialBorder-right-blue border-right border-top border-4px">
 					</div>
-					<div class = "p_rankExtendedData">
-						<span class="p_rankExtendedData_rank_level">
-							<? echo $rank_level; ?> &nbsp;
-						</span>
-						<span class="p_rankExtendedData_rank_name">
-							<? echo $rank_name; ?>
-						</span>
-						<br />
-						<span class="p_rankExtendedData_rank_date">
-							Grade Assigned: <? echo $rankModifiedOn; ?>
-						</span>
+					<div id="p_rank_outer">
+						<div id="p_rank" align="left" valign="top">		
+							<div class = "p_rankimage_container">
+								<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
+							</div>
+							<div class = "p_rankExtendedData">
+								<span class="p_rankExtendedData_rank_level">
+									<? echo $rank_level; ?> &nbsp;
+								</span>
+								<span class="p_rankExtendedData_rank_name">
+									<? echo $rank_name; ?>
+								</span>
+								<br />
+								<span class="p_rankExtendedData_rank_date">
+									Grade Assigned: <? echo $rankModifiedOn; ?>
+								</span>
+							</div>
+						</div>
+						<div id = "p_rankDetails">
+							<div class ="p_rankname">
+								<? echo $rank_groupName; ?>
+							</div>
+							<div class ="p_rank_role_name">
+								<? echo $displayRoles; ?>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class = "p_rankDetails">
-					<div class ="p_rankname">
-						<? echo $rank_groupName; ?>
+					<div id="p_rank_stats">
+						<div class="p_qual" valign="top" align="left" style="margin-right:0px;">
+							<? echo $display_playerStats; ?>
+							<!--
+							<table class="player_qualifications" style="
+								width: 100%;
+								margin-left: 12px;
+							">
+							</table>
+							-->
+						</div>						
 					</div>
-					<div class ="p_rank_role_name">
-						<? echo $displayRoles; ?>
-					</div>
-
-					<div class="partialBorder-right-blue border-right border-bottom1px border-4px">
+					<div class="partialBorder-right-blue border-right border-bottom border-4px">
 					</div>	
-					<div class="partialBorder-left-blue border-left border-bottom1px border-4px">
-					</div>				
+					<div class="partialBorder-left-blue border-left border-bottom border-4px">
+					</div>	
 				</div>
 				<div class="p_details_container">
 					<table class="p_details">
@@ -657,16 +829,9 @@
 					</table>
 				</div>
 			</div>
-			<div class="p_qual" valign="top" align="left">
-				<div class="p_section_header">
-					Player Qualifications (coming soon)
-				</div>
-				<table class="player_qualifications">
-					<? echo $display_player_qualifications; ?>
-				</table>
-			</div>
 		</div>
 		
+		<!--BIOGRAPHY-->
 		<h4 style="padding-left: 0px; margin-left: 0px">
 			Member Biography
 		</h4>
@@ -683,6 +848,27 @@
 			</div>
 			<? echo nl2br($DisplayMemberBio) ?>
 		</div>
+
+		<!--QUALIFICATIONS-->
+		<h4 style="padding-left: 0px; margin-left: 0px">
+			Qualifications, Awards, and Statistics
+		</h4>	
+		<div class="table_header_block">
+		</div>	
+		<div id="p_qual_container" class="play" valign="top" align="left">
+			<div class="p_section_header">
+				Qualifications (coming soon)
+			</div>
+			<div class="p_qual" valign="top" align="right">
+
+				<!--
+				<table class="player_qualifications">
+					<? echo $display_player_qualifications; ?>
+				</table>
+				-->
+			</div>
+		</div>
+		
 	</div>
 	<!--PlayerShips-->
 	<div class="player_shipsTable_Container">
@@ -724,8 +910,7 @@
 				<label for="Biography" class="adminDialogInputLabel">
 					Biography Info
 				</label>
-				<textarea name="Biography" id="Biography" class="adminDialogTextArea"><? echo $MemberBio ?>
-				</textarea>			
+				<textarea name="Biography" id="Biography" class="adminDialogTextArea"><? echo $MemberBio ?></textarea>			
 				
 				<label for="CurrentPassword" class="adminDialogInputLabel">
 					Current Password (required to make updates)
@@ -1148,29 +1333,33 @@
 
 <script>
 function formhash(form, currentPassword, newPassword){
-    // Create a new element input, this will be our hashed password field. 
-    var cp = document.createElement("input");
-	var np = document.createElement("input");
- 
-    // Add the new element to our form. 
-    form.appendChild(cp);
-    cp.name = "cp";
-    cp.type = "hidden";
-    cp.value = hex_sha512(currentPassword.value);
-	
-	if (newPassword.value != "")
+    
+	if (currentPassword.value != "")
 	{
-		form.appendChild(np);
-		np.name = "np";
-		np.type = "hidden";
-		np.value = hex_sha512(newPassword.value);
+		// Create a new element input, this will be our hashed password field. 
+		var cp = document.createElement("input");
+		var np = document.createElement("input");
+	 
+		// Add the new element to our form. 
+		form.appendChild(cp);
+		cp.name = "cp";
+		cp.type = "hidden";
+		cp.value = hex_sha512(currentPassword.value);
+		
+		if (newPassword.value != "")
+		{
+			form.appendChild(np);
+			np.name = "np";
+			np.type = "hidden";
+			np.value = hex_sha512(newPassword.value);
+		}
+	 
+		// Make sure the plaintext password doesn't get sent. 
+		currentPassword.value = "";
+		newPassword.value = "";
+	 
+		// Finally submit the form. 
+		form.submit();
 	}
- 
-    // Make sure the plaintext password doesn't get sent. 
-    currentPassword.value = "";
-    newPassword.value = "";
- 
-    // Finally submit the form. 
-    form.submit();
 }
 </script>
