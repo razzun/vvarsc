@@ -1,7 +1,10 @@
 <?php include_once('functions/function_auth_user.php'); ?>
+<?php include_once('inc/OptionQueries/lk_qualificationCategories_query.php'); ?>
 
 <?php 
 	$player_id = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
+	
+	include_once('inc/OptionQueries/qualifications_query.php');
 	
 	$display_player_ships;
 	$display_player_qualifications;
@@ -30,7 +33,6 @@
 			,d.div_id
     		,d.div_name
     		,manufacturers.manu_shortName
-			,specialties.spec_name
     		,ships.ship_name
 			,ships.ship_model_designation
 			,ships.ship_model_visible
@@ -54,8 +56,6 @@
     			ON members.ranks_rank_id = ranks.rank_id
     		JOIN projectx_vvarsc2.divisions d
     			ON members.divisions_div_id = d.div_id
-			LEFT JOIN projectx_vvarsc2.specialties
-				ON specialties.spec_id = members.specialties_spec_id
         WHERE members.mem_sc = 1 AND members.mem_id = $player_id
         ORDER BY manufacturers.manu_name,ships.ship_name";
     	
@@ -79,7 +79,6 @@
 			$rankModifiedOn = $row['RankModifiedOn'];
     		$div_id = $row['div_id'];
     		$div_name = $row['div_name'];
-			$spec_name = $row['spec_name'];
     		$manu_name = $row['manu_shortName'];
     		$ship_name = $row['ship_name'];
     		$ship_link = $row['ship_link'];
@@ -317,8 +316,6 @@
 				ON members.ranks_rank_id = ranks.rank_id
 			JOIN projectx_vvarsc2.divisions d
 				ON members.divisions_div_id = d.div_id
-			LEFT JOIN projectx_vvarsc2.specialties
-				ON specialties.spec_id = members.specialties_spec_id
 			LEFT JOIN projectx_vvarsc2.UnitMembers um
 				on um.MemberID = members.mem_id
 			LEFT JOIN projectx_vvarsc2.Units u
@@ -371,23 +368,23 @@
 		
 		//QUALIFICATIONS
 		$qualification_query = "
-		select
-			q.qualification_name
-			,q.qualification_image
-			,IFNULL(mq.qualification_level_id,0) as `qualification_level`
-			,IFNULL(ql.qualification_level_name,'-') as `qualification_level_name`
-			,d.div_name
-		from projectx_vvarsc2.qualifications q
-		join projectx_vvarsc2.divisions d
-			on d.div_id = q.divisions_div_id
-		left join projectx_vvarsc2.member_qualifications mq
-			on mq.qualification_id = q.qualification_id
-			and mq.member_id = $player_id
-		left join projectx_vvarsc2.qualification_levels ql
-			on ql.qualification_level_id = mq.qualification_level_id
-			and ql.qualification_id = q.qualification_id
-		order by
-			q.qualification_name
+			select
+				mq.RowID
+				,q.qualification_id
+				,q.qualification_name
+				,q.qualification_categoryID
+				,lk.CategoryName as qualification_category
+				,q.qualification_image
+				,IFNULL(mq.qualification_level_id,0) as `qualification_level`
+			from projectx_vvarsc2.qualifications q
+			join projectx_vvarsc2.LK_QualificationCategories lk
+				on lk.CategoryID = q.qualification_categoryID
+			join projectx_vvarsc2.member_qualifications mq
+				on mq.qualification_id = q.qualification_id
+				and mq.member_id = $player_id
+			order by
+				lk.CategoryName
+				,q.qualification_name
 		";
 		
 		$qualification_query_results = $connection->query($qualification_query);
@@ -395,11 +392,13 @@
 		
 		while(($row2 = $qualification_query_results->fetch_assoc()) != false)
 		{
+			$rowID = $row2['RowID'];
+			$qual_id = $row2['qualification_id'];
 			$qual_name = $row2['qualification_name'];
-			$qual_image = $row2['qualification_image'];
+			$qual_categoryID = $row2['qualification_categoryID'];
+			$qual_category = $row2['qualification_category'];
+			$qual_image = "http://sc.vvarmachine.com/images/qualifications/".$row2['qualification_image'];
 			$qual_level_id = $row2['qualification_level'];
-			$qual_level_name = $row2['qualification_level_name'];
-			$qual_division = $row2['div_name'];
 			
 			$imageClassName1 = "player_qual_row_image";
 			$imageClassName2 = "player_qual_row_image";
@@ -422,25 +421,58 @@
 			}
 			
 			$display_player_qualifications .="
-				<tr class=\"player_qual_row\">
-					<td class=\"player_qual_row_name\">
-						$qual_name
+				<tr class=\"player_qual_row\"
+					data-rowid=$rowID
+					data-id=$qual_id
+					data-level=$qual_level_id
+					data-category=$qual_categoryID
+				>
+					<td class=\"player_qual_row_name\">$qual_category <br /><strong>$qual_name</strong></td>
+					<td class=\"player_qual_row_image_container\">
+						<img class=\"$imageClassName1\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
 					</td>
 					<td class=\"player_qual_row_image_container\">
-						<img class=\"$imageClassName1\" src=\"$qual_image\">
+						<img class=\"$imageClassName2\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
 					</td>
 					<td class=\"player_qual_row_image_container\">
-						<img class=\"$imageClassName2\" src=\"$qual_image\">
+						<img class=\"$imageClassName3\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
+					</td>";
+					
+			if ($_SESSION['sess_userrole'] == "admin")
+			{
+				$display_player_qualifications .= "
+					<td>
+						<div class=\"player_qual_entry_buttons_buttonContainer\">
+							<button class=\"adminButton adminButtonEdit adminEditQual\" style=\"		margin-right:0px\" title=\"Edit Qualification\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+							</button>
+							<button class=\"adminButton adminButtonDelete adminDeleteQual\" style=\"margin-left:0px\" title=\"Delete Qualification\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							</button>
+						</div>
 					</td>
-					<td class=\"player_qual_row_image_container\">
-						<img class=\"$imageClassName3\" src=\"$qual_image\">
-					</td>
-					<td class=\"player_qual_row_division\">
-						$qual_division
-					</td>
+				";
+			}
+					
+			$display_player_qualifications .= "
 				</tr>
 			";
 		}
+		
+		$display_qual_edit = "";
+		if ($_SESSION['sess_userrole'] == "admin")
+			$display_qual_edit = "
+				<button id=\"adminAddQualification\" class=\"adminButton adminButtonCreate\" title=\"Add Qualification\"style=\"
+					float: right;
+					margin-left: 0px;
+					margin-right: 2%;
+				\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					Add Qualification
+				</button>
+				<br />
+			";
+			
 		
 		//MISSION STATISTICS
 		$missionStats_query = "
@@ -567,22 +599,20 @@
 					$timeInGrade
 				</div>
 			</div>
-			<!--
-			<div class=\"p_rank_stats_entry\">
+			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; \">
 				<div class=\"p_rank_stats_entry_key\">
-					Total Missions Completed
+					Total Completed Missions 
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
 					$completedMissions
 				</div>
 			</div>
-			-->
-			<div class=\"p_rank_stats_entry\" style=\"padding-bottom: 0px;\":>
+			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; padding-left: 12px;\":>
 				<div class=\"p_rank_stats_entry_key\">
-					Total Missions Completed
+					Completed Missions as Leader
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
-					$completedMissions
+					$completedMissionsAsLeader
 				</div>
 			</div>
 		";
@@ -710,15 +740,8 @@
 						</div>
 					</div>
 					<div id="p_rank_stats">
-						<div class="p_qual" valign="top" align="left" style="margin-right:0px;">
+						<div class="p_stats" valign="top" align="left" style="margin-right:0px;">
 							<? echo $display_playerStats; ?>
-							<!--
-							<table class="player_qualifications" style="
-								width: 100%;
-								margin-left: 12px;
-							">
-							</table>
-							-->
 						</div>						
 					</div>
 					<div class="partialBorder-right-blue border-right border-bottom border-4px">
@@ -814,18 +837,6 @@
 							</td>
 						</tr>
 						-->
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Speciality
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $spec_name; ?>
-								</div>
-							</td>
-						</tr>
 					</table>
 				</div>
 			</div>
@@ -851,21 +862,24 @@
 
 		<!--QUALIFICATIONS-->
 		<h4 style="padding-left: 0px; margin-left: 0px">
-			Qualifications, Awards, and Statistics
+			Qualifications and Awards
 		</h4>	
 		<div class="table_header_block">
 		</div>	
 		<div id="p_qual_container" class="play" valign="top" align="left">
-			<div class="p_section_header">
-				Qualifications (coming soon)
-			</div>
-			<div class="p_qual" valign="top" align="right">
-
-				<!--
+			<div class="p_qual" valign="top">
+				<div class="p_section_header" style="float:left">
+					Qualifications
+				</div>
+				<? echo $display_qual_edit ?>
 				<table class="player_qualifications">
 					<? echo $display_player_qualifications; ?>
 				</table>
-				-->
+			</div>
+			<div class="p_awards">
+				<div class="p_section_header" style="float:left">
+					Awards (coming soon)
+				</div>
 			</div>
 		</div>
 		
@@ -1084,6 +1098,168 @@
 			</div>
 		</form>
 	</div>
+
+	<!--Add Qualification Form-->
+	<div id="dialog-form-add-qual" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Update Qualification</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Create.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="MemID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>				
+				
+				<label for="Category" class="adminDialogInputLabel">
+					Category
+				</label>
+				<select name="Category" id="Category" class="adminDialogDropDown">
+					<option selected="true" disabled="true" value="default" id="CategoryID-default">
+						--Select a Category--
+					</option>
+					<? echo $displayQualificationCategorySelectors ?>
+				</select>
+				
+				<label for="QualificationID" class="adminDialogInputLabel">
+					Qualification Name
+				</label>
+				<select name="QualificationID" id="QualificationID" class="adminDialogDropDown" required>
+					<option selected="true" disabled="true" value="default" id="QualID-default">
+						--Select a Qualification--
+					</option>
+					<? echo $displayQualificationsSelectors ?>
+				</select>
+					
+				
+				<label for="Level" class="adminDialogInputLabel">
+					Qualification Level
+				</label>
+				<select name="Level" id="Level" class="adminDialogDropDown" required>
+					<option selected="true" disabled="true" value="default" id="Level-default">
+						--Select a Level--
+					</option>
+					<option value="1" id="Level-1">
+						1 (Basic)
+					</option>
+					<option value="2" id="Level-2">
+						2 (Advanced)
+					</option>
+					<option value="3" id="Level-3">
+						3 (Mastery)
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--Edit Qualification Form-->
+	<div id="dialog-form-edit-qual" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Update Qualification</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Edit.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>			
+			
+				<label for="ID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="MemID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>				
+				
+				<label for="Name" class="adminDialogInputLabel">
+					Category / Name
+				</label>
+				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required readonly>
+				
+				<label for="Level" class="adminDialogInputLabel">
+					Qualification Level
+				</label>
+				<select name="Level" id="Level" class="adminDialogDropDown" required>
+					<option selected="true" disabled="true" value="default" id="Level-default">
+						--Select a Level--
+					</option>
+					<option value="1" id="Level-1">
+						1 (Basic)
+					</option>
+					<option value="2" id="Level-2">
+						2 (Advanced)
+					</option>
+					<option value="3" id="Level-3">
+						3 (Mastery)
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--Delete Qualification Form-->
+	<div id="dialog-form-delete-qual" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Delete Qualification</p>
+		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Delete.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>			
+			
+				<label for="ID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="MemID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>				
+				
+				<label for="Name" class="adminDialogInputLabel">
+					Category / Name
+				</label>
+				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required readonly>
+				
+				<label for="Level" class="adminDialogInputLabel">
+					Qualification Level
+				</label>
+				<select name="Level" id="Level" class="adminDialogDropDown" required disabled>
+					<option selected="true" disabled="true" value="default" id="Level-default">
+						--Select a Level--
+					</option>
+					<option value="1" id="Level-1">
+						1 (Basic)
+					</option>
+					<option value="2" id="Level-2">
+						2 (Advanced)
+					</option>
+					<option value="3" id="Level-3">
+						3 (Mastery)
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+		
 	
 </div>
   
@@ -1155,6 +1331,7 @@
 </script>
 -->
 
+<!--Form Controls-->
 <script>
 	function resizeInput() {
 		$(this).attr('size', $(this).val().length);
@@ -1285,6 +1462,113 @@
 				filter: 'blur(2px)'
 			});
 		});
+
+		//Add Qualification
+		$('#adminAddQualification').click(function() {
+			var dialog = $('#dialog-form-add-qual');
+			
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			
+			dialog.find('#MemID').val(memID).text();
+
+			dialog.find('select').find('option').prop('selected',false);
+			
+			dialog.find('#Category').find('#CategoryID-default').prop('selected',true);
+			dialog.find('#QualificationID').find('#QualID-default').prop('selected',true);
+			dialog.find('#Level').find('#Level-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			
+			dialog.find('#Category').change(function() {
+				if(typeof $(this).data('options') === "undefined"){
+					$(this).data('options',dialog.find(('#QualificationID option')));
+				}
+				var select2 = dialog.find('#QualificationID');
+				var id = $(this).val();
+				var filter = id + '_';
+				var defaultOption = select2.find('#QualID-default');
+				var options = $(this).data('options').filter('[value^=' + filter + ']');
+				var optionsList = defaultOption.add(options);
+				
+				select2.html(optionsList);
+				select2.find('#QualID-default').prop('selected',true);				
+			});
+			dialog.find('#Category').trigger('change');
+
+		});
+		
+		//Edit Qualification
+		$('.adminButton.adminButtonEdit.adminEditQual').click(function() {
+			var dialog = $('#dialog-form-edit-qual');
+			
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var qualID = $self.parent().parent().parent().data("id");
+			var qualLevel = $self.parent().parent().parent().data("level");
+			var qualName = $self.parent().parent().parent().find('.player_qual_row_name').text().trim();
+			
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#MemID').val(memID).text();
+			dialog.find('#ID').val(qualID).text();
+			dialog.find('#Name').val(qualName).text();
+			
+			dialog.find('#Level').find('option').prop('selected',false);
+			dialog.find('#Level').find('#Level-' + qualLevel).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+
+		});
+
+		//Delete Qualification
+		$('.adminButton.adminButtonDelete.adminDeleteQual').click(function() {
+			var dialog = $('#dialog-form-delete-qual');
+			
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var qualID = $self.parent().parent().parent().data("id");
+			var qualLevel = $self.parent().parent().parent().data("level");
+			var qualName = $self.parent().parent().parent().find('.player_qual_row_name').text().trim();
+			
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#MemID').val(memID).text();
+			dialog.find('#ID').val(qualID).text();
+			dialog.find('#Name').val(qualName).text();
+			
+			dialog.find('#Level').find('option').prop('selected',false);
+			dialog.find('#Level').find('#Level-' + qualLevel).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+
+		});			
 		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
@@ -1292,15 +1576,18 @@
 			//Clear DropDown Selections
 			$('.adminDiaglogFormFieldset').find('#MemberID').val("").text();
 			$('.adminDiaglogFormFieldset').find('#RowID').val("").text();
-			$('.adminDiaglogFormFieldset').find('#ShipID').find('option').prop('selected',false);
-			$('.adminDiaglogFormFieldset').find('#Package').find('option').prop('selected',false);
-			$('.adminDiaglogFormFieldset').find('#LTI').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('select').find('option').prop('selected',false);
 			
 			//Hide All Dialog Containers
 			$('#dialog-form-edit-profile').hide();
+			
 			$('#dialog-form-add-ship').hide();
 			$('#dialog-form-edit-ship').hide();
 			$('#dialog-form-remove-ship').hide();
+			
+			$('#dialog-form-add-qual').hide();
+			$('#dialog-form-edit-qual').hide();
+			$('#dialog-form-delete-qual').hide();
 			
 			overlay.hide();
 			$('.player_topTable_Container').css({

@@ -17,7 +17,6 @@
 			when ro.role_id is null then 'n/a'
 			else '[Redacted]'
 		end as mem_role
-		,sp.spec_name AS mem_spec
 		,COUNT(shm.ships_ship_id) as ship_info
 	FROM projectx_vvarsc2.members m 
 	LEFT JOIN projectx_vvarsc2.ships_has_members shm
@@ -34,8 +33,6 @@
 		on um.MemberID = m.mem_id
 	left join projectx_vvarsc2.roles ro
 		ON um.MemberRoleID = ro.role_id
-	LEFT JOIN projectx_vvarsc2.specialties sp
-		ON m.specialties_spec_id = sp.spec_id
 	WHERE
 		m.mem_sc = 1
 			and m.mem_name <> 'guest'
@@ -55,7 +52,6 @@
 		$rank_image = $row['rank_image'];
 		$div_info = $row['div_info'];
 		$mem_role = $row['mem_role'];
-		$mem_spec = $row['mem_spec'];
 		$ship_info = $row['ship_info'];
 		
 		$display_members .= "
@@ -81,9 +77,6 @@
 				</td>
 				<td class=\"clickableRow_memRole\">
 					$mem_role
-				</td>
-				<td class=\"clickableRow_memSpec\">
-					$mem_spec
 				</td>
 				<td class=\"clickableRow_memShips\">
 					$ship_info
@@ -113,7 +106,6 @@
     			<th class="clickableRow_header_memRank">Rank</th>
 				<th class="clickableRow_header_divInfo">Division</th>
     			<th class="clickableRow_header_memRole">Role</th>
-				<th class="clickableRow_header_memSpec">Specialty</th>
     			<th class="clickableRow_header_memShips">Ships Owned</th>
     		</tr>
     	</thead>

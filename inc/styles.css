@@ -662,12 +662,23 @@ table.tbmem a:hover {
 /* ---------------Player Qualifications-----------*/
 #p_qual_container {
 	display: inline-table;
-	width: 90%;
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 .p_qual {
-	vertical-align: middle;
-	margin-right: 4px;
+	display: table-cell;
+	vertical-align: top;
+	width: 50%;
+	border-right: 1px solid #666;
+	padding-right: 8px;
+	padding-left: 4px;
+}
+
+.p_awards {
+	display: table-cell;
+	vertical-align: top;
 }
 
 .p_section_header {
@@ -681,7 +692,7 @@ table.tbmem a:hover {
 }
 
 .player_qualifications {
-	width: 90%;
+	width: 100%;
 }
 
 .player_qual_row {
@@ -689,28 +700,33 @@ table.tbmem a:hover {
 	background: rgba(0, 0, 0, 0.65);
 	margin-bottom: 4px;
 	border-bottom: 1px solid rgba(80, 70, 50, 0.8);
-	margin-left: 4px;
-	margin-right: 4px;
-	width: 97%;
+	width: 100%;
 }
 
 .player_qual_row_name {
+	padding-left: 4px;
+	width: 100%;
+	font-style: italic;
+}
+
+.player_qual_row_name strong{
 	color: #DDD;
 	text-shadow: 0px 0px 8px #CCA300;
-	padding-left: 4px;
+	font-size: 10pt;
+	font-style: normal;
 }
 
 .player_qual_row_image_container {
-	width: 36px;
+	padding: 4px;
 }
 
 .player_qual_row_image {
-	opacity: 0.2;
+	opacity: 0.1;
 	display: table;
 }
 
 .player_qual_row_image_highlighted {
-	opacity: 1.0;
+	opacity: 0.95;
 	display: table;
 }
 
@@ -752,9 +768,7 @@ table.tbmem a:hover {
 	text-align: center;
 	vertical-align: middle;
 	display: table-cell;
-	padding-top: 8px;
-	padding-left: 8px;
-	padding-right: 4px;
+	padding: 4px;
 }
 
 .p_rankimage
@@ -798,7 +812,6 @@ table.tbmem a:hover {
 
 #p_rankDetails
 {
-	min-height: 100px;
 	width: 100%;
 	display: table;
 	vertical-align: middle;
@@ -1069,6 +1082,15 @@ ts.pship img {
 
 .player_ships_entry_buttons_buttonContainer
 {
+	text-align: left;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	display: table-cell;
+	white-space: nowrap;	
+}
+
+.player_qual_entry_buttons_buttonContainer {
 	text-align: left;
 	vertical-align: middle;
 	margin-left: auto;
@@ -1550,6 +1572,10 @@ img {
 	color: rgb(15, 150, 0);
 }
 
+.MissionStatus_Cancelled {
+	color: rgb(200, 25, 0);
+}
+
 .MissionOutcome_Success {
 	color: rgb(15, 150, 0);
 }
@@ -1558,7 +1584,7 @@ img {
 }
 
 .MissionOutcome_Failure {
-	color: rgb(150, 20, 0);
+	color: rgb(200, 25, 0);
 }
 
 .MissionListItem_Past {
@@ -3646,13 +3672,14 @@ img.fleet:after {
 }
 
 .unitHierarchyHeader {
-	border-left: 4px solid #1F4858;
+	border-left: 2px solid #1F4858;
 	vertical-align: middle;
 	font-family: electrolize;
 	color: #EEE;
 	display: inline-table;
 	transition: all 0.4s ease 0s;
 	margin-top: 4px;
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
 }
 
 .unitHierarchyHeader_mainContainer {
@@ -3663,7 +3690,6 @@ img.fleet:after {
 	transition: all 0.2s ease 0s;
 	padding-left: 8px;
 	padding-bottom: 2px;
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
 }
 
 .unitHierarchyHeader_textContainer {
@@ -3784,7 +3810,7 @@ img.fleet:after {
 }
 
 .unitHierarchyHeader:hover {
-	border-left: 4px solid rgba(0, 194, 200, 0.9);
+	border-left: 2px solid rgba(0, 194, 200, 0.9);
 }
 
 .unitHierarchyHeader:hover .unitHierarchyHeader_mainContainer {
@@ -3801,6 +3827,8 @@ img.fleet:after {
 
 .level0 {
 	font-size: 18pt;
+	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	padding-bottom: 4px;	
 }
 
 .level1 {
@@ -4366,6 +4394,15 @@ img.fleet:after {
 	.player_ships_entry {
 		width: 50%;
 	}
+	
+	.p_qual {
+		display: table-row;
+		border-right: none;
+	}
+	
+	.p_awards {
+		display: table-row;
+	}
 	/*End Player Page*/
 	
 	/*Links Page*/
@@ -4631,8 +4668,8 @@ img.fleet:after {
 	/*End Divisions Page*/
 	
 	.unit_description_container {
-		padding-left: 4px;
-		padding-right: 4px;
+		padding-left: 12px;
+		padding-right: 12px;
 		padding-top: 24px;
 	}
 	

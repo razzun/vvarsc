@@ -286,9 +286,7 @@
 					<ol>
 						<li>Minimum Two Months TIS with the Fleet</li>
 						<li>Minimum One Month TIG for their Unit at E-4</li>
-						<!--
-						<li>Removal of any non-allied or other organizations as affiliations on RSI Website</li>
-						-->
+						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a command capacity <strong>(for Military Flight/Squad Leaders)</strong></li>
 						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
@@ -364,6 +362,7 @@
 					<ol>
 						<li>Minimum Three Months TIS with the Fleet</li>
 						<li>Minimum One Month TIG for their Unit at E-5</li>
+						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a command capacity <strong>(for Military Flight/Squad Leaders)</strong></li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>

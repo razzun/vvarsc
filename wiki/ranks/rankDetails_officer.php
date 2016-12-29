@@ -178,6 +178,7 @@
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
 					<ol>
 						<li>Minimum Two Months TIG for their Unit at O-2</li>
+						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <strong>(for Military Squadron/Platoon Leaders)</strong></li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>

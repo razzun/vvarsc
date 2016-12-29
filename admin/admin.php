@@ -29,6 +29,8 @@
 				</br>
 				<strong>Ship Management - </strong> Not currently active.  Check back later.
 				</br>
+				<strong>Qualifications - </strong> Manage the different Qualifications that Members can earn.
+				</br>
 				<strong>Roles Management - </strong> Used to manage the different roles within the VVARMachine Star Citizen Division.
 				</br>
 				<strong>Unit Management - </strong> Used to manage the different units within the VVARMachine Star Citizen Division, including members.

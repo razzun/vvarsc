@@ -344,7 +344,7 @@
 				<h2 style=\"margin-left: 0px; padding-left: 4px\">
 					$unitName
 				</h2>
-				<div class=\"shipDetails_info2\" style=\"height: 100%\">
+				<div class=\"shipDetails_info2\">
 					<table class=\"shipDetails_info1_table\">
 						<tr class=\"shipDetails_info1_table_row\">
 							<td class=\"shipDetails_info1_table_row_td_key\">
@@ -379,6 +379,17 @@
 							</td>
 						</tr>
 					</table>
+				</div>
+				<div class=\"operationsListItem_MetaData_Right\" style=\"
+					width: 100%;
+					font-size: 10pt;
+					margin-top: 4px;
+				\">
+					<div class=\"div_filters_container\">
+						<div class=\"div_filters_entry\">
+							<a href=\"http://sc.vvarmachine.com/missions&unit=$UnitID\">View Missions for this Unit</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -750,7 +761,7 @@
 			($_SESSION['sess_userrole'] == "officer") && $access == "true" )
 		{
 			$displayEdit = "
-				<button class=\"adminButton adminButtonEdit\" title=\"Edit Unit \"style=\"
+				<button class=\"adminButton adminButtonEdit\" title=\"Edit Unit\" style=\"
 					float: right;
 					margin-left: 0px;
 					margin-right: 2%;

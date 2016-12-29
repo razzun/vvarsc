@@ -3,6 +3,14 @@
 <?php include_once('inc/OptionQueries/ship_queries.php'); ?>
 
 <?
+	$OperationID = 0;
+	$MissionID = 0;
+	$MaintainEdit = "false";
+
+	$unit_id = strip_tags(isset($_GET['unit']) ? $_GET['unit'] : '');
+	if ($unit_id == null)
+		$unit_id = 0;
+
 	$canEdit = false;
 	
 	if (($_SESSION['sess_userrole'] == "admin") ||
@@ -12,7 +20,12 @@
 	}
 ?>
 
-<?php include_once('inc/ListQueries/operation_queries.php'); ?>
+<?php 
+	if(is_numeric($unit_id))
+	{
+		include_once('inc/ListQueries/operation_queries.php');
+	}
+?>
 
 <?
 	$displayMainActionButtons = "";
@@ -48,11 +61,50 @@
 			</div>		
 		";
 	}
-
+	
+	//For Display of Unit Name
+	if ($unit_id > 0)
+	{
+		$unitNameQuery = "
+			select
+				case
+					when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+					else u.UnitFullName
+				end as UnitName
+			from projectx_vvarsc2.Units u
+			where u.UnitID = $unit_id
+		";
+		
+		$unitNameQuery_results = $connection->query($unitNameQuery);
+		$displayUnitName = "";
+		
+		while(($row = $unitNameQuery_results->fetch_assoc()) != false) {
+			$UnitNameDisplay = $row['UnitName'];
+			
+			$displayUnitName .= "
+				<h4 style=\"
+					padding-top: 0px;
+					padding-bottom: 0px;
+				\">
+					$UnitNameDisplay
+					<a href=\"http://sc.vvarmachine.com/missions/\" style=\"
+						text-decoration: none;
+					\">
+						<button class=\"adminButton adminButtonDelete\" title=\"Clear Filter\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							Clear Filter
+						</button>
+					</a>
+				</h4>			
+			";
+		}
+		
+	}
 
 	$connection->close();
 ?>
 <h2 id="MainPageHeaderText">Mission Plans</h2>
+<?echo $displayUnitName; ?>
 <div id="TEXT">
 	<div id="operations_topMenu_container">
 		<!--

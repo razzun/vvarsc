@@ -18,6 +18,7 @@
 	$Type = "";
 	$StartingLocation = "";
 	$StartDate = "";
+	$EndDate = "";
 	$Mission = "";
 	$Description = "";
 	
@@ -41,6 +42,10 @@
 	{
 		$StartDate = mysqli_real_escape_string($connection, $_POST['StartDate']);
 	}
+	if(isset($_POST['EndDate']))
+	{
+		$EndDate = mysqli_real_escape_string($connection, $_POST['EndDate']);
+	}
 	if(isset($_POST['MissionSummary']))
 	{
 		$Mission = mysqli_real_escape_string($connection, $_POST['MissionSummary']);
@@ -51,7 +56,7 @@
 	}
 	
 	$q1 = "
-		call projectx_vvarsc2.BuildMissionFromOpTemplate($ID,'$StartDate',$userID);
+		call projectx_vvarsc2.BuildMissionFromOpTemplate($ID,'$StartDate','$EndDate',$userID);
 	";
 
 	print_r($q1);

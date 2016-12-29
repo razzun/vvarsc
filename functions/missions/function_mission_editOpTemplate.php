@@ -18,6 +18,7 @@
 	$Type = "";
 	$StartingLocation = "";
 	$StartDate = "";
+	$EndDate = "";
 	$Mission = "";
 	$Description = "";
 	$MissionStatus = "";
@@ -43,6 +44,10 @@
 	{
 		$StartDate = mysqli_real_escape_string($connection, $_POST['StartDate']);
 	}
+	if(isset($_POST['EndDate']))
+	{
+		$EndDate = mysqli_real_escape_string($connection, $_POST['EndDate']);
+	}
 	if(isset($_POST['MissionSummary']))
 	{
 		$Mission = mysqli_real_escape_string($connection, $_POST['MissionSummary']);
@@ -66,10 +71,10 @@
 			,MissionType = '$Type'
 			,StartingLocation = '$StartingLocation'
 			,StartDate = '$StartDate'
+			,EndDate = '$EndDate'
 			,Mission = '$Mission'
 			,Description = '$Description'
 			,MissionStatus = $MissionStatus
-			,MissionOutcome = $MissionOutcome
 			,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 			,ModifiedBy = '$userID'
 		where MissionID = '$MissionID'

@@ -4,6 +4,7 @@
 
 <?
 	$OperationID = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
+	$unit_id = 0;
 	$MissionID = null;
 	$canEdit = false;
 	$MaintainEdit = 'false';
@@ -1260,17 +1261,17 @@
 				<label for="StartingLocation" class="adminDialogInputLabel">
 					Starting Location
 				</label>
-				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput">
+				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" required>
 				
 				<label for="MissionSummary" class="adminDialogInputLabel">
 					Mission Summary
 				</label>
-				<textarea name="MissionSummary" id="MissionSummary" class="adminDialogTextArea"><? echo $operationDetails_Mission ?></textarea>
+				<textarea name="MissionSummary" id="MissionSummary" class="adminDialogTextArea" required><? echo $operationDetails_Mission ?></textarea>
 				
 				<label for="ObjectiveDetails" class="adminDialogInputLabel">
 					Objective Details
 				</label>
-				<textarea name="ObjectiveDetails" id="ObjectiveDetails" class="adminDialogTextArea"><? echo $operationDetails_Description ?></textarea>
+				<textarea name="ObjectiveDetails" id="ObjectiveDetails" class="adminDialogTextArea" required><? echo $operationDetails_Description ?></textarea>
 			</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
@@ -1823,12 +1824,17 @@
 				<label for="StartingLocation" class="adminDialogInputLabel">
 					Starting Location
 				</label>
-				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" readonly>
+				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" required readonly>
 				
 				<label for="StartDate" class="adminDialogInputLabel">
 					Mission Start Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
 				</label>
 				<input type="text" name="StartDate" id="StartDate" value="" class="adminDialogTextInput" required>
+				
+				<label for="EndDate" class="adminDialogInputLabel">
+					Mission End Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
+				</label>
+				<input type="text" name="EndDate" id="EndDate" value="" class="adminDialogTextInput" required>
 				
 				<label for="MissionSummary" class="adminDialogInputLabel">
 					Mission Summary

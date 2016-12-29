@@ -1,10 +1,10 @@
 <?php include_once('functions/function_auth_user.php'); ?>
 <?php include_once('inc/OptionQueries/unit_queries.php'); ?>
 <?php include_once('inc/OptionQueries/ship_queries.php'); ?>
-<?php include_once('inc/OptionQueries/lk_mission_queries.php'); ?>
 
 <?
 	$OperationID = null;
+	$unit_id = 0;
 	$MissionID = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	$canEdit = false;
 	$CurrentUserID = $_SESSION['sess_user_id'];
@@ -66,12 +66,11 @@
 			,o.MissionType
 			,o.StartingLocation
 			,o.StartDate
+			,o.EndDate
 			,o.Mission
 			,TRIM(LEADING '\t' from o.Description) as Description
 			,lk1.MissionStatus as MissionStatusID
 			,lk1.Description as MissionStatusDescrption
-			,lk2.MissionOutcome as MissionOutcomeID
-			,lk2.Description as MissionOutcomeDescrption
 			,o.CreatedBy as CreatedByID
 			,DATE_FORMAT(DATE(o.CreatedOn),'%d %b %Y') as CreatedOn
 			,CONCAT(r.rank_abbr, ' ', m.mem_callsign) as CreatedByName
@@ -91,8 +90,6 @@
 			on r2.rank_id = m2.ranks_rank_id
 		join projectx_vvarsc2.LK_MissionStatus lk1
 			on lk1.MissionStatus = o.MissionStatus
-		join projectx_vvarsc2.LK_MissionOutcome lk2
-			on lk2.MissionOutcome = o.MissionOutcome
 		where o.MissionID = '$MissionID'
 	";
 	$operationDetails_query_result = $connection->query($operationDetails_query);
@@ -105,13 +102,12 @@
 		$operationDetails_Type = $row2['MissionType'];
 		$operationDetails_StartingLocation = $row2['StartingLocation'];
 		$operationDetails_StartDate = $row2['StartDate'];
+		$operationDetails_EndDate = $row2['EndDate'];
 		$operationDetails_Mission = $row2['Mission'];
 		$operationDetails_Description = $row2['Description'];
 		
 		$operationDetails_MissionStatusID = $row2['MissionStatusID'];
 		$operationDetails_MissionStatusDescrption = $row2['MissionStatusDescrption'];
-		$operationDetails_MissionOutcomeID = $row2['MissionOutcomeID'];
-		$operationDetails_MissionOutcomeDescrption = $row2['MissionOutcomeDescrption'];
 		
 		$display_operationDetails_Mission = nl2br($operationDetails_Mission);
 		$display_operationDetails_Description = nl2br($operationDetails_Description);
@@ -126,6 +122,12 @@
 		$operationDetails_ModifiedByName = $row2['ModifiedByName'];
 		$operationDetails_ModifiedByRankImage = $row2['ModifiedByRankImage'];
 	}
+	
+?>
+
+<?php include_once('inc/OptionQueries/lk_mission_queries.php'); ?>
+
+<?
 	
 	if ($MissionID != null)
 	{
@@ -235,11 +237,9 @@
 					$operationDetails_MissionStatusDescrption
 				</strong>
 				<br />
-				Outcome: <strong class=\"MissionOutcome MissionOutcome_$operationDetails_MissionOutcomeDescrption\">
-					$operationDetails_MissionOutcomeDescrption
-				</strong>				
-				<br />
 				StartDate (UTC): <strong class=\"operation_startDate_text\">$operationDetails_StartDate</strong>
+				<br />
+				EndDate (UTC): <strong class=\"operation_startDate_text\">$operationDetails_EndDate</strong>
 			</div>
 			
 			<h4 class=\"operations_h4\">
@@ -714,7 +714,7 @@
 
 					//Button for Member to SignUp for OpUnit
 					$display_opUnit_member_signUp = "";
-					if ($CurrentUserAssigned != "true" && $operationDetails_MissionStatusDescrption != "Completed")
+					if ($CurrentUserAssigned != "true" && $operationDetails_MissionStatusDescrption == "Approved")
 					{
 						$display_opUnit_member_signUp .= "
 							<div id=\"OpUnitMemberButtons_$opUnitMemberListItem_RowID\" style=\"
@@ -768,7 +768,7 @@
 						";
 						
 						//Display Button for a Member to Remove Themself
-						if ($opUnitMemberListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption != "Completed")
+						if ($opUnitMemberListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption == "Approved")
 						{
 							$display_opUnit_member_list .= "
 								<div id=\"OpUnitMemberButtons_$opUnitMemberListItem_RowID\" style=\"
@@ -1116,7 +1116,7 @@
 
 						//Button for Member to SignUp for OpUnitShip
 						$display_opShip_member_signUp = "";
-						if ($CurrentUserAssigned != "true" && $operationDetails_MissionStatusDescrption != "Completed")
+						if ($CurrentUserAssigned != "true" && $operationDetails_MissionStatusDescrption == "Approved")
 						{
 							$display_opShip_member_signUp .= "
 								<div id=\"OpUnitMemberButtons_$opShipMembersListItem_RowID\" style=\"
@@ -1170,7 +1170,7 @@
 							";
 						
 							//Display Button for a Member to Remove Themself
-							if ($opShipMembersListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption != "Completed")
+							if ($opShipMembersListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption == "Approved")
 							{
 								$display_opUnitShipMembers .= "
 									<div id=\"OpUnitMemberButtons_$opShipMembersListItem_RowID\" style=\"
@@ -1420,20 +1420,25 @@
 				</label>
 				<input type="text" name="StartDate" id="StartDate" value="" class="adminDialogTextInput" required>
 				
+				<label for="EndDate" class="adminDialogInputLabel">
+					Mission End Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
+				</label>
+				<input type="text" name="EndDate" id="EndDate" value="" class="adminDialogTextInput" required>
+				
 				<label for="StartingLocation" class="adminDialogInputLabel">
 					Starting Location
 				</label>
-				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput">
+				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" required>
 				
 				<label for="MissionSummary" class="adminDialogInputLabel">
 					Mission Summary
 				</label>
-				<textarea name="MissionSummary" id="MissionSummary" class="adminDialogTextArea"><? echo $operationDetails_Mission ?></textarea>
+				<textarea name="MissionSummary" id="MissionSummary" class="adminDialogTextArea" required><? echo $operationDetails_Mission ?></textarea>
 				
 				<label for="ObjectiveDetails" class="adminDialogInputLabel">
 					Objective Details
 				</label>
-				<textarea name="ObjectiveDetails" id="ObjectiveDetails" class="adminDialogTextArea"><? echo $operationDetails_Description ?></textarea>
+				<textarea name="ObjectiveDetails" id="ObjectiveDetails" class="adminDialogTextArea" required><? echo $operationDetails_Description ?></textarea>
 				
 				<!--MissionStatus-->
 				<label for="MissionStatusID" class="adminDialogInputLabel">
@@ -1444,17 +1449,6 @@
 						- Select a Mission Status -
 					</option>	
 					<? echo $displayMissionStatusesSelectors ?>
-				</select>				
-				
-				<!--MissionOutcome-->
-				<label for="MissionOutcomeID" class="adminDialogInputLabel">
-					Mission Outcome
-				</label>
-				<select name="MissionOutcomeID" id="MissionOutcomeID" class="adminDialogDropDown">
-					<option selected disabled value="default" id="MissionStatusID-default">
-						- Select a Mission Outcome -
-					</option>	
-					<? echo $displayMissionOutcomesSelectors ?>
 				</select>
 				
 			</fieldset>
@@ -1713,14 +1707,15 @@
 			var operationType = "<? echo $operationDetails_Type ?>";
 			var startingLocation = "<? echo $operationDetails_StartingLocation ?>";
 			var missionStartDate = "<? echo $operationDetails_StartDate ?>";
+			var missionEndDate = "<? echo $operationDetails_EndDate ?>";
 			var missionStatus = "<?echo $operationDetails_MissionStatusID?>";
-			var missionOutcome = "<?echo $operationDetails_MissionOutcomeID?>";
 			
 			dialog.find('#MissionID').val(operationID).text();
 			dialog.find('#OperationName').val(operationName).text();
 			dialog.find('#OperationType').val(operationType).text();
 			dialog.find('#StartingLocation').val(startingLocation).text();
 			dialog.find('#StartDate').val(missionStartDate).text();
+			dialog.find('#EndDate').val(missionEndDate).text();
 			
 			/*
 			dialog.find('#Name').val(memName).text();
@@ -1731,8 +1726,6 @@
 			
 			dialog.find('select').find('option').prop('selected',false);
 			dialog.find('#MissionStatusID').find('#MissionStatusID-' + missionStatus).prop('selected',true);
-			
-			dialog.find('#MissionOutcomeID').find('#MissionOutcomeID-' + missionOutcome).prop('selected',true);	
 			
 			
 			dialog.show();

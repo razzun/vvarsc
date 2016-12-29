@@ -211,6 +211,7 @@
 		
 	$display_dateSorted_missionsList = "";
 	
+	//Happening Now
 	$missionsList_query = "
 		select
 			o.MissionID
@@ -219,40 +220,33 @@
 			,o.MissionType
 			,o.Mission
 			,lk1.Description as MissionStatus
-			,lk2.Description as MissionOutcome
 			,o.StartDate
+			,o.EndDate
 			,DATE_FORMAT(DATE(o.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,o.ModifiedBy
 			,m.mem_callsign as ModifiedByName
-			,case
-				when o.StartDate < UTC_TIMESTAMP() then 'Past'
-				when DAY(UTC_TIMESTAMP()) = DAY(o.StartDate) then 'Today'
-				when WEEK(UTC_TIMESTAMP()) = WEEK(o.StartDate) then 'This Week'
-				when MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate) then 'This Month'
-				else 'Future'
-			end as DateGrouping
-			,case
-				when o.StartDate < UTC_TIMESTAMP() then '5'
-				when DAY(UTC_TIMESTAMP()) = DAY(o.StartDate) then '1'
-				when WEEK(UTC_TIMESTAMP()) = WEEK(o.StartDate) then '2'
-				when MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate) then '3'
-				else '4'
-			end as DateGroupingOrderBy
+			,'Currently Active' as DateGrouping
+			,'1' as DateGroupingOrderBy
 		from projectx_vvarsc2.Missions o
 		join projectx_vvarsc2.members m
 			on m.mem_id = o.ModifiedBy
 		join projectx_vvarsc2.LK_MissionStatus lk1
 			on lk1.MissionStatus = o.MissionStatus
-		join projectx_vvarsc2.LK_MissionOutcome lk2
-			on lk2.MissionOutcome = o.MissionOutcome
-		/*where (
-			o.StartDate >= UTC_TIMESTAMP() OR
-			MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate)
-			)*/
+		where (
+			o.StartDate <= UTC_TIMESTAMP()
+			and o.EndDate > UTC_TIMESTAMP()
+			and ($unit_id = 0 or o.MissionID in (
+				select
+					u.MissionID
+				from projectx_vvarsc2.MissionUnits u
+				where u.MissionID = o.MissionID
+					and u.UnitID = $unit_id
+			))			
+		)
 		order by
 			13
 			,o.StartDate
-	";
+	";	
 	
 	$missionsList_query_result = $connection->query($missionsList_query);
 		
@@ -266,8 +260,8 @@
 		$missionListItem_Type = $row1['MissionType'];
 		$missionListItem_Mission = $row1['Mission'];
 		$missionListItem_MissionStatus = $row1['MissionStatus'];
-		$missionListItem_MissionOutcome = $row1['MissionOutcome'];
 		$missionListItem_StartDate = $row1['StartDate'];
+		$missionListItem_EndDate = $row1['EndDate'];
 		$missionListItem_DateGrouping = $row1['DateGrouping'];
 		$missionListItem_ModifiedOn = $row1['ModifiedOn'];
 		$missionListItem_ModifiedByID = $row1['ModifiedBy'];
@@ -291,11 +285,6 @@
 					data-missionid=\"$missionListItem_ID\"
 					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
 				>
-					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
-							$missionListItem_Number - $missionListItem_Name
-						</a>
-					</div>
 					<div class=\"operationsListItem_MetaData_Right\">
 						<div class=\"clickableRow_memRank_inner\" style=\"
 							width: 100%
@@ -303,8 +292,137 @@
 							Modified: $missionListItem_ModifiedOn						
 						</div>
 						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
+					</div>
+					<div class=\"operationsListItem_Title\">
+						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+							$missionListItem_Number - $missionListItem_Name
+						</a>
+					</div>
+					<div class=\"operationsListItem_Type\">
+						Type: 
+						<div class=\"operationsListItem_Type_Value\">
+							$missionListItem_Type
+						</div>
+					</div>
+					<div class=\"operationsListItem_Mission\">
+						StartDate:
+						<strong class=\"operation_startDate_text\">
+							$missionListItem_StartDate
+						</strong>
 						<br />
-						Outcome: <strong class=\"MissionOutcome MissionOutcome_$missionListItem_MissionOutcome\">$missionListItem_MissionOutcome</strong>
+						EndDate:
+						<strong class=\"operation_startDate_text\">
+							$missionListItem_EndDate
+						</strong>
+					</div>
+					<div class=\"operationsListItem_Mission\" style=\"
+						width: auto;
+						text-overflow: unset;
+						white-space: unset;
+					\">
+						$missionListItem_Mission
+					</div>
+				</div>
+			</div>
+		";
+		$previousGroup = $currentGroup;
+	}
+	
+	//Upcoming Missions
+	$missionsList_query1 = "
+		select
+			o.MissionID
+			,CONCAT('OPT_',(1000 + o.OpTemplateID),'-',(1000 + o.MissionID)) as MissionNumber
+			,o.MissionName
+			,o.MissionType
+			,o.Mission
+			,lk1.Description as MissionStatus
+			,o.StartDate
+			,o.EndDate
+			,DATE_FORMAT(DATE(o.ModifiedOn),'%d %b %Y') as ModifiedOn
+			,o.ModifiedBy
+			,m.mem_callsign as ModifiedByName
+			,case
+				when DAY(UTC_TIMESTAMP()) = DAY(o.StartDate) then 'Upcoming - Today'
+				when WEEK(UTC_TIMESTAMP()) = WEEK(o.StartDate) then 'Upcoming - This Week'
+				when MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate) then 'Upcoming - This Month'
+				else 'Upcoming - Future'
+			end as DateGrouping
+			,case
+				when DAY(UTC_TIMESTAMP()) = DAY(o.StartDate) then '1'
+				when WEEK(UTC_TIMESTAMP()) = WEEK(o.StartDate) then '2'
+				when MONTH(UTC_TIMESTAMP()) = MONTH(o.StartDate) then '3'
+				else '4'
+			end as DateGroupingOrderBy
+		from projectx_vvarsc2.Missions o
+		join projectx_vvarsc2.members m
+			on m.mem_id = o.ModifiedBy
+		join projectx_vvarsc2.LK_MissionStatus lk1
+			on lk1.MissionStatus = o.MissionStatus
+		where (
+			o.StartDate >= UTC_TIMESTAMP()
+			and ($unit_id = 0 or o.MissionID in (
+				select
+					u.MissionID
+				from projectx_vvarsc2.MissionUnits u
+				where u.MissionID = o.MissionID
+					and u.UnitID = $unit_id
+			))			
+		)
+		order by
+			13
+			,o.StartDate
+	";
+	
+	$missionsList_query1_result = $connection->query($missionsList_query1);
+		
+	$previousGroup = "";
+	$currentGroup = "";
+	
+	while(($row1 = $missionsList_query1_result->fetch_assoc()) != false) {
+		$missionListItem_ID = $row1['MissionID'];
+		$missionListItem_Number = $row1['MissionNumber'];
+		$missionListItem_Name = $row1['MissionName'];
+		$missionListItem_Type = $row1['MissionType'];
+		$missionListItem_Mission = $row1['Mission'];
+		$missionListItem_MissionStatus = $row1['MissionStatus'];
+		$missionListItem_StartDate = $row1['StartDate'];
+		$missionListItem_EndDate = $row1['EndDate'];
+		$missionListItem_DateGrouping = $row1['DateGrouping'];
+		$missionListItem_ModifiedOn = $row1['ModifiedOn'];
+		$missionListItem_ModifiedByID = $row1['ModifiedBy'];
+		$missionListItem_ModifiedByName = $row1['ModifiedByName'];
+		
+		$currentGroup = $missionListItem_DateGrouping;
+		//If This is a New Group, Open a New Row and Title
+		if ($currentGroup != $previousGroup)
+		{
+			$display_dateSorted_missionsList .= "
+				<h4 class=\"operations_h4\">
+					$missionListItem_DateGrouping
+				</h4>
+			";
+		
+		}	
+		
+		$display_dateSorted_missionsList .= "
+			<div class=\"operations_menu_inner_items_container\">
+				<div class=\"operationsListItemContainer MissionListItem_$missionListItem_DateGrouping\"
+					data-missionid=\"$missionListItem_ID\"
+					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+				>
+					<div class=\"operationsListItem_MetaData_Right\">
+						<div class=\"clickableRow_memRank_inner\" style=\"
+							width: 100%
+						\">
+							Modified: $missionListItem_ModifiedOn						
+						</div>
+						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
+					</div>
+					<div class=\"operationsListItem_Title\">
+						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+							$missionListItem_Number - $missionListItem_Name
+						</a>
 					</div>
 					<div class=\"operationsListItem_Type\">
 						Type: 
@@ -331,5 +449,119 @@
 		$previousGroup = $currentGroup;
 	}
 	
+	//Past Missions
+	$missionsList_query2 = "
+		select
+			o.MissionID
+			,CONCAT('OPT_',(1000 + o.OpTemplateID),'-',(1000 + o.MissionID)) as MissionNumber
+			,o.MissionName
+			,o.MissionType
+			,o.Mission
+			,lk1.Description as MissionStatus
+			,o.StartDate
+			,o.EndDate
+			,DATE_FORMAT(DATE(o.ModifiedOn),'%d %b %Y') as ModifiedOn
+			,o.ModifiedBy
+			,m.mem_callsign as ModifiedByName
+			,case
+				when o.StartDate < UTC_TIMESTAMP() then 'Past'
+			end as DateGrouping
+			,case
+				when o.StartDate < UTC_TIMESTAMP() then '5'
+			end as DateGroupingOrderBy
+		from projectx_vvarsc2.Missions o
+		join projectx_vvarsc2.members m
+			on m.mem_id = o.ModifiedBy
+		join projectx_vvarsc2.LK_MissionStatus lk1
+			on lk1.MissionStatus = o.MissionStatus
+		where (
+			o.EndDate < UTC_TIMESTAMP()
+			and ($unit_id = 0 or o.MissionID in (
+				select
+					u.MissionID
+				from projectx_vvarsc2.MissionUnits u
+				where u.MissionID = o.MissionID
+					and u.UnitID = $unit_id
+			))
+		)
+		order by
+			o.StartDate desc
+	";
+	
+	$missionsList_query2_result = $connection->query($missionsList_query2);
+		
+	$previousGroup = "";
+	$currentGroup = "";
+	
+	while(($row1 = $missionsList_query2_result->fetch_assoc()) != false) {
+		$missionListItem_ID = $row1['MissionID'];
+		$missionListItem_Number = $row1['MissionNumber'];
+		$missionListItem_Name = $row1['MissionName'];
+		$missionListItem_Type = $row1['MissionType'];
+		$missionListItem_Mission = $row1['Mission'];
+		$missionListItem_MissionStatus = $row1['MissionStatus'];
+		$missionListItem_StartDate = $row1['StartDate'];
+		$missionListItem_EndDate = $row1['EndDate'];
+		$missionListItem_DateGrouping = $row1['DateGrouping'];
+		$missionListItem_ModifiedOn = $row1['ModifiedOn'];
+		$missionListItem_ModifiedByID = $row1['ModifiedBy'];
+		$missionListItem_ModifiedByName = $row1['ModifiedByName'];
+		
+		$currentGroup = $missionListItem_DateGrouping;
+		//If This is a New Group, Open a New Row and Title
+		if ($currentGroup != $previousGroup)
+		{
+			$display_dateSorted_missionsList .= "
+				<h4 class=\"operations_h4\">
+					$missionListItem_DateGrouping
+				</h4>
+			";
+		
+		}	
+		
+		$display_dateSorted_missionsList .= "
+			<div class=\"operations_menu_inner_items_container\">
+				<div class=\"operationsListItemContainer MissionListItem_$missionListItem_DateGrouping\"
+					data-missionid=\"$missionListItem_ID\"
+					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+				>
+					<div class=\"operationsListItem_MetaData_Right\">
+						<div class=\"clickableRow_memRank_inner\" style=\"
+							width: 100%
+						\">
+							Modified: $missionListItem_ModifiedOn						
+						</div>
+						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
+					</div>
+					<div class=\"operationsListItem_Title\">
+						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+							$missionListItem_Number - $missionListItem_Name
+						</a>
+					</div>
+					<div class=\"operationsListItem_Type\">
+						Type: 
+						<div class=\"operationsListItem_Type_Value\">
+							$missionListItem_Type
+						</div>
+					</div>
+					<div class=\"operationsListItem_Mission\">
+						StartDate:
+						<strong class=\"operation_startDate_text\">
+							$missionListItem_StartDate
+						</strong>
+					</div>
+					<div class=\"operationsListItem_Mission\" style=\"
+						width: auto;
+						text-overflow: unset;
+						white-space: unset;
+					\">
+						$missionListItem_Mission
+					</div>
+				</div>
+			</div>
+		";
+		$previousGroup = $currentGroup;
+	}
+		
 	//End Missions List
 ?>
