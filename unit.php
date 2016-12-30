@@ -281,6 +281,11 @@
 				$unitBackgroundImage = 'http://vvarmachine.com/uploads/galleries/Gladius_01.jpg';
 			}
 			
+			if ($unitEmblemImage == null || $unitEmblemImage == '')
+			{
+				$unitEmblemImage = 'http://vvarmachine.com/uploads/galleries/03KgFv0_med.png';
+			}
+			
 			if ($unitCallsign == null)
 			{
 				$unitCallsign = "- No Callsign Created -";
