@@ -11,7 +11,7 @@
     if(!isset($_SESSION['sess_username']))
 	{
 		$reqURL = $_SERVER['REQUEST_URI'];
-		if ($reqURL = "/")
+		if ($reqURL == '/')
 		{
 			header("Location: http://sc.vvarmachine.com/login.php?err=2");
 		}
