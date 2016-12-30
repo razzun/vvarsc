@@ -7,13 +7,17 @@
 	$username = "";
 	$password = "";
 	 
-	if(isset($_POST['username']))
+	if (isset($_POST['username']))
 	{
 		$username = $_POST['username'];
 	}
 	if (isset($_POST['p']))
 	{
 		$password = $_POST['p'];
+	}
+	if (isset($_POST['url']))
+	{
+		$reqURL = $_POST['url'];
 	}
 	 
 	$q = "SELECT 
@@ -53,8 +57,11 @@
 			session_write_close();
 			
 			//print_r($_SESSION);
-
-			if($_SESSION['sess_userrole'] == "admin")
+			if(isset($reqURL))
+			{
+				header("Location: http://sc.vvarmachine.com".$reqURL);
+			}
+			elseif($_SESSION['sess_userrole'] == "admin")
 			{
 				header("Location: http://sc.vvarmachine.com/admin/index.php");
 			}

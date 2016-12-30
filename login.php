@@ -34,17 +34,18 @@
 												  );
 
 												$error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
+												$reqURL = isset ($_GET['rURL']) ? $_GET['rURL'] : 'index';
 
 												if ($error_id != 0) {
-														echo '<p class="text-danger">'.$errors[$error_id].'</p>';
+														echo '<p class="text-danger">'.$errors[$error_id].' to access: '.$reqURL.' </p>';
 													}
 											   ?>  
-
 											<form action="authenticate.php" method="POST" class="form-signin col-md-8 col-md-offset-2" role="form">
 												<input type="text" name="username" class="form-control" placeholder="Username" onkeypress="entsub(this.form, this.form.password);" required autofocus>
 												<br/>
 												<input id="password" type="password" name="password" class="form-control" placeholder="Password" onkeypress="entsub(this.form, this.form.password);" required>
 												<br/>
+												<input id="url" type="hidden" name="url" value=<? print_r($reqURL); ?> />
 												<input type="button" 
 														id="button"
 														value="Login"
