@@ -45,7 +45,7 @@
 												<input id="password" type="password" name="password" class="form-control" placeholder="Password" onkeypress="entsub(this.form, this.form.password);" required>
 												<br/>
 												<? 
-													if (isset($_GET['rURL']))
+													if (isset($_GET['rURL']) & $_GET['rURL'] != "/")
 													{
 														$reqURL = $_GET['rURL'];
 														echo '<input id="url" type="hidden" name="url" value="'.$reqURL.'" />';
