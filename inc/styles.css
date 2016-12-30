@@ -3697,6 +3697,7 @@ img.fleet:after {
 	transition: all 0.2s ease 0s;
 	padding-left: 8px;
 	padding-bottom: 2px;
+	padding-top: 2px;
 }
 
 .unitHierarchyHeader_textContainer {
@@ -3720,7 +3721,6 @@ img.fleet:after {
 	width: 100%;
 	vertical-align: middle;
 	padding-left: 4px;
-	padding-top: 8px;
 }
 
 .unitHierarchyHeader_unitName a {
@@ -3744,8 +3744,7 @@ img.fleet:after {
 }
 
 .inactive {
-	font-style: italic;
-	color: #888;
+	color: RGBA(136, 136, 136, 0.7);
 }
 
 .unitHierarchyHeaderContent {

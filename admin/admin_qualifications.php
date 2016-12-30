@@ -36,9 +36,15 @@
 		$qualLevel2Reqs = $row['level2_reqs'];
 		$qualLevel3Reqs = $row['level3_reqs'];
 		
+		$qualIsActiveDisplay = "";
 		$qualLevel1ReqsDisplay = "";
 		$qualLevel2ReqsDisplay = "";
 		$qualLevel3ReqsDisplay = "";
+		
+		if ($qualIsActive == 1)
+			$qualIsActiveDisplay = "Active";
+		else
+			$qualIsActiveDisplay = "Inactive";
 		
 		if ($qualLevel1Reqs == null || $qualLevel1Reqs == "")
 			$qualLevel1ReqsDisplay = "-- no requirements found --";
@@ -72,7 +78,8 @@
 					float: right;
 					text-align: right;
 					margin-right: 8px;
-					width: 50%;					
+					width: 50%;
+					margin-top: 4px;
 				\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Qualification\" style=\"
 						margin-left: 0px;
@@ -90,79 +97,104 @@
 		";
 		
 		$displayQualifications .= "
-				<div class=\"player_qual_row_name\" style=\"
-					margin-top:8px;
-					padding-left:8px;
+				<div class=\"PayGradeDetails_Entry_Header\" style=\"
+					cursor: pointer;
+					vertical-align: middle;
+					margin-top: 6px;
+					display: table;
+					padding-bottom: 4px;
 				\">
-					$qualCategory
-					<br />
-					<strong>$qualName</strong>
-				</div>
-				<div class=\"shipDetails_ownerInfo_tableRow_inner\" style=\"
-					display: inline-block;
-					padding: 8px;
-				\">
-					<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
-						height: 38px;
-						width: 38px;
-						padding-left: 0px;
-						padding-right: 0px;
+					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"http://vvarmachine.com/uploads/galleries/SC_Button01.png\" align=\"middle\">
+					<div class=\"player_qual_row_name\" style=\"
+						margin-top:8px;
+						margin-bottom:8px;
+						padding-left:8px;
+						display: table-cell;
+						vertical-align: middle;
 					\">
-						<div class=\"corner corner-top-left\">
-						</div>
-						<div class=\"corner corner-top-right\">
-						</div>
-						<div class=\"corner corner-bottom-left\">
-						</div>
-						<div class=\"corner corner-bottom-right\">
-						</div>
-						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"http://sc.vvarmachine.com/images/qualifications/$qualImage\" />					
+						$qualCategory
+						<br />
+						<strong>$qualName</strong>
 					</div>
 				</div>
-				<h4 style=\"
-					padding: 0px 8px 0px 8px;
-					margin-left: 0;
-					font-size: 12pt;
+				<div class=\"shipyard_mainTable_row_content\" style=\"
+					padding-top:0px;
+					width: 100%;
 				\">
-					Requirements
-				</h4>
-				<div class=\"qual_reqs\" style=\"
-					padding-left: 12px;
-					font-size: 9pt;
-					font-style: italic;
-				\">
-					<div id=\"qual_reqs_entry-$qualID-level1\" class=\"qual_reqs_entry\">
-						<strong>Level 1</strong>
-						<p style=\"
-							font-size: 9pt;
-							font-style: italic;
-							color: #DDD;
-							margin-bottom: 4px;
+					<div class=\"shipDetails_ownerInfo_tableRow_inner\" style=\"
+						display: inline-block;
+						padding: 8px;
+					\">
+						<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
+							height: 38px;
+							width: 38px;
+							padding-left: 0px;
+							padding-right: 0px;
 						\">
-							$qualLevel1ReqsDisplay
-						</p>
+							<div class=\"corner corner-top-left\">
+							</div>
+							<div class=\"corner corner-top-right\">
+							</div>
+							<div class=\"corner corner-bottom-left\">
+							</div>
+							<div class=\"corner corner-bottom-right\">
+							</div>
+							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"http://sc.vvarmachine.com/images/qualifications/$qualImage\" />					
+						</div>
 					</div>
-					<div id=\"qual_reqs_entry-$qualID-level2\" class=\"qual_reqs_entry\">
-						<strong>Level 2</strong>
-						<p style=\"
-							font-size: 9pt;
-							font-style: italic;
-							color: #DDD;
-							margin-bottom: 4px;
-						\">
-							$qualLevel2ReqsDisplay
-						</p>
-					</div>
-					<div id=\"qual_reqs_entry-$qualID-level3\" class=\"qual_reqs_entry\">
-						<strong>Level 3</strong>
-						<p style=\"
-							font-size: 9pt;
-							font-style: italic;
-							color: #DDD;
-							margin-bottom: 4px;
-						\">
-							$qualLevel3ReqsDisplay
-						</p>
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Status
+						<br />
+						<strong>$qualIsActiveDisplay</strong>
+					</div>				
+					<h4 style=\"
+						padding: 0px 8px 0px 8px;
+						margin-left: 0;
+						font-size: 12pt;
+					\">
+						Requirements
+					</h4>
+					<div class=\"qual_reqs\" style=\"
+						padding-left: 12px;
+						font-size: 9pt;
+						font-style: italic;
+					\">
+						<div id=\"qual_reqs_entry-$qualID-level1\" class=\"qual_reqs_entry\">
+							<strong>Level 1</strong>
+							<p style=\"
+								font-size: 9pt;
+								font-style: italic;
+								color: #DDD;
+								margin-bottom: 4px;
+							\">
+								$qualLevel1ReqsDisplay
+							</p>
+						</div>
+						<div id=\"qual_reqs_entry-$qualID-level2\" class=\"qual_reqs_entry\">
+							<strong>Level 2</strong>
+							<p style=\"
+								font-size: 9pt;
+								font-style: italic;
+								color: #DDD;
+								margin-bottom: 4px;
+							\">
+								$qualLevel2ReqsDisplay
+							</p>
+						</div>
+						<div id=\"qual_reqs_entry-$qualID-level3\" class=\"qual_reqs_entry\">
+							<strong>Level 3</strong>
+							<p style=\"
+								font-size: 9pt;
+								font-style: italic;
+								color: #DDD;
+								margin-bottom: 4px;
+							\">
+								$qualLevel3ReqsDisplay
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -317,6 +349,20 @@
 		});
 		
 	});
+</script>
+
+<!--Script to Show/Hide Rows when Arrows are clicked on each row-->
+<script language="javascript">
+    $(document).ready(function () {
+        $(".shipyard_mainTable_row_content").hide();
+		//$(".shipyard_mainTable_row_header_arrow").addClass('rotate90CW');
+		
+        $(".PayGradeDetails_Entry_Header").click(function () {
+            $(this).parent().find(".shipyard_mainTable_row_content").slideToggle(500);
+			$(this).find('.shipyard_mainTable_row_header_arrow').toggleClass('rotate90CW');
+			$(this).find('.OperationText_Hideable').toggleClass('hidden');
+        });		
+    });
 </script>
 
 <br />

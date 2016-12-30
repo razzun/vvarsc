@@ -83,51 +83,55 @@
 							}
 							
 							#Unit Commander (not applied to Inactive units, or Economy "Group" within the Division
-							echo '<div class="unitHierarchyHeader_unitCO">';
-								echo '<div class="unitHierarchyHeader_key">';
-									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
-									{
-										echo '';
-									}
-									else if ($value['IsActive'] == "Active"
-										&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
-										&& $value['UnitLevel'] == "Squadron"
-									)
-									{
-										echo 'Squadron Leader';
-									}
-									else if ($value['IsActive'] == "Active"
-										&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
-										&& $value['UnitLevel'] == "Platoon"
-									)
-									{
-										echo 'Platoon Leader';
-									}
-									else if ($value['IsActive'] == "Active" && ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != ''))
-									{
-										echo 'Commanding Officer';
-									}
-								echo '</div>';
-								
-								echo '<div class="unitHierarchyHeader_value">';
-									echo '<div class="unitHierarchyHeader_value_container">';
-									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
-									{
-										echo '';
-									}
-									else if ($value['IsActive'] == "Active")
-									{										
-										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+							if ($value['IsActive'] == "Active")
+							{
+								echo '<div class="unitHierarchyHeader_unitCO">';
+									echo '<div class="unitHierarchyHeader_key">';
+										if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
 										{
-											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
-											echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
-										}
-										else
 											echo '';
-									}
+										}
+										else if ($value['IsActive'] == "Active"
+											&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+											&& $value['UnitLevel'] == "Squadron"
+										)
+										{
+											echo 'Squadron Leader';
+										}
+										else if ($value['IsActive'] == "Active"
+											&& ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+											&& $value['UnitLevel'] == "Platoon"
+										)
+										{
+											echo 'Platoon Leader';
+										}
+										else if ($value['IsActive'] == "Active" && ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != ''))
+										{
+											echo 'Commanding Officer';
+										}
 									echo '</div>';
+									
+									echo '<div class="unitHierarchyHeader_value">';
+										echo '<div class="unitHierarchyHeader_value_container">';
+										if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
+										{
+											echo '';
+										}
+										else if ($value['IsActive'] == "Active")
+										{										
+											if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
+											{
+												echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
+												echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
+											}
+											else
+												echo '';
+										}
+										echo '</div>';
+									echo '</div>';
+									
 								echo '</div>';
-							echo '</div>';
+							}
 						echo '</div>';
 					echo '</div>';
 				echo '</div>';
