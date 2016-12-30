@@ -21,8 +21,10 @@
 			<p>
 				<strong>Formations - </strong> Dynamic 4-ship Flight Formations Viewer.
 				</br>
+				<!--
 				<strong>Marine Squad/Team Organization - </strong> Outlining the details of Squad and Team organization for Marine Special Warfare Teams during Operations.
 				</br>
+				-->
 				<strong>Organized Operations - </strong> Information pertaining to the planning and execution of Military and Economic Operations in the Persistent Universe.
 				</br>
 				<strong>Ranks - </strong> Information regarding the member ranking system used in the VVarMachine Fleet.

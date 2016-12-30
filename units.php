@@ -71,6 +71,7 @@
 							}
 							
 							#CreatedOn Div for Active Units (not Team,Flight,Division,Fleet)
+							/*
 							if($value['UnitLevel'] != "Division" && 
 								$value['UnitLevel'] != "Fleet")
 							{
@@ -81,6 +82,7 @@
 									echo '</div>';
 								}
 							}
+							*/
 							
 							#Unit Commander (not applied to Inactive units, or Economy "Group" within the Division
 							if ($value['IsActive'] == "Active")
@@ -185,7 +187,7 @@
 					left join projectx_vvarsc2.divisions d
 						on d.div_id = u.DivisionID
 					order by
-						u.UnitID";	
+						u.UnitName";	
     
     $units_query_results = $connection->query($units_query);
 	

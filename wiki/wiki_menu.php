@@ -9,7 +9,9 @@
 	</div>	
     <ul>
 		<li><a href="?page=formations">Flight Formations</a></li>
+		<!--
         <li><a href="?page=marineTeams">Marine Squad/Team Organization</a></li>
+		-->
         <li><a href="?page=operations">Organized Operations</a></li>
         <li><a href="?page=ranks">Ranks</a></li>
         <li><a href="?page=units">Unit Organizational Structure</a></li>
