@@ -19,6 +19,9 @@
 	$CategoryID = "";
 	$Image = "";
 	$IsActive = "";
+	$Level1Reqs = "";
+	$Level2Reqs = "";
+	$Level3Reqs = "";
 	
 	if(isset($_POST['ID']))
 	{
@@ -40,6 +43,18 @@
 	{
 		$IsActive = $_POST['IsActive'];
 	}
+	if (isset($_POST['Level1Reqs']))
+	{
+		$Level1Reqs = mysqli_real_escape_string($connection, $_POST['Level1Reqs']);
+	}
+	if (isset($_POST['Level2Reqs']))
+	{
+		$Level2Reqs = mysqli_real_escape_string($connection, $_POST['Level2Reqs']);
+	}
+	if (isset($_POST['Level3Reqs']))
+	{
+		$Level3Reqs = mysqli_real_escape_string($connection, $_POST['Level3Reqs']);
+	}
 	 
 	$q = "
 		UPDATE projectx_vvarsc2.qualifications set
@@ -47,6 +62,9 @@
 			,qualification_image = '$Image'
 			,qualification_categoryID = $CategoryID
 			,IsActive = $IsActive
+			,level1_reqs = '$Level1Reqs'
+			,level2_reqs = '$Level2Reqs'
+			,level3_reqs = '$Level3Reqs'
 		where qualification_id = $ID
 	";
 	

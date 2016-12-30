@@ -10,6 +10,9 @@
 			,q.qualification_categoryID
 			,lk.CategoryName as qualification_category
 			,q.IsActive
+			,q.level1_reqs
+			,q.level2_reqs
+			,q.level3_reqs
 		from projectx_vvarsc2.qualifications q
 		join projectx_vvarsc2.LK_QualificationCategories lk
 			on lk.CategoryID = q.qualification_categoryID
@@ -29,33 +32,140 @@
 		$qualCategory = $row['qualification_category'];
 		$qualImage = $row['qualification_image'];
 		$qualIsActive = $row['IsActive'];
+		$qualLevel1Reqs = $row['level1_reqs'];
+		$qualLevel2Reqs = $row['level2_reqs'];
+		$qualLevel3Reqs = $row['level3_reqs'];
+		
+		$qualLevel1ReqsDisplay = "";
+		$qualLevel2ReqsDisplay = "";
+		$qualLevel3ReqsDisplay = "";
+		
+		if ($qualLevel1Reqs == null || $qualLevel1Reqs == "")
+			$qualLevel1ReqsDisplay = "-- no requirements found --";
+		else
+			$qualLevel1ReqsDisplay = $qualLevel1Reqs;
+			
+		if ($qualLevel2Reqs == null || $qualLevel2Reqs == "")
+			$qualLevel2ReqsDisplay = "-- no requirements found --";
+		else
+			$qualLevel2ReqsDisplay = $qualLevel2Reqs;
+			
+		if ($qualLevel3Reqs == null || $qualLevel3Reqs == "")
+			$qualLevel3ReqsDisplay = "-- no requirements found --";
+		else
+			$qualLevel3ReqsDisplay = $qualLevel3Reqs;
 	
 		$displayQualifications .= "
-			<tr class=\"adminTableRow\">
-				<td class=\"adminTableRowTD qualID\" data-id=\"$qualID\">
-					$qualID
-				</td>
-				<td class=\"adminTableRowTD qualName\" data-name=\"$qualName\">
-					$qualName
-				</td>
-				<td class=\"adminTableRowTD qualCategory\" data-categoryid=\"$qualCategoryID\">
-					$qualCategory
-				</td>
-				<td class=\"adminTableRowTD qualImage\" data-imageurl=\"$qualImage\">
-					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"http://sc.vvarmachine.com/images/qualifications/$qualImage\" />
-				</td>
-				<td class=\"adminTableRowTD qualIsActive\" data-isactive=\"$qualIsActive\">
-					$qualIsActive
-				</td>
-				<td class=\"adminTableRowTD\">
-					<button class=\"adminButton adminButtonEdit\" title=\"Edit Qualification\">
+			<div class=\"table_header_block\">
+			</div>
+			<div class=\"yard_filters\" style=\"margin-bottom: 16px;\"
+				data-id=\"$qualID\"
+				data-name=\"$qualName\"
+				data-categoryid=\"$qualCategoryID\"
+				data-imageurl=\"$qualImage\"
+				data-isactive=\"$qualIsActive\"
+				data-levelonereqs=\"$qualLevel1Reqs\"
+				data-leveltworeqs=\"$qualLevel2Reqs\"
+				data-levelthreereqs=\"$qualLevel3Reqs\"
+			>
+				<div class=\"\" style=\"
+					float: right;
+					text-align: right;
+					margin-right: 8px;
+					width: 50%;					
+				\">
+					<button class=\"adminButton adminButtonEdit\" title=\"Edit Qualification\" style=\"
+						margin-left: 0px;
+						margin-right: 0px;
+					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
-					<button class=\"adminButton adminButtonDelete\" title=\"Delete Qualification\">
+					<button class=\"adminButton adminButtonDelete\" title=\"Delete Qualification\" style=\"
+						margin-left: 0px;
+						margin-right: 0px;
+					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
 					</button>
-				</td>
-			</tr>
+				</div>
+		";
+		
+		$displayQualifications .= "
+				<div class=\"player_qual_row_name\" style=\"
+					margin-top:8px;
+					padding-left:8px;
+				\">
+					$qualCategory
+					<br />
+					<strong>$qualName</strong>
+				</div>
+				<div class=\"shipDetails_ownerInfo_tableRow_inner\" style=\"
+					display: inline-block;
+					padding: 8px;
+				\">
+					<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
+						height: 38px;
+						width: 38px;
+						padding-left: 0px;
+						padding-right: 0px;
+					\">
+						<div class=\"corner corner-top-left\">
+						</div>
+						<div class=\"corner corner-top-right\">
+						</div>
+						<div class=\"corner corner-bottom-left\">
+						</div>
+						<div class=\"corner corner-bottom-right\">
+						</div>
+						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"http://sc.vvarmachine.com/images/qualifications/$qualImage\" />					
+					</div>
+				</div>
+				<h4 style=\"
+					padding: 0px 8px 0px 8px;
+					margin-left: 0;
+					font-size: 12pt;
+				\">
+					Requirements
+				</h4>
+				<div class=\"qual_reqs\" style=\"
+					padding-left: 12px;
+					font-size: 9pt;
+					font-style: italic;
+				\">
+					<div id=\"qual_reqs_entry-$qualID-level1\" class=\"qual_reqs_entry\">
+						<strong>Level 1</strong>
+						<p style=\"
+							font-size: 9pt;
+							font-style: italic;
+							color: #DDD;
+							margin-bottom: 4px;
+						\">
+							$qualLevel1ReqsDisplay
+						</p>
+					</div>
+					<div id=\"qual_reqs_entry-$qualID-level2\" class=\"qual_reqs_entry\">
+						<strong>Level 2</strong>
+						<p style=\"
+							font-size: 9pt;
+							font-style: italic;
+							color: #DDD;
+							margin-bottom: 4px;
+						\">
+							$qualLevel2ReqsDisplay
+						</p>
+					</div>
+					<div id=\"qual_reqs_entry-$qualID-level3\" class=\"qual_reqs_entry\">
+						<strong>Level 3</strong>
+						<p style=\"
+							font-size: 9pt;
+							font-style: italic;
+							color: #DDD;
+							margin-bottom: 4px;
+						\">
+							$qualLevel3ReqsDisplay
+						</p>
+					</div>
+				</div>
+			</div>
 		";
 	}
 ?>
@@ -91,8 +201,6 @@
 			var dialog = $('#dialog-form-create');
 			var $self = jQuery(this);
 			
-			var roleID = $('.adminTableRow').data("id");
-			
 			dialog.find('#Category').find('option').prop('selected',false);
 			dialog.find('#Category').find('#CategoryID-default').prop('selected',true);
 			
@@ -116,13 +224,15 @@
 			
 			var $self = jQuery(this);
 			
-			var qualID = $self.parent().parent().find('.adminTableRowTD.qualID').data("id");
-			var qualName = $self.parent().parent().find('.adminTableRowTD.qualName').data("name");
-			var qualImage = $self.parent().parent().find('.adminTableRowTD.qualImage').data("imageurl");
-			var qualCategoryID = $self.parent().parent().find('.adminTableRowTD.qualCategory').data("categoryid");
-			var isActive = $self.parent().parent().find('.adminTableRowTD.qualIsActive').data("isactive");
+			var qualID = $self.parent().parent().data("id");
+			var qualName = $self.parent().parent().data("name");
+			var qualImage = $self.parent().parent().data("imageurl");
+			var qualCategoryID = $self.parent().parent().data("categoryid");
+			var isActive = $self.parent().parent().data("isactive");
+			var level1reqs = $self.parent().parent().data("levelonereqs");
+			var level2reqs = $self.parent().parent().data("leveltworeqs");
+			var level3reqs = $self.parent().parent().data("levelthreereqs");
 
-			
 			dialog.find('#ID').val(qualID).text();
 			dialog.find('#Name').val(qualName).text();
 			dialog.find('#Image').val(qualImage).text();
@@ -132,6 +242,10 @@
 			
 			dialog.find('#IsActive').find('option').prop('selected',false);
 			dialog.find('#IsActive').find('#IsActive-' + isActive).prop('selected',true);
+			
+			dialog.find('#Level1Reqs').val(level1reqs).text();
+			dialog.find('#Level2Reqs').val(level2reqs).text();
+			dialog.find('#Level3Reqs').val(level3reqs).text();
 			
 			dialog.show();
 			overlay.show();
@@ -150,11 +264,11 @@
 			
 			var $self = jQuery(this);
 			
-			var qualID = $self.parent().parent().find('.adminTableRowTD.qualID').data("id");
-			var qualName = $self.parent().parent().find('.adminTableRowTD.qualName').data("name");
-			var qualImage = $self.parent().parent().find('.adminTableRowTD.qualImage').data("imageurl");
-			var qualCategoryID = $self.parent().parent().find('.adminTableRowTD.qualCategory').data("categoryid");
-			var isActive = $self.parent().parent().find('.adminTableRowTD.qualIsActive').data("isactive");
+			var qualID = $self.parent().parent().data("id");
+			var qualName = $self.parent().parent().data("name");
+			var qualImage = $self.parent().parent().data("imageurl");
+			var qualCategoryID = $self.parent().parent().data("categoryid");
+			var isActive = $self.parent().parent().data("isactive");
 
 			
 			dialog.find('#ID').val(qualID).text();
@@ -215,36 +329,29 @@
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<button id="adminCreateQual" class="adminButton adminButtonCreate" title="Add Qualifcation" style="
-			float: right;
 			margin-left: 0px;
-			margin-right: 2%;			
+			margin-right: 2%;
+			width: 100%;
+			text-align: right;
 		">
 			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
 			Add New Qualification
 		</button>
-		<table id="adminQualificationsTable" class="adminTable">
-			<tr class="adminTableHeaderRow">
-				<td class="adminTableHeaderRowTD">
-					ID
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Name
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Category
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Image
-				</td>
-				<td class="adminTableHeaderRowTD">
-					IsActive
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Actions
-				</td>
-			</tr>
-			<? echo $displayQualifications ?>
-		</table>
+		<div id="adminQualificationsTable" class="unit_description_container">
+			<div class="top-line">
+			</div>
+			<div class="corner4 corner-diag-blue-topLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-topRight">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomRight">
+			</div>
+			<div class="PayGradeDetails">
+				<? echo $displayQualifications ?>
+			</div>
+		</div>
 		
 		<!--Create Form-->
 		<div id="dialog-form-create" class="adminDialogFormContainer">
@@ -288,6 +395,22 @@
 							No
 						</option>
 					</select>
+					
+					<label for="Level1Reqs" class="adminDialogInputLabel">
+						Requirements: Level 1
+					</label>
+					<textarea name="Level1Reqs" id="Level1Reqs" class="adminDialogTextArea"></textarea>
+					
+					<label for="Level2Reqs" class="adminDialogInputLabel">
+						Requirements: Level 2
+					</label>
+					<textarea name="Level2Reqs" id="Level2Reqs" class="adminDialogTextArea"></textarea>
+					
+					<label for="Level3Reqs" class="adminDialogInputLabel">
+						Requirements: Level 3
+					</label>
+					<textarea name="Level3Reqs" id="Level3Reqs" class="adminDialogTextArea"></textarea>
+					
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
@@ -342,6 +465,21 @@
 							No
 						</option>
 					</select>
+					
+					<label for="Level1Reqs" class="adminDialogInputLabel">
+						Requirements: Level 1
+					</label>
+					<textarea name="Level1Reqs" id="Level1Reqs" class="adminDialogTextArea"></textarea>
+					
+					<label for="Level2Reqs" class="adminDialogInputLabel">
+						Requirements: Level 2
+					</label>
+					<textarea name="Level2Reqs" id="Level2Reqs" class="adminDialogTextArea"></textarea>
+					
+					<label for="Level3Reqs" class="adminDialogInputLabel">
+						Requirements: Level 3
+					</label>
+					<textarea name="Level3Reqs" id="Level3Reqs" class="adminDialogTextArea"></textarea>
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">

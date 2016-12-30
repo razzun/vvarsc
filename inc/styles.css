@@ -707,6 +707,7 @@ table.tbmem a:hover {
 	padding-left: 4px;
 	width: 100%;
 	font-style: italic;
+	font-size: 8pt;
 }
 
 .player_qual_row_name strong{
@@ -2397,6 +2398,12 @@ img.fleet:after {
 	text-align: left;
 	background-color: rgba(0, 0, 0, 0.65);
 	padding-bottom: 2px;
+}
+
+.yard_filters .qual_reqs .qual_reqs_entry strong {
+	font-style: normal;
+	font-size: 10pt;
+	color: #FFF;
 }
 
 .yard_main {

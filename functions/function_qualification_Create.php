@@ -18,6 +18,9 @@
 	$CategoryID = "";
 	$Image = "";
 	$IsActive = "";
+	$Level1Reqs = "";
+	$Level2Reqs = "";
+	$Level3Reqs = "";
 	 
 	if(isset($_POST['Name']))
 	{
@@ -35,18 +38,36 @@
 	{
 		$IsActive = $_POST['IsActive'];
 	}
+	if (isset($_POST['Level1Reqs']))
+	{
+		$Level1Reqs = mysqli_real_escape_string($connection, $_POST['Level1Reqs']);
+	}
+	if (isset($_POST['Level2Reqs']))
+	{
+		$Level2Reqs = mysqli_real_escape_string($connection, $_POST['Level2Reqs']);
+	}
+	if (isset($_POST['Level3Reqs']))
+	{
+		$Level3Reqs = mysqli_real_escape_string($connection, $_POST['Level3Reqs']);
+	}
 	 
 	$q = "INSERT into projectx_vvarsc2.qualifications (
 			qualification_name
 			,qualification_categoryID
 			,qualification_image
 			,IsActive
+			,level1_reqs
+			,level2_reqs
+			,level3_reqs
 		)
 		VALUES (
 			'$Name'
 			,$CategoryID
 			,'$Image'
 			,$IsActive
+			,'$Level1Reqs'
+			,'$Level2Reqs'
+			,'$Level3Reqs'
 		)
 	";
 	
