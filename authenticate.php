@@ -6,7 +6,7 @@
 
 	$username = "";
 	$password = "";
-	 
+		 
 	if (isset($_POST['username']))
 	{
 		$username = $_POST['username'];
@@ -57,7 +57,7 @@
 			session_write_close();
 			
 			//print_r($_SESSION);
-			if(isset($reqURL))
+			if(isset($_POST['url']))
 			{
 				header("Location: http://sc.vvarmachine.com".$reqURL);
 			}
