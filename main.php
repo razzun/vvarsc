@@ -26,7 +26,7 @@
 			Use the menu options above to navigate this site to find out information about our Star Citizen Division.
 		</p>
 		<p>
-			If you have questions or other issues please contact one of our Generals or Senior Officers on our <a href="https://discord.vvarmachine.com" target="_blank">Discord server</a>.
+			If you have questions or other issues please contact one of our Generals or Senior Officers on our <a href="http://discord.vvarmachine.com" target="_blank">Discord server</a>.
 		</p>
 		<p>
 			Thanks,
