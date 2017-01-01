@@ -17,16 +17,16 @@
 			<? echo $welcomeText; ?>
 		</p>		
 		<p>
-			This website is designed to give VVarMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVarMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>
+			This website is designed to give VVarMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVarMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>.
 		</p>
 		<p>
-			You can also visit our Star Citizen partners (AMP) at <a href="http://ampalliance.net" target="_blank">http://ampalliance.net</a> or their RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/AMP" target="_blank">https://robertsspaceindustries.com/orgs/AMP</a>
+			VVarMachine is proudly aligned with Cognition Corp, Interstellar Logistics & Transport Service and the Auraxis Military Pact organizations.
 		</p>	
 		<p>
 			Use the menu options above to navigate this site to find out information about our Star Citizen Division.
 		</p>
 		<p>
-			If you have technical issues please email us at webmaster [at] vvarmachine.com.
+			If you have questions or other issues please contact one of our Generals or Senior Officers on our <a href="https://discord.vvarmachine.com" target="_blank">Discord server</a>.
 		</p>
 		<p>
 			Thanks,
