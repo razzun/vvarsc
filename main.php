@@ -1,16 +1,29 @@
-<h2>VVARMachine Star Citizen Division Home</h2>
+<?
+	if(isset($userID))
+	{
+		$welcomeText = 'Welcome back ' . $userName . '!';
+	}else
+	{
+		$welcomeText = 'Most areas of the site are secure, please <a href=\login.php>login</a> to view them.';
+	}
+?>
+
+<h2>VVarMachine Star Citizen Division Home</h2>
 <div id="TEXT">
 
 	<div id="HomePage_MainContainer">
 		<img height="125" width="125" class="TextWrapLeft" src="http://sc.vvarmachine.com/images/sc_logo_sm.png">
 		<p>
-			This website is designed to give VVARMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVARMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>
+			<? echo $welcomeText; ?>
+		</p>		
+		<p>
+			This website is designed to give VVarMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVarMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>
 		</p>
 		<p>
 			You can also visit our Star Citizen partners (AMP) at <a href="http://ampalliance.net" target="_blank">http://ampalliance.net</a> or their RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/AMP" target="_blank">https://robertsspaceindustries.com/orgs/AMP</a>
-		</p>
+		</p>	
 		<p>
-			Use the menu options above to navigate this site to find out information about our Star Citizen Division. Only ech0whiskey and Razzun currently have the ability to update the information on this site. Please use the main website to contact one of them.
+			Use the menu options above to navigate this site to find out information about our Star Citizen Division.
 		</p>
 		<p>
 			If you have technical issues please email us at webmaster [at] vvarmachine.com.
@@ -18,8 +31,7 @@
 		<p>
 			Thanks,
 			<br />
-			VVARMachine Officers
+			VVarMachine Officers
 		</p>
 	</div>
-	
 </div>
