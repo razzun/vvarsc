@@ -15,6 +15,7 @@
 	session_start();
 
 	$ID = "";
+	$VVarID = "";
 	$Name = "";
 	$Callsign = "";
 	$Division = "";
@@ -24,6 +25,10 @@
 	if(isset($_POST['ID']))
 	{
 		$ID = $_POST['ID'];
+	}
+	if (isset($_POST['VVarID']))
+	{
+		$VVarID = mysqli_real_escape_string($connection, $_POST['VVarID']);
 	}
 	if(isset($_POST['Name']))
 	{
@@ -52,6 +57,7 @@
 			,divisions_div_id = '$Division'
 			,membership_type = '$MembershipType'
 			,InfoSecLevelID = '$InfoSecLevel'
+			,vvar_id = '$VVarID'
 		where mem_id = '$ID'
 	";
 

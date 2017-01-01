@@ -1,4 +1,4 @@
-<?php include_once('functions/function_auth_admin.php'); ?>
+<?php include_once('../functions/function_auth_admin.php'); ?>
 
 <?php 
 	$members_query = "
@@ -16,6 +16,7 @@
 			,lk1.InfoSecLevelID
 			,lk1.InfoSecLevelName
 			,lk1.InfoSecLevelShortName
+			,m.vvar_id
 		from projectx_vvarsc2.members m
 		left join projectx_vvarsc2.ranks r
 			on r.rank_id = m.ranks_rank_id
@@ -34,6 +35,7 @@
 	while(($row = $members_query_results->fetch_assoc()) != false)
 	{
 		$memID = $row['mem_id'];
+		$memVVarID = $row['vvar_id'];
 		$memName = $row['mem_name'];
 		$memCallsign = $row['mem_callsign'];
 		$memRankID = $row['rank_id'];
@@ -62,6 +64,9 @@
 			<tr class=\"adminTableRow\">
 				<td class=\"adminTableRowTD memID\" data-id=\"$memID\">
 					$memID					
+				</td>
+				<td class=\"adminTableRowTD vvarID\" data-vvarid=\"$memVVarID\">
+					$memVVarID					
 				</td>
 				<td class=\"adminTableRowTD memCallsign\" data-callsign=\"$memCallsign\">
 					<a href=\"../player/$memID\" target=\"_blank\">
@@ -209,6 +214,7 @@
 			var $self = jQuery(this);
 			
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
+			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
@@ -216,6 +222,7 @@
 			var memInfoSecLevelInfo = $self.parent().parent().find('.adminTableRowTD.infoSecLevel').data("infoseclevel");
 			
 			dialog.find('#ID').val(memID).text();
+			dialog.find('#VVarID').val(vvarID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
 			
@@ -245,6 +252,7 @@
 			var $self = jQuery(this);
 			
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
+			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
@@ -252,6 +260,7 @@
 			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
 			
 			dialog.find('#ID').val(memID).text();
+			dialog.find('#VVarID').val(vvarID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
 			
@@ -323,6 +332,9 @@
 	<div class="div_filters_entry">
 		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
 	</div>
+	<div class="div_filters_entry">
+		<a href="http://sc.vvarmachine.com/admin/?page=admin_mem_sync">Sync Members from Main Website</a>
+	</div>
 </div>
 <h2 id="MainPageHeaderText">Member Management</h2>
 <div id="TEXT">
@@ -339,6 +351,9 @@
 			<tr class="adminTableHeaderRow">
 				<td class="adminTableHeaderRowTD">
 					ID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					VVarID
 				</td>
 				<td class="adminTableHeaderRowTD">
 					RSI Handle
@@ -371,9 +386,14 @@
 				Cancel
 			</button>
 			<p class="validateTips">Enter new Member Information Below.</p>
-			<p class="validateTips">All Fields are Required.</p>
+			<p class="validateTips">NOTE: This is creating a member outside of the normal "sync" process between the two sites. If this member is subsequently registered on the main site, their VVarID will have to be updated on here.</p>
 			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
+					<label for="VVarID" class="adminDialogInputLabel">
+						VVarMachine ID (from Main Website)
+					</label>
+					<input type="text" name="VVarID" id="VVarID" value="" class="adminDialogTextInput">
+					
 					<label for="Name" class="adminDialogInputLabel">
 						Name
 					</label>
@@ -457,6 +477,11 @@
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
 					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					
+					<label for="VVarID" class="adminDialogInputLabel">
+						VVarMachine ID (from Main Website)
+					</label>
+					<input type="text" name="VVarID" id="VVarID" value="" class="adminDialogTextInput">
 					
 					<label for="Name" class="adminDialogInputLabel">
 						Name

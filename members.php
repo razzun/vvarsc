@@ -96,8 +96,7 @@
 ?>
 
   <h2>Star Citizen Fleet Roster</h2>
-  <div id="TEXT">    
-    <!--<a href="$_">All</a> | Command | Economy | Military-->
+  <div id="TEXT">
 	<table class="tbmem" id="sourceHeader">
 	   <thead>
     		<tr class="clickableRow_headerRow">

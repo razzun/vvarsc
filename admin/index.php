@@ -42,6 +42,10 @@
 									case "admin_mem":
 										$content = "admin_mem.php";
 										break;
+										
+									case "admin_mem_sync":
+										$content = "admin_mem_sync.php";
+										break;
 								
 									case "admin_playerShips":
 										$content = "admin_playerShips.php";

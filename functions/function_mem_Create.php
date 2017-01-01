@@ -14,13 +14,18 @@
 	
 	session_start();
 
+	$VVarID = "";
 	$Name = "";
 	$Callsign = "";
 	$Rank = "";
 	$Division = "";
 	$MembershipType = "";
 	$InfoSecLevel = "";
-	 
+	
+	if (isset($_POST['VVarID']))
+	{
+		$VVarID = mysqli_real_escape_string($connection, $_POST['VVarID']);
+	}
 	if(isset($_POST['Name']))
 	{
 		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
@@ -60,6 +65,7 @@
 				,membership_type
 				,InfoSecLevelID
 				,RankModifiedOn
+				,vvar_id
 			)
 			VALUES(
 				'$Name'
@@ -75,6 +81,7 @@
 				,'$MembershipType'
 				,'$InfoSecLevel'
 				,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+				,'$VVarID'
 			)";
 
 	$query_result = $connection->query($q);

@@ -3083,6 +3083,7 @@ img.fleet:after {
 	cursor: pointer;
 	font-style: italic;
 	font-variant: all-petite-caps;
+	vertical-align: middle;
 }
 
 .div_filters_selected
@@ -3698,6 +3699,7 @@ img.fleet:after {
 	padding-left: 8px;
 	padding-bottom: 2px;
 	padding-top: 2px;
+	vertical-align: middle;
 }
 
 .unitHierarchyHeader_textContainer {
@@ -4024,6 +4026,7 @@ img.fleet:after {
 	padding: 4px;
 	box-shadow: 0px 0px 20px #286E80;
 	max-height: 70vh;
+	max-width: 90%;
 	overflow-y: scroll;	
 }
 

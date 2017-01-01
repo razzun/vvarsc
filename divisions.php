@@ -98,7 +98,7 @@
 	$display_selectors = "";
 	
 	if ($div_id == 0) {
-		$master_div_name = "All Members";
+		$master_div_name = "Division View - All Members";
 		$display_selectors .= "
 			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry\">
@@ -108,20 +108,17 @@
 					<a href=\"/divisions/2\">Economy</a>
 				</div>
 				<div class=\"div_filters_entry div_filters_selected\">
-					<a href=\"/divisions/0\">All</a>
+					<a href=\"/divisions/0\">All Members</a>
 				</div>
-			</div>
-			<br />
-			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry\">
-					<a href=\"/units\">Unit Organization Chart</a>
+					<a href=\"/members\">List View</a>
 				</div>
 			</div>
 		";
 	}
 	
 	if ($div_id == 2) {
-		$master_div_name = "Economy Division";
+		$master_div_name = "Division View - Economy";
 		$display_selectors .= "
 			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry\">
@@ -131,20 +128,17 @@
 					<a href=\"/divisions/2\">Economy</a>
 				</div>
 				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/0\">All</a>
+					<a href=\"/divisions/0\">All Members</a>
 				</div>
-			</div>
-			<br />
-			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry\">
-					<a href=\"/units\">Unit Organization Chart</a>
+					<a href=\"/members\">List View</a>
 				</div>
 			</div>
 		";
 	}
 
 	if ($div_id == 3) {
-		$master_div_name = "Military Division";
+		$master_div_name = "Division View - Military";
 		$display_selectors .= "
 			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry div_filters_selected\">
@@ -154,13 +148,10 @@
 					<a href=\"/divisions/2\">Economy</a>
 				</div>
 				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/0\">All</a>
+					<a href=\"/divisions/0\">All Members</a>
 				</div>
-			</div>
-			<br />
-			<div class=\"div_filters_container\">
 				<div class=\"div_filters_entry\">
-					<a href=\"/units\">Unit Organization Chart</a>
+					<a href=\"/members\">List View</a>
 				</div>
 			</div>
 		";
@@ -319,7 +310,7 @@
 ?>
 
 <h2>
-	Star Citizen Fleet Divisions
+	Star Citizen Fleet Roster
 </h2>
 <br />
 <? echo $display_selectors; ?>
