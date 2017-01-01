@@ -92,37 +92,62 @@
 	$row = $ship_count_results->fetch_assoc();
 	$ship_count = $row['ship_count'];
 	
+	$display_selectors = "
+		<div class=\"div_filters_container\">
+			<div class=\"div_filters_entry\">
+				<a href=\"/divisions/0\">Division View - All Members</a>
+			</div>
+			<div class=\"div_filters_entry div_filters_selected\">
+				<a href=\"/members\">List View</a>
+			</div>
+		</div>
+	";	
+	
 	$connection->close();
 ?>
 
-  <h2>Star Citizen Fleet Roster</h2>
-  <div id="TEXT">
-	<table class="tbmem" id="sourceHeader">
-	   <thead>
-    		<tr class="clickableRow_headerRow">
-    			<th class="clickableRow_header_memName">RSI Handle</th>
-				<th class="clickableRow_header_memCallsign">VVAR PlayerName</th>
-    			<th class="clickableRow_header_memRank">Rank</th>
-				<th class="clickableRow_header_divInfo">Division</th>
-    			<th class="clickableRow_header_memRole">Role</th>
-    			<th class="clickableRow_header_memShips">Ships Owned</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-		  <? echo "$display_members" ?>
-		</tbody>
-		<tfoot>
-    		<tr>
-    			<th valign="top" align="left" nowrap style="padding-left: 8px;">Total Members: <? echo "$mem_count" ?></th>
-    		</tr>
-			<tr>
-    			<th valign="top" align="left" nowrap style="padding-left: 8px;">Total Ships: <? echo "$ship_count" ?></th>
-			</tr>
-		</tfoot>
-	</table>		
-  </div>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script>
+<h2>Star Citizen Fleet Roster</h2>
+<br />
+<? echo $display_selectors; ?>
+<div id="TEXT">
+	<div class="divinfo_container">
+		<h3>
+			List View
+		</h3>
+		<div class="table_header_block">
+		</div>
+		<table class="divinfo" id="sourceHeader" style="
+			border-spacing: 0px 4px;
+			padding-top: 0px;
+		">
+			<thead>
+				<tr class="clickableRow_headerRow">
+					<th class="clickableRow_header_memName">RSI Handle</th>
+					<th class="clickableRow_header_memCallsign">VVAR PlayerName</th>
+					<th class="clickableRow_header_memRank">Rank</th>
+					<th class="clickableRow_header_divInfo">Division</th>
+					<th class="clickableRow_header_memRole">Role</th>
+					<th class="clickableRow_header_memShips">Ships Owned</th>
+				</tr>
+			</thead>
+			<tbody>
+			  <? echo "$display_members" ?>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th valign="top" align="left" nowrap style="padding-left: 8px;">Total Members: <? echo "$mem_count" ?></th>
+				</tr>
+				<tr>
+					<th valign="top" align="left" nowrap style="padding-left: 8px;">Total Ships: <? echo "$ship_count" ?></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
+ 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+<script>
   jQuery(document).ready(function($) {
       $(".clickableRow").click(function() {
             window.document.location = $(this).data("url");
