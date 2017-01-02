@@ -343,11 +343,12 @@
 
 		$display_details .= "
 		<div class=\"play\" style=\"width: 100%\">				
-			<div class=\"pavatar\" height=\"200\" width=\"200\" style=\"
+			<div class=\"pavatar\" style=\"
 				padding-top: 8px;
 				padding-bottom: 8px;
 				padding-right: 8px;
-				padding-left: 32px
+				padding-left: 32px;
+				width: 240px;
 			\">
 				<img src=\"$unitEmblemImage\" height=\"200px\" width=\"200px\" />
 			</div>

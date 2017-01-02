@@ -311,6 +311,7 @@
 					when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 					else u.UnitFullName
 				end as UnitName
+				,u.UnitEmblemImage
 			FROM projectx_vvarsc2.members
 			JOIN projectx_vvarsc2.ranks
 				ON members.ranks_rank_id = ranks.rank_id
@@ -335,6 +336,12 @@
     		$role_name = $row['role_name'];
 			$UnitID = $row['UnitID'];
 			$UnitName = $row['UnitName'];
+			$UnitEmblemImage = $row['UnitEmblemImage'];
+			
+			if ($UnitEmblemImage == null || $UnitEmblemImage == '')
+			{
+				$UnitEmblemImage = 'http://vvarmachine.com/uploads/galleries/03KgFv0_med.png';
+			}			
 			
 			if ($role_name == NULL || $role_name == "n/a") {
 				$full_role_name = "- No Assigned Role -";
@@ -343,9 +350,7 @@
 			{
 				if ($UnitName != NULL)
 				{
-					$role_name .= " - ";
-					$role_name .= $UnitName;
-					$full_role_name = "<a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $role_name </a>";
+					$full_role_name .= "$role_name<br /><a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $UnitName </a>";
 				}
 				else
 				{
@@ -362,9 +367,31 @@
 			}
 			
 			$displayRoles .= "
-				$full_role_name <br />
+				<div class =\"p_rank_role_name\" style=\"
+					display:table-cell;
+					vertical-align:middle;
+					text-align:right;
+				\">			
+					$full_role_name
+				</div>
+				<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
+					height: 38px;
+					width: 38px;
+					padding-left: 0px;
+					padding-right: 0px;
+				\">
+					<div class=\"corner corner-top-left\">
+					</div>
+					<div class=\"corner corner-top-right\">
+					</div>
+					<div class=\"corner corner-bottom-left\">
+					</div>
+					<div class=\"corner corner-bottom-right\">
+					</div>
+					<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"$UnitEmblemImage\" />
+				</div>				
 			";
-		}
+		}	
 		
 		//QUALIFICATIONS
 		$qualification_query = "
@@ -427,7 +454,7 @@
 					data-level=$qual_level_id
 					data-category=$qual_categoryID
 				>
-					<td class=\"player_qual_row_name\">$qual_category <br /><strong>$qual_name</strong></td>
+					<td class=\"player_qual_row_name\">$qual_category<br /><strong>$qual_name</strong></td>
 					<td class=\"player_qual_row_image_container\">
 						<img class=\"$imageClassName1\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
 					</td>
@@ -690,175 +717,147 @@
 		<div class="table_header_block">
 		</div>
 		<div class="play">
-			<div class="pavatar">
-				<div class="pavatar_image_container">
-					<div class="corner corner-top-left">
+			<!--Row1-->
+			<div class="play_row" style="
+				border-top: none;
+				margin-top: 0px;
+			">
+				<div class="pavatar">
+					<div class="p_section_header" style="
+						position: absolute;
+						top: 0px;
+						width: 100%;
+						padding-left: 0px;
+					">
+						Citizen Dossier - <? echo $mem_callsign; ?>
 					</div>
-					<div class="corner corner-top-right">
+					<div class="pavatar_image_container">
+						<div class="corner corner-top-left">
+						</div>
+						<div class="corner corner-top-right">
+						</div>
+						<div class="corner corner-bottom-left">
+						</div>
+						<div class="corner corner-bottom-right">
+						</div>
+						<img height="200" width="200" alt="<? echo $mem_name; ?>" src="http://sc.vvarmachine.com/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
 					</div>
-					<div class="corner corner-bottom-left">
+					
+					<div class="p_info" valign="top" align="left">
+						<!--Rank-->
+						<div id="p_rank_container">
+							<div class="partialBorder-left-blue border-left border-top border-4px">
+							</div>			
+							<div class="partialBorder-right-blue border-right border-top border-4px">
+							</div>
+							<div id="p_rank_outer">
+								<div class="p_rankDetails">
+									<div class ="p_rankname">
+										<? echo $rank_groupName; ?>
+									</div>
+									<!--
+									<div class ="p_rank_role_name">
+										<? echo $displayRoles; ?>
+									</div>
+									-->
+								</div>
+								<div id="p_rank" align="left" valign="top">		
+									<div class="p_rankimage_container">
+										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
+									</div>
+									<div class= "p_rankExtendedData">
+										<span class="p_rankExtendedData_rank_level">
+											<? echo $rank_level; ?>
+										</span>
+										<br />
+										<span class="p_rankExtendedData_rank_name">
+											<? echo $rank_name; ?>
+										</span>
+										<br />
+										<span class="p_rankExtendedData_rank_date">
+											Grade Assigned: <? echo $rankModifiedOn; ?>
+										</span>
+									</div>
+								</div>
+								<div class="p_rankDetails">
+									<? echo $displayRoles ?>
+								</div>
+							</div>
+							<div class="partialBorder-right-blue border-right border-bottom border-4px">
+							</div>	
+							<div class="partialBorder-left-blue border-left border-bottom border-4px">
+							</div>	
+						</div>					
+
+					</div>					
+				</div>
+				
+				<div class="pbio">
+					<!--Member Info-->
+					<h4 style="padding-left: 0px; margin-left: 8px; padding-bottom:0px;">
+						General Info & Statistics
+					</h4>
+					<div class="p_details_container">
+						<div class="player_qual_row_name">
+							VVAR Player Name: <strong><? echo $mem_name; ?></strong>
+						</div>
+						<div class="player_qual_row_name">
+							Player ID: <strong><? echo $temp_player_id; ?></strong>
+						</div>
+						<div class="player_qual_row_name">
+							Enlisted: <strong><? echo $mem_createdOn; ?></strong>
+						</div>
+						<div class="player_qual_row_name">
+							Callsign / RSI Handle: <strong><a href="https://robertsspaceindustries.com/citizens/<? echo $mem_callsign; ?>" target="_blank"><? echo $mem_callsign; ?></a></strong>
+						</div>
+						<div class="player_qual_row_name">
+							Membership Type: <strong><? echo $displayMembershipType; ?></strong>
+						</div>
+						<div class="player_qual_row_name" style="margin-bottom: 4px;">
+							Ships Owned: <strong><? echo $ship_count; ?></strong>
+						</div>
+						<div id="p_rank_stats">
+							<div class="p_stats" valign="top" align="left" style="margin-right:0px;">
+								<? echo $display_playerStats; ?>
+							</div>						
+						</div>
+					</div>	
+					
+					<!--BIOGRAPHY-->
+					<h4 style="padding-left: 0px; margin-left: 8px">
+						Member Biography
+					</h4>
+					<div class="unit_description_container" style="
+						margin-bottom: 2px;
+						margin-left: 8px;
+						margin-right: 8px;
+					">
+						<div class="top-line">
+						</div>
+						<div class="corner4 corner-diag-blue-topLeft">
+						</div>
+						<div class="corner4 corner-diag-blue-topRight">
+						</div>
+						<div class="corner4 corner-diag-blue-bottomLeft">
+						</div>
+						<div class="corner4 corner-diag-blue-bottomRight">
+						</div>
+						<? echo nl2br($DisplayMemberBio) ?>
 					</div>
-					<div class="corner corner-bottom-right">
-					</div>
-					<img height="200" width="200" alt="<? echo $mem_name; ?>" src="http://sc.vvarmachine.com/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
 				</div>
 			</div>
-			<div class="p_info" valign="top" align="left">
-				<div class="p_section_header">
-					Citizen Dossier - <? echo $mem_callsign; ?>
-				</div>
-				<div id="p_rank_container">
-					<div class="partialBorder-left-blue border-left border-top border-4px">
-					</div>			
-					<div class="partialBorder-right-blue border-right border-top border-4px">
-					</div>
-					<div id="p_rank_outer">
-						<div id="p_rank" align="left" valign="top">		
-							<div class = "p_rankimage_container">
-								<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
-							</div>
-							<div class = "p_rankExtendedData">
-								<span class="p_rankExtendedData_rank_level">
-									<? echo $rank_level; ?> &nbsp;
-								</span>
-								<span class="p_rankExtendedData_rank_name">
-									<? echo $rank_name; ?>
-								</span>
-								<br />
-								<span class="p_rankExtendedData_rank_date">
-									Grade Assigned: <? echo $rankModifiedOn; ?>
-								</span>
-							</div>
-						</div>
-						<div id = "p_rankDetails">
-							<div class ="p_rankname">
-								<? echo $rank_groupName; ?>
-							</div>
-							<div class ="p_rank_role_name">
-								<? echo $displayRoles; ?>
-							</div>
-						</div>
-					</div>
-					<div id="p_rank_stats">
-						<div class="p_stats" valign="top" align="left" style="margin-right:0px;">
-							<? echo $display_playerStats; ?>
-						</div>						
-					</div>
-					<div class="partialBorder-right-blue border-right border-bottom border-4px">
-					</div>	
-					<div class="partialBorder-left-blue border-left border-bottom border-4px">
-					</div>	
-				</div>
-				<div class="p_details_container">
-					<table class="p_details">
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Player ID
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $temp_player_id; ?>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								VVAR Player Name
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $mem_name; ?>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								CallSign / RSI Handle
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<a href="https://robertsspaceindustries.com/citizens/<? echo $mem_callsign; ?>" target="_blank"><? echo $mem_callsign; ?></a>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Enlisted
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $mem_createdOn; ?>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Membership Type
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $displayMembershipType; ?>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Ship Count
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								<? echo $ship_count; ?>
-								</div>
-							</td>
-						</tr>
-						<!--
-						<tr>
-							<td class="members_detailsTable_key">
-								<div class="members_detailsTable_key_inner">
-								Personal Fleet Value
-								</div>
-							</td>
-							<td class="members_detailsTable_value">
-								<div class="members_detailsTable_value_inner">
-								$<? echo $total_ship_value; ?>
-								</div>
-							</td>
-						</tr>
-						-->
-					</table>
-				</div>
+			
+			<!--Row2-->
+			<!--
+			<div class="play_row">
+				<h4 style="padding-left: 0px; margin-left: 8px">
+					Rank & Role Info
+				</h4>
+				
 			</div>
+			-->
 		</div>
 		
-		<!--BIOGRAPHY-->
-		<h4 style="padding-left: 0px; margin-left: 0px">
-			Member Biography
-		</h4>
-		<div class="unit_description_container" style="margin-bottom: 16px">
-			<div class="top-line">
-			</div>
-			<div class="corner4 corner-diag-blue-topLeft">
-			</div>
-			<div class="corner4 corner-diag-blue-topRight">
-			</div>
-			<div class="corner4 corner-diag-blue-bottomLeft">
-			</div>
-			<div class="corner4 corner-diag-blue-bottomRight">
-			</div>
-			<? echo nl2br($DisplayMemberBio) ?>
-		</div>
 
 		<!--QUALIFICATIONS-->
 		<h4 style="padding-left: 0px; margin-left: 0px">
