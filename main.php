@@ -4,7 +4,7 @@
 		$welcomeText = 'Welcome back ' . $userName . '!';
 	}else
 	{
-		$welcomeText = 'Most areas of the site are secure, please <a href=\login.php>login</a> to view them.';
+		$welcomeText = 'Most areas of the site are secure, please <a href=/login.php>login</a> to view them.';
 	}
 ?>
 

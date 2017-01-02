@@ -631,7 +631,8 @@ table.tbmem a:hover {
 	text-align: center;
 	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
 	background-repeat: repeat-y;
-	background-position: left center;	
+	background-position: left center;
+	width: 320px;
 }
 
 .pavatar_image_container {
@@ -655,7 +656,6 @@ table.tbmem a:hover {
 	display: table-cell;
 	vertical-align: middle;
 	border-right: 1px solid rgba(0, 153, 170, 0.4);
-	width: 70%;
 }
 
 /* -----------------------------------------------*/
@@ -747,11 +747,14 @@ table.tbmem a:hover {
 	position: relative;
 	padding-top: 4px;
 	padding-bottom: 4px;
+	padding-left: 4px;
+	padding-right: 4px;	
+	width: fit-content;
+	width: -moz-fit-content;
 }
 
 #p_rank_outer {
 	display: table-cell;
-	width: 50%;
 	border-right: 1px solid #666;
 }
 
@@ -985,13 +988,13 @@ table.tbmem a:hover {
 }
 
 .player_shipsTable_Container {
-	width: 90%;
+	width: 100%;
 	margin: auto;
 }
 
 .player_topTable_Container {
 	margin: auto;
-	width: 80%;
+	width: 95%;
 }
 
 .player_ships_entry {
