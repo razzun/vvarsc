@@ -817,9 +817,7 @@
 							Ships Owned: <strong><? echo $ship_count; ?></strong>
 						</div>
 						<div id="p_rank_stats">
-							<div class="p_stats" valign="top" align="left" style="margin-right:0px;">
-								<? echo $display_playerStats; ?>
-							</div>						
+							<? echo $display_playerStats; ?>				
 						</div>
 					</div>	
 					
