@@ -100,6 +100,9 @@
 					$infoSecLevelShortName
 				</td>
 				<td class=\"adminTableRowTD\">
+					<button class=\"adminButton adminButtonPassReset\" title=\"Reset Member Password\" style=\"margin-right: 0px;\">PassReset</button>
+				</td>
+				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\" style=\"margin-right: 0px;\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
 					</button>
@@ -274,6 +277,35 @@
 			});
 		});
 		
+		//PassReset
+		$('.adminButton.adminButtonPassReset').click(function() {
+			var dialog = $('#dialog-form-passreset');
+			
+			var $self = jQuery(this);
+			
+			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
+			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
+			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
+			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
+			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
+			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
+			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
+			
+			dialog.find('#ID').val(memID).text();
+			dialog.find('#VVarID').val(vvarID).text();
+			dialog.find('#Name').val(memName).text();
+			dialog.find('#Callsign').val(memCallsign).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTable').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+		});
+		
 		//Edit Rank
 		$('.adminButton.adminButtonEditRank').click(function() {
 			var dialog = $('#dialog-form-editRank');
@@ -372,6 +404,9 @@
 				</td>
 				<td class="adminTableHeaderRowTD">
 					InfoSEC
+				</td>
+				<td class="adminTableHeaderRowTD">
+					PassReset
 				</td>
 				<td class="adminTableHeaderRowTD">
 					Actions
@@ -609,5 +644,37 @@
 				</div>
 			</form>
 		</div>
+		
+		<!--Password Reset Form-->
+		<div id="dialog-form-passreset" class="adminDialogFormContainer">
+			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+				Cancel
+			</button>
+			<p class="validateTips">Confirmation Required!</p>
+			<p class="validateTips">Are you sure you want to reset this Member's Password? Bad Things Could Happen!</p>
+			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_pass.php" method="POST" role="form">
+				<fieldset class="adminDiaglogFormFieldset">
+					<label for="ID" class="adminDialogInputLabel" style="display: none">
+					</label>
+					<input type="none" name="ID" id="ID" value="" class="adminDialogTextInput" style="display: none" readonly>
+					
+					<label for="Name" class="adminDialogInputLabel">
+						Name
+					</label>
+					<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" readonly>
+					
+					<label for="Callsign" class="adminDialogInputLabel">
+						Callsign (RSI Handle)
+					</label>
+					<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" readonly>
+				</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Confirm Password Reset
+					</button>
+				</div>
+			</form>
+		</div>
+		
 	</div>
 </div>
