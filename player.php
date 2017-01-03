@@ -350,7 +350,7 @@
 			{
 				if ($UnitName != NULL)
 				{
-					$full_role_name .= "$role_name<br /><a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $UnitName </a>";
+					$full_role_name = "$role_name<br /><a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $UnitName </a>";
 				}
 				else
 				{
@@ -368,27 +368,30 @@
 			
 			$displayRoles .= "
 				<div class =\"p_rank_role_name\" style=\"
-					display:table-cell;
-					vertical-align:middle;
-					text-align:right;
-				\">			
-					$full_role_name
-				</div>
-				<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
-					height: 38px;
-					width: 38px;
-					padding-left: 0px;
-					padding-right: 0px;
+					display: inline-table;
+					vertical-align: middle;
+					text-align: right;
+					width: 100%;
 				\">
-					<div class=\"corner corner-top-left\">
+					<div class=\"p_rank_role_text\">
+						$full_role_name
 					</div>
-					<div class=\"corner corner-top-right\">
-					</div>
-					<div class=\"corner corner-bottom-left\">
-					</div>
-					<div class=\"corner corner-bottom-right\">
-					</div>
-					<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"$UnitEmblemImage\" />
+					<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
+						height: 38px;
+						width: 38px;
+						padding-left: 0px;
+						padding-right: 0px;
+					\">
+						<div class=\"corner corner-top-left\">
+						</div>
+						<div class=\"corner corner-top-right\">
+						</div>
+						<div class=\"corner corner-bottom-left\">
+						</div>
+						<div class=\"corner corner-bottom-right\">
+						</div>
+						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"$UnitEmblemImage\" />
+					</div>					
 				</div>				
 			";
 		}	
@@ -766,12 +769,14 @@
 										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
 									</div>
 									<div class= "p_rankExtendedData">
+										<!--
 										<span class="p_rankExtendedData_rank_level">
 											<? echo $rank_level; ?>
 										</span>
 										<br />
+										-->
 										<span class="p_rankExtendedData_rank_name">
-											<? echo $rank_name; ?>
+											<? echo $rank_name; ?> (<? echo $rank_level; ?>)
 										</span>
 										<br />
 										<span class="p_rankExtendedData_rank_date">
@@ -779,7 +784,7 @@
 										</span>
 									</div>
 								</div>
-								<div class="p_rankDetails">
+								<div class="p_rankDetails" style="margin-bottom:2px;">
 									<? echo $displayRoles ?>
 								</div>
 							</div>
@@ -826,7 +831,7 @@
 						Member Biography
 					</h4>
 					<div class="unit_description_container" style="
-						margin-bottom: 2px;
+						margin-bottom: 8px;
 						margin-left: 8px;
 						margin-right: 8px;
 					">

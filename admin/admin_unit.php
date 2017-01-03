@@ -337,7 +337,7 @@
 		";
 	}
 	
-	if ($unitLevel == 'Squadron')
+	if ($unitLevel == 'Squadron' || $unitLevel == 'QRF')
 	{
 		//Query For UnitShips Table
 		$unitShips_query = "
@@ -422,7 +422,7 @@
 			</option>
 		";
 	}
-	/*END SHIPS QUERY*/	
+	/*END SHIPS QUERY*/
 	
 	$display_admin_mainLink = "";
 	
@@ -490,7 +490,7 @@
 		//Hide Ships Table for non-squadron units
 		var unitLevel = "<? echo $unitLevel ?>";
 		
-		if (unitLevel != 'Squadron')
+		if (unitLevel != 'Squadron' && unitLevel != 'QRF')
 		{
 			$('#adminShipTable').hide();
 			$('#adminAddUnitShip').hide();
@@ -872,6 +872,9 @@
 							</option>
 							<option value="Platoon" id="Level-032">
 								Platoon
+							</option>
+							<option value="QRF" id="Level-033">
+								Quick Reaction Force
 							</option>
 						</select>
 					</div>

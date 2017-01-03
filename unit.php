@@ -345,14 +345,21 @@
 		<div class=\"play\" style=\"width: 100%\">				
 			<div class=\"pavatar\" style=\"
 				padding-top: 8px;
-				padding-bottom: 8px;
-				padding-right: 8px;
-				padding-left: 32px;
 				width: 240px;
 			\">
-				<img src=\"$unitEmblemImage\" height=\"200px\" width=\"200px\" />
+				<div class=\"pavatar_image_container\">
+					<div class=\"corner corner-top-left\">
+					</div>
+					<div class=\"corner corner-top-right\">
+					</div>
+					<div class=\"corner corner-bottom-left\">
+					</div>
+					<div class=\"corner corner-bottom-right\">
+					</div>
+					<img height=\"200\" width=\"200\" alt=\"<? echo $mem_name; ?>\" src=\"$unitEmblemImage\" />
+				</div>
 			</div>
-			<div class=\"p_info\" style=\"width: 100%; vertical-align: top\">
+			<div class=\"p_info responsiveRow\" style=\"width: 100%; vertical-align: top\">
 				<h2 style=\"margin-left: 0px; padding-left: 4px\">
 					$unitName
 				</h2>
@@ -604,7 +611,7 @@
 		
 		$displayUnitShips = "";
 		
-		if($unitLevel == "Squadron")
+		if($unitLevel == "Squadron" || $unitLevel == "QRF")
 		{
 			$displayUnitShips .= "
 				<br />
@@ -645,7 +652,7 @@
 					$full_ship_name = $ship_name;
 				}	
 				
-				if($unitLevel == "Squadron")
+				if($unitLevel == "Squadron" || $unitLevel == "QRF")
 				{
 					$displayUnitShips .= "
 					<tr class=\"player_ships_row\">
@@ -741,7 +748,7 @@
 		}
 		else
 		{
-			if ($unitLevel == "Squadron")
+			if ($unitLevel == "Squadron" || $unitLevel == "QRF")
 			{
 				$displayUnitShips .= "
 					<tr>
@@ -753,7 +760,7 @@
 			}
 		}
 		
-		if($unitLevel == "Squadron")
+		if($unitLevel == "Squadron" || $unitLevel == "QRF")
 		{
 			$displayUnitShips .= "
 					</table>
