@@ -606,6 +606,8 @@ table.tbmem a:hover {
 	width: 100%;
 	font-size: 10pt;
 	display: inline-table;
+	padding-right: 4px; 
+	padding-left: 4px;
 }
 
 .play th {
@@ -629,9 +631,11 @@ table.tbmem a:hover {
 	display: table-cell;
 	vertical-align: top;
 	text-align: center;
+	/*
 	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
 	background-repeat: repeat-y;
 	background-position: left center;
+	*/
 	width: 320px;
 	position: relative;
 	padding-top: 40px;
@@ -661,6 +665,10 @@ table.tbmem a:hover {
 	display: table;
 	vertical-align: middle;
 	width: 100%;
+}
+
+.responsiveRow {
+
 }
 
 .play_row {
@@ -762,10 +770,16 @@ table.tbmem a:hover {
 	position: relative;
 	padding-top: 4px;
 	padding-bottom: 4px;
-	padding-left: 4px;
-	padding-right: 4px;
-	margin-right: 32px;
-	margin-left: 32px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-right: 16px;
+	margin-left: 16px;
+	/*
+	background-color: rgba(0,0,0,0.25);
+	*/
+	background-repeat: repeat;
+	background-position: left bottom;
+	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);	
 }
 
 #p_rank_outer {
@@ -786,7 +800,10 @@ table.tbmem a:hover {
 	text-align: center;
 	vertical-align: middle;
 	display: table-cell;
-	padding: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .p_rankimage
@@ -804,10 +821,11 @@ table.tbmem a:hover {
 .p_rankExtendedData
 {
 	padding-left: 4px;
-	display: table-cell;
-	vertical-align: middle;
-	text-align: left;
 	padding-right: 12px;
+	padding-top: 4px;
+	display: table-cell;
+	vertical-align: top;
+	text-align: left;
 }
 
 .p_rankExtendedData_rank_level
@@ -843,7 +861,6 @@ table.tbmem a:hover {
 	width: 100%;
 	display: table;
 	vertical-align: middle;
-	margin-bottom: 4px;
 	position: relative;
 }
 
@@ -856,7 +873,6 @@ table.tbmem a:hover {
 	display: block;
 	font-family: Orbitron;
 	font-variant: small-caps;
-	padding-left: 8px;
 }
 
 .p_rank_div_name
@@ -878,12 +894,14 @@ table.tbmem a:hover {
 	padding-top: 2px;
 	font-size: 8pt;
 	color: #BBB;
-	padding-left: 12px;
-	padding-right: 12px;
 }
 
 .p_rank_role_name a {
 	text-decoration: none;
+}
+
+.p_rank_role_text {
+	padding-right: 8px;
 }
 
 #p_rank_stats {
@@ -4424,6 +4442,10 @@ img.fleet:after {
 	/*End Shipyard Page*/
 	
 	/*Player Page*/
+	.pavatar {
+		border-right: none;
+	}
+	
 	.player_ships_entry {
 		width: 50%;
 	}
@@ -4492,6 +4514,10 @@ img.fleet:after {
 	/*Player Page*/
 	.p_info {
 		border-right: none;
+	}
+	
+	.responsiveRow {
+		display: table-row;
 	}
 	
 	#p_qual_container {

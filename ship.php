@@ -437,12 +437,22 @@
 			,r.rank_name
 			,r.rank_groupName
 			,d.div_name
-			,case
-				when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-				when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
-				when r2.role_id is null then 'n/a'
-				else '[Redacted]'
-			end as role_name			
+			,(
+				select
+					case
+						when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
+						when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+						when r2.role_id is null then ''
+						else '[Redacted]'
+					end as role_name
+				from projectx_vvarsc2.UnitMembers um
+				left join projectx_vvarsc2.roles r2
+					on r2.role_id = um.MemberRoleID
+				where um.MemberID = m.mem_id
+				order by
+					r2.role_orderby
+				limit 1
+			) as role_name			
 		from projectx_vvarsc2.ships s
 		left join projectx_vvarsc2.ships_has_members shm
 			on shm.ships_ship_id = s.ship_id
@@ -453,10 +463,6 @@
 			on r.rank_id = m.ranks_rank_id
 		left join projectx_vvarsc2.divisions d
 			on d.div_id = m.divisions_div_id
-		left join projectx_vvarsc2.UnitMembers um
-			on um.MemberID = m.mem_id
-		left join projectx_vvarsc2.roles r2
-			on r2.role_id = um.MemberRoleID
 		where s.ship_id = $ship_id
 		order by
 			r.rank_orderby

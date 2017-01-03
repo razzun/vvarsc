@@ -4,7 +4,8 @@
 	$div_id = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	if(is_numeric($div_id)) {
-		$div_query = "select
+		$div_query = "
+		select
 			s1.div_name as division
 			,s1.rank_groupName as rank
 			,s1.rank_groupImage as rank_image
@@ -33,12 +34,22 @@
 				,m.mem_id
 				,m.mem_callsign
 				,m.mem_avatar_link
-				,case
-					when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-					when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
-					when r2.role_id is null then ''
-					else '[Redacted]'
-				end as role_name
+				,(
+					select
+						case
+							when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
+							when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+							when r2.role_id is null then ''
+							else '[Redacted]'
+						end as role_name
+					from projectx_vvarsc2.UnitMembers um
+					left join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+					where um.MemberID = m.mem_id
+					order by
+						r2.role_orderby
+					limit 1
+				) as role_name		
 			from projectx_vvarsc2.members m
 			join projectx_vvarsc2.divisions d
 				on d.div_id = m.divisions_div_id
@@ -47,8 +58,6 @@
 				on r.rank_id = m.ranks_rank_id
 			left join projectx_vvarsc2.UnitMembers um
 				on um.MemberID = m.mem_id
-			left join projectx_vvarsc2.roles r2
-				on r2.role_id = um.MemberRoleID
 			where m.mem_sc = 1
 				and m.mem_name <> 'guest'
 			union
@@ -66,12 +75,22 @@
 				,m.mem_id
 				,m.mem_callsign
 				,m.mem_avatar_link
-				,case
-					when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-					when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
-					when r2.role_id is null then ''
-					else '[Redacted]'
-				end as role_name
+				,(
+					select
+						case
+							when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
+							when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+							when r2.role_id is null then ''
+							else '[Redacted]'
+						end as role_name
+					from projectx_vvarsc2.UnitMembers um
+					left join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+					where um.MemberID = m.mem_id
+					order by
+						r2.role_orderby
+					limit 1
+				) as role_name
 			from projectx_vvarsc2.members m
 			join projectx_vvarsc2.divisions d
 				on d.div_id = m.divisions_div_id
