@@ -38,7 +38,7 @@
 					else if ($value['DivisionName'] == "Military")
 					{
 						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon")
+						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF")
 						{
 							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
 						}
