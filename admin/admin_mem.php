@@ -288,7 +288,7 @@
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
 			//var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memEmail = $self.parent().parent().find('.adminTableRowTD.memEmail').data("email");
+			var memEmail = $self.parent().parent().find('memEmail').data("email");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			//var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			//var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
@@ -360,6 +360,31 @@
 			$('#MainPageHeaderText').css({
 				filter: 'none'
 			});
+		});
+		
+		//ESC Key Pressed
+		$(document).on('keyup',function(e) {
+			if (e.keyCode == 27) {
+				//Clear DropDown Selections
+				$('.adminDiaglogFormFieldset').find('#Rank').find('option').prop('selected',false);
+				$('.adminDiaglogFormFieldset').find('#Division').find('option').prop('selected',false);
+				$('.adminDiaglogFormFieldset').find('#MembershipType').find('option').prop('selected',false);
+				
+				//Hide All Dialog Containers
+				$('#dialog-form-create').hide();
+				$('#dialog-form-edit').hide();
+				$('#dialog-form-editRank').hide();
+				$('#dialog-form-delete').hide();
+				$('#dialog-form-passReset').hide();
+				
+				overlay.hide();
+				$('.adminTable').css({
+					filter: 'none'
+				});
+				$('#MainPageHeaderText').css({
+					filter: 'none'
+				});
+			};
 		});
 	});
 </script>
@@ -657,6 +682,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to reset this member's Password?</p>
+			<p class="validateTips">If the email address below is blank or not correct,<br />you will have to edit the member and update it<br />before submitting the password change.</p>
 			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_pass.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
@@ -685,6 +711,5 @@
 				</div>
 			</form>
 		</div>
-		
 	</div>
 </div>
