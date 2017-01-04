@@ -17,6 +17,7 @@
 			,lk1.InfoSecLevelName
 			,lk1.InfoSecLevelShortName
 			,m.vvar_id
+			,m.mem_email
 		from projectx_vvarsc2.members m
 		left join projectx_vvarsc2.ranks r
 			on r.rank_id = m.ranks_rank_id
@@ -37,6 +38,7 @@
 		$memID = $row['mem_id'];
 		$memVVarID = $row['vvar_id'];
 		$memName = $row['mem_name'];
+		$memEmail = $row['mem_email'];
 		$memCallsign = $row['mem_callsign'];
 		$memRankID = $row['rank_id'];
 		$memRankLevel = $row['rank_level'];
@@ -277,24 +279,26 @@
 			});
 		});
 		
-		//PassReset
+		//Password Reset
 		$('.adminButton.adminButtonPassReset').click(function() {
-			var dialog = $('#dialog-form-passreset');
+			var dialog = $('#dialog-form-passReset');
 			
 			var $self = jQuery(this);
 			
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
-			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
+			//var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
+			var memEmail = $self.parent().parent().find('.adminTableRowTD.memEmail').data("email");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
-			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
-			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
+			//var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
+			//var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
+			//var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
 			
 			dialog.find('#ID').val(memID).text();
-			dialog.find('#VVarID').val(vvarID).text();
+			//dialog.find('#VVarID').val(vvarID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
+			dialog.find('#Email').val(memEmail).text();
 			
 			dialog.show();
 			overlay.show();
@@ -347,6 +351,7 @@
 			$('#dialog-form-edit').hide();
 			$('#dialog-form-editRank').hide();
 			$('#dialog-form-delete').hide();
+			$('#dialog-form-passReset').hide();
 			
 			overlay.hide();
 			$('.adminTable').css({
@@ -646,12 +651,12 @@
 		</div>
 		
 		<!--Password Reset Form-->
-		<div id="dialog-form-passreset" class="adminDialogFormContainer">
+		<div id="dialog-form-passReset" class="adminDialogFormContainer">
 			<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
 				Cancel
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
-			<p class="validateTips">Are you sure you want to reset this Member's Password? Bad Things Could Happen!</p>
+			<p class="validateTips">Are you sure you want to reset this member's Password?</p>
 			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_pass.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
@@ -667,6 +672,11 @@
 						Callsign (RSI Handle)
 					</label>
 					<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" readonly>
+					
+					<label for="Email" class="adminDialogInputLabel">
+						Email to send new password
+					</label>
+					<input type="text" name="Email" id="Email" value="" class="adminDialogTextInput" readonly>
 				</fieldset>
 				<div class="adminDialogButtonPane">
 					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
