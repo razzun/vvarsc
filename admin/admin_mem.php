@@ -101,7 +101,7 @@
 				<td class=\"adminTableRowTD infoSecLevel\" data-infoseclevel=\"$infoSecLevelID\">
 					$infoSecLevelShortName
 				</td>
-				<td class=\"adminTableRowTD\">
+				<td class=\"adminTableRowTD passReset\" data-email=\"$memEmail\">
 					<button class=\"adminButton adminButtonPassReset\" title=\"Reset Member Password\" style=\"margin-right: 0px;\">PassReset</button>
 				</td>
 				<td class=\"adminTableRowTD\">
@@ -288,7 +288,7 @@
 			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
 			//var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
 			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memEmail = $self.parent().parent().find('memEmail').data("email");
+			var memEmail = $self.parent().parent().find('.adminTableRowTD.passReset').data("email");
 			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
 			//var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
 			//var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
