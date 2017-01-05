@@ -10,7 +10,7 @@
 <?php
 	
 	print_r($_POST);
-	
+
 	require_once('../dbconn/dbconn.php');
 	
 	session_start();
@@ -116,4 +116,5 @@
 	}
 	
 	$connection->close();
+
 ?>

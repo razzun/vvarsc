@@ -23,7 +23,7 @@
 		if ($div_id == 0)
 		{
 			$div_query .= "
-			select
+			select distinct
 				r.rank_groupName
 				,r.rank_group_orderby
 				,r.rank_groupImage
@@ -64,7 +64,7 @@
 			";
 		}
 			$div_query .= "
-			select
+			select distinct
 				r.rank_groupName
 				,r.rank_group_orderby
 				,r.rank_groupImage

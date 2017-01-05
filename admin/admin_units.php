@@ -173,6 +173,7 @@
 			dialog.find('#ParentUnit').find('#ParentUnit-default').prop('selected',true);
 			dialog.find('#Division').find('#Division-default').prop('selected',true);
 			dialog.find('#IsActive').find('#IsActive-default').prop('selected',true);
+			dialog.find('#Level').find('#Level-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -396,11 +397,14 @@
 						Level
 					</label>
 					<select name="Level" id="Level" class="adminDialogDropDown" required>
-						<option selected="true" disabled="true" value="default" id="IsActive-default">
-							Hierarchy Level
+						<option selected="true" disabled="true" value="default" id="Level-default">
+							-Select Hierarchy Level-
 						</option>
 						<option value="Division" id="Level-000">
 							Division
+						</option>
+						<option value="Department" id="Level-001">
+							Department
 						</option>
 						<option value="Group" id="Level-011">
 							Group

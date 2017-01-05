@@ -11,7 +11,7 @@
 				if ($has_children==false)
 				{
 					$has_children=true;
-					echo '<div class="unitHierarchy level'.$level.'" style="margin-left: '.($level * 8).'px;">';
+					echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: '.($level * 8).'px;">';
 					$level++;
 				}
 
@@ -33,7 +33,7 @@
 					else if ($value['DivisionName'] == "Military")
 					{
 						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF")
+						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 						{
 							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
 						}
@@ -172,6 +172,17 @@
 						,m.mem_callsign as UnitLeaderName
 						,m.rank_tinyImage as LeadeRankImage
 						,m.rank_abbr as LeaderRankAbbr
+						,case
+							when u.UnitLevel = 'Fleet' then 1
+							when u.UnitLevel = 'Department' then 2
+							when u.UnitLevel = 'Division' then 3
+							when u.UnitLevel = 'Group' then 4
+							when u.UnitLevel = 'Wing' then 5
+							when u.UnitLevel = 'Company' then 5
+							when u.UnitLevel = 'Squadron' then 6
+							when u.UnitLevel = 'Platoon' then 6
+							when u.UnitLevel = 'QRF' then 6
+						end as SortOrder
 					from projectx_vvarsc2.Units u
 					left join (
 						select
@@ -187,7 +198,8 @@
 					left join projectx_vvarsc2.divisions d
 						on d.div_id = u.DivisionID
 					order by
-						u.UnitName";	
+						17
+						,u.UnitName";	
     
     $units_query_results = $connection->query($units_query);
 	

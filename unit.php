@@ -15,7 +15,7 @@
 				if ($has_children==false)
 				{
 					$has_children=true;
-					echo '<div class="unitHierarchy level'.$level.'" style="margin-left: '.($realLevel * 8).'px;">';
+					echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: '.($realLevel * 8).'px;">';
 					$level++;
 					$realLevel++;
 				}
@@ -38,7 +38,7 @@
 					else if ($value['DivisionName'] == "Military")
 					{
 						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF")
+						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 						{
 							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
 						}
@@ -364,23 +364,30 @@
 					$unitName
 				</h2>
 				<div class=\"shipDetails_info2\">
-					<table class=\"shipDetails_info1_table\">
-						<tr class=\"shipDetails_info1_table_row\">
-							<td class=\"shipDetails_info1_table_row_td_key\">
-								Slogan
-							</td>
-							<td class=\"shipDetails_info1_table_row_td_value\">
-								$unitSlogan
-							</td>
-						</tr>
-						<tr class=\"shipDetails_info1_table_row\">
-							<td class=\"shipDetails_info1_table_row_td_key\">
-								Radio Callsign
-							</td>
-							<td class=\"shipDetails_info1_table_row_td_value\">
-								<i>$unitCallsign</i>
-							</td>
-						</tr>
+					<table class=\"shipDetails_info1_table\">";
+					
+						if ($unitLevel != "Department")
+						{
+							$display_details .= "
+								<tr class=\"shipDetails_info1_table_row\">
+									<td class=\"shipDetails_info1_table_row_td_key\">
+										Slogan
+									</td>
+									<td class=\"shipDetails_info1_table_row_td_value\">
+										$unitSlogan
+									</td>
+								</tr>
+								<tr class=\"shipDetails_info1_table_row\">
+									<td class=\"shipDetails_info1_table_row_td_key\">
+										Radio Callsign
+									</td>
+									<td class=\"shipDetails_info1_table_row_td_value\">
+										<i>$unitCallsign</i>
+									</td>
+								</tr>
+							";
+						}
+						$display_details .= "
 						<tr class=\"shipDetails_info1_table_row\">
 							<td class=\"shipDetails_info1_table_row_td_key\">
 								Commanding Officer
@@ -398,18 +405,24 @@
 							</td>
 						</tr>
 					</table>
-				</div>
-				<div class=\"operationsListItem_MetaData_Right\" style=\"
-					width: 100%;
-					font-size: 10pt;
-					margin-top: 4px;
-				\">
-					<div class=\"div_filters_container\">
-						<div class=\"div_filters_entry\">
-							<a href=\"http://sc.vvarmachine.com/missions&unit=$UnitID\">View Missions for this Unit</a>
+				</div>";
+				if ($unitLevel != "Department")
+				{
+					$display_details .= "				
+						<div class=\"operationsListItem_MetaData_Right\" style=\"
+							width: 100%;
+							font-size: 10pt;
+							margin-top: 4px;
+						\">
+							<div class=\"div_filters_container\">
+								<div class=\"div_filters_entry\">
+									<a href=\"http://sc.vvarmachine.com/missions&unit=$UnitID\">View Missions for this Unit</a>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
+					";
+				}
+				$display_details .= "
 			</div>
 		</div>
 		";		
@@ -495,6 +508,17 @@
 							,m.mem_callsign as UnitLeaderName
 							,m.rank_tinyImage as LeadeRankImage
 							,m.rank_abbr as LeaderRankAbbr
+							,case
+								when u.UnitLevel = 'Fleet' then 1
+								when u.UnitLevel = 'Department' then 2
+								when u.UnitLevel = 'Division' then 3
+								when u.UnitLevel = 'Group' then 4
+								when u.UnitLevel = 'Wing' then 5
+								when u.UnitLevel = 'Company' then 5
+								when u.UnitLevel = 'Squadron' then 6
+								when u.UnitLevel = 'Platoon' then 6
+								when u.UnitLevel = 'QRF' then 6
+							end as SortOrder
 						from projectx_vvarsc2.Units u
 						left join (
 							select
@@ -510,7 +534,8 @@
 						left join projectx_vvarsc2.divisions d
 							on d.div_id = u.DivisionID
 						order by
-							u.UnitName";	
+							16
+							,u.UnitName";	
 		
 		$units_query_results = $connection->query($units_query);
 		
@@ -536,9 +561,9 @@
 		$displayChildren1 = "";
 		$displayChildren2 = "";
 		
-		if (($divName == "Military" && $depth < 4)
-			|| ($divName == "Economy" && $depth < 2)
-			|| $divName == "Command")
+		if (($divName == "Military" && $depth < 4 && $unitLevel != "Department")
+			|| ($divName == "Economy" && $depth < 2 && $unitLevel != "Department")
+			|| $divName == "Command" && $unitLevel != "Department")
 		{
 				$displayChildren1 .= "
 				<br />

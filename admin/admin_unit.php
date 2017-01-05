@@ -855,6 +855,9 @@
 							<option value="Division" id="Level-000">
 								Division
 							</option>
+							<option value="Department" id="Level-001">
+								Department
+							</option>
 							<option value="Group" id="Level-011">
 								Group
 							</option>

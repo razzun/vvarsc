@@ -377,8 +377,8 @@
 						$full_role_name
 					</div>
 					<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
-						height: 38px;
-						width: 38px;
+						height: 52px;
+						width: 52px;
 						padding-left: 0px;
 						padding-right: 0px;
 					\">
@@ -390,7 +390,7 @@
 						</div>
 						<div class=\"corner corner-bottom-right\">
 						</div>
-						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"$UnitEmblemImage\" />
+						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" />
 					</div>					
 				</div>				
 			";
