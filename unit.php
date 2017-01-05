@@ -342,7 +342,7 @@
 		
 
 		$display_details .= "
-		<div class=\"play\" style=\"width: 100%\">				
+		<div class=\"play\" style=\"width: 100%; padding:0;\">				
 			<div class=\"pavatar\" style=\"
 				padding-top: 8px;
 				width: 240px;

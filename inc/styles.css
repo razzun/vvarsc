@@ -1112,7 +1112,7 @@ ts.pship img {
 	border-bottom: 1px solid rgba(80, 70, 50, 0.8);
 	border-top: 1px solid rgba(18, 30, 44, 0.7);
 	transition: all 0.2s ease 0s;	
-	width: 100%;
+	/*width: 100%;*/
 }
 
 .player_ships_row:hover .player_ships_entry_ship {
@@ -4451,7 +4451,7 @@ img.fleet:after {
 	}
 	
 	.player_ships_entry {
-		width: 50%;
+		width: 40%;
 	}
 	
 	.pbio {
