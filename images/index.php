@@ -1,3 +1,3 @@
 <?php
-	header( 'Location: http://sc.vvarmachine.com' ) ;
+	header( 'Location: ' ) ;
 ?>
