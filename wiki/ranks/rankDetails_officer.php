@@ -21,7 +21,7 @@
 	</h3>
 	<div class="PayGradeDetails">
 		<!-- O1 -->
-		<div class="table_header_block">
+		<div id="O-1" class="table_header_block">
 		</div>
 		<div class="yard_filters" style="
 			margin-bottom: 16px
@@ -77,7 +77,7 @@
 		<!-- O2 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-2" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -133,7 +133,7 @@
 		<!-- O3 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-3" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -189,7 +189,7 @@
 		<!-- O4 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-4" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -228,7 +228,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-4 is the highest of the "Line-Officer" ranks, and is held by the most-senior Squadron and Platoon Commanders, along with the Executive Officers of Air Wings and Marine Special Warfare Teams (MSWTs). In addition to the above, O-4s can perform specialized roles for the HQ of their Division such as: Intelligence Officer, Finance Officer, and others.
+					O-4 is the highest of the "Line-Officer" ranks, and is held by the most-senior Squadron and Platoon Commanders, along with the Executive Officers of Air Wings and Marine Teams. In addition to the above, O-4s can perform specialized roles for the HQ of their Division such as: Intelligence Officer, Finance Officer, and others.
 					<br />
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>
@@ -243,11 +243,9 @@
 		</div>
 		
 		<!-- O5 -->
-		
-		<!-- O4 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-5" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -302,7 +300,7 @@
 		<!-- O6 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-6" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -357,7 +355,7 @@
 		<!-- O7 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-7" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -410,7 +408,7 @@
 		<!-- O8 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-8" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -464,7 +462,7 @@
 		<!-- O9 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-9" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -510,7 +508,7 @@
 		<!-- O10 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="O-10" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">

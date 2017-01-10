@@ -23,7 +23,7 @@
 		<!-- E2 -->
 		<div class="table_header_block">
 		</div>
-		<div class="yard_filters" style="
+		<div id="E-2" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -86,7 +86,7 @@
 		<!-- E3 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-3" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -150,7 +150,7 @@
 		<!-- E4 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-4" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -224,7 +224,7 @@
 		<!-- E5 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-5" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -297,7 +297,7 @@
 		<!-- E6 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-6" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -373,7 +373,7 @@
 		<!-- E7 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-7" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -448,7 +448,7 @@
 		<!-- E8 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-8" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">
@@ -520,7 +520,7 @@
 		<!-- E9 -->
 		<div class="table_header_block">
 		</div> 
-		<div class="yard_filters" style="
+		<div id="E-9" class="yard_filters" style="
 			margin-bottom: 16px
 		">
 			<div class="PayGradeDetails_Entry_Header">

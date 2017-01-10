@@ -776,7 +776,13 @@
 										<br />
 										-->
 										<span class="p_rankExtendedData_rank_name">
-											<? echo $rank_name; ?> (<? echo $rank_level; ?>)
+											<a href="/wiki/?page=ranks#<?echo $rank_level;?>" target="_blank" style="
+												text-decoration: none;
+												color: inherit;
+												font-size: inherit;
+											">
+												<? echo $rank_name; ?> (<? echo $rank_level; ?>)
+											</a>
 										</span>
 										<br />
 										<span class="p_rankExtendedData_rank_date">
