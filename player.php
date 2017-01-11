@@ -586,6 +586,7 @@
 					end as 'TimeInGrade_Months'
 					,case
 						when a.TIG_Days = 1 then CONCAT(a.TIG_Days, ' Day')
+						when a.TIG_Days = 0 and a.TIG_Months = 0 and a.TIG_Years = 0 then '< 1 Day'
 						when a.TIG_Days = 0 then ''
 						else CONCAT(a.TIG_Days, ' Days')
 					end as 'TimeInGrade_Days'
