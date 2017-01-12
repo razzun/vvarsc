@@ -279,14 +279,14 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-5 is the second of the NCO ranks, and is the required PayGrade to enter into a leadership position within a Permanent Unit. The Rank of E-5 signifies that a Member has attained a sufficient qualification in their Unit's performed task(s) to lead and develop the skills of other NCOs below them. E-5s are typically seen performing the role of Flight Leader or Squad Leader within Squadrons and Platoons, respectively.
+					E-5 is the second of the NCO ranks, and is the required PayGrade to enter into a leadership position within a Permanent Unit. The Rank of E-5 signifies that a Member has attained a sufficient qualification in their Unit's performed task(s) to lead and develop the skills of other NCOs below them. E-5s are typically seen performing the role of Flight Leader or Squad Leader within Squadrons and Platoons, respectively. The rank of E-5 can be held by highly-skilled members of a unit who are not serving as a Flight or Squad Lead, but they will not be able to advance further without serving in a leadership position.
 					<br />
 					<br />
 					<strong>Advancement from E-4 to E-5 requires the following:</strong>
 					<ol>
 						<li>Minimum Two Months TIS with the Fleet</li>
 						<li>Minimum One Month TIG for their Unit at E-4</li>
-						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a command capacity <strong>(for Military Flight/Squad Leaders)</strong></li>
+						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a Flight Leader or Squad Leader Role</li>
 						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
@@ -361,8 +361,8 @@
 					<strong>Advancement from E-5 to E-6 requires the following:</strong>
 					<ol>
 						<li>Minimum Three Months TIS with the Fleet</li>
-						<li>Minimum One Month TIG for their Unit at E-5</li>
-						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a command capacity <strong>(for Military Flight/Squad Leaders)</strong></li>
+						<li>Minimum One Month TIG for their Unit at E-5, serving in a Flight Leader or Squad Leader Role</li>
+						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a Flight or Squad Leader Role</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
