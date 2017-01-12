@@ -748,12 +748,16 @@
 							$display_opUnitMember_edit
 							<div class=\"operations_rank_image_text\" style=\"
 								vertical-align: inherit;
-								width:150px;
+								font-weight: bold;
+								padding-right:4px;
 							\">
 								$opUnitMemberListItem_RoleName
 							</div>
-							<div class=\"operations_memRank_inner\">
-								<div class=\"clickableRow_memRank_Image_Container\">
+							<div class=\"operations_memRank_inner\" style=\"
+								margin-left: 4px;
+								display: block;
+							\">
+								<div class=\"clickableRow_memRank_Image_Container shiftable\">
 									<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opUnitMemberListItem_RankImage.png\"/>
 								
 								</div>
@@ -763,27 +767,25 @@
 								\">
 									$opUnitMemberListItem_MemName
 									</a>
-								</div>
-							</div>
-						";
+								</div>";
 						
-						//Display Button for a Member to Remove Themself
-						if ($opUnitMemberListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption == "Approved")
-						{
-							$display_opUnit_member_list .= "
-								<div id=\"OpUnitMemberButtons_$opUnitMemberListItem_RowID\" style=\"
-									text-align: left;
-									margin-left: 8px;
-									display: table-cell;
-								\">
-									<button id=\"ButtonOpUnitMember_Clear_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonClearOpUnitMember\" title=\"Remove Self from Role\"style=\"
-										margin: 0px;
+							//Display Button for a Member to Remove Themself
+							if ($opUnitMemberListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption == "Approved")
+							{
+								$display_opUnit_member_list .= "
+									<div id=\"OpUnitMemberButtons_$opUnitMemberListItem_RowID\" style=\"
+										text-align: left;
+										margin-left: 8px;
+										display: table-cell;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
-									</button>							
-								</div>	
-							";
-						}
+										<button id=\"ButtonOpUnitMember_Clear_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonClearOpUnitMember\" title=\"Remove Self from Role\"style=\"
+											margin: 0px;
+										\">
+											<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+										</button>							
+									</div>	
+								";
+							}
 					}
 					//Display Role Only
 					else
@@ -792,14 +794,26 @@
 							$display_opUnitMember_edit
 							<div class=\"operations_rank_image_text\" style=\"
 								vertical-align: inherit;
+								font-weight: bold;
 							\">
 								$opUnitMemberListItem_RoleName
 							</div>
+							<div class=\"operations_memRank_inner\" style=\"
+								margin-left: 4px;
+								display: block;
+							\">
+								<div class=\"operations_rank_image_text shiftable\" style=\"
+									font-style: italic;
+									color: #888;
+								\">
+									-- None Assigned --
+								</div>							
 							$display_opUnit_member_signUp
 						";						
 					}
 								
 					$display_opUnit_member_list .= "
+							</div>
 						</div>
 					";
 				}
@@ -1151,12 +1165,16 @@
 								$display_opShipMember_edit
 								<div class=\"operations_rank_image_text\" style=\"
 									vertical-align: inherit;
-									width:150px;
+									font-weight: bold;
+									padding-right: 4px;
 								\">
 									$opShipMembersListItem_RoleName
 								</div>
-								<div class=\"operations_memRank_inner\">
-									<div class=\"clickableRow_memRank_Image_Container\">
+								<div class=\"operations_memRank_inner\" style=\"
+									margin-left: 4px;
+									display: block;
+								\">
+									<div class=\"clickableRow_memRank_Image_Container shiftable\">
 										<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opShipMembersListItem_RankImage.png\"/>
 									</div>
 									<div class=\"operations_rank_image_text\">
@@ -1165,10 +1183,8 @@
 									\">
 										$opShipMembersListItem_MemName
 										</a>
-									</div>
-								</div>
-							";
-						
+									</div>";
+									
 							//Display Button for a Member to Remove Themself
 							if ($opShipMembersListItem_MemberID == $CurrentUserID && $operationDetails_MissionStatusDescrption == "Approved")
 							{
@@ -1185,17 +1201,35 @@
 										</button>							
 									</div>	
 								";
-							}
+							}									
+									
+							$display_opUnitShipMembers .= "
+								</div>
+							";
 						}
+						//Display Role Only
 						else
 						{
 							$display_opUnitShipMembers .= "
 								$display_opShipMember_edit
-								<div class=\"operations_rank_image_text\">
+								<div class=\"operations_rank_image_text\" style=\"
+									vertical-align: inherit;
+									font-weight: bold;
+								\">
 									$opShipMembersListItem_RoleName
 								</div>
+								<div class=\"operations_memRank_inner\" style=\"
+									margin-left: 4px;
+									display: block;
+								\">
+									<div class=\"operations_rank_image_text shiftable\" style=\"
+										font-style: italic;
+										color: #888;
+									\">
+										-- None Assigned --
+									</div>
 								$display_opShip_member_signUp
-							";						
+							";
 						}
 									
 						$display_opUnitShipMembers .= "
@@ -1218,7 +1252,7 @@
 									</div>								
 								</div>
 							</td>
-							<td class=\"player_ships_entry_ship\" style=\"width:auto;\">
+							<td class=\"player_ships_entry_ship\" style=\"\">
 								<div class=\"player_ships_entry_ship_inner\">
 									<div class=\"player_ships_entry_ship_inner_imageContainer\">
 										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
@@ -1905,10 +1939,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 			var memberID = "<? echo $CurrentUserID;?>";
 						
 			dialog.find('#RowID').val(rowID).text();
@@ -1935,10 +1969,10 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 			var memberID = "0";
 						
 			dialog.find('#RowID').val(rowID).text();
@@ -1965,11 +1999,11 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opTemplateShipID = $self.parent().parent().data("optemplateshipid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opTemplateShipID = $self.parent().parent().parent().data("optemplateshipid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 			var memberID = "<? echo $CurrentUserID;?>";
 						
 			dialog.find('#RowID').val(rowID).text();
@@ -1997,11 +2031,11 @@
 			
 			var $self = jQuery(this);
 			
-			var rowID = $self.parent().parent().data("rowid");
-			var opTemplateID = $self.parent().parent().data("optemplateid");
-			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
-			var opTemplateShipID = $self.parent().parent().data("optemplateshipid");
-			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var rowID = $self.parent().parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("optemplateunitid");
+			var opTemplateShipID = $self.parent().parent().parent().data("optemplateshipid");
+			var opUnitMemberRoleID = $self.parent().parent().parent().data("opunitmemberroleid");
 			var memberID = "0";
 						
 			dialog.find('#RowID').val(rowID).text();
@@ -2167,6 +2201,9 @@
 		{
 			$('#ButtonEditToggle').addClass("operations_toggleSelected");
 			$('.operationsDetails_main').find('.adminButton').show();
+			$('.shiftable').css({
+				"padding-left": '20px'
+			});
 		}
 		else
 		{	
@@ -2176,6 +2213,9 @@
 			$('.operationsDetails_main').find('.adminButton.adminButtonDelete.ButtonClearOpUnitMember').show();
 			$('.operationsDetails_main').find('.adminButton.adminButtonEdit.ButtonSignUpOpShipMember').show();
 			$('.operationsDetails_main').find('.adminButton.adminButtonDelete.ButtonClearOpShipMember').show();
+			$('.shiftable').css({
+				"padding-left": '4px'
+			});
 		}
     });
 	
@@ -2191,12 +2231,18 @@
 			$('.operationsDetails_main').find('.adminButton.adminButtonDelete.ButtonClearOpUnitMember').show();
 			$('.operationsDetails_main').find('.adminButton.adminButtonEdit.ButtonSignUpOpShipMember').show();
 			$('.operationsDetails_main').find('.adminButton.adminButtonDelete.ButtonClearOpShipMember').show();
+			$('.shiftable').css({
+				"padding-left": '4px'
+			});
 		}
 		else
 		{
 			//Toggle is Disabled - open it!
 			$self.addClass("operations_toggleSelected");
 			$('.operationsDetails_main').find('.adminButton').show();
+			$('.shiftable').css({
+				"padding-left": '20px'
+			});
 		}
 		
 		
@@ -2265,4 +2311,58 @@
 			window.document.location = $(this).data("targetid");
 		});
 	});	
+</script>
+
+<!--Script to Resize Fleet Images-->
+<script>
+
+	$(document).ready(function() {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});
+	
+	$(window).resize(function () {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+			
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});	
+
 </script>

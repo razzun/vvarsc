@@ -360,7 +360,7 @@
 				</div>
 			</div>
 			<div class=\"p_info responsiveRow\" style=\"width: 100%; vertical-align: top\">
-				<h2 style=\"margin-left: 0px; padding-left: 4px\">
+				<h2 style=\"margin-left: 0px; padding-left: 8px\">
 					$unitName
 				</h2>
 				<div class=\"shipDetails_info2\">

@@ -11,7 +11,7 @@
 <?php
 	require_once('../../dbconn/dbconn.php');
 	
-	print_r($_POST);
+	//print_r($_POST);
 
 	$RowID = "";
 	$MissionID = "";

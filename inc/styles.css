@@ -1041,11 +1041,12 @@ table.tbmem a:hover {
 
 .player_ships_entry {
 	display: table-cell;
-	width: 30%;
+	width: 20%;
 	border-left: 4px solid rgba(80, 70, 50, 0.6);
 	padding-top: 8px;
 	padding-bottom: 8px;
-	padding-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
 	transition: all 0.2s ease 0s;
 }
 
@@ -1064,7 +1065,6 @@ table.tbmem a:hover {
 	text-shadow: 0px 0px 8px #CCA300;
 	font-family: Orbitron;
 	font-weight: normal;
-	padding-right: 8px;
 	
 }
 
@@ -1113,6 +1113,8 @@ ts.pship img {
 	border-top: 1px solid rgba(18, 30, 44, 0.7);
 	transition: all 0.2s ease 0s;	
 	/*width: 100%;*/
+	width: -available;
+	width: -moz-available;
 }
 
 .player_ships_row:hover .player_ships_entry_ship {
@@ -1154,7 +1156,7 @@ ts.pship img {
 
 .player_ships_entry_details
 {
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 8px;
@@ -1269,6 +1271,7 @@ img.player_fleet:hover {
 	margin-bottom: -1px;
 	padding-top: 1px;
 	padding-right: 2px;
+	white-space: nowrap;
 }
 
 img {
@@ -1581,6 +1584,7 @@ img {
 	vertical-align: middle;
 	text-align: left;
 	transition: all 0.2s ease 0s;
+	margin-bottom: 2px;
 }
 
 .OpUnit_Members {

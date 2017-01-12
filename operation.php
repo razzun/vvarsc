@@ -2631,3 +2631,57 @@
 		});
 	});	
 </script>
+
+<!--Script to Resize Fleet Images-->
+<script>
+
+	$(document).ready(function() {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});
+	
+	$(window).resize(function () {
+	
+		var imageClass = $('.player_fleet');
+		
+		if(($( window ).width() < 800)) {
+			imageClass.jScale({w: '20%'});
+			imageClass.css({
+					"margin": '0px'
+				});
+			
+		}	
+		else if(($( window ).width() < 1200)){
+			imageClass.jScale({w: '40%'});
+			imageClass.css({
+					"margin": '1px'
+				});
+		}
+		else {
+			imageClass.jScale({w: '60%'});
+			imageClass.css({
+					"margin": '2px'
+				});		
+		}
+	});	
+
+</script>
