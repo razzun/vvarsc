@@ -284,7 +284,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-5 is the first of the two Senior Officer Ranks. Officers in this grade are usually assigned as the Commander of an Air Wing, or a MSWT. In addition, the rank of O-5 comes with the eligibility to serve as the Executive Officer for a Combat Group. Members in this PayGrade can also perform specialized roles at Fleet Headquarters, assisting the Fleet CO with duties such as public relations, recruitment, and technology management.
+					O-5 is the first of the two Senior Officer Ranks. Officers in this grade are usually assigned as the Commander of an Air Wing, or a Marine Combat Team. In addition, the rank of O-5 comes with the eligibility to serve as the Executive Officer for a Combat Group. Members in this PayGrade can also perform specialized roles at Fleet Headquarters, assisting the Fleet CO with duties such as public relations, recruitment, and technology management.
 					<br />
 					<br />
 					<strong>Advancement from O-4 to O-5 requires the following:</strong>
