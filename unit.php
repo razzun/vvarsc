@@ -214,8 +214,7 @@
 							,r.rank_name
 							,r.rank_groupName
 							,case
-								when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-								when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+								when r2.isPrivate = 0 then r2.role_name
 								when r2.role_id is null then 'n/a'
 								else '[Redacted]'
 							end as role_name
@@ -311,11 +310,8 @@
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
 									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
-								<div class=\"shipDetails_ownerInfo_tableRow_memInfo2\">
-									- $rank_groupName
-								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
-									- $mem_role
+									$mem_role
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
 									Assigned $mem_assigned_date

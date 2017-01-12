@@ -560,13 +560,17 @@
 			(
 				select
 					case
+						when a.TIF_Years = 1 and a.TIF_Months = 0 and a.TIF_Days = 0 then CONCAT(a.TIF_Years, ' Year')
 						when a.TIF_Years = 1 then CONCAT(a.TIF_Years, ' Year, ')
 						when a.TIF_Years = 0 then ''
+						when a.TIF_Months = 0 and TIF_Days = 0 then CONCAT(a.TIF_Years, ' Years')
 						else CONCAT(a.TIF_YEARS, ' Years, ')
 					end as 'TimeInFleet_Years'
 					,case
+						when a.TIF_Months = 1 and a.TIF_Days = 0 then CONCAT(a.TIF_Months, ' Month')
 						when a.TIF_Months = 1 then CONCAT(a.TIF_Months, ' Month, ')
 						when a.TIF_Months = 0 then ''
+						when a.TIF_Days = 0 then CONCAT(a.TIF_Months, ' Months')
 						else CONCAT(a.TIF_Months, ' Months, ')
 					end as 'TimeInFleet_Months'
 					,case
@@ -575,13 +579,17 @@
 						else CONCAT(a.TIF_Days, ' Days')
 					end as 'TimeInFleet_Days'
 					,case
+						when a.TIG_Years = 1 and a.TIG_Months = 0 and a.TIG_Days = 0 then CONCAT(a.TIG_Years, ' Year')
 						when a.TIG_Years = 1 then CONCAT(a.TIG_Years, ' Year, ')
 						when a.TIG_Years = 0 then ''
+						when a.TIG_Months = 0 and TIG_Days = 0 then CONCAT(a.TIG_Years, ' Years')
 						else CONCAT(a.TIG_Years, ' Years, ')
 					end as 'TimeInGrade_Years'
 					,case
+						when a.TIG_Months = 1 and a.TIG_Days = 0 then CONCAT(a.TIG_Months, ' Month')
 						when a.TIG_Months = 1 then CONCAT(a.TIG_Months, ' Month, ')
 						when a.TIG_Months = 0 then ''
+						when a.TIG_Days = 0 then CONCAT(a.TIG_Months, ' Months')
 						else CONCAT(a.TIG_Months, ' Months, ')
 					end as 'TimeInGrade_Months'
 					,case

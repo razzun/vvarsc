@@ -440,8 +440,7 @@
 			,(
 				select
 					case
-						when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-						when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
+						when r2.isPrivate = 0 then r2.role_name
 						when r2.role_id is null then ''
 						else '[Redacted]'
 					end as role_name
@@ -452,7 +451,7 @@
 				order by
 					r2.role_orderby
 				limit 1
-			) as role_name			
+			) as role_name
 		from projectx_vvarsc2.ships s
 		left join projectx_vvarsc2.ships_has_members shm
 			on shm.ships_ship_id = s.ship_id
@@ -492,7 +491,7 @@
 				$div_name .= " Division";
 			}
 			
-			if ($mem_role == "n/a") {
+			if ($mem_role == null || $mem_role == "") {
 				$mem_role = "No Role Assigned";
 			}
 			
@@ -514,11 +513,8 @@
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
 								<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
 							</div>
-							<div class=\"shipDetails_ownerInfo_tableRow_memInfo2\">
-								- $rank_groupName
-							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
-								- $mem_role // $div_name
+								$mem_role
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
 								Enlisted $mem_CreatedOn
