@@ -526,7 +526,7 @@
 					</td>
 				</tr>
 			";
-		}		
+		}
 	
 		$connection->close();
 	}

@@ -62,7 +62,17 @@
 					For Marine Combat Teams, these are simply numbered in the order of creation, regardless of the Combat Group to which they belong. The examples would be "ICT 1","ICT 2", etc.
 					<br />
 					<br />
-					Squadrons are named with a three-digit number, indicative of the Air Combat Group and Air Wing to which they belong. For example, the "112th Fighter Squadron" belongs to the 1st Air Combat Group, and the first Air Wing created within the <strong>fleet</strong>, regardless of the Wing's type (in this case, the "1st Fighter Wing"). Due to this numbering system, the maximum amount of Squadrons within an Air Wing is limited to 9 for confusion to be avoided, and for proper use of the three-digit system. For Example, the "2nd Air Combat Group" may contain the "1st Fighter Wing" and the "4th Bomber Wing", with each Wing's Squadrons being numbered 211th through 219th, and 221st through 229th, respectively - note how the number assigned to the Air Wing has no impact on the Squadron's number. That 2nd digit is derived from the order of the Air Wings when they are created within the Fleet. Based on this system, there can only be one Squadron within the entire Fleet with a given three-digit number.
+					Squadrons are named with a three-digit number, indicative of their Air Combat Group's number, and the type of Squadron. The rules for these numberings are defined below, where "X" refers to the Air Combat Group's (or Special Operations Group's) number:
+					<br />
+					<br />
+					<ul class="WikiOL">
+						<li><strong>Fighter Squadrons:</strong> X11 through X19</li>
+						<li><strong>Strike Squadrons:</strong> X21 through X29</li>
+						<li><strong>Primary SOC Air Squadrons:</strong> X31 through X39</li>
+						<li><strong>Support SOC Air Squadrons:</strong> X41 through X49</li>
+					</ul>
+					<br />
+					For Example, the "2nd Air Combat Group" may contain the "8th Fighter Wing" and the "4th Bomber Wing", with each Wing's Squadrons being numbered 211th through 219th, and 221st through 229th, respectively - note how the number assigned to the Air Wing has no impact on the Squadron's number. The 2nd digit is derived from the type of Squadron, and is consistent across Air Wings in the entire Fleet. Based on this system, there can only be one Squadron within the entire Fleet with a given three-digit number.
 					<br />
 					<br />
 					For Marine Platoons, these are numbered in-order of creation within an Combat Team ("1st Platoon", "2nd Platoon", etc), where names will be reused between Combat Teams.
