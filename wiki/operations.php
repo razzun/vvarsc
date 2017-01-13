@@ -46,10 +46,10 @@
 				</div>
 				<br />
 				
-				<h4 class="WikiH4">Sections</h4>
+				<h4 class="WikiH4">Packages</h4>
 				<h5 class="WikiH5">Overview</h5>
 				<div class="WikiText">
-					When multiple Flights/Squads operate together, they are known as a <strong>Section</strong>. There are no numerical limits to the size of a Section, but Officers will attempt to maintain ease of control for section-leaders during operations by limiting their size as-needed after evaluating multiple factors. Based on this definition, a Section is usually tasked with performing a single objective as a group. Examples of this include, but are not limited to:
+					When multiple Flights/Squads operate together, they are known as a <strong>Package</strong>. There are no numerical limits to the size of a Package, but Officers will attempt to maintain ease of control for Package-leaders during operations by limiting their size as-needed after evaluating multiple factors. Based on this definition, a Package is usually tasked with performing a single objective as a group. Examples of this include, but are not limited to:
 					<ul>
 						<li>A Flight of Fighters escorting a single (or Flight of) large Military, Economic, or Command Asset(s)</li>
 						<li>A combination of Fighter and Bomber Flights tasked with a coordinated attack on a single objective</li>
@@ -59,33 +59,19 @@
 				</div>
 				<h5 class="WikiH5">Numbering and Naming</h5>
 				<div class="WikiText">
-					Sections built for a given operation will be known as "Alpha Section", "Bravo Section", "Charlie Section", and so forth. Each Section's Command may also be given a distinct radio callsign. These callsigns will be unrelated to the Section's component units, and can be re-used between operations.
+					Packages built for a given operation will be known as "Package Alpha", "Package Bravo", "Package Charlie", and so forth. Each Package's Command may also be given a distinct radio callsign. These callsigns will be unrelated to the Package's component units, and can be re-used between operations.
 				</div>
 				<br />
 				
 				<h4 class="WikiH4">Task-Force</h4>
 				<h5 class="WikiH5">Overview</h5>
 				<div class="WikiText">
-					When an operation requires the participation of multiple Sections, each tasked with the same objective, or a related series of objectives, it is formed into a coordinated <strong>Task-Force</strong>. Due to the high level of planning required for operations of this size, a Task-Force is commanded by an Officer of O-5 PayGrade or higher. In some cases, a Task-Force may be lead by Flag Officers including Fleet Command Admirals.
+					When an operation requires the participation of multiple Packages, each tasked with the same objective, or a related series of objectives, it is formed into a coordinated <strong>Task-Force</strong>. Due to the high level of planning required for operations of this size, a Task-Force is commanded by an Officer of O-5 PayGrade or higher. In some cases, a Task-Force may be lead by Flag Officers including Fleet Command Admirals.
 				</div>
 				<h5 class="WikiH5">Numbering and Naming</h5>
 				<div class="WikiText">
-					A Task-Force is given a number when it is formed, and that number is valid through the life of the operation, regardless of how many instances of the operation (missions) are performed. For example, if we have a weekly multi-section trade convoy with attached escort and reconnaissance units running from the Leir System to the Stanton System, these units would likely use the same Operational Plan (OpPlan) each time the mission is performed, and refine the OpPlan as needed. Therefore, if the Task-Force performing this operation is named "Task-Force 5", it will always be that case unless the OpPlan is retired and the mission no-longer performed. This is in-place so that Fleet and Division Command can can define a permanent structure for the Sections of that Task-Force needed to perform each operation, and reduce time in planning and organization of repeating operations.
+					A Task-Force is given a number when it is formed, and that number is valid through the life of the operation, regardless of how many instances of the operation (missions) are performed. For example, if we have a weekly multi-section trade convoy with attached escort and reconnaissance units running from the Leir System to the Stanton System, these units would likely use the same Operational Plan (OpPlan) each time the mission is performed, and refine the OpPlan as needed. Therefore, if the Task-Force performing this operation is named "Task-Force 5", it will always be that case unless the OpPlan is retired and the mission no-longer performed. This is in-place so that Fleet and Division Command can can define a permanent structure for the Packages of that Task-Force needed to perform each operation, and reduce time in planning and organization of repeating operations.
 				</div>
-				
-				<!--
-				<br />
-				<br />
-				At times, our members may be called-upon to perform unlawful military operations against our enemies, or conduct illegal smuggling operations through regulated and secured space. VVAR Command is aware that many of our members will enjoy these types of duties in-game, but we must also keep in-mind that these types of operations must only be performed when the potential gains of an operation such as this far outweigh the loss of reputation we will receive and the risk we take in bringing harm to our Fleet. Therefore, any operations that include such risks and potential loss of reputation MUST be approved by the Division CO, who will then request approval from Fleet Command before a launch order is given. Like any other operation, they will be led by an Officer or NCO (depending on operation size) belonging to the division for which the operation is being run.
-				<br />
-				<br />
-				In the absence of designated leaders, all players are expected to uphold the standards as outlined above, and play the game in the best-interests of the Fleet. The requirements for organized operations to be approved by Fleet Officers is put-in-place to ensure that our fleet has adequate resources to protect our assets at all times. Example: If we own a space station or Bengal Carrier (or other non-landable Capital Ships), our fleet must keep assets in-place to protect against their theft and/or destruction while they are deployed. Allowing a large percentage of our forces to perform operations in star-systems away from our most-valued assets will increase the risk of their loss. Officers must evaluate the strength and capabilities of the fleet, and make decisions on whether or not to approve operations accordingly.
-				<br />
-				<br />
-				A proposal for an operation (lawful or unlawful) must be submitted at least 5 days prior to its planned launch time. Once preliminary approval is given, the operational details will be posted on the VVARMachine website, and players can choose to sign-up to take part in the mission. Members are NOT required to take part in a certain number of operations, but if a member registers for an operation, they are expected to fulfill their duties and be online at the time in which the operation will take place. Members can remove themselves from an operation's roster at any time up-until 24 hours prior to the operation's launch. Final approval or disapproval for the operation will be given (at the latest) 1 hour before launch, after the Officer(s) have evaluated the risk of the operation itself and extraneous risks to our fleet during the mission window.
-				<br />
-				<br />
-				-->
 			</div>
 		</div>
 	</div>
