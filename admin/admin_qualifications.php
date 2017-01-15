@@ -85,13 +85,13 @@
 						margin-left: 0px;
 						margin-right: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete\" title=\"Delete Qualification\" style=\"
 						margin-left: 0px;
 						margin-right: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
 				</div>
 		";
@@ -139,7 +139,7 @@
 							</div>
 							<div class=\"corner corner-bottom-right\">
 							</div>
-							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"http://sc.vvarmachine.com/images/qualifications/$qualImage\" />					
+							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"../images/qualifications/$qualImage\" />					
 						</div>
 					</div>
 					<div class=\"player_qual_row_name\" style=\"
@@ -368,7 +368,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
+		<a href="?page=admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Qualifications Management</h2>
@@ -380,7 +380,7 @@
 			width: 100%;
 			text-align: right;
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">
 			Add New Qualification
 		</button>
 		<div id="adminQualificationsTable" class="unit_description_container">
@@ -405,7 +405,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Create a new Qualification</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_qualification_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_qualification_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name" class="adminDialogInputLabel">
 						Name
@@ -472,7 +472,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Qualification</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_qualification_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_qualification_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -542,7 +542,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Qualification? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_qualification_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_qualification_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>

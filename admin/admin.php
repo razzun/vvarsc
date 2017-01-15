@@ -1,4 +1,4 @@
-<h2>VVARMachine SCD - ADMIN ZONE</h2>
+<h2>VVarMachine SC - ADMIN ZONE</h2>
 <div id="TEXT">
 	<div id="adminMenuContainer">
 		<? include_once('admin_menu.php'); ?>

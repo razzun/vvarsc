@@ -53,7 +53,7 @@
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Sync Member\" style=\"margin-right: 0px;\">
 						Sync Member
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 				</td>
 			</tr>
@@ -190,7 +190,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/?page=admin_mem">&#8672; Back to Member Management Home</a>
+		<a href="../admin/?page=admin_mem">&#8672; Back to Member Management Home</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Member Management - Sync from Main Website</h2>
@@ -224,7 +224,7 @@
 			</button>
 			<p class="validateTips">Enter new Member Information Below.</p>
 			<p class="validateTips">All Fields are Required.</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="VVarID" class="adminDialogInputLabel">
 						VVarMachine ID (from Main Website)

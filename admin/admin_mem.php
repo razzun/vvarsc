@@ -84,9 +84,9 @@
 								display: table-cell;
 								margin-left: 0px;
 							\" title=\"Edit Member Rank\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 						</button>
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_image.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"../images/ranks/TS3/$rank_image.png\" />
 						<div class=\"rank_image_text\">
 							$memRankLevel - $memRankName
 						</div>
@@ -106,10 +106,10 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\" style=\"margin-right: 0px;\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete\" title=\"Delete Member\" style=\"margin-left: 0px;\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -392,10 +392,10 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
+		<a href="?page=admin">&#8672; Back to Admin Home</a>
 	</div>
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/?page=admin_mem_sync">Sync Members from Main Website</a>
+		<a href="../admin/?page=admin_mem_sync">Sync Members from Main Website</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Member Management</h2>
@@ -406,7 +406,7 @@
 			margin-left: 0px;
 			margin-right: 2%;
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">
 			Add New Member
 		</button>
 		<table id="adminMemberTable" class="adminTable">
@@ -452,7 +452,7 @@
 			</button>
 			<p class="validateTips">Enter new Member Information Below.</p>
 			<p class="validateTips">NOTE: This is creating a member outside of the normal "sync" process between the two sites. If this member is subsequently registered on the main site, their VVarID will have to be updated on here.</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="VVarID" class="adminDialogInputLabel">
 						VVarMachine ID (from Main Website)
@@ -537,7 +537,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Member Information</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -613,7 +613,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Member Rank</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_EditRank.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_EditRank.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -651,7 +651,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Member? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -683,7 +683,7 @@
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to reset this member's Password?</p>
 			<p class="validateTips">If the email address below is blank or not correct,<br />you will have to edit the member and update it<br />before submitting the password change.</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_mem_pass.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_mem_pass.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>

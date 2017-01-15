@@ -34,10 +34,10 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Manufacturer\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete\" title=\"Delete Manufacturer\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -158,7 +158,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
+		<a href="?page=admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Manufacturer Management</h2>
@@ -169,7 +169,7 @@
 			margin-left: 0px;
 			margin-right: 2%;			
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">
 			Add New Manufacturer
 		</button>
 		<table id="adminManuTable" class="adminTable">
@@ -200,7 +200,7 @@
 			</button>
 			<p class="validateTips">Enter new Manufacturer Information Below.</p>
 			<p class="validateTips">All form fields are required.</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_manu_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="Name" class="adminDialogInputLabel">
 						Name
@@ -231,7 +231,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Manufacturer Information</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_manu_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>
@@ -267,7 +267,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Manufacturer? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_manu_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_manu_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<label for="ID" class="adminDialogInputLabel" style="display: none">
 					</label>

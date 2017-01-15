@@ -298,7 +298,7 @@
 					$memID
 				</td>
 				<td class=\"adminTableRowTD memName\" data-memname=\"$memName\">
-					<a href=\"http://sc.vvarmachine.com/player/$memID\" target=\"_blank\">
+					<a href=\"../player/$memID\" target=\"_blank\">
 						$memName
 					</a>
 				</td>
@@ -327,10 +327,10 @@
 				";
 				$displayUnitMembers .= "
 					<button class=\"adminButton adminButtonEdit Member\" title=\"Edit Member Role\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete Member\" title=\"Remove Member\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -373,7 +373,7 @@
 						$shipID
 					</td>
 					<td class=\"adminTableRowTD shipName\" data-shipname=\"$shipName\">
-						<a href=\"http://sc.vvarmachine.com/ship/$shipID\" target=\"_blank\">
+						<a href=\"../ship/$shipID\" target=\"_blank\">
 							$shipName
 						</a>
 					</td>
@@ -382,10 +382,10 @@
 					</td>
 					<td class=\"adminTableRowTD\">
 						<button class=\"adminButton adminButtonEdit Ship\" title=\"Edit Ship\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 						</button>
 						<button class=\"adminButton adminButtonDelete Ship\" title=\"Remove Ship\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 						</button>
 					</td>
 				</tr>
@@ -429,7 +429,7 @@
 	if ($_SESSION['sess_userrole'] == "admin")
 	{	$display_admin_mainLink = "
 			<div class=\"div_filters_entry\">
-				<a href=\"http://sc.vvarmachine.com/admin/?page=admin_units\">&#8672; Back to Unit Management</a>
+				<a href=\"../admin/?page=admin_units\">&#8672; Back to Unit Management</a>
 			</div>
 			<br />
 			<br />
@@ -762,7 +762,7 @@
 <div class="div_filters_container">
 	<? echo $display_admin_mainLink ?>
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/unit/<? echo $unitID ?>">Unit Details Page</a>
+		<a href="../unit/<? echo $unitID ?>">Unit Details Page</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Unit Management - <? echo $unitName ?></h2>
@@ -771,7 +771,7 @@
 	<div id="adminUnitDetailsTableContainer" class="adminTableContainer">
 	
 		<!--MAIN FORM (Unit EDIT) -->
-		<form class="adminDialogForm adminObjectDetails" id="dialog-form-edit" action="http://sc.vvarmachine.com/functions/function_unit_Edit.php" method="POST" role="form">
+		<form class="adminDialogForm adminObjectDetails" id="dialog-form-edit" action="../functions/function_unit_Edit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<div class="adminEntryRow unitID" data-id="<? echo $unitID ?>">
 					<div class="adminDetailEntryKey">
@@ -929,7 +929,7 @@
 			</fieldset>
 			<div class="adminDialogButtonPane">
 				<button id="adminDialogSubmit" class="adminButton adminButtonSave" type="submit" title="Update Unit">
-					<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_save.png">		
+					<img height="20px" class="adminButtonImage" src="../images/misc/button_save.png">		
 					Save Changes
 				</button>
 			</div>			
@@ -942,7 +942,7 @@
 			margin-left: 0px;
 			margin-right: 2%;			
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">	
 			Add Member To Unit		
 		</button>
 		<h3 id="UnitMembersHeader">Unit Personnel</h3>
@@ -986,7 +986,7 @@
 			margin-left: 0px;
 			margin-right: 2%;			
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">	
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">	
 			Add Ship	
 		</button>
 		<h3 id="UnitShipsHeader">Unit Equipment</h3>
@@ -1020,7 +1020,7 @@
 		</button>
 		<p class="validateTips">Add Member to Unit Here!</p>
 		<p class="validateTips">All Fields are Required.</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_AddMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unit_AddMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<!--
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -1065,7 +1065,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Please Confirm Change in Leader</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_AssignMemberAsLeader.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unit_AssignMemberAsLeader.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
@@ -1100,7 +1100,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update UnitMember Information</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_EditMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unit_EditMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -1146,7 +1146,7 @@
 		</button>
 		<p class="validateTips">Confirmation Required!</p>
 		<p class="validateTips">Are you sure you want to Remove this Member from the Unit?</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_DeleteMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unit_DeleteMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -1190,7 +1190,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add a new Ship to your Unit!</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Create.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unitShip_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<!--
 					<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -1231,7 +1231,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update UnitShip Entry</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Edit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unitShip_Edit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel">
 					RowID
@@ -1272,7 +1272,7 @@
 		</button>
 		<p class="validateTips">Confirmation Required!</p>
 		<p class="validateTips">Are you sure you want to Remove this Ship from your Unit?</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unitShip_Delete.php" method="POST" role="form">
+		<form class="adminDialogForm" action="../functions/function_unitShip_Delete.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel">
 					RowID

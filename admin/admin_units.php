@@ -75,10 +75,10 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Unit\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete\" title=\"Delete Unit\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
 				</td>
 			</tr>
@@ -193,7 +193,7 @@
 			var unitID = $self.parent().parent().find('.adminTableRowTD.unitID').data("id");
 			
 			//Launch Unit Edit Page
-			window.location.href = "http://sc.vvarmachine.com/admin/?page=admin_unit&pid=" + unitID;
+			window.location.href = "../admin/?page=admin_unit&pid=" + unitID;
 			
 			/*
 			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("id");
@@ -284,7 +284,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/admin/">&#8672; Back to Admin Home</a>
+		<a href="?page=admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
 <h2 id="MainPageHeaderText">Unit Management</h2>
@@ -295,7 +295,7 @@
 			margin-left: 0px;
 			margin-right: 2%;
 		">
-			<img height="20px" class="adminButtonImage" src="http://sc.vvarmachine.com/images/misc/button_add.png">
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">
 			Add New Unit
 		</button>
 		<table id="adminUnitsTable" class="adminTable">
@@ -340,7 +340,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Enter new Unit Information Below.</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Create.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_unit_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ParentUnit" class="adminDialogInputLabel">
@@ -441,7 +441,7 @@
 				Cancel
 			</button>
 			<p class="validateTips">Update Unit Information</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Edit.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_unit_Edit.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ID" class="adminDialogInputLabel">
@@ -519,7 +519,7 @@
 			</button>
 			<p class="validateTips">Confirmation Required!</p>
 			<p class="validateTips">Are you sure you want to Delete this Unit? Bad Things Could Happen!</p>
-			<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/function_unit_Delete.php" method="POST" role="form">
+			<form class="adminDialogForm" action="../functions/function_unit_Delete.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 
 					<label for="ID" class="adminDialogInputLabel">
