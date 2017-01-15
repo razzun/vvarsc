@@ -239,7 +239,8 @@
 							on r3.rank_id = m2.ranks_rank_id
 						where u.UnitID = $UnitID
 						order by
-							r.rank_orderby
+							r2.role_id
+							,r.rank_orderby
 							,r2.role_orderby
 							,m.mem_callsign";	
 		
