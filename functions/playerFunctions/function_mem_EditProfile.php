@@ -3,7 +3,7 @@
     $role = $_SESSION['sess_userrole'];
     if(!isset($_SESSION['sess_username']))
 	{
-      header('Location: http://sc.vvarmachine.com/login.php?err=4');
+      header('Location: $link_base/login.php?err=4');
     }
 ?>
 
@@ -78,23 +78,23 @@
 			$query_result = $connection->query($q);
 			if ($query_result)
 			{
-				header("Location: http://sc.vvarmachine.com/?page=player&pid=$ID");
+				header("Location: $link_base/?page=player&pid=$ID");
 			}
 			else
 			{
-				header("Location: http://sc.vvarmachine.com/error_generic");
+				header("Location: $link_base/error_generic");
 			}
 		}
 		else
 		{
 			//Add Meaningful Error if user doesn't enter their current password
-			header("Location: http://sc.vvarmachine.com/error_generic");
+			header("Location: $link_base/error_generic");
 		}
 	}
 	else
 	{
 		//Add Meaningful error if the logged-in user tries to change another player's profile.
-		header("Location: http://sc.vvarmachine.com/error_generic");
+		header("Location: $link_base/error_generic");
 	}
 
 	$connection->close();

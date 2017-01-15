@@ -4,7 +4,7 @@
 	$userID = $_SESSION['sess_user_id'];
     if(!isset($_SESSION['sess_username']) || $role!="admin")
 	{
-      header('Location: http://sc.vvarmachine.com/login.php?err=4');
+      header('Location: $link_base/login.php?err=4');
     }
 ?>
 
@@ -63,11 +63,11 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/operation/$ID");
+		header("Location: $link_base/operation/$ID");
 	}
 	else
 	{
-		header("Location: http://sc.vvarmachine.com/error_generic");
+		header("Location: $link_base/error_generic");
 	}
 	
 	$connection->close();
