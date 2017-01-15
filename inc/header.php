@@ -2,6 +2,7 @@
 	$display_login = "";
 	$display_officerLinks = "";
 	$display_adminZone = "";
+	$link_base = "http://" . $_SERVER['SERVER_NAME'];
 	
 	if(isset($_SESSION['sess_username']))
 	{
@@ -10,7 +11,7 @@
 		$role = $_SESSION['sess_userrole'];
 		$display_login .= "
 			<div>
-				Welcome <a href=\"http://sc.vvarmachine.com/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
+				Welcome <a href=\"$link_base/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
 			</div>
 		";
 	}
@@ -62,7 +63,7 @@
 		<? echo $display_login ?>
 	</div>
 
-	<iframe src="http://free.timeanddate.com/clock/i5h0wbhu/tluk/fn16/fs12/fcddd/tct/pct/ftbi/tt0/tw1/td2/th1/ta1/tb2" frameborder="0" width="226" height="17" allowTransparency="true" style="
+	<iframe src="https://free.timeanddate.com/clock/i5h0wbhu/tluk/fn16/fs12/fcddd/tct/pct/ftbi/tt0/tw1/td2/th1/ta1/tb2" frameborder="0" width="226" height="17" allowTransparency="true" style="
 		float:left;
 		margin-left: 16px;
 	">
@@ -71,7 +72,7 @@
 
 	<div id="nav_container">
 		<div id="nav_header">
-			<img class="nav_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png"/>
+			<img class="nav_header_arrow" align="center" src="images/misc/SC_Button01.png"/>
 			<div id="nav_header_text">
 				Navigation
 			</div>
@@ -139,7 +140,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!--Script to Show/Hide Filter Rows when Expansion Arrow is Clicked-->
 <script>
     $(document).ready(function () {

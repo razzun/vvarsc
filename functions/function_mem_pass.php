@@ -3,7 +3,7 @@
     $role = $_SESSION['sess_userrole'];
     if(!isset($_SESSION['sess_username']) || $role!="admin")
 	{
-      header('Location: http://sc.vvarmachine.com/login.php?err=4');
+      header('Location: $link_base/login.php?err=4');
     }
 ?>
 
@@ -55,13 +55,13 @@
 		$headers = 'From: webmaster@vvarmachine.com' . "\r\n" .
 		    'Reply-To: webmaster@vvarmachine.com' . "\r\n" .
 			'X-Mailer: PHP/' . phpversion();
-		$message = 'Per your request, an administrator has reset your password. Please go to http://sc.vvarmachine.com, login and change your password.  Your new password is: ' . $memPassword;
+		$message = 'Per your request, an administrator has reset your password. Please go to $link_base, login and change your password.  Your new password is: ' . $memPassword;
 		 */
-		header("Location: http://sc.vvarmachine.com/admin/?page=admin_mem");
+		header("Location: $link_base/admin/?page=admin_mem");
 	}
 	else
 	{
-		header("Location: http://sc.vvarmachine.com/error_generic");
+		header("Location: $link_base/error_generic");
 	}
 	
 	$connection->close();
