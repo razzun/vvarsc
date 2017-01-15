@@ -3,7 +3,7 @@
     $role = $_SESSION['sess_userrole'];
     if(!isset($_SESSION['sess_username']) || $role!="admin")
 	{
-      header('Location: http://sc.vvarmachine.com/login.php?err=4');
+      header('Location: ../login.php?err=4');
     }
 ?>
 
@@ -76,11 +76,11 @@
 			
 	if ($query_result)
 	{
-		header("Location: http://sc.vvarmachine.com/admin/?page=admin_qual");
+		header("Location: ?page=admin_qual");
 	}
 	else
 	{
-		header("Location: http://sc.vvarmachine.com/error_generic");
+		header("Location: ../error_generic");
 	}
 	
 	$connection->close();

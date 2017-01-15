@@ -13,11 +13,11 @@
 		$reqURL = $_SERVER['REQUEST_URI'];
 		if ($reqURL == '/')
 		{
-			header("Location: http://sc.vvarmachine.com/login.php?err=2");
+			header("Location: login.php?err=2");
 		}
 		else 
 		{
-			header("Location: http://sc.vvarmachine.com/login.php?err=2&rURL=$reqURL");
+			header("Location: login.php?err=2&rURL=$reqURL");
 		}
     }
 ?>

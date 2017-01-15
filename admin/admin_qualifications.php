@@ -104,7 +104,7 @@
 					display: table;
 					padding-bottom: 4px;
 				\">
-					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"http://vvarmachine.com/uploads/galleries/SC_Button01.png\" align=\"middle\">
+					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"../images/misc/SC_Button01.png\" align=\"middle\">
 					<div class=\"player_qual_row_name\" style=\"
 						margin-top:8px;
 						margin-bottom:8px;
@@ -203,7 +203,7 @@
 ?>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
 </script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 

@@ -25,15 +25,15 @@
 			<p>
 				<strong>Manufacturer Management - </strong> Used to manage the different manufacturers used in Star Citizen.
 				</br>
-				<strong>Member Management - </strong> Used to manage VVARMachine members, and their owned ships.
+				<strong>Member Management - </strong> Used to manage VVarMachine members, and their owned ships.
 				</br>
 				<strong>Ship Management - </strong> Not currently active.  Check back later.
 				</br>
 				<strong>Qualifications - </strong> Manage the different Qualifications that Members can earn.
 				</br>
-				<strong>Roles Management - </strong> Used to manage the different roles within the VVARMachine Star Citizen Division.
+				<strong>Roles Management - </strong> Used to manage the different roles within the VVarMachine Star Citizen Division.
 				</br>
-				<strong>Unit Management - </strong> Used to manage the different units within the VVARMachine Star Citizen Division, including members.
+				<strong>Unit Management - </strong> Used to manage the different units within the VVarMachine Star Citizen Division, including members.
 			</p>
 		</div>
 	</div>
