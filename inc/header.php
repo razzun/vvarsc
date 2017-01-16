@@ -72,7 +72,7 @@
 
 	<div id="nav_container">
 		<div id="nav_header">
-			<img class="nav_header_arrow" align="center" src="images/misc/SC_Button01.png"/>
+			<img class="nav_header_arrow" align="center" src="/images/misc/SC_Button01.png"/>
 			<div id="nav_header_text">
 				Navigation
 			</div>
