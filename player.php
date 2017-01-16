@@ -889,9 +889,15 @@
 					Qualifications
 				</div>
 				<? echo $display_qual_edit ?>
-				<table class="player_qualifications">
-					<? echo $display_player_qualifications; ?>
-				</table>
+				<div style="
+					width:100%;
+					max-height:160px;
+					overflow-y:scroll;
+				">
+					<table class="player_qualifications">
+						<? echo $display_player_qualifications; ?>
+					</table>
+				</div>
 			</div>
 			<div class="p_awards">
 				<div class="p_section_header" style="float:left">
