@@ -239,8 +239,8 @@
 							on r3.rank_id = m2.ranks_rank_id
 						where u.UnitID = $UnitID
 						order by
-							r.rank_orderby
-							,r2.role_orderby
+							r2.role_orderby
+							,r.rank_orderby
 							,m.mem_callsign";	
 		
 		$unit_query_result = $connection->query($unit_query);
