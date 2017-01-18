@@ -762,6 +762,46 @@ table.tbmem a:hover {
 	font-style: italic;
 }
 
+.tooltip-wrap {
+	position: relative;
+}
+
+.rsi-tooltip {
+	display: none;
+	text-align: center;
+	bottom: 44px;
+	left: -132px;
+	width: 180px;
+	border-color: #00d6ff;
+	box-shadow: 0 0 20px rgba(0,133,255,0.3);
+	border: solid rgba(92, 236, 244, 0.85);
+	border-width: 1px 1px 0 1px;
+	background-color: rgba(0, 0, 0, 0.85);
+	position: absolute;	
+}
+
+.tooltip-wrap:hover > .rsi-tooltip {
+	display: block;
+}
+
+.rsi-tooltip-content {
+	padding: 8px;
+	margin: 0;
+	font-family: electrolize;
+	color: #DDD;
+}
+
+.rsi-tooltip-bottom {
+	display: block;
+	height: 8px;
+	width: 100%;
+	background: url('http://www.robertsspaceindustries.com/rsi/static/images/organization/tooltip-bottom.png') no-repeat 50% 0;
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	background-position: -60px;
+}
+
 /* -----------------------------------------------*/
 
 #p_rank_container {

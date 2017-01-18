@@ -406,6 +406,9 @@
 				,lk.CategoryName as qualification_category
 				,q.qualification_image
 				,IFNULL(mq.qualification_level_id,0) as `qualification_level`
+				,q.level1_reqs
+				,q.level2_reqs
+				,q.level3_reqs
 			from projectx_vvarsc2.qualifications q
 			join projectx_vvarsc2.LK_QualificationCategories lk
 				on lk.CategoryID = q.qualification_categoryID
@@ -429,6 +432,18 @@
 			$qual_category = $row2['qualification_category'];
 			$qual_image = "http://sc.vvarmachine.com/images/qualifications/".$row2['qualification_image'];
 			$qual_level_id = $row2['qualification_level'];
+			$level1_reqs = $row2['level1_reqs'];
+			$level2_reqs = $row2['level2_reqs'];
+			$level3_reqs = $row2['level3_reqs'];
+			
+			if ($level1_reqs == null || $level1_reqs == "")
+				$level1_reqs = "- No Requirements Found -";
+				
+			if ($level2_reqs == null || $level2_reqs == "")
+				$level2_reqs = "- No Requirements Found -";
+				
+			if ($level3_reqs == null || $level3_reqs == "")
+				$level3_reqs = "- No Requirements Found -";
 			
 			$imageClassName1 = "player_qual_row_image";
 			$imageClassName2 = "player_qual_row_image";
@@ -458,14 +473,38 @@
 					data-category=$qual_categoryID
 				>
 					<td class=\"player_qual_row_name\">$qual_category<br /><strong>$qual_name</strong></td>
-					<td class=\"player_qual_row_image_container\">
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
 						<img class=\"$imageClassName1\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qual_name - Level 1</strong>
+								<br />
+								$level1_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
 					</td>
-					<td class=\"player_qual_row_image_container\">
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
 						<img class=\"$imageClassName2\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qual_name - Level 2</strong>
+								<br />
+								$level2_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
 					</td>
-					<td class=\"player_qual_row_image_container\">
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
 						<img class=\"$imageClassName3\" src=\"$qual_image\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qual_name - Level 3</strong>
+								<br />
+								$level3_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
 					</td>";
 					
 			if ($_SESSION['sess_userrole'] == "admin")
@@ -767,23 +806,14 @@
 									<div class ="p_rankname">
 										<? echo $rank_groupName; ?>
 									</div>
-									<!--
-									<div class ="p_rank_role_name">
-										<? echo $displayRoles; ?>
-									</div>
-									-->
+									<? echo $displayRoles; ?>
 								</div>
-								<div id="p_rank" align="left" valign="top">		
+								<div id="p_rank" align="left" valign="top">
 									<div class="p_rankimage_container">
 										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
 									</div>
 									<div class= "p_rankExtendedData">
-										<!--
-										<span class="p_rankExtendedData_rank_level">
-											<? echo $rank_level; ?>
-										</span>
-										<br />
-										-->
+										<? echo $rank_level; ?>
 										<span class="p_rankExtendedData_rank_name">
 											<a href="/wiki/?page=ranks#<?echo $rank_level;?>" target="_blank" style="
 												text-decoration: none;
@@ -864,16 +894,6 @@
 					</div>
 				</div>
 			</div>
-			
-			<!--Row2-->
-			<!--
-			<div class="play_row">
-				<h4 style="padding-left: 0px; margin-left: 8px">
-					Rank & Role Info
-				</h4>
-				
-			</div>
-			-->
 		</div>
 		
 
@@ -891,8 +911,6 @@
 				<? echo $display_qual_edit ?>
 				<div style="
 					width:100%;
-					max-height:160px;
-					overflow-y:scroll;
 				">
 					<table class="player_qualifications">
 						<? echo $display_player_qualifications; ?>
