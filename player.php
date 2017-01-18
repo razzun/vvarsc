@@ -812,7 +812,6 @@
 										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
 									</div>
 									<div class= "p_rankExtendedData">
-										<? echo $rank_level; ?>
 										<span class="p_rankExtendedData_rank_name">
 											<a href="/wiki/?page=ranks#<?echo $rank_level;?>" target="_blank" style="
 												text-decoration: none;

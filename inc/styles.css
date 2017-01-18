@@ -791,6 +791,12 @@ table.tbmem a:hover {
 	color: #DDD;
 }
 
+.rsi-tooltip-content strong {
+	font-size: 9pt;
+	font-variant: small-caps;
+	color: #FFF;
+}
+
 .rsi-tooltip-bottom {
 	display: block;
 	height: 8px;
