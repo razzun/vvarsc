@@ -806,7 +806,6 @@
 									<div class ="p_rankname">
 										<? echo $rank_groupName; ?>
 									</div>
-									<? echo $displayRoles; ?>
 								</div>
 								<div id="p_rank" align="left" valign="top">
 									<div class="p_rankimage_container">

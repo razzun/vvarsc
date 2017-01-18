@@ -40,7 +40,7 @@
 				</div>
 				<h5 class="WikiH5">Air-Wings & Marine Combat Teams</h5>
 				<div class="WikiText">
-					Moving up the hierarchy tree, we find the <strong>Air Wing</strong> and <strong>Marine Combat Team</strong> units. These units will only be activatred once there are an adequate number of established Squadrons/Platoons existing below them, and there is a need for a parent-unit to be created for oversight in planning and operational execution. Due to constraints inherent to the numbering system described below, a single Air Wing can contain a maximum of 9 Squadrons. The Air Wing and Combat Team units will be commanded by an Officer of at-least O-5 PayGrade, assisted by an O-4. Their command staff may also include additional Officers, and Senior NCOs serving as advisers.
+					Moving up the hierarchy tree, we find the <strong>Air Wing</strong> and <strong>Marine Combat Team</strong> units. These units will only be activated once there are an adequate number of established Squadrons/Platoons existing below them, and there is a need for a parent-unit to be created for oversight in planning and operational execution. Due to constraints inherent to the numbering system described below, a single Air Wing can contain a maximum of 9 Squadrons. The Air Wing and Combat Team units will be commanded by an Officer of at-least O-5 PayGrade, assisted by an O-4. Their command staff may also include additional Officers, and Senior NCOs serving as advisers.
 				</div>
 				<h5 class="WikiH5">Combat Groups</h5>
 				<div class="WikiText">
