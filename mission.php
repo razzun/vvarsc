@@ -199,7 +199,8 @@
 					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_CreatedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
 						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_CreatedByID\" style=\"
-							padding-left: 4px
+							padding-left: 4px;
+							font-weight: normal;
 						\">
 							$operationDetails_CreatedByName
 						</a>
@@ -218,7 +219,8 @@
 					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_ModifiedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
 						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_ModifiedByID\" style=\"
-							padding-left: 4px
+							padding-left: 4px;
+							font-weight: normal;
 						\">
 							$operationDetails_ModifiedByName
 						</a>
@@ -764,6 +766,7 @@
 								<div class=\"operations_rank_image_text\">
 									<a href=\"http://sc.vvarmachine.com/player/$opUnitMemberListItem_MemberID\" style=\"
 									text-decoration: none;
+									font-weight: normal;
 								\">
 									$opUnitMemberListItem_MemName
 									</a>
@@ -1180,6 +1183,7 @@
 									<div class=\"operations_rank_image_text\">
 										<a href=\"http://sc.vvarmachine.com/player/$opShipMembersListItem_MemberID\" style=\"
 										text-decoration: none;
+										font-weight: normal;
 									\">
 										$opShipMembersListItem_MemName
 										</a>
