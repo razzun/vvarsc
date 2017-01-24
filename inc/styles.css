@@ -4345,7 +4345,17 @@ img.fleet:after {
 	}
 }
 
+@media only screen and (max-width: 1440px) {
+	.player_ships_entry {
+		width: 30%;
+	}
+}
+
 @media only screen and (max-width: 1199px) {
+	.player_ships_entry {
+		width: 35%;
+	}
+	
 	#MainWebsiteInner {
 		width: 100%;
 	}
@@ -4394,6 +4404,9 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 1023px) {
+	.player_ships_entry {
+		width: 40%;
+	}
 	/*Shipyard Page*/
 	.yard_right_container {
 		display: none;
@@ -4429,6 +4442,9 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 899px) {
+	.player_ships_entry {
+		width: 45%;
+	}
 	/* Navigation */
 	.nav_entry {
 		display: inline-block;
@@ -4498,10 +4514,6 @@ img.fleet:after {
 	/*Player Page*/
 	.pavatar {
 		border-right: none;
-	}
-	
-	.player_ships_entry {
-		width: 40%;
 	}
 	
 	.pbio {
