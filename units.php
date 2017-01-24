@@ -22,7 +22,9 @@
 					{
 						if ($value['UnitLevel'] == "Division")
 						{
-							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
+								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+							echo '</div>';
 						}
 						else
 						{
@@ -35,7 +37,9 @@
 						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
 						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 						{
-							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
+								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+							echo '</div>';
 						}
 						else
 						{
@@ -50,20 +54,23 @@
 					}
 					
 					//Unit Image//
-					$temp_unitEmblemImage = "";
-					if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
-						$temp_unitEmblemImage = "http://vvarmachine.com/uploads/galleries/03KgFv0_med.png";
-					else
-						$temp_unitEmblemImage = $value['UnitEmblemImage'];
+					if ($value['UnitLevel'] != "Department")
+					{
+						$temp_unitEmblemImage = "";
+						if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
+							$temp_unitEmblemImage = "http://vvarmachine.com/uploads/galleries/03KgFv0_med.png";
+						else
+							$temp_unitEmblemImage = $value['UnitEmblemImage'];
+							
+						echo '<div class="shipDetails_ownerInfo_tableRow_ImgContainer" style="height: 38px;	width: 38px; padding-left:8px; padding-right:0px; padding-top:2px; padding-bottom:2px; border:none; background:none;">';
 						
-					echo '<div class="shipDetails_ownerInfo_tableRow_ImgContainer" style="height: 38px;	width: 38px; padding-left:8px; padding-right:0px; padding-top:2px; padding-bottom:2px; border:none; background:none;">';
-					
-					if ($value['IsActive'] == "Active")
-						echo '<img class="divinfo_rankImg" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
-					else
-						echo '<img class="divinfo_rankImg image_inactive" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
-						
-					echo '</div>';
+						if ($value['IsActive'] == "Active")
+							echo '<img class="divinfo_rankImg" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
+						else
+							echo '<img class="divinfo_rankImg image_inactive" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
+							
+						echo '</div>';
+					}
 					//End Unit Image//
 					
 					echo '<div class="unitHierarchyHeader_mainContainer">';
@@ -287,14 +294,14 @@
 		
 		<!--Open Inactive Nodes by Default->>
 		$(".unitHierarchyHeader_unitName.inactive").parent().parent().parent().parent().children(".unitHierarchyChildren").show();
-		$(".unitHierarchyHeader_unitName.inactive").parent().parent().parent().children(".unitHierarchy_row_header_arrow").toggleClass('rotate90CW');
+		$(".unitHierarchyHeader_unitName.inactive").parent().parent().parent().children(".unitHierarchy_arrowContainer").children(".unitHierarchy_row_header_arrow").toggleClass('rotate90CW');
 		
         $(".unitHierarchy_row_header_arrow").click(function () {
 		
 			var websiteClass = $('#TEXT');
 			var currentContentHeight = websiteClass.height();
 			
-            $(this).parent().parent().children(".unitHierarchyChildren").slideToggle(500);
+            $(this).parent().parent().parent().children(".unitHierarchyChildren").slideToggle(500);
 			$(this).toggleClass('rotate90CW');
 
         });	
