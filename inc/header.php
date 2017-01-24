@@ -1,5 +1,6 @@
 <?
 	$display_login = "";
+	$display_securedLinks = "";
 	$display_officerLinks = "";
 	$display_adminZone = "";
 	$link_base = "http://" . $_SERVER['SERVER_NAME'];
@@ -9,6 +10,7 @@
 		$userName = $_SESSION['sess_username'];
 		$userID = $_SESSION['sess_user_id'];
 		$role = $_SESSION['sess_userrole'];
+		$infoSecLevelID = $_SESSION['sess_infoseclevel'];
 		$display_login .= "
 			<div>
 				Welcome <a href=\"$link_base/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
@@ -20,6 +22,17 @@
 		$display_login .= "
 			<div>
 				<a class=\"headerLoginLink\" href=/login.php>Login</a>
+			</div>
+		";
+	}
+	
+	if ($infoSecLevelID > 1)
+	{
+		$display_securedLinks .= "
+			<div class=\"nav_entry\">
+				<div class=\"nav_entry_inner\">
+					<a class=\"navbar_inner\" href=\"/fleetinfo/\">Fleet Infograph</a>
+				</div>
 			</div>
 		";
 	}
@@ -92,12 +105,6 @@
 						<a class="navbar_inner" href="/">Home</a>
 					</div>
 				</div>
-				<!--
-				<div class="nav_entry">
-					<div class="nav_entry_inner">
-						<a class="navbar_inner" href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F25" target="_blank">About Us &#38; CoC</a></div>
-					</div>
-				-->
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/divisions/0">Members</a>
@@ -108,11 +115,7 @@
 						<a class="navbar_inner" href="/units">Divisions & Units</a>
 					</div>
 				</div>
-				<div class="nav_entry">
-					<div class="nav_entry_inner">
-						<a class="navbar_inner" href="/fleetinfo">Fleet Infograph</a>
-					</div>
-				</div>
+				<? echo $display_securedLinks; ?>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">
 						<a class="navbar_inner" href="/shipyard">Shipyard</a>

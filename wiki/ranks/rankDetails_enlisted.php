@@ -497,7 +497,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Senior Chief Petty Officer</strong> (SCPO)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>First Sergeant</strong> (1SG)</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>First Sergeant</strong> (1SGT)</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

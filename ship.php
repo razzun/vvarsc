@@ -2,6 +2,7 @@
 
 <?php 
 	$ship_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
+	$infoSecLevelID = $_SESSION['sess_infoseclevel'];
 	
 	$display_ship_title;
 	$display_ship_info1;
@@ -468,6 +469,20 @@
 			,m.mem_name";
 		
         $owners_query_results = $connection->query($owners_query);
+		$display_owners = "";
+		
+		if ($infoSecLevelID > 1)
+		{
+			$display_owners .= "
+				<div class=\"shipDetails_rightInfo_Container\">
+					<div class=\"shipDetails_rightInfo_ownerInfo_Container\">
+						<div class=\"shipDetails_info_title\">
+							Owners
+						</div>
+						<table class=\"shipDetails_ownerInfo_table\">
+			";
+		}
+	
 		
 		while (($row2 = $owners_query_results->fetch_assoc()) != false)
 		{
@@ -495,36 +510,47 @@
 				$mem_role = "No Role Assigned";
 			}
 			
-			$display_owners .="
-				<tr class=\"shipDetails_ownerInfo_tableRow\">
-					<td class=\"shipDetails_ownerInfo_tableRow_inner\">
-						<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\">
-							<div class=\"corner corner-top-left\">
+			if ($infoSecLevelID > 1)
+			{
+				$display_owners .="
+					<tr class=\"shipDetails_ownerInfo_tableRow\">
+						<td class=\"shipDetails_ownerInfo_tableRow_inner\">
+							<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\">
+								<div class=\"corner corner-top-left\">
+								</div>
+								<div class=\"corner corner-top-right\">
+								</div>
+								<div class=\"corner corner-bottom-left\">
+								</div>
+								<div class=\"corner corner-bottom-right\">
+								</div>
+								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
 							</div>
-							<div class=\"corner corner-top-right\">
+							<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
+								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
+									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
+								</div>
+								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
+									$mem_role
+								</div>
+								<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
+									Enlisted $mem_CreatedOn
+								</div>
+								<div class=\"shipDetails_ownerInfo_tableRow_memInfo5\">
+									$rank_abbr // $rank_level
+								</div>
 							</div>
-							<div class=\"corner corner-bottom-left\">
-							</div>
-							<div class=\"corner corner-bottom-right\">
-							</div>
-							<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
-						</div>
-						<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
-							<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
-								<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
-							</div>
-							<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
-								$mem_role
-							</div>
-							<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
-								Enlisted $mem_CreatedOn
-							</div>
-							<div class=\"shipDetails_ownerInfo_tableRow_memInfo5\">
-								$rank_abbr // $rank_level
-							</div>
-						</div>
-					</td>
-				</tr>
+						</td>
+					</tr>
+				";
+			}
+		}
+		if ($infoSecLevelID > 1)
+		{
+			$display_owners .= "
+						</table>
+					</div>
+				</div>
 			";
 		}
 	
@@ -611,16 +637,7 @@
 			</div>
 		</div>
 		-->
-		<div class="shipDetails_rightInfo_Container">
-			<div class="shipDetails_rightInfo_ownerInfo_Container">
-				<div class="shipDetails_info_title">
-					Owners
-				</div>
-				<table class="shipDetails_ownerInfo_table">
-					<?echo $display_owners; ?>
-				</table>
-			</div>
-		</div>
+		<? echo $display_owners; ?>
 	</div>
 </div>
 
