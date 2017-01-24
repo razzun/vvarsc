@@ -3844,6 +3844,10 @@ img.fleet:after {
 	color: RGBA(136, 136, 136, 0.7);
 }
 
+.image_inactive {
+	opacity: 0.25;
+}
+
 .unitHierarchyHeaderContent {
 	margin-left: 48px;
 	margin-bottom: 4px;

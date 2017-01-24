@@ -49,6 +49,23 @@
 						echo '</div>';					
 					}
 					
+					//Unit Image//
+					$temp_unitEmblemImage = "";
+					if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
+						$temp_unitEmblemImage = "http://vvarmachine.com/uploads/galleries/03KgFv0_med.png";
+					else
+						$temp_unitEmblemImage = $value['UnitEmblemImage'];
+						
+					echo '<div class="shipDetails_ownerInfo_tableRow_ImgContainer" style="height: 38px;	width: 38px; padding-left:8px; padding-right:0px; padding-top:2px; padding-bottom:2px; border:none; background:none;">';
+					
+					if ($value['IsActive'] == "Active")
+						echo '<img class="divinfo_rankImg" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
+					else
+						echo '<img class="divinfo_rankImg image_inactive" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
+						
+					echo '</div>';
+					//End Unit Image//
+					
 					echo '<div class="unitHierarchyHeader_mainContainer">';
 					
 								/*
