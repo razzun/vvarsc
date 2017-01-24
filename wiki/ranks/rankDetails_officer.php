@@ -339,7 +339,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-6 is the second of the Senior-Officer ranks, normally being held by the Commanding Officer of a Combat Group, and also grants the ability for the Member to server as their Division's Executive Officer. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet. Like O-5s, O-6s can also be assigned directly to Fleet Headquarters to assist with extraneous duties listed above.
+					O-6 is the second of the Senior-Officer ranks, normally being held by the Commanding Officer of a Combat Group, and also grants the ability for the Member to serve as their Division's Executive Officer. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet. Like O-5s, O-6s can also be assigned directly to Fleet Headquarters to assist with extraneous duties listed above.
 					<br />
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>
