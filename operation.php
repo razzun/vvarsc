@@ -348,7 +348,6 @@
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
 				{
 					$UnitIndex++;
-					
 					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
 					{
 						$callSign = ($opUnitsListItem_UnitCallSign.' '.$UnitIndex);
@@ -376,10 +375,9 @@
 				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
 				{
-					$UnitIndex++;
-					
 					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
 					{
+						$UnitIndex++;
 						$callSign = ($opUnitsListItem_UnitCallSign.'-'.$UnitIndex);
 					}
 					else
