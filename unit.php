@@ -28,7 +28,7 @@
 						if ($value['UnitLevel'] == "Division")
 						{
 							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
-								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="".$link_base."/images/SC_Button01.png" />';
+								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
 							echo '</div>';
 						}
 						else
@@ -84,13 +84,13 @@
 							if ($value['IsActive'] == "Active")
 							{
 								echo '<div class="unitHierarchyHeader_unitName">';
-									echo '<a href="$link_base/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';				
 							}
 							else
 							{
 								echo '<div class="unitHierarchyHeader_unitName inactive">';
-									echo '<a href="$link_base/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';
 							}
 							
@@ -146,8 +146,8 @@
 									{										
 										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
 										{
-											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="$link_base/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
-											echo '<a href="$link_base/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
+											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="'.$link_base.'/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
+											echo '<a href="'.$link_base.'/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
 										}
 										else
 											echo '';
@@ -325,11 +325,11 @@
 								</div>
 								<div class=\"corner corner-bottom-right\">
 								</div>
-								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"$link_base/images/ranks/$rank_image.png\" />
+								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"".$link_base."/images/ranks/$rank_image.png\" />
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
-									<a href=\"$link_base/player/$mem_id\" target=\"_top\">$mem_name</a>
+									<a href=\"".$link_base."/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									$mem_role
@@ -609,7 +609,7 @@
 			$display_selectors .= "
 				<div class=\"div_filters_container\">
 					<div class=\"div_filters_entry\">
-						<a href=\"$link_base/units\">&#8672; Back to Parent</a>
+						<a href=\"".$link_base."/units\">&#8672; Back to Parent</a>
 					</div>
 				</div>
 			";		
@@ -619,7 +619,7 @@
 			$display_selectors .= "
 				<div class=\"div_filters_container\">
 					<div class=\"div_filters_entry\">
-						<a href=\"$link_base/unit/$parentUnitID\">&#8672; Back to Parent</a>
+						<a href=\"".$link_base."/unit/$parentUnitID\">&#8672; Back to Parent</a>
 					</div>
 				</div>
 			";
@@ -704,7 +704,7 @@
 						
 							<div class=\"player_ships_shipTitle\">
 								<div class=\"player_ships_shipTitleContainer\">
-									<a href=\"$link_base/ship/$ship_id\" >
+									<a href=\"".$link_base."/ship/$ship_id\" >
 										<div class=\"player_ships_shipTitleText\">
 											$manu_shortName $full_ship_name
 										</div>
@@ -778,8 +778,8 @@
 						<td class=\"player_ships_entry_ship\">
 							<div class=\"player_ships_entry_ship_inner\">
 								<div class=\"player_ships_entry_ship_inner_imageContainer\">
-									<a href=\"$link_base/ship/$ship_id\" >
-										<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
+									<a href=\"".$link_base."/ship/$ship_id\" >
+										<img class=\"player_fleet\" align=\"center\" src=\"".$link_base."/images/silo_topDown/$ship_silo\" />
 									</a>
 								</div>
 							</div>

@@ -801,7 +801,7 @@ table.tbmem a:hover {
 	display: block;
 	height: 8px;
 	width: 100%;
-	background: url('http://www.robertsspaceindustries.com/rsi/static/images/organization/tooltip-bottom.png') no-repeat 50% 0;
+	background: url('https://www.robertsspaceindustries.com/rsi/static/images/organization/tooltip-bottom.png') no-repeat 50% 0;
 	position: absolute;
 	bottom: -8px;
 	left: 0;
@@ -1217,7 +1217,7 @@ ts.pship img {
 	background-color: rgba(2, 6, 14, 0.7);
 	border: 1px solid #222;
 	padding: 4px;
-	background-image: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 
@@ -1729,7 +1729,7 @@ img {
 	border-left: 1px solid rgba(31, 101, 133, 0.5);
 	border-right: 1px solid rgba(31, 101, 133, 0.5);
 	border-bottom: 1px solid rgba(31, 101, 133, 0.5);
-	background: url(http://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
 }
 
 .tbinfo_right_shipDetails2
@@ -1806,7 +1806,7 @@ img {
 
 .tbinfo tr
 {
-	background-image: url(http://www.robertsspaceindustries.com/rsi/static/images/store/header/rsi_menu_glow_noise_vd.png);
+	background-image: url(https://www.robertsspaceindustries.com/rsi/static/images/store/header/rsi_menu_glow_noise_vd.png);
 	background-repeat: repeat;
 	background-position: left bottom;
 }

@@ -340,7 +340,7 @@
 			
 			if ($UnitEmblemImage == null || $UnitEmblemImage == '')
 			{
-				$UnitEmblemImage = $link_base.'/images/03KgFv0_med.png';
+				$UnitEmblemImage = $link_base."/images/03KgFv0_med.png";
 			}			
 			
 			if ($role_name == NULL || $role_name == "n/a") {

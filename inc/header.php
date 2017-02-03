@@ -3,7 +3,7 @@
 	$display_securedLinks = "";
 	$display_officerLinks = "";
 	$display_adminZone = "";
-	$link_base = "http://" . $_SERVER['SERVER_NAME'];
+	$link_base = "https://" . $_SERVER['SERVER_NAME'];
 	
 	if(isset($_SESSION['sess_username']))
 	{
