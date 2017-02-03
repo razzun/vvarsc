@@ -519,7 +519,7 @@
 						margin-top: 6px;
 						display: table;
 					\">
-						<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"http://vvarmachine.com/uploads/galleries/SC_Button01.png\" align=\"middle\">
+						<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"".$link_base."images/SC_Button01.png\" align=\"middle\">
 						<h5 class=\"operations_h5\" style=\"
 							padding-left: 8px;
 							padding-right: 8px;

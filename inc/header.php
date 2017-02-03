@@ -69,7 +69,7 @@
 	</div>
 	<!--
 	<div class="HeaderContainer">
-		<img class="height="105" width="1200" border="0" src="http://vvarmachine.com/themes/starcitzen/images_custom/2banner_04_noBorder.png"/>
+		<img class="height="105" width="1200" border="0" src="../2banner_04_noBorder.png"/>
 	</div>
 	-->
 	<div id="nav_player_info" style="float:right">

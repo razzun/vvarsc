@@ -23,7 +23,7 @@
 						if ($value['UnitLevel'] == "Division")
 						{
 							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
-								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
 							echo '</div>';
 						}
 						else
@@ -38,7 +38,7 @@
 						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 						{
 							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
-								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png" />';
+								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
 							echo '</div>';
 						}
 						else
@@ -58,7 +58,7 @@
 					{
 						$temp_unitEmblemImage = "";
 						if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
-							$temp_unitEmblemImage = "http://vvarmachine.com/uploads/galleries/03KgFv0_med.png";
+							$temp_unitEmblemImage = $link_base."/images/03KgFv0_med.png";
 						else
 							$temp_unitEmblemImage = $value['UnitEmblemImage'];
 							

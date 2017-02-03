@@ -340,7 +340,7 @@
 			
 			if ($UnitEmblemImage == null || $UnitEmblemImage == '')
 			{
-				$UnitEmblemImage = 'http://vvarmachine.com/uploads/galleries/03KgFv0_med.png';
+				$UnitEmblemImage = $link_base.'/images/03KgFv0_med.png';
 			}			
 			
 			if ($role_name == NULL || $role_name == "n/a") {
@@ -1365,7 +1365,7 @@
 <!--
 <script>
 	$(document).ready(function() {
-		$('body').css('background','url(http://vvarmachine.com/uploads/galleries/SC_background_pic_02.png) no-repeat fixed center center transparent');
+		$('body').css('background','url(../SC_background_pic_02.png) no-repeat fixed center center transparent');
 	});
 </script>
 -->

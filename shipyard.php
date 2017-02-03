@@ -136,7 +136,7 @@
 		$display_fleet .= "
 			<tr class=\"shipyard_mainTable_row $manu_shortName2 $ship_classification\">
 				<th class=\"shipyard_mainTable_row_header\">
-					<img class=\"shipyard_mainTable_row_header_arrow\" align=\"center\" src=\"http://vvarmachine.com/uploads/galleries/SC_Button01.png\" />
+					<img class=\"shipyard_mainTable_row_header_arrow\" align=\"center\" src=\"".$link_base."/images/SC_Button01.png\" />
 					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$manu_image2\" />
 					<div class=\"shipyard_mainTable_row_header_shipTitle\">
 						<a href=\"ship/$ship_id2\">$full_ship_name_formatted
@@ -289,7 +289,7 @@
 	<div class="yard_outer_container">
 		<div class="yard_left_container">
 			<div class="yard_filter_header">
-				<img class="filter_header_arrow" align="center" src="http://vvarmachine.com/uploads/galleries/SC_Button01.png"/>
+				<img class="filter_header_arrow" align="center" src="<? $link_base; ?>/images/SC_Button01.png"/>
 				<div id="yard_filter_header_text">
 					Filters
 				</div>			

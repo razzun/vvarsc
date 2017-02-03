@@ -740,7 +740,7 @@
 <!--
 <script>
 	$(document).ready(function() {
-		$('body').css('background','url(http://vvarmachine.com/uploads/galleries/SC_background_pic_06.png) no-repeat fixed center center transparent');
+		$('body').css('background','url(/SC_background_pic_06.png) no-repeat fixed center center transparent');
 	});
 </script>
 -->
