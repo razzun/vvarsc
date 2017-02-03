@@ -12,7 +12,7 @@
 <div id="TEXT">
 
 	<div id="HomePage_MainContainer">
-		<img height="125" width="125" class="TextWrapLeft" src="http://sc.vvarmachine.com/images/sc_logo_sm.png">
+		<img height="125" width="125" class="TextWrapLeft" src="<? $link_base; ?>/images/sc_logo_sm.png">
 		<p>
 			<? echo $welcomeText; ?>
 		</p>		

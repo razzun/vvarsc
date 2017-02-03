@@ -121,7 +121,7 @@
 			
 			$display_fleet .= "
 				<div class=\"fleet2\">
-					<img class=\"fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo_info\" />
+					<img class=\"fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo_info\" />
 				
 					<div class=\"cornerToggle2 corner-top-left\">
 					</div>
@@ -531,9 +531,9 @@
 	</div>
 </div>
   
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>
-<script type="text/javascript" src="http://www.wduffy.co.uk/blog/wp-content/themes/agregado/js/jquery.jscroll.min.js"></script>
+<script type="text/javascript" src="/js/jquery.jscroll.min.js"></script>
 
 <!--Script for Re-Sizing Images-->
 <script>

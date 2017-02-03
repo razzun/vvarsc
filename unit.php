@@ -84,13 +84,13 @@
 							if ($value['IsActive'] == "Active")
 							{
 								echo '<div class="unitHierarchyHeader_unitName">';
-									echo '<a href="http://sc.vvarmachine.com/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="$link_base/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';				
 							}
 							else
 							{
 								echo '<div class="unitHierarchyHeader_unitName inactive">';
-									echo '<a href="http://sc.vvarmachine.com/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="$link_base/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';
 							}
 							
@@ -146,8 +146,8 @@
 									{										
 										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
 										{
-											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
-											echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
+											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="$link_base/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
+											echo '<a href="$link_base/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
 										}
 										else
 											echo '';
@@ -325,11 +325,11 @@
 								</div>
 								<div class=\"corner corner-bottom-right\">
 								</div>
-								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
+								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"$link_base/images/ranks/$rank_image.png\" />
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
-									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
+									<a href=\"$link_base/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									$mem_role
@@ -410,7 +410,7 @@
 								Commanding Officer
 							</td>
 							<td class=\"shipDetails_info1_table_row_td_value\">
-								<a style=\"text-decoration: none\" href=\"http://sc.vvarmachine.com/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
+								<a style=\"text-decoration: none\" href=\"$link_base/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info1_table_row\">
@@ -433,7 +433,7 @@
 						\">
 							<div class=\"div_filters_container\">
 								<div class=\"div_filters_entry\">
-									<a href=\"http://sc.vvarmachine.com/missions&unit=$UnitID\">View Missions for this Unit</a>
+									<a href=\"$link_base/missions&unit=$UnitID\">View Missions for this Unit</a>
 								</div>
 							</div>
 						</div>
@@ -609,7 +609,7 @@
 			$display_selectors .= "
 				<div class=\"div_filters_container\">
 					<div class=\"div_filters_entry\">
-						<a href=\"http://sc.vvarmachine.com/units\">&#8672; Back to Parent</a>
+						<a href=\"$link_base/units\">&#8672; Back to Parent</a>
 					</div>
 				</div>
 			";		
@@ -619,7 +619,7 @@
 			$display_selectors .= "
 				<div class=\"div_filters_container\">
 					<div class=\"div_filters_entry\">
-						<a href=\"http://sc.vvarmachine.com/unit/$parentUnitID\">&#8672; Back to Parent</a>
+						<a href=\"$link_base/unit/$parentUnitID\">&#8672; Back to Parent</a>
 					</div>
 				</div>
 			";
@@ -704,7 +704,7 @@
 						
 							<div class=\"player_ships_shipTitle\">
 								<div class=\"player_ships_shipTitleContainer\">
-									<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+									<a href=\"$link_base/ship/$ship_id\" >
 										<div class=\"player_ships_shipTitleText\">
 											$manu_shortName $full_ship_name
 										</div>
@@ -778,8 +778,8 @@
 						<td class=\"player_ships_entry_ship\">
 							<div class=\"player_ships_entry_ship_inner\">
 								<div class=\"player_ships_entry_ship_inner_imageContainer\">
-									<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
-										<img class=\"player_fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo\" />
+									<a href=\"$link_base/ship/$ship_id\" >
+										<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
 									</a>
 								</div>
 							</div>
@@ -829,7 +829,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					Edit Unit
 				</button>
 				<br />
@@ -840,7 +840,7 @@
 	}
 	else
 	{
-        header("Location: http://sc.vvarmachine.com/units");
+        header("Location: ".$link_base."/units");
     }
 
 ?>
@@ -1007,9 +1007,10 @@
 		//Edit
 		$('.adminButton.adminButtonEdit').click(function() {
 			var unitID = <?php echo $UnitID ?>;
+			var link_base = <? echo $link_base ?>;
 			
 			//Launch Unit Edit Page
-			window.location.href = "http://sc.vvarmachine.com/admin/?page=admin_unit&pid=" + unitID;
+			window.location.href = link_base + "/admin/?page=admin_unit&pid=" + unitID;
 			
 		});
 	});

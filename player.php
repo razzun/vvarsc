@@ -167,17 +167,17 @@
 						$display_player_ships .= "
 							<div class=\"player_ships_entry_buttons_buttonContainer\">
 								<button class=\"adminButton adminButtonEdit playerEditShip\" style=\"		margin-right:0px\" title=\"Edit Ship\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 								</button>
 								<button class=\"adminButton adminButtonDelete playerDeleteShip\" style=\"margin-left:0px\" title=\"Delete Ship\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
 							</div>
 						";
 					}
 					$display_player_ships .= "	
 							<div class=\"player_ships_shipTitleContainer\">
-								<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
+								<a src=\"$link_base/ship/$ship_id\" >
 									<div class=\"player_ships_shipTitleText\">
 										$manu_name $full_ship_name
 									</div>
@@ -277,8 +277,8 @@
 					<td class=\"player_ships_entry_ship\">
 						<div class=\"player_ships_entry_ship_inner\">
 							<div class=\"player_ships_entry_ship_inner_imageContainer\">
-								<a href=\"http://sc.vvarmachine.com/ship/$ship_id\" >
-									<img class=\"player_fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo\" />
+								<a src=\"$link_base/ship/$ship_id\" >
+									<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
 								</a>
 							</div>
 						</div>
@@ -350,7 +350,7 @@
 			{
 				if ($UnitName != NULL)
 				{
-					$full_role_name = "$role_name<br /><a href=\"http://sc.vvarmachine.com/unit/$UnitID\"> $UnitName </a>";
+					$full_role_name = "$role_name<br /><a src=\"$link_base/unit/$UnitID\"> $UnitName </a>";
 				}
 				else
 				{
@@ -430,7 +430,7 @@
 			$qual_name = $row2['qualification_name'];
 			$qual_categoryID = $row2['qualification_categoryID'];
 			$qual_category = $row2['qualification_category'];
-			$qual_image = "http://sc.vvarmachine.com/images/qualifications/".$row2['qualification_image'];
+			$qual_image = $link_base."/images/qualifications/".$row2['qualification_image'];
 			$qual_level_id = $row2['qualification_level'];
 			$level1_reqs = $row2['level1_reqs'];
 			$level2_reqs = $row2['level2_reqs'];
@@ -513,10 +513,10 @@
 					<td>
 						<div class=\"player_qual_entry_buttons_buttonContainer\">
 							<button class=\"adminButton adminButtonEdit adminEditQual\" style=\"		margin-right:0px\" title=\"Edit Qualification\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 							</button>
 							<button class=\"adminButton adminButtonDelete adminDeleteQual\" style=\"margin-left:0px\" title=\"Delete Qualification\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 							</button>
 						</div>
 					</td>
@@ -536,7 +536,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 					Add Qualification
 				</button>
 				<br />
@@ -705,7 +705,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\" >
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					Edit Profile
 				</button>
 				<br />
@@ -717,7 +717,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\" >
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 					Add Ship
 				</button>
 				<br />
@@ -757,7 +757,7 @@
 		
     	$connection->close();
     } else {
-        header("Location: http://sc.vvarmachine.com/?page=members");
+        header("Location: ".$link_base."/?page=members");
     }
 ?>
 
@@ -791,7 +791,7 @@
 						</div>
 						<div class="corner corner-bottom-right">
 						</div>
-						<img height="200" width="200" alt="<? echo $mem_name; ?>" src="http://sc.vvarmachine.com/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
+						<img height="200" width="200" alt="<? echo $mem_name; ?>" src="<? $link_base; ?>/images/player_avatars/<? echo $mem_avatar_link; ?>.png" />
 					</div>
 					
 					<div class="p_info" valign="top" align="left">
@@ -809,7 +809,7 @@
 								</div>
 								<div id="p_rank" align="left" valign="top">
 									<div class="p_rankimage_container">
-										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="http://sc.vvarmachine.com/images/ranks/<? echo $rank_image; ?>.png" />
+										<img class = "p_rankimage" align="left" alt="<? echo $rank_groupName; ?>" src="<? $link_base; ?>/images/ranks/<? echo $rank_image; ?>.png" />
 									</div>
 									<div class= "p_rankExtendedData">
 										<span class="p_rankExtendedData_rank_name">
@@ -944,7 +944,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Member Information</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_mem_EditProfile.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_mem_EditProfile.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="ID" class="adminDialogInputLabel" style="display: none">
 				</label>
@@ -990,7 +990,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add a new Ship to your Fleet!</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Create.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_playerShip_Create.php" method="POST" role="form">
 				<fieldset class="adminDiaglogFormFieldset">
 					<!--
 					<label for="RowID" class="adminDialogInputLabel" style="display: none">
@@ -1056,7 +1056,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update PlayerShip Entry</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Edit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_playerShip_Edit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel">
 					RowID
@@ -1113,7 +1113,7 @@
 		</button>
 		<p class="validateTips">Confirmation Required!</p>
 		<p class="validateTips">Are you sure you want to Remove this Ship from your Fleet?</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_playerShip_Delete.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_playerShip_Delete.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel">
 					RowID
@@ -1144,7 +1144,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Qualification</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Create.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_qualification_Create.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="MemID" class="adminDialogInputLabel" style="display: none">
 				</label>
@@ -1203,7 +1203,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Qualification</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Edit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_qualification_Edit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
 				</label>
@@ -1254,7 +1254,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Delete Qualification</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/playerFunctions/function_qualification_Delete.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_qualification_Delete.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
 				</label>

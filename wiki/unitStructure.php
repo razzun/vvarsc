@@ -1,7 +1,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/wiki/">&#8672; Back to Wiki Home</a>
+		<a href="<? $link_base; ?>/wiki/">&#8672; Back to Wiki Home</a>
 	</div>
 </div>
 <h2>Fleet Unit Organizational Structure</h2>
@@ -91,7 +91,7 @@
 				</div>
 				<h4 class="WikiH4">Unit Types</h4>
 				<div class="WikiText">
-					At this time, our Economic Division doesn't contain permanent Organizational Units (OrgUnits) like our Military Division. Due to the ECONDIV's primary responsibility being the financing and supply of our MILDIV Forces, the required tasks to be performed by the ECONDIV will vary with a high degree of frequency, based on the needs of the MILDIV at a given time. Despite this difference in organization, our ECONDIV will still utilize the <a href="http://sc.vvarmachine.com/wiki/?page=ranks">Rank Structure</a> defined for our Fleet, along with a certification system designed to identify members who have attained skills in particular areas of gameplay, and assign them into positions of leadership (both NCO and Officer positions) for commanding <a href="http://sc.vvarmachine.com/wiki/?page=operations">Operational Units</a> (OpUnits) during a given mission or campaign.
+					At this time, our Economic Division doesn't contain permanent Organizational Units (OrgUnits) like our Military Division. Due to the ECONDIV's primary responsibility being the financing and supply of our MILDIV Forces, the required tasks to be performed by the ECONDIV will vary with a high degree of frequency, based on the needs of the MILDIV at a given time. Despite this difference in organization, our ECONDIV will still utilize the <a href="<? $link_base; ?>/wiki/?page=ranks">Rank Structure</a> defined for our Fleet, along with a certification system designed to identify members who have attained skills in particular areas of gameplay, and assign them into positions of leadership (both NCO and Officer positions) for commanding <a href="<? $link_base; ?>/wiki/?page=operations">Operational Units</a> (OpUnits) during a given mission or campaign.
 				</div>
 				<h4 class="WikiH4">Economic Division Roles/Tasks</h4>
 				<div class="WikiText">

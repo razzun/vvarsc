@@ -42,7 +42,7 @@
 			$display_operationsList .= "
 				<div class=\"operationsListItemContainer operations_selected\"
 					data-operationid=\"$operationListItem_ID\"
-					data-targetid=\"http://sc.vvarmachine.com/operation/$operationListItem_ID\"
+					data-targetid=\"$link_base/operation/$operationListItem_ID\"
 				>
 			";
 		}
@@ -51,7 +51,7 @@
 			$display_operationsList .= "
 				<div class=\"operationsListItemContainer\"
 					data-operationid=\"$operationListItem_ID\"
-					data-targetid=\"http://sc.vvarmachine.com/operation/$operationListItem_ID\"
+					data-targetid=\"$link_base/operation/$operationListItem_ID\"
 				>
 			";		
 		}
@@ -65,14 +65,14 @@
 							\">
 								Last Modified: $operationListItem_ModifiedOn
 							</div>
-							<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationListItem_ModifiedByRankImage.png\"/ style=\"
+							<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$operationListItem_ModifiedByRankImage.png\"/ style=\"
 								display: inline;
 							\">
 							<div class=\"operations_rank_image_text\" style=\"
 								display: inline;
 								padding-left: 0px;
 							\">
-								<a href=\"http://sc.vvarmachine.com/player/$operationListItem_ModifiedByID\" style=\"
+								<a href=\"$link_base/player/$operationListItem_ModifiedByID\" style=\"
 									padding-left: 4px;
 								\">
 									$operationListItem_ModifiedByName
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/operation/$operationListItem_ID\">
+						<a href=\"$link_base/operation/$operationListItem_ID\">
 							$operationListItem_Number - $operationListItem_Name
 						</a>
 					</div>
@@ -148,7 +148,7 @@
 			$display_missionsList .= "
 				<div class=\"operationsListItemContainer operations_selected\"
 					data-operationid=\"$missionListItem_ID\"
-					data-targetid=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+					data-targetid=\"$link_base/mission/$missionListItem_ID\"
 				>
 			";
 		}
@@ -157,14 +157,14 @@
 			$display_missionsList .= "
 				<div class=\"operationsListItemContainer\"
 					data-missionid=\"$missionListItem_ID\"
-					data-targetid=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+					data-targetid=\"$link_base/mission/$missionListItem_ID\"
 					>
 			";		
 		}
 		
 		$display_missionsList .= "
 					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+						<a href=\"$link_base/mission/$missionListItem_ID\">
 							$missionListItem_Number - $missionListItem_Name
 						</a>
 					</div>
@@ -283,7 +283,7 @@
 			<div class=\"operations_menu_inner_items_container\">
 				<div class=\"operationsListItemContainer MissionListItem_$missionListItem_DateGrouping\"
 					data-missionid=\"$missionListItem_ID\"
-					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+					data-url=\"$link_base/mission/$missionListItem_ID\"
 				>
 					<div class=\"operationsListItem_MetaData_Right\">
 						<div class=\"clickableRow_memRank_inner\" style=\"
@@ -294,7 +294,7 @@
 						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
 					</div>
 					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+						<a href=\"$link_base/mission/$missionListItem_ID\">
 							$missionListItem_Number - $missionListItem_Name
 						</a>
 					</div>
@@ -409,7 +409,7 @@
 			<div class=\"operations_menu_inner_items_container\">
 				<div class=\"operationsListItemContainer MissionListItem_$missionListItem_DateGrouping\"
 					data-missionid=\"$missionListItem_ID\"
-					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+					data-url=\"$link_base/mission/$missionListItem_ID\"
 				>
 					<div class=\"operationsListItem_MetaData_Right\">
 						<div class=\"clickableRow_memRank_inner\" style=\"
@@ -420,7 +420,7 @@
 						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
 					</div>
 					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+						<a href=\"$link_base/mission/$missionListItem_ID\">
 							$missionListItem_Number - $missionListItem_Name
 						</a>
 					</div>
@@ -523,7 +523,7 @@
 			<div class=\"operations_menu_inner_items_container\">
 				<div class=\"operationsListItemContainer MissionListItem_$missionListItem_DateGrouping\"
 					data-missionid=\"$missionListItem_ID\"
-					data-url=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\"
+					data-url=\"$link_base/mission/$missionListItem_ID\"
 				>
 					<div class=\"operationsListItem_MetaData_Right\">
 						<div class=\"clickableRow_memRank_inner\" style=\"
@@ -534,7 +534,7 @@
 						Mission Status: <strong class=\"MissionStatus MissionStatus_$missionListItem_MissionStatus\">$missionListItem_MissionStatus</strong>
 					</div>
 					<div class=\"operationsListItem_Title\">
-						<a href=\"http://sc.vvarmachine.com/mission/$missionListItem_ID\">
+						<a href=\"$link_base/mission/$missionListItem_ID\">
 							$missionListItem_Number - $missionListItem_Name
 						</a>
 					</div>

@@ -96,7 +96,7 @@
 						margin-top: 0px;
 						margin-bottom: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 						Create Mission from Template
 					</button>
 					<button id=\"ButtonEditToggle\" class=\"adminButton adminButtonEdit\" title=\"Edit Toggle\"style=\"
@@ -105,7 +105,7 @@
 						margin-top: 0px;
 						margin-bottom: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 						Toggle Edit Options
 					</button>				
 				</div>
@@ -125,13 +125,13 @@
 					<button id=\"ButtonEditOperation\" class=\"adminButton adminButtonEdit\" title=\"Edit Operation\"style=\"
 						margin: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					</button>
 					<!--
 					<button id=\"ButtonDeleteOperation\" class=\"adminButton adminButtonDelete\" title=\"Delete Operation\"style=\"
 						margin: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 					</button>
 					-->
 				</div>
@@ -158,9 +158,9 @@
 					\">
 						Created: $operationDetails_CreatedOn
 					</div>
-					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_CreatedByRankImage.png\"/>
+					<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$operationDetails_CreatedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
-						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_CreatedByID\" style=\"
+						<a href=\"$link_base/player/$operationDetails_CreatedByID\" style=\"
 							padding-left: 4px
 						\">
 							$operationDetails_CreatedByName
@@ -177,9 +177,9 @@
 					\">
 						Last Modified: $operationDetails_ModifiedOn
 					</div>
-					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_ModifiedByRankImage.png\"/>
+					<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$operationDetails_ModifiedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
-						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_ModifiedByID\" style=\"
+						<a href=\"$link_base/player/$operationDetails_ModifiedByID\" style=\"
 							padding-left: 4px
 						\">
 							$operationDetails_ModifiedByName
@@ -260,7 +260,7 @@
 						margin-top: 0px;
 						margin-bottom: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 						Add Unit
 					</button>
 				</div>
@@ -441,12 +441,12 @@
 						<button id=\"ButtonEditOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonEdit ButtonEditOpUnit\" title=\"Edit Unit\"style=\"
 							margin: 0px;
 						\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 						</button>
 						<button id=\"ButtonDeleteOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnit\" title=\"Delete Unit\"style=\"
 							margin: 0px;
 						\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 						</button>
 					</div>
 				";
@@ -483,7 +483,7 @@
 							margin-left: 8px;
 							background: none;
 						\">
-							Source Unit: <a href=\"http://sc.vvarmachine.com/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
+							Source Unit: <a href=\"$link_base/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
 							<br />
 							Callsign: <i>$callSign</i>
 						</div>
@@ -526,7 +526,7 @@
 								margin-top: 0px;
 								margin-bottom: 0px;
 							\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 								Add Member
 							</button>
 						</div>
@@ -624,12 +624,12 @@
 								<button id=\"ButtonEditOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpUnitMember\" title=\"Edit OpUnitMember\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 								</button>
 								<button id=\"ButtonDeleteOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitMember\" title=\"Delete OpUnit Member\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
 							</div>
 						";
@@ -657,11 +657,11 @@
 							</div>
 							<div class=\"operations_memRank_inner\">
 								<div class=\"clickableRow_memRank_Image_Container\">
-									<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opUnitMemberListItem_RankImage.png\"/>
+									<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$opUnitMemberListItem_RankImage.png\"/>
 								
 								</div>
 								<div class=\"operations_rank_image_text\">
-									<a href=\"http://sc.vvarmachine.com/player/$opUnitMemberListItem_MemberID\" style=\"
+									<a href=\"$link_base/player/$opUnitMemberListItem_MemberID\" style=\"
 									text-decoration: none;
 								\">
 									$opUnitMemberListItem_MemName
@@ -719,7 +719,7 @@
 								margin-top: 0px;
 								margin-bottom: 0px;
 							\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 								Add Ship
 							</button>
 						</div>
@@ -810,7 +810,7 @@
 								<button id=\"ButtonDeleteOpUnitShip_$opUnitShipsListItem_OpShipID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitShip\" title=\"Delete OpUnit Ship\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
 							</div>
 						";
@@ -822,7 +822,7 @@
 								<div class=\"player_ships_shipTitle\">
 									$display_opUnitShip_edit
 									<div class=\"player_ships_shipTitleContainer\">
-										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
+										<a href=\"$link_base/ship/$opUnitShipsListItem_ShipID\" >
 											<div class=\"player_ships_shipTitleText\">
 												$opUnitShipsListItem_ManuShortName $full_ship_name
 											</div>
@@ -881,7 +881,7 @@
 									margin-top: 0px;
 									margin-bottom: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 									Add Member
 								</button>
 							</div>
@@ -982,12 +982,12 @@
 									<button id=\"ButtonEditOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpShipMember\" title=\"Edit OpShip Member\"style=\"
 										margin: 0px;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 									</button>
 									<button id=\"ButtonDeleteOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpShipMember\" title=\"Delete OpShip Member\"style=\"
 										margin: 0px;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 									</button>
 								</div>
 							";
@@ -1015,10 +1015,10 @@
 								</div>
 								<div class=\"operations_memRank_inner\">
 									<div class=\"clickableRow_memRank_Image_Container\">
-										<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opShipMembersListItem_RankImage.png\"/>
+										<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$opShipMembersListItem_RankImage.png\"/>
 									</div>
 									<div class=\"operations_rank_image_text\">
-										<a href=\"http://sc.vvarmachine.com/player/$opShipMembersListItem_MemberID\" style=\"
+										<a href=\"$link_base/player/$opShipMembersListItem_MemberID\" style=\"
 										text-decoration: none;
 									\">
 										$opShipMembersListItem_MemName
@@ -1060,8 +1060,8 @@
 							<td class=\"player_ships_entry_ship\" style=\"width:auto;\">
 								<div class=\"player_ships_entry_ship_inner\">
 									<div class=\"player_ships_entry_ship_inner_imageContainer\">
-										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
-											<img class=\"player_fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$opUnitShipsListItem_ShipSilo\" />
+										<a href=\"$link_base/ship/$opUnitShipsListItem_ShipID\" >
+											<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$opUnitShipsListItem_ShipSilo\" />
 										</a>
 									</div>
 								</div>
@@ -1201,7 +1201,7 @@
 				margin-right: 8px;
 				margin-left: 8px;
 			">
-				<a href="http://sc.vvarmachine.com/operations">&#8672; Back to List</a>
+				<a href="<? $link_base; ?>/operations">&#8672; Back to List</a>
 			</div>
 			<? echo $display_operationsListButton; ?>
 			<? echo $display_missionsListButton; ?>
@@ -1239,7 +1239,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Operation Template Main Info</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplate.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_editOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="ID" class="adminDialogInputLabel">
 					Operation Template ID
@@ -1285,7 +1285,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add Operational Unit</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_createOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1367,7 +1367,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Operational Unit</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_editOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1419,7 +1419,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Delete Operational Unit</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_deleteOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1466,7 +1466,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add Unit Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_createOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1503,7 +1503,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Unit Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnitMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_editOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1545,7 +1545,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Delete Unit Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_deleteOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1587,7 +1587,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add Unit Ship</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitShip.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_createOpTemplateUnitShip.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1624,7 +1624,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Delete Unit Ship</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitShip.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_deleteOpTemplateUnitShip.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1666,7 +1666,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Add Ship Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplateUnitShipMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_createOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1708,7 +1708,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Ship Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_editOpTemplateUnitShipMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_editOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1755,7 +1755,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Delete Ship Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_deleteOpTemplateUnitShipMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_deleteOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1802,7 +1802,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Create Mission from Template</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_createMissionFromOpTemplate.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_createMissionFromOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="ID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID

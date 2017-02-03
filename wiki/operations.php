@@ -1,7 +1,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/wiki/">&#8672; Back to Wiki Home</a>
+		<a href="<? $link_base; ?>/wiki/">&#8672; Back to Wiki Home</a>
 	</div>
 </div>
 <h2>Organized Operations</h2>

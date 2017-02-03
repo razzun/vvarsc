@@ -222,7 +222,7 @@
 							</div>
 							<div class=\"corner corner-bottom-right\">
 							</div>
-							<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
+							<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/$rank_image.png\" />
 						</div>
 						<div class=\"divinfo_tableCell_rankDetailsName\">
 							$rank_name
@@ -292,11 +292,11 @@
 		}
 		
 		$display_div .= "
-				<a href=\"http://sc.vvarmachine.com/player/$mem_id_info\" target=\"_top\">
+				<a href=\"$link_base/player/$mem_id_info\" target=\"_top\">
 					<div class=\"divinfo_memAvatarContainer\">
-						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/player_avatars/$mem_avatar_info.png\" />
+						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/player_avatars/$mem_avatar_info.png\" />
 						<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
-							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$mem_rank_info.png\" />
+							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\" />
 						</div>
 						<div class=\"divinfo_memAvatar_textOverlay_memName\">
 							$mem_name_info
@@ -347,7 +347,7 @@
 </div>
  
  
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>
 
  <!--Script to Resize Avatar Images to 50%-->

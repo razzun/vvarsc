@@ -52,7 +52,7 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_navy.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$rank_tinyImage_navy.png\" />
 						<div class=\"rank_image_text\">
 							$rank_abbr_navy
 						</div>
@@ -63,7 +63,7 @@
 				</td>
 				<td class=\"adminTableRowTD\" style=\"text-align: left\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_usmc.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$rank_tinyImage_usmc.png\" />
 						<div class=\"rank_image_text\">
 							$rank_abbr_usmc
 						</div>
@@ -141,7 +141,7 @@
 				</td>
 				<td class=\"adminTableRowTD\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_navy.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$rank_tinyImage_navy.png\" />
 						<div class=\"rank_image_text\">
 							$rank_abbr_navy
 						</div>
@@ -152,7 +152,7 @@
 				</td>
 				<td class=\"adminTableRowTD\" style=\"text-align: left\">
 					<div class=\"clickableRow_memRank_inner\">
-						<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$rank_tinyImage_common.png\" />
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$rank_tinyImage_common.png\" />
 						<div class=\"rank_image_text\">
 							$rank_abbr_common
 						</div>
@@ -178,7 +178,7 @@
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
-		<a href="http://sc.vvarmachine.com/wiki/">&#8672; Back to Wiki Home</a>
+		<a href="<? $link_base; ?>/wiki/">&#8672; Back to Wiki Home</a>
 	</div>
 </div>
 

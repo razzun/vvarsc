@@ -40,7 +40,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					Toggle Edit Options
 				</button>				
 			</div>
@@ -55,7 +55,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 					Create New Operation Template
 				</button>
 			</div>		
@@ -87,11 +87,11 @@
 					padding-bottom: 0px;
 				\">
 					$UnitNameDisplay
-					<a href=\"http://sc.vvarmachine.com/missions/\" style=\"
+					<a href=\"$link_base/missions/\" style=\"
 						text-decoration: none;
 					\">
 						<button class=\"adminButton adminButtonDelete\" title=\"Clear Filter\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 							Clear Filter
 						</button>
 					</a>

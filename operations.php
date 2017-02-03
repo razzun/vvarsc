@@ -36,7 +36,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					Toggle Edit Options
 				</button>				
 			</div>
@@ -51,7 +51,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 					Create New Operation Template
 				</button>
 			</div>		
@@ -106,7 +106,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Enter Operation Template Main Info Below</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/operations/function_operation_createOpTemplate.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_createOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">				
 				<label for="OperationName" class="adminDialogInputLabel">
 					Operation Name

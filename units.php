@@ -84,13 +84,13 @@
 							if ($value['IsActive'] == "Active")
 							{
 								echo '<div class="unitHierarchyHeader_unitName">';
-									echo '<a href="http://sc.vvarmachine.com/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';				
 							}
 							else
 							{
 								echo '<div class="unitHierarchyHeader_unitName inactive">';
-									echo '<a href="http://sc.vvarmachine.com/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
 								echo '</div>';
 							}
 							
@@ -145,8 +145,8 @@
 									{										
 										if ($value['UnitLeaderID'] != null && $value['UnitLeaderID'] != '')
 										{
-											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="http://sc.vvarmachine.com/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
-											echo '<a href="http://sc.vvarmachine.com/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
+											echo '<img class="unitHierarchyContent_rankTinyImage" align="center" src="'.$link_base.'/images/ranks/TS3/'.$value['LeadeRankImage'].'.png" />';
+											echo '<a href="'.$link_base.'/player/'.$value['UnitLeaderID'].'" target="_top">'.$value['LeaderRankAbbr'].' '.$value['UnitLeaderName'].'</a>';
 										}
 										else
 											echo '';

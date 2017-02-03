@@ -48,7 +48,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E2_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E2.png" />
+					<img class="divinfo_rankImg" align="center" alt="E2_Navy" src="<? $link_base; ?>/images/ranks/Navy/E2.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -64,7 +64,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E2_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E2.png" />
+					<img class="divinfo_rankImg" align="center" alt="E2_USMC" src="<? $link_base; ?>/images/ranks/USMC/E2.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -111,7 +111,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E3_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E3.png" />
+					<img class="divinfo_rankImg" align="center" alt="E3_Navy" src="<? $link_base; ?>/images/ranks/Navy/E3.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -127,7 +127,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E3_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E3.png" />
+					<img class="divinfo_rankImg" align="center" alt="E3_USMC" src="<? $link_base; ?>/images/ranks/USMC/E3.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -175,7 +175,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E4_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E4.png" />
+					<img class="divinfo_rankImg" align="center" alt="E4_Navy" src="<? $link_base; ?>/images/ranks/Navy/E4.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -191,7 +191,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E4_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E4.png" />
+					<img class="divinfo_rankImg" align="center" alt="E4_USMC" src="<? $link_base; ?>/images/ranks/USMC/E4.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -249,7 +249,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E5_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E5.png" />
+					<img class="divinfo_rankImg" align="center" alt="E5_Navy" src="<? $link_base; ?>/images/ranks/Navy/E5.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -265,7 +265,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E5_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E5.png" />
+					<img class="divinfo_rankImg" align="center" alt="E5_USMC" src="<? $link_base; ?>/images/ranks/USMC/E5.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -322,7 +322,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E6_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E6.png" />
+					<img class="divinfo_rankImg" align="center" alt="E6_Navy" src="<? $link_base; ?>/images/ranks/Navy/E6.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -338,7 +338,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E6_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E6.png" />
+					<img class="divinfo_rankImg" align="center" alt="E6_USMC" src="<? $link_base; ?>/images/ranks/USMC/E6.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -398,7 +398,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E7_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E7_GC.png" />
+					<img class="divinfo_rankImg" align="center" alt="E7_Navy" src="<? $link_base; ?>/images/ranks/Navy/E7_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -414,7 +414,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E7_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E7.png" />
+					<img class="divinfo_rankImg" align="center" alt="E7_USMC" src="<? $link_base; ?>/images/ranks/USMC/E7.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -473,7 +473,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E8_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E8_GC.png" />
+					<img class="divinfo_rankImg" align="center" alt="E8_Navy" src="<? $link_base; ?>/images/ranks/Navy/E8_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -489,7 +489,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E8_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E8-1SG.png" />
+					<img class="divinfo_rankImg" align="center" alt="E8_USMC" src="<? $link_base; ?>/images/ranks/USMC/E8-1SG.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -545,7 +545,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E9_Navy" src="http://sc.vvarmachine.com/images/ranks/Navy/E9_GC.png" />
+					<img class="divinfo_rankImg" align="center" alt="E9_Navy" src="<? $link_base; ?>/images/ranks/Navy/E9_GC.png" />
 				</div>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -561,7 +561,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="E9_USMC" src="http://sc.vvarmachine.com/images/ranks/USMC/E9-SGM.png" />
+					<img class="divinfo_rankImg" align="center" alt="E9_USMC" src="<? $link_base; ?>/images/ranks/USMC/E9-SGM.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">

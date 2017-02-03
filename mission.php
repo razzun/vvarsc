@@ -145,7 +145,7 @@
 						margin-top: 0px;
 						margin-bottom: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 						Toggle Edit Options
 					</button>				
 				</div>
@@ -165,12 +165,12 @@
 					<button id=\"ButtonEditOperation\" class=\"adminButton adminButtonEdit\" title=\"Edit Mission Plan\"style=\"
 						margin: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					</button>
 					<button id=\"ButtonDeleteOperation\" class=\"adminButton adminButtonDelete\" title=\"Delete Mission Plan\"style=\"
 						margin: 0px;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 					</button>
 				</div>
 			";
@@ -196,9 +196,9 @@
 					\">
 						Created: $operationDetails_CreatedOn
 					</div>
-					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_CreatedByRankImage.png\"/>
+					<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$operationDetails_CreatedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
-						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_CreatedByID\" style=\"
+						<a href=\"$link_base/player/$operationDetails_CreatedByID\" style=\"
 							padding-left: 4px;
 							font-weight: normal;
 						\">
@@ -216,9 +216,9 @@
 					\">
 						Last Modified: $operationDetails_ModifiedOn
 					</div>
-					<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$operationDetails_ModifiedByRankImage.png\"/>
+					<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$operationDetails_ModifiedByRankImage.png\"/>
 					<div class=\"operations_rank_image_text\">
-						<a href=\"http://sc.vvarmachine.com/player/$operationDetails_ModifiedByID\" style=\"
+						<a href=\"$link_base/player/$operationDetails_ModifiedByID\" style=\"
 							padding-left: 4px;
 							font-weight: normal;
 						\">
@@ -315,7 +315,7 @@
 						margin-left: 0px;
 						margin-right: 2%;
 					\">
-						<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 						Add Unit
 					</button>
 				</div>
@@ -498,13 +498,13 @@
 						<button id=\"ButtonEditOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonEdit ButtonEditOpUnit\" title=\"Edit Unit\"style=\"
 							margin: 0px;
 						\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 						</button>
 						<!--
 						<button id=\"ButtonDeleteOpUnit_$opUnitsListItem_OpUnitID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnit\" title=\"Delete Unit\"style=\"
 							margin: 0px;
 						\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 						</button>
 						-->
 					</div>
@@ -554,7 +554,7 @@
 							margin-left: 8px;
 							background: none;
 						\">
-							Source Unit: <a href=\"http://sc.vvarmachine.com/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
+							Source Unit: <a href=\"$link_base/unit/$opUnitsListItem_UnitID\"><strong>$opUnitsListItem_UnitName</strong></a>
 							<br />
 							Callsign: <strong style=\"
 								color: #DDD;
@@ -600,7 +600,7 @@
 								margin-left: 0px;
 								margin-right: 2%;
 							\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 								Add Member
 							</button>
 						</div>
@@ -699,13 +699,13 @@
 								<button id=\"ButtonEditOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpUnitMember\" title=\"Edit OpUnitMember\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 								</button>
 								<!--
 								<button id=\"ButtonDeleteOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitMember\" title=\"Delete OpUnit Member\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
 								-->
 							</div>
@@ -725,7 +725,7 @@
 								<button id=\"ButtonOpUnitMember_SignUp_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonEdit ButtonSignUpOpUnitMember\" title=\"Assign Self to Role\"style=\"
 									margin: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 								</button>							
 							</div>
 						";
@@ -758,11 +758,11 @@
 								display: block;
 							\">
 								<div class=\"clickableRow_memRank_Image_Container shiftable\">
-									<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opUnitMemberListItem_RankImage.png\"/>
+									<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$opUnitMemberListItem_RankImage.png\"/>
 								
 								</div>
 								<div class=\"operations_rank_image_text\">
-									<a href=\"http://sc.vvarmachine.com/player/$opUnitMemberListItem_MemberID\" style=\"
+									<a href=\"$link_base/player/$opUnitMemberListItem_MemberID\" style=\"
 									text-decoration: none;
 									font-weight: normal;
 								\">
@@ -782,7 +782,7 @@
 										<button id=\"ButtonOpUnitMember_Clear_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonClearOpUnitMember\" title=\"Remove Self from Role\"style=\"
 											margin: 0px;
 										\">
-											<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+											<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 										</button>							
 									</div>	
 								";
@@ -849,7 +849,7 @@
 								margin-left: 0px;
 								margin-right: 2%;
 							\">
-								<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 								Add Ship
 							</button>
 						</div>
@@ -943,7 +943,7 @@
 									margin-left: 0px;
 									margin-right: 0px;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
 							</div>
 						";
@@ -956,7 +956,7 @@
 								<div class=\"player_ships_shipTitle\">
 									$display_opUnitShip_edit
 									<div class=\"player_ships_shipTitleContainer\">
-										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
+										<a href=\"$link_base/ship/$opUnitShipsListItem_ShipID\" >
 											<div class=\"player_ships_shipTitleText\">
 												$opUnitShipsListItem_ManuShortName $full_ship_name
 											</div>
@@ -1014,7 +1014,7 @@
 									margin-left: 0px;
 									margin-right: 2%;
 								\">
-									<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 									Add Member
 								</button>
 							</div>
@@ -1116,13 +1116,13 @@
 									<button id=\"ButtonEditOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonEdit ButtonEditOpShipMember\" title=\"Edit OpShip Member\"style=\"
 										margin: 0px;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_edit.png\">
+										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 									</button>
 									<!--
 									<button id=\"ButtonDeleteOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpShipMember\" title=\"Delete OpShip Member\"style=\"
 										margin: 0px;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 									</button>
 									-->
 								</div>
@@ -1142,7 +1142,7 @@
 									<button id=\"ButtonOpUnitMember_SignUp_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonEdit ButtonSignUpOpShipMember\" title=\"Assign Self to Role\"style=\"
 										margin: 0px;
 									\">
-										<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_add.png\">
+										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
 									</button>							
 								</div>
 							";
@@ -1176,10 +1176,10 @@
 									display: block;
 								\">
 									<div class=\"clickableRow_memRank_Image_Container shiftable\">
-										<img class=\"clickableRow_memRank_Image\" src=\"http://sc.vvarmachine.com/images/ranks/TS3/$opShipMembersListItem_RankImage.png\"/>
+										<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$opShipMembersListItem_RankImage.png\"/>
 									</div>
 									<div class=\"operations_rank_image_text\">
-										<a href=\"http://sc.vvarmachine.com/player/$opShipMembersListItem_MemberID\" style=\"
+										<a href=\"$link_base/player/$opShipMembersListItem_MemberID\" style=\"
 										text-decoration: none;
 										font-weight: normal;
 									\">
@@ -1199,7 +1199,7 @@
 										<button id=\"ButtonOpUnitMember_Clear_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonDelete ButtonClearOpShipMember\" title=\"Remove Self from Role\"style=\"
 											margin: 0px;
 										\">
-											<img height=\"20px\" class=\"adminButtonImage\" src=\"http://sc.vvarmachine.com/images/misc/button_delete.png\">
+											<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 										</button>							
 									</div>	
 								";
@@ -1257,8 +1257,8 @@
 							<td class=\"player_ships_entry_ship\" style=\"\">
 								<div class=\"player_ships_entry_ship_inner\">
 									<div class=\"player_ships_entry_ship_inner_imageContainer\">
-										<a href=\"http://sc.vvarmachine.com/ship/$opUnitShipsListItem_ShipID\" >
-											<img class=\"player_fleet\" align=\"center\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$opUnitShipsListItem_ShipSilo\" />
+										<a href=\"$link_base/ship/$opUnitShipsListItem_ShipID\" >
+											<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$opUnitShipsListItem_ShipSilo\" />
 										</a>
 									</div>
 								</div>
@@ -1396,7 +1396,7 @@
 				margin-right: 8px;
 				margin-left: 8px;
 			">
-				<a href="http://sc.vvarmachine.com/missions">&#8672; Back to List</a>
+				<a href="<? $link_base; ?>/missions">&#8672; Back to List</a>
 			</div>
 			<? echo $display_operationsListButton; ?>
 			<? echo $display_missionsListButton; ?>
@@ -1434,7 +1434,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Operation Template Main Info</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/missions/function_mission_editOpTemplate.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_editOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="MissionID" class="adminDialogInputLabel" style="display: none">
 					Mission ID
@@ -1502,7 +1502,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">WARNING - You are about to delete this Mission Plan. This is a non-reversible operation.</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/missions/function_mission_deleteOpTemplate.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_deleteOpTemplate.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="MissionID" class="adminDialogInputLabel" style="display: none">
 					Mission ID
@@ -1538,7 +1538,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Operational Unit</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/missions/function_mission_editOpTemplateUnit.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_editOpTemplateUnit.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
 					Operation Template ID
@@ -1590,7 +1590,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Unit Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/missions/function_mission_editOpTemplateUnitMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_editOpTemplateUnitMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID
@@ -1645,7 +1645,7 @@
 			Cancel
 		</button>
 		<p class="validateTips">Update Ship Member</p>
-		<form class="adminDialogForm" action="http://sc.vvarmachine.com/functions/missions/function_mission_editOpTemplateUnitShipMember.php" method="POST" role="form">
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_editOpTemplateUnitShipMember.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
 				<label for="RowID" class="adminDialogInputLabel" style="display:none">
 					RowID

@@ -41,7 +41,7 @@
 
 		if($rowCount == 0)
 		{
-			header("Location: http://sc.vvarmachine.com/login.php?err=1");
+			header("Location: ".$link_base."/login.php?err=1");
 		}
 		else
 		{
@@ -58,20 +58,20 @@
 			//print_r($_SESSION);
 			if(isset($_POST['url']))
 			{
-				header("Location: http://sc.vvarmachine.com".$reqURL);
+				header("Location: ".$link_base.$reqURL);
 			}
 			elseif($_SESSION['sess_userrole'] == "admin")
 			{
-				header("Location: http://sc.vvarmachine.com/admin/index.php");
+				header("Location: ".$link_base."/admin/index.php");
 			}
 			else{
-				header("Location: http://sc.vvarmachine.com/player/".$_SESSION['sess_user_id']);
+				header("Location: ".$link_base."/player/".$_SESSION['sess_user_id']);
 			}		
 		}
 	}
 	else
 	{
-		header("Location: http://sc.vvarmachine.com/login.php?err=3");
+		header("Location: ".$link_base."/login.php?err=3");
 	}
 	
 	$connection->close();

@@ -200,7 +200,7 @@
 		$display_ship_info2 .="
 			<div class=\"shipDetails_info2_content\">
 				<!--
-				<img class=\"shipDetails_info2_shipImage\" align=\"center\" alt=\"$ship_name\" src=\"http://sc.vvarmachine.com/images/silo_topDown/$ship_silo\" />
+				<img class=\"shipDetails_info2_shipImage\" align=\"center\" alt=\"$ship_name\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
 				-->
 				<div class=\"shipDetails_info2_content_main\">
 					<table class=\"shipDetails_info2_table\">
@@ -524,11 +524,11 @@
 								</div>
 								<div class=\"corner corner-bottom-right\">
 								</div>
-								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"http://sc.vvarmachine.com/images/ranks/$rank_image.png\" />
+								<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_abbr\" src=\"$link_base/images/ranks/$rank_image.png\" />
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
-									<a href=\"http://sc.vvarmachine.com/player/$mem_id\" target=\"_top\">$mem_name</a>
+									<a href=\"$link_base/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									$mem_role
@@ -558,7 +558,7 @@
 	}
 	else
 	{
-		header("Location: http://sc.vvarmachine.com/?page=shipyard");
+		header("Location: ".$link_base."/?page=shipyard");
 	}
 ?>
 
@@ -612,7 +612,7 @@
 					<div class="shipDetails_info5_content">
 						<? echo $display_ship_info5; ?>
 						<div class="shipDetails_info5_manuImage_container">
-							<img class="shipyard_shipTitle_manuImage" align="center" src="http://sc.vvarmachine.com/images/misc/SC_logo_yellow.png" />
+							<img class="shipyard_shipTitle_manuImage" align="center" src="<? $link_base; ?>/images/misc/SC_logo_yellow.png" />
 						</div>
 					</div>
 				</div>

@@ -48,7 +48,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O2" src="http://sc.vvarmachine.com/images/ranks/Common/O1.png" />
+					<img class="divinfo_rankImg" align="center" alt="O2" src="<? $link_base; ?>/images/ranks/Common/O1.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -102,7 +102,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O2" src="http://sc.vvarmachine.com/images/ranks/Common/O2.png" />
+					<img class="divinfo_rankImg" align="center" alt="O2" src="<? $link_base; ?>/images/ranks/Common/O2.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -158,7 +158,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O3" src="http://sc.vvarmachine.com/images/ranks/Common/O3.png" />
+					<img class="divinfo_rankImg" align="center" alt="O3" src="<? $link_base; ?>/images/ranks/Common/O3.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -214,7 +214,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O4" src="http://sc.vvarmachine.com/images/ranks/Common/O4.png" />
+					<img class="divinfo_rankImg" align="center" alt="O4" src="<? $link_base; ?>/images/ranks/Common/O4.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -270,7 +270,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O5" src="http://sc.vvarmachine.com/images/ranks/Common/O5.png" />
+					<img class="divinfo_rankImg" align="center" alt="O5" src="<? $link_base; ?>/images/ranks/Common/O5.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -325,7 +325,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O6" src="http://sc.vvarmachine.com/images/ranks/Common/O6.png" />
+					<img class="divinfo_rankImg" align="center" alt="O6" src="<? $link_base; ?>/images/ranks/Common/O6.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -380,7 +380,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O7" src="http://sc.vvarmachine.com/images/ranks/Common/O7.png" />
+					<img class="divinfo_rankImg" align="center" alt="O7" src="<? $link_base; ?>/images/ranks/Common/O7.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -433,7 +433,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O8" src="http://sc.vvarmachine.com/images/ranks/Common/O8.png" />
+					<img class="divinfo_rankImg" align="center" alt="O8" src="<? $link_base; ?>/images/ranks/Common/O8.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -487,7 +487,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O9" src="http://sc.vvarmachine.com/images/ranks/Common/O9.png" />
+					<img class="divinfo_rankImg" align="center" alt="O9" src="<? $link_base; ?>/images/ranks/Common/O9.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -533,7 +533,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O10" src="http://sc.vvarmachine.com/images/ranks/Common/O10.png" />
+					<img class="divinfo_rankImg" align="center" alt="O10" src="<? $link_base; ?>/images/ranks/Common/O10.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
