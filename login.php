@@ -70,10 +70,10 @@
 	</body>
 </html>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.jScale.js"></script>
 <script type="text/javascript" src="/js/sha512.js"></script>
-<script type="text/javascript" src="http://www.wduffy.co.uk/blog/wp-content/themes/agregado/js/jquery.jscroll.min.js"></script>
+<script type="text/javascript" src="<? $link_base; ?>/js/jquery.jscroll.min.js"></script>
 
 <!--Script to make parallax backgrounds full-height-->
 <script>

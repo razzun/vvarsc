@@ -261,7 +261,7 @@
 	</div>
 </div> 
   
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
 </script>
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
