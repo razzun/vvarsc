@@ -956,7 +956,6 @@
 
 <!--Script to Resize Fleet Images-->
 <script>
-
 	$(document).ready(function() {
 	
 		var imageClass = $('.player_fleet');
@@ -1001,18 +1000,17 @@
 			imageClass.jScale({w: '60%'});
 			imageClass.css({
 					"margin": '2px'
-				});		
+			});		
 		}
 	});
 	
 	$(function() {
-		//Edit
+
 		$('.adminButton.adminButtonEdit').click(function() {
-			var unitID = <?php echo $UnitID ?>;
-			var link_base = <?php echo $link_base ?>;
-			
-			//Launch Unit Edit Page
-			window.location.href = <?php echo $link_base ?> + "/admin/?page=admin_unit&pid=" + unitID;
+			var unitID = "<?php echo $UnitID ?>";
+			var link_base = "<?php echo $link_base ?>";
+
+			window.location.href = link_base + "/admin/?page=admin_unit&pid=" + unitID;
 			
 		});
 	});
