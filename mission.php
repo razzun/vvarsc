@@ -587,7 +587,6 @@
 			if ($opUnitsListItem_Support_GroundTeam == "1")
 			{
 				$display_opUnitMembers_list_edit = "";
-				/*
 				if ($canEdit)
 				{
 					$display_opUnitMembers_list_edit = "
@@ -606,7 +605,6 @@
 						</div>
 					";
 				}
-				*/
 				
 				//GET MEMBERS FOR THIS OpUnit
 				$display_opUnit_member_list = "
@@ -701,13 +699,11 @@
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 								</button>
-								<!--
 								<button id=\"ButtonDeleteOpUnitMember_$opUnitMemberListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpUnitMember\" title=\"Delete OpUnit Member\"style=\"
 									margin: 0px;
 								\">
 									<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 								</button>
-								-->
 							</div>
 						";
 					}
@@ -995,7 +991,6 @@
 					";
 					
 					$display_opUnitShipMembers_list_edit = "";
-					/*
 					if ($canEdit
 						&& ($opUnitShipsListItem_MemberCount < $opUnitShipsListItem_ShipMaxCrew)
 						)
@@ -1020,7 +1015,6 @@
 							</div>
 						";
 					}
-					*/
 					
 					//GET Members for this Ship
 					$display_opUnitShipMembers = "
@@ -1118,13 +1112,11 @@
 									\">
 										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 									</button>
-									<!--
 									<button id=\"ButtonDeleteOpShipMember_$opShipMembersListItem_RowID\" class=\"adminButton adminButtonDelete ButtonDeleteOpShipMember\" title=\"Delete OpShip Member\"style=\"
 										margin: 0px;
 									\">
 										<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 									</button>
-									-->
 								</div>
 							";
 						}
@@ -1584,6 +1576,56 @@
 		</form>
 	</div>
 	
+	<!--Create OpUnitMember Form-->
+	<div id="dialog-form-create-opUnitMember" class="adminDialogFormContainer" style="max-width:80%;min-width:25%">	
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add Unit Member</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_createOpTemplateUnitMember.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
+					Operation Template ID
+				</label>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
+					Operation Unit ID
+				</label>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly  style="display:none">
+				
+				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
+					Role
+				</label>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayOpUnitTypeMemberRolesSelectors; ?>
+				</select>
+				
+				<label for="MemberID" class="adminDialogInputLabel">
+					Assigned Member
+				</label>
+				<select name="MemberID" id="MemberID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="MemberID-default">
+						- Select a Member -
+					</option>
+					<option value="0" id="MemberID-default">
+						-- Unassigned --
+					</option>	
+					<? echo $displayGetMembersSelectors; ?>
+				</select>
+				
+			</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>	
+		</form>
+	</div>	
+	
 	<!--Edit OpUnitMember Form-->
 	<div id="dialog-form-edit-opUnitMember" class="adminDialogFormContainer" style="max-width:80%;min-width:25%">	
 		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
@@ -1627,6 +1669,116 @@
 					<option value="0" id="MemberID-default">
 						-- Unassigned --
 					</option>	
+					<? echo $displayGetMembersSelectors; ?>
+				</select>
+				
+			</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>	
+		</form>
+	</div>
+	
+	<!--Delete OpUnitMember Form-->
+	<div id="dialog-form-delete-opUnitMember" class="adminDialogFormContainer" style="max-width:80%;min-width:25%">	
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Delete Unit Member</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_deleteOpTemplateUnitMember.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
+					Operation Template ID
+				</label>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
+					Operation Unit ID
+				</label>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
+					Role
+				</label>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" disabled>
+					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayOpUnitTypeMemberRolesSelectors; ?>
+				</select>
+				
+				<label for="MemberID" class="adminDialogInputLabel">
+					Assigned Member
+				</label>
+				<select name="MemberID" id="MemberID" class="adminDialogDropDown" disabled>
+					<option selected disabled value="default" id="MemberID-default">
+						- Select a Member -
+					</option>
+					<option value="0" id="MemberID-default">
+						-- Unassigned --
+					</option>	
+					<? echo $displayGetMembersSelectors; ?>
+				</select>
+				
+			</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>	
+		</form>
+	</div>
+
+	<!--Create OpShipMember Form-->
+	<div id="dialog-form-create-opUnitShipMember" class="adminDialogFormContainer" style="max-width:80%;min-width:25%">	
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add Ship Member</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_createOpTemplateUnitShipMember.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
+					Operation Template ID
+				</label>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
+					Operation Unit ID
+				</label>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateShipID" class="adminDialogInputLabel" style="display:none">
+					Operation Ship ID
+				</label>
+				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
+					Role
+				</label>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayOpUnitTypeMemberRolesSelectors; ?>
+				</select>
+				
+				<label for="MemberID" class="adminDialogInputLabel">
+					Assigned Member
+				</label>
+				<select name="MemberID" id="MemberID" class="adminDialogDropDown">
+					<option selected disabled value="" id="MemberID-default">
+						- Select a Member -
+					</option>
+					<option value="0" id="MemberID-0">
+						-- Unassigned --
+					</option>		
 					<? echo $displayGetMembersSelectors; ?>
 				</select>
 				
@@ -1698,6 +1850,66 @@
 		</form>
 		
 	</div>
+		
+	<!--Delete OpUnitShipMember Form-->
+	<div id="dialog-form-delete-opUnitShipMember" class="adminDialogFormContainer" style="width:80%">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Delete Ship Member</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/missions/function_mission_deleteOpTemplateUnitShipMember.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display:none">
+					RowID
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateID" class="adminDialogInputLabel" style="display:none">
+					Operation Template ID
+				</label>
+				<input type="none" name="OpTemplateID" id="OpTemplateID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateUnitID" class="adminDialogInputLabel" style="display:none">
+					Operation Unit ID
+				</label>
+				<input type="none" name="OpTemplateUnitID" id="OpTemplateUnitID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpTemplateShipID" class="adminDialogInputLabel" style="display:none">
+					Operation Ship ID
+				</label>
+				<input type="none" name="OpTemplateShipID" id="OpTemplateShipID" value="" class="adminDialogTextInput" readonly style="display:none">
+				
+				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
+					Role
+				</label>
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" disabled>
+					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayOpUnitTypeMemberRolesSelectors; ?>
+				</select>
+				
+				<label for="MemberID" class="adminDialogInputLabel">
+					Assigned Member
+				</label>
+				<select name="MemberID" id="MemberID" class="adminDialogDropDown" disabled>
+					<option selected disabled value="" id="MemberID-default">
+						- Select a Member -
+					</option>
+					<option value="0" id="MemberID-0">
+						-- Unassigned --
+					</option>		
+					<? echo $displayGetMembersSelectors; ?>
+				</select>
+				
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>	
+		</form>
+	</div>	
 	
 </div>
   
@@ -1805,6 +2017,7 @@
 				filter: 'blur(2px)'
 			});
 		});		
+				
 		
 		//Edit Unit
 		$('.ButtonEditOpUnit').click(function() {
@@ -1852,6 +2065,34 @@
 			});
 		});
 
+		//Add UnitMember
+		$('.ButtonAddOpUnitMember').click(function() {
+			var dialog = $('#dialog-form-create-opUnitMember');
+			
+			var $self = jQuery(this);
+			
+			var opTemplateID = $self.parent().parent().parent().data("operationid");
+			var opTemplateUnitID = $self.parent().parent().parent().data("opunitid");
+						
+			dialog.find('#OpTemplateID').val(opTemplateID).text();
+			dialog.find('#OpTemplateUnitID').val(opTemplateUnitID).text();
+			
+			dialog.find('select').find('option').prop('selected',false);
+			dialog.find('#OpUnitMemberRoleID').find('#OpUnitMemberRoleID-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.operation_main_container').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+			$('#filtersContainer_OpMenu_Show').css({
+				filter: 'blur(2px)'
+			});
+		});	
+		
 		//Edit UnitMember
 		$('.ButtonEditOpUnitMember').click(function() {
 			var dialog = $('#dialog-form-edit-opUnitMember');
@@ -1892,7 +2133,79 @@
 				filter: 'blur(2px)'
 			});
 		});	
-	
+
+		//Remove UnitMember
+		$('.ButtonDeleteOpUnitMember').click(function() {
+			var dialog = $('#dialog-form-delete-opUnitMember');
+			
+			var $self = jQuery(this);
+			
+			var rowID = $self.parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
+			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var memberID = $self.parent().parent().data("memberid");
+						
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#OpTemplateID').val(opTemplateID).text();
+			dialog.find('#OpTemplateUnitID').val(opTemplateUnitID).text();
+			
+			dialog.find('select').find('option').prop('selected',false);
+			dialog.find('#OpUnitMemberRoleID').find('#OpUnitMemberRoleID-' + opUnitMemberRoleID).prop('selected',true);
+			
+			if (memberID != null && memberID != "")
+			{
+				dialog.find('#MemberID').find('#MemberID-' + memberID).prop('selected',true);
+				//dialog.find('#MemberID').find('#MemberID-' + memberID).prop('disabled',true);
+			}
+			else
+			{
+				dialog.find('#MemberID').find('#MemberID-default').prop('selected',true);
+			}
+			
+			dialog.show();
+			overlay.show();
+			$('.operation_main_container').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+			$('#filtersContainer_OpMenu_Show').css({
+				filter: 'blur(2px)'
+			});
+		});	
+
+		//Add ShipMember
+		$('.ButtonAddOpUnitShipMember').click(function() {
+			var dialog = $('#dialog-form-create-opUnitShipMember');
+			
+			var $self = jQuery(this);
+			
+			var opTemplateID = $self.parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().data("optemplateunitid");
+			var opTemplateShipID = $self.parent().data("optemplateshipid");
+						
+			dialog.find('#OpTemplateID').val(opTemplateID).text();
+			dialog.find('#OpTemplateUnitID').val(opTemplateUnitID).text();
+			dialog.find('#OpTemplateShipID').val(opTemplateShipID).text();
+			
+			dialog.find('select').find('option').prop('selected',false);
+			dialog.find('#OpUnitMemberRoleID').find('#OpUnitMemberRoleID-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.operation_main_container').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+			$('#filtersContainer_OpMenu_Show').css({
+				filter: 'blur(2px)'
+			});
+		});	
+		
 		//Edit ShipMember
 		$('.ButtonEditOpShipMember').click(function() {
 			var dialog = $('#dialog-form-edit-opUnitShipMember');
@@ -1935,6 +2248,49 @@
 			});
 		});
 
+		//Remove ShipMember
+		$('.ButtonDeleteOpShipMember').click(function() {
+			var dialog = $('#dialog-form-delete-opUnitShipMember');
+			
+			var $self = jQuery(this);
+			
+			var rowID = $self.parent().parent().data("rowid");
+			var opTemplateID = $self.parent().parent().data("optemplateid");
+			var opTemplateUnitID = $self.parent().parent().data("optemplateunitid");
+			var opTemplateShipID = $self.parent().parent().data("optemplateshipid");
+			var opUnitMemberRoleID = $self.parent().parent().data("opunitmemberroleid");
+			var memberID = $self.parent().parent().data("memberid");
+						
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#OpTemplateID').val(opTemplateID).text();
+			dialog.find('#OpTemplateUnitID').val(opTemplateUnitID).text();
+			dialog.find('#OpTemplateShipID').val(opTemplateShipID).text();
+			
+			dialog.find('select').find('option').prop('selected',false);
+			dialog.find('#OpUnitMemberRoleID').find('#OpUnitMemberRoleID-' + opUnitMemberRoleID).prop('selected',true);
+			
+			if (memberID != null && memberID != "")
+			{
+				dialog.find('#MemberID').find('#MemberID-' + memberID).prop('selected',true);
+			}
+			else
+			{
+				dialog.find('#MemberID').find('#MemberID-0').prop('selected',true);
+			}
+			
+			dialog.show();
+			overlay.show();
+			$('.operation_main_container').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+			$('#filtersContainer_OpMenu_Show').css({
+				filter: 'blur(2px)'
+			});
+		});			
+		
 		//UnitMember SignUp
 		$('.ButtonSignUpOpUnitMember').click(function() {
 			var dialog = $('#dialog-form-edit-opUnitMember');
