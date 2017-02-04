@@ -310,7 +310,7 @@
 								</td>
 								<td class=\"tooltip_shipTable_value\">
 									<div class=\"tooltip_shipTable_value_inner\">
-									<a href=\"player/$mem_id_info\" target=\"_top\">$mem_name_info</a>
+									<a href=\"/player/$mem_id_info\" target=\"_top\">$mem_name_info</a>
 									</div>
 								</td>
 							</tr>									

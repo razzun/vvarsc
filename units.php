@@ -58,7 +58,7 @@
 					{
 						$temp_unitEmblemImage = "";
 						if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
-							$temp_unitEmblemImage = $link_base."/images/03KgFv0_med.png";
+							$temp_unitEmblemImage = $link_base."/images/logos/vvar-logo2.png";
 						else
 							$temp_unitEmblemImage = $value['UnitEmblemImage'];
 							

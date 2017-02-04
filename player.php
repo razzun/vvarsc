@@ -277,7 +277,7 @@
 					<td class=\"player_ships_entry_ship\">
 						<div class=\"player_ships_entry_ship_inner\">
 							<div class=\"player_ships_entry_ship_inner_imageContainer\">
-								<a src=\"$link_base/ship/$ship_id\" >
+								<a href=\"$link_base/ship/$ship_id\" >
 									<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
 								</a>
 							</div>
@@ -340,7 +340,7 @@
 			
 			if ($UnitEmblemImage == null || $UnitEmblemImage == '')
 			{
-				$UnitEmblemImage = $link_base."/images/03KgFv0_med.png";
+				$UnitEmblemImage = $link_base."/images/logos/vvar-logo2.png";
 			}			
 			
 			if ($role_name == NULL || $role_name == "n/a") {
@@ -390,7 +390,7 @@
 						</div>
 						<div class=\"corner corner-bottom-right\">
 						</div>
-						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" />
+						<a href=\"$link_base/unit/$UnitID\"><img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" /></a>
 					</div>					
 				</div>				
 			";

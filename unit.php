@@ -63,7 +63,7 @@
 					{
 						$temp_unitEmblemImage = "";
 						if ($value['UnitEmblemImage'] == null || $value['UnitEmblemImage'] == "")
-							$temp_unitEmblemImage = $link_base."/images/03KgFv0_med.png";
+							$temp_unitEmblemImage = $link_base."/images/logos/vvar-logo2.png";
 						else
 							$temp_unitEmblemImage = $value['UnitEmblemImage'];
 							
@@ -303,7 +303,7 @@
 			
 			if ($unitEmblemImage == null || $unitEmblemImage == '')
 			{
-				$unitEmblemImage = $link_base.'/images/03KgFv0_med.png';
+				$unitEmblemImage = $link_base.'/images/logos/vvar-logo2.png';
 			}
 			
 			if ($unitCallsign == null)
@@ -888,6 +888,9 @@
 
 	</div>
 </div> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="<? $link_base; ?>/js/jquery.jScale.js"></script>
   
 <!--Script to Show/Hide Rows when Arrows are clicked on each row-->
 <script language="javascript">
@@ -963,13 +966,13 @@
 			imageClass.css({
 					"margin": '0px'
 				});
-		}	
-		else if(($( window ).width() < 1200)){
+		}
+		else if(($( window ).width() < 1200)) {
 			imageClass.jScale({w: '40%'});
 			imageClass.css({
-					"margin": '1px'
+					"margin": '0px'
 				});
-		}
+		}	
 		else {
 			imageClass.jScale({w: '60%'});
 			imageClass.css({
@@ -987,14 +990,13 @@
 			imageClass.css({
 					"margin": '0px'
 				});
-			
-		}	
-		else if(($( window ).width() < 1200)){
+		}
+		else if(($( window ).width() < 1200)) {
 			imageClass.jScale({w: '40%'});
 			imageClass.css({
 					"margin": '1px'
 				});
-		}
+		}	
 		else {
 			imageClass.jScale({w: '60%'});
 			imageClass.css({
