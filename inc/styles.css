@@ -187,7 +187,7 @@ h1 {
 #MainWrapper {
 	min-height: 100vh;
 	background-color: rgba(0, 0, 0, 0.5);
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png);
+	background-image: url(../images/gridbg_glow.png);
 	background-position: left top;
 	background-repeat: repeat;
 }
@@ -203,7 +203,7 @@ h1 {
 .two-line-separator {
 	height: 5px;
 	width: 100%;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/double-line-sep.png) no-repeat center top, url(https://robertsspaceindustries.com/rsi/static/images/common/double-line-sep.png) no-repeat center bottom;
+	background: url(../images/double-line-sep.png) no-repeat center top, url(../images/double-line-sep.png) no-repeat center bottom;
 	background-size: 100% 1px;
 }
 
@@ -632,7 +632,7 @@ table.tbmem a:hover {
 	vertical-align: top;
 	text-align: center;
 	/*
-	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-image: url('../images/replies-side-bg.png');
 	background-repeat: repeat-y;
 	background-position: left center;
 	*/
@@ -801,7 +801,7 @@ table.tbmem a:hover {
 	display: block;
 	height: 8px;
 	width: 100%;
-	background: url('https://www.robertsspaceindustries.com/rsi/static/images/organization/tooltip-bottom.png') no-repeat 50% 0;
+	background: url('../images/tooltip-bottom.png') no-repeat 50% 0;
 	position: absolute;
 	bottom: -8px;
 	left: 0;
@@ -825,7 +825,7 @@ table.tbmem a:hover {
 	*/
 	background-repeat: repeat;
 	background-position: left bottom;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);	
+	background-image: url(../images/fading-bars.png);	
 }
 
 #p_rank_outer {
@@ -1217,7 +1217,7 @@ ts.pship img {
 	background-color: rgba(2, 6, 14, 0.7);
 	border: 1px solid #222;
 	padding: 4px;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 }
 
 
@@ -1450,7 +1450,7 @@ img {
 
 #operations_list_menu {
 	/*
-	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-image: url('../images/replies-side-bg.png');
 	background-repeat: repeat-y;
 	background-position: left bottom;
 	*/
@@ -1708,7 +1708,7 @@ img {
 
 #operations_list_menu, #missions_list_menu {
 	background-color: rgba(0,0,0,0.5);
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 }
 
 .tbinfo_right_yard_stats_container
@@ -1729,7 +1729,7 @@ img {
 	border-left: 1px solid rgba(31, 101, 133, 0.5);
 	border-right: 1px solid rgba(31, 101, 133, 0.5);
 	border-bottom: 1px solid rgba(31, 101, 133, 0.5);
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .tbinfo_right_shipDetails2
@@ -1744,7 +1744,7 @@ img {
 	border-left: 4px solid rgba(31, 101, 133, 0.5);
 	border-right: 2px solid rgba(31, 101, 133, 0.5);
 	border-bottom: 1px solid rgba(31, 101, 133, 0.5);
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .tbinfo_right_shipTitle
@@ -1806,7 +1806,7 @@ img {
 
 .tbinfo tr
 {
-	background-image: url(https://www.robertsspaceindustries.com/rsi/static/images/store/header/rsi_menu_glow_noise_vd.png);
+	background-image: url(../images/rsi_menu_glow_noise_vd.png);
 	background-repeat: repeat;
 	background-position: left bottom;
 }
@@ -2513,7 +2513,7 @@ img.fleet:after {
 	padding-left: 28px;
 	padding-right: 8px;
 	padding-top: 8px;
-    background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+    background-image: url('../images/replies-side-bg.png');
     background-repeat: repeat-y;
     background-position: left bottom;
 }
@@ -2575,7 +2575,7 @@ img.fleet:after {
 .shipyard_mainTable_row_shipDesc_container {
 	display: table-row;
 	vertical-align: top;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .shipyard_mainTable_row_shipDesc {
@@ -2590,7 +2590,7 @@ img.fleet:after {
 	white-space: normal;
 	font-size: 11px;
 	position: relative;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png);
+	background-image: url(../images/public-profile-box-title.png);
 	background-repeat: repeat-x;
 	background-position: left top;
 	padding-top: 32px;
@@ -2627,7 +2627,7 @@ img.fleet:after {
 	background-color: rgba(0, 0, 0, 0.65);
 	border: 1px solid rgba(180, 180, 180, 0.4);
 	cursor: pointer;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 }
 
 .yard_filters_entry_container:hover{
@@ -2700,7 +2700,7 @@ img.fleet:after {
 	background-color: rgba(10,30,40,0.75);
 	padding-bottom: 2px;
 	padding-left: 4px;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .yard_stats_row {
@@ -2912,7 +2912,7 @@ img.fleet:after {
     transition: all 0.4s ease 0s;
 	padding-left: 8px;
 	padding-right: 8px;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 }
 
 .shipDetails_ownerInfo_tableRow_memInfoContainer {
@@ -2970,7 +2970,7 @@ img.fleet:after {
 	text-align: right;
 	margin-right: 2px;
 	width: 98%;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+	background: url(../images/public-profile-box-title.png) repeat-x;
 }
 
 .shipDetails_ownerInfo_tableRow_memInfo1:hover {
@@ -3046,7 +3046,7 @@ img.fleet:after {
 	color: #A2B5D2;
 	margin-top: 4px;
 	border: 1px solid #222;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .shipDetails_info2_content {
@@ -3234,7 +3234,7 @@ img.fleet:after {
     background-color: rgba(2, 6, 14, 0.7);
     border: 1px solid #222;	
 	transition: all 0.4s ease 0s;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 }
 
 .divinfo_rankImg {
@@ -3260,7 +3260,7 @@ img.fleet:after {
 	border-right: 6px solid #1F4858;
 	border-top: 1px solid rgba(18, 30, 44, 0.7);
 	transition: all 0.2s ease 0s;
-	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-image: url('../images/replies-side-bg.png');
 	background-repeat: repeat-y;
 	background-position: left bottom;	
 }
@@ -3428,7 +3428,7 @@ img.fleet:after {
 {
 	background-color: rgba(2, 6, 14, 0.7);
 	border: 1px solid #222;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 	text-align: left;
 	display: inline-table;
 	margin-right: 12px;
@@ -3676,7 +3676,7 @@ img.fleet:after {
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
 	font-family: Orbitron;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 }
 
 .links_table_cell_content {
@@ -3752,7 +3752,7 @@ img.fleet:after {
 	background-color: rgba(0, 0, 0, 0.65);
 	font-size: 12pt;
 	color: #FFF;
-	background-image: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background-image: url(../images/fading-bars.png);
 	position: relative;
 }
 
@@ -3765,7 +3765,7 @@ img.fleet:after {
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 	background-color: rgba(0, 0, 0, 0.65);
-	background-image: url('https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png');
+	background-image: url('../images/replies-side-bg.png');
 	background-repeat: repeat-y;
 	background-position: left center;	
 }
@@ -3866,7 +3866,7 @@ img.fleet:after {
 	font-size: 8pt;
 	margin-left: 16px;
 	margin-right: 4px;
-	/*background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+	/*background: url(../images/public-profile-box-title.png) repeat-x;
 	*/
 }
 
@@ -3934,7 +3934,7 @@ img.fleet:after {
 
 .level0 {
 	font-size: 18pt;
-	background: url(https://robertsspaceindustries.com/rsi/static/images/common/fading-bars.png);
+	background: url(../images/fading-bars.png);
 	padding-bottom: 4px;	
 }
 
@@ -4236,7 +4236,7 @@ img.fleet:after {
 
 /*STATIC PAGES*/
 .PayGradeDetails {
-	background-image: url("https://forums.robertsspaceindustries.com/themes/RSI/images/replies-side-bg.png");
+	background-image: url("../images/replies-side-bg.png");
 	background-repeat: repeat-y;
 	background-position: left bottom;
 	padding-left: 28px;
