@@ -182,7 +182,7 @@
 				\"$operationDetails_Name\"
 			</h3>
 			<h5 class=\"operations_h5\" style=\"
-				background: url(https://robertsspaceindustries.com/rsi/static/images/profile/public-profile-box-title.png) repeat-x;
+				background: url($link_base/images/public-profile-box-title.png) repeat-x;
 			\">
 				$operationDetails_Number // $operationDetails_Type
 			</h5>
