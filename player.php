@@ -350,7 +350,7 @@
 			{
 				if ($UnitName != NULL)
 				{
-					$full_role_name = "$role_name<br /><a src=\"$link_base/unit/$UnitID\"> $UnitName </a>";
+					$full_role_name = $role_name."<br /><a href=\"".$link_base."/unit/".$UnitID."\"> ".$UnitName." </a>";
 				}
 				else
 				{

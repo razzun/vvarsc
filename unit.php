@@ -298,7 +298,7 @@
 			
 			if ($unitBackgroundImage == null || $unitBackgroundImage == '')
 			{
-				$unitBackgroundImage = $link_base.'/images/background/Gladius_01.jpg';
+				$unitBackgroundImage = $link_base.'/images/backgrounds/Gladius_01.jpg';
 			}
 			
 			if ($unitEmblemImage == null || $unitEmblemImage == '')
@@ -829,7 +829,7 @@
 					margin-left: 0px;
 					margin-right: 2%;
 				\">
-					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"".$link_base."/images/misc/button_edit.png\">
 					Edit Unit
 				</button>
 				<br />
@@ -1007,10 +1007,10 @@
 		//Edit
 		$('.adminButton.adminButtonEdit').click(function() {
 			var unitID = <?php echo $UnitID ?>;
-			var link_base = <? echo $link_base ?>;
+			var link_base = <?php echo $link_base ?>;
 			
 			//Launch Unit Edit Page
-			window.location.href = link_base + "/admin/?page=admin_unit&pid=" + unitID;
+			window.location.href = <?php echo $link_base ?> + "/admin/?page=admin_unit&pid=" + unitID;
 			
 		});
 	});
