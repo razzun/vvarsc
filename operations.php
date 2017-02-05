@@ -210,6 +210,15 @@
 	});
 </script>
 
+<!--Link CONTROLS-->
+<script>
+	$(document).ready(function($) {
+		$(".operationsListItemContainer").click(function() {
+			window.document.location = $(this).data("url");
+		});
+	});	
+</script>
+
 <!--Script to Show/Hide Admin Buttons-->
 <script>
 	//Hide all Admin Buttons on Page Load

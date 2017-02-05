@@ -42,7 +42,7 @@
 			$display_operationsList .= "
 				<div class=\"operationsListItemContainer operations_selected\"
 					data-operationid=\"$operationListItem_ID\"
-					data-targetid=\"$link_base/operation/$operationListItem_ID\"
+					data-url=\"$link_base/operation/$operationListItem_ID\"
 				>
 			";
 		}
@@ -51,14 +51,16 @@
 			$display_operationsList .= "
 				<div class=\"operationsListItemContainer\"
 					data-operationid=\"$operationListItem_ID\"
-					data-targetid=\"$link_base/operation/$operationListItem_ID\"
+					data-url=\"$link_base/operation/$operationListItem_ID\"
 				>
 			";		
 		}
 		
 		$display_operationsList .= "
 					<div class=\"operationsListItem_MetaData_Right\">
-						<div class=\"clickableRow_memRank_inner\">
+						<div class=\"clickableRow_memRank_inner\" style=\"
+							width: 100%
+						\">
 							<div class=\"operations_rank_image_text\" style=\"
 								font-size: 8pt;
 								display: block;
@@ -148,7 +150,7 @@
 			$display_missionsList .= "
 				<div class=\"operationsListItemContainer operations_selected\"
 					data-operationid=\"$missionListItem_ID\"
-					data-targetid=\"$link_base/mission/$missionListItem_ID\"
+					data-url=\"$link_base/mission/$missionListItem_ID\"
 				>
 			";
 		}
@@ -157,7 +159,7 @@
 			$display_missionsList .= "
 				<div class=\"operationsListItemContainer\"
 					data-missionid=\"$missionListItem_ID\"
-					data-targetid=\"$link_base/mission/$missionListItem_ID\"
+					data-url=\"$link_base/mission/$missionListItem_ID\"
 					>
 			";		
 		}
