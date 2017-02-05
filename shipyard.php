@@ -42,7 +42,7 @@
 					</div>
 					<div class=\"cornerToggle2 corner-bottom-right\">
 					</div>
-					<img class=\"yard_filters_entry_manuImage\" src=\"$manu_image1\" />
+					<img class=\"yard_filters_entry_manuImage\" src=\"$link_base/images/manu_logo/$manu_image1\" />
 					<div class=\"yard_filters_entry_manuName\">
 						$manu_name1
 					</div>
@@ -137,7 +137,7 @@
 			<tr class=\"shipyard_mainTable_row $manu_shortName2 $ship_classification\">
 				<th class=\"shipyard_mainTable_row_header\">
 					<img class=\"shipyard_mainTable_row_header_arrow\" align=\"center\" src=\"".$link_base."/images/SC_Button01.png\" />
-					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$manu_image2\" />
+					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$link_base/images/manu_logo/$manu_image2\" />
 					<div class=\"shipyard_mainTable_row_header_shipTitle\">
 						<a href=\"ship/$ship_id2\">$full_ship_name_formatted
 						</a>
@@ -145,7 +145,7 @@
 				</th>
 				<td class=\"shipyard_mainTable_row_td\" valign=\"top\">
 					<div class=\"shipyard_mainTable_row_content\">
-						<img class=\"shipyard_mainTable_row_shipImage\" alt=\"$ship_name2\" src=\"$ship_image_link2\" />
+						<img class=\"shipyard_mainTable_row_shipImage\" alt=\"$ship_name2\" src=\"$link_base/images/ship_large/$ship_image_link2\" />
 						<br />
 						<div class=\"shipyard_mainTable_row_shipOwners\">
 							Fleet Ship-Count: $ship_count 
