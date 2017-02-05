@@ -138,7 +138,7 @@
     	
 		$display_ship_info1 .= "
 			<div class=\"shipDetails_info1_content\">
-				<img class=\"shipDetails_info1_shipImage\" align=\"center\" alt=\"$ship_name\" src=\"$ship_image_link\" />
+				<img class=\"shipDetails_info1_shipImage\" align=\"center\" alt=\"$ship_name\" src=\"$link_base/images/ship_large/$ship_image_link\" />
 				<div class=\"shipDetails_info1_content_main\">
 					<table class=\"shipDetails_info1_table\">
 						<tr class=\"shipDetails_info1_table_row\">
