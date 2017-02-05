@@ -30,7 +30,7 @@
 					$manuShortName
 				</td>
 				<td class=\"adminTableRowTD manuSmallImage\" data-imageurl=\"$manuSmallImage\">
-					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$manuSmallImage\" />
+					<img class=\"shipyard_mainTable_row_header_manuImage\" align=\"center\" src=\"$link_base/images/manu_logo/$manuSmallImage\" />
 				</td>
 				<td class=\"adminTableRowTD\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Manufacturer\">

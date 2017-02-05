@@ -121,7 +121,7 @@
 				</div>
 				<div class=\"corner corner-bottom-right\">
 				</div>
-				<img class=\"shipyard_shipTitle_manuImage\" align=\"center\" src=\"$manu_smallImage\" />	
+				<img class=\"shipyard_shipTitle_manuImage\" align=\"center\" src=\"$link_base/images/manu_logo/$manu_smallImage\" />	
 				<div class=\"shipDetails_shipTitle_text\">
 					$ship_name
 				</div>
