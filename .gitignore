@@ -51,3 +51,5 @@ dbconn.php
 error_log
 *.rej
 razTest.php
+.sonar/
+sonar-project.properties
