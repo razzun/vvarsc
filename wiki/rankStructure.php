@@ -89,9 +89,9 @@
 			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_abbr_navy'
 			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_name_navy'
 			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
-			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Common') as 'rank_abbr_common'
-			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Common') as 'rank_name_common'
-			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Common') as 'rank_tinyImage_common'
+			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_abbr_common'
+			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_common'
+			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_common'
 			,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
 		from projectx_vvarsc2.ranks r
 		where r.rank_level like 'O-%'

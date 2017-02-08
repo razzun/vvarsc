@@ -388,6 +388,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral Lower-Half </strong> (RDML)</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> (BG)</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -441,6 +442,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral</strong> (RADM)</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Major General</strong> (MG)</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
