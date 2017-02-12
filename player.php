@@ -290,44 +290,87 @@
     		}
     	}
 		
-		$roles_query = "
-			SELECT
-				ranks.rank_id
-				,ranks.rank_groupName
-				,ranks.rank_image
-				,ranks.rank_level
-				,ranks.rank_name
-				,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
-				,d.div_id
-				,d.div_name
-				,case
-					when roles.isPrivate = 0 and roles.role_displayName != '' then roles.role_displayName
-					when roles.isPrivate = 0 then roles.role_name
-					when roles.role_id is null then 'n/a'
-					else '- Role Information Classified - '
-				end as role_name
-				,u.UnitID
-				,case
-					when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
-					else u.UnitFullName
-				end as UnitName
-				,u.UnitEmblemImage
-			FROM projectx_vvarsc2.members
-			JOIN projectx_vvarsc2.ranks
-				ON members.ranks_rank_id = ranks.rank_id
-			JOIN projectx_vvarsc2.divisions d
-				ON members.divisions_div_id = d.div_id
-			LEFT JOIN projectx_vvarsc2.UnitMembers um
-				on um.MemberID = members.mem_id
-			LEFT JOIN projectx_vvarsc2.Units u
-				on u.UnitID = um.UnitID
-			left JOIN projectx_vvarsc2.roles
-				ON um.MemberRoleID = roles.role_id
-			WHERE members.mem_sc = 1
-				AND members.mem_id = $player_id
-			ORDER BY
-				roles.role_orderby		
-		";
+		if ($infoSecLevelID == 4 || $role == "Admin")
+		{
+			$roles_query = "
+				SELECT
+					ranks.rank_id
+					,ranks.rank_groupName
+					,ranks.rank_image
+					,ranks.rank_level
+					,ranks.rank_name
+					,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
+					,d.div_id
+					,d.div_name
+					,case
+						when roles.role_displayName != '' then roles.role_displayName
+						when roles.role_id is null then 'n/a'
+						else roles.role_name
+					end as role_name
+					,u.UnitID
+					,case
+						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+						else u.UnitFullName
+					end as UnitName
+					,u.UnitEmblemImage
+				FROM projectx_vvarsc2.members
+				JOIN projectx_vvarsc2.ranks
+					ON members.ranks_rank_id = ranks.rank_id
+				JOIN projectx_vvarsc2.divisions d
+					ON members.divisions_div_id = d.div_id
+				LEFT JOIN projectx_vvarsc2.UnitMembers um
+					on um.MemberID = members.mem_id
+				LEFT JOIN projectx_vvarsc2.Units u
+					on u.UnitID = um.UnitID
+				left JOIN projectx_vvarsc2.roles
+					ON um.MemberRoleID = roles.role_id
+				WHERE members.mem_sc = 1
+					AND members.mem_id = $player_id
+				ORDER BY
+					roles.role_orderby
+			";
+		}
+		else
+		{
+			$roles_query = "
+				SELECT
+					ranks.rank_id
+					,ranks.rank_groupName
+					,ranks.rank_image
+					,ranks.rank_level
+					,ranks.rank_name
+					,DATE_FORMAT(DATE(members.RankModifiedOn),'%d %b %Y') as RankModifiedOn
+					,d.div_id
+					,d.div_name
+					,case
+						when roles.role_displayName != '' then roles.role_displayName
+						when roles.role_id is null then 'n/a'
+						else roles.role_name
+					end as role_name
+					,u.UnitID
+					,case
+						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+						else u.UnitFullName
+					end as UnitName
+					,u.UnitEmblemImage
+				FROM projectx_vvarsc2.members
+				JOIN projectx_vvarsc2.ranks
+					ON members.ranks_rank_id = ranks.rank_id
+				JOIN projectx_vvarsc2.divisions d
+					ON members.divisions_div_id = d.div_id
+				LEFT JOIN projectx_vvarsc2.UnitMembers um
+					on um.MemberID = members.mem_id
+				LEFT JOIN projectx_vvarsc2.Units u
+					on u.UnitID = um.UnitID
+				left JOIN projectx_vvarsc2.roles
+					ON um.MemberRoleID = roles.role_id
+					AND roles.isPrivate = 0
+				WHERE members.mem_sc = 1
+					AND members.mem_id = $player_id
+				ORDER BY
+					roles.role_orderby	
+			";
+		}
 		
 		$roles_query_results = $connection->query($roles_query);
 		$displayRoles = "";
@@ -390,7 +433,7 @@
 						</div>
 						<div class=\"corner corner-bottom-right\">
 						</div>
-						<a href=\"$link_base/unit/$UnitID\"><img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" /></a>
+						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" /></a>
 					</div>					
 				</div>				
 			";

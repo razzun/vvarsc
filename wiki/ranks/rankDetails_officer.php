@@ -55,8 +55,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Ensign</strong> (ENS)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>2nd Lieutenant</strong> (2LT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Ensign</strong> - ENS</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>2nd Lieutenant</strong> - 2LT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -109,8 +109,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Junior Grade</strong> (LTJG)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>1st Lieutenant</strong> (1LT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Junior Grade</strong> - LTJG</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>1st Lieutenant</strong> - 1LT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -165,8 +165,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant </strong> (LT)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Captain</strong> (CAPT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant </strong> - LT</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Captain</strong> - CAPT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -221,8 +221,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Commander </strong> (LCDR)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Major</strong> (MAJ)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Commander </strong> - LCDR</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Major</strong> - MAJ</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -277,8 +277,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Commander </strong> (CDR)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Lieutenant Colonel</strong> (LTCOL)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Commander </strong> - CDR</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Lieutenant Colonel</strong> - LTCOL</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -332,14 +332,14 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Captain </strong> (CAPT)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Colonel</strong> (COL)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Captain </strong> - CAPT</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Colonel</strong> - COL</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-6 is the second of the Senior-Officer ranks, normally being held by the Commanding Officer of a Combat Group, and also grants the ability for the Member to serve as their Division's Executive Officer. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet. Like O-5s, O-6s can also be assigned directly to Fleet Headquarters to assist with extraneous duties listed above.
+					O-6 is the second of the Senior-Officer ranks, normally being held by the Commanding Officer of a Combat Group, and also grants the ability for the Member to serve as the Executive Officer of a Naval Warfare Command, or as Division XO. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet.
 					<br />
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>
@@ -387,19 +387,19 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral Lower-Half </strong> (RDML)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> (BG)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral (Lower-Half) </strong> - RDML</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> - BGEN</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-7 is the first of the Flag Officer Ranks, granting the eligibility for a Member to serve as the Commanding Officer for a Division. This is the highest-rank that can be granted to Officers not assigned as the Commander of a Division, or those performing specialized duties at Fleet Headquarters.
+					O-7 is the first of the Flag Officer Ranks, held by the most senior Combat Group Commanders, and also grants the eligibility for a Member to serve as the Commanding Officer for a Naval Warfare Command.
 					<br />
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>
 					<ol>
-						<li>Minimum 2 Year TIS with the Fleet</li>
+						<li>Minimum 18 Months TIS with the Fleet</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -441,20 +441,20 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral</strong> (RADM)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Major General</strong> (MG)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral</strong> - RADM</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Major General</strong> - MAJGEN</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-8 is the second of the Flag Officer Ranks, and is granted to Division Commanding Officers after an extended period of honourable and dedicated service to the Fleet. 
+					O-8 is the second of the Flag Officer Ranks, and is granted to Officers in charge of a Naval Warfare Command after an extended period of honourable and dedicated service to the Fleet. In addition, it gives the eligibility to serve as the CO for a Division, and is the highest rank that can be held by Officers not serving as the Commander of a Division, or as Fleet CO/XO.
 					<br />
 					<br />
 					<strong>Advancement from O-7 to O-8 requires the following:</strong>
 					<ol>
-						<li>Minimum 3 Years TIS with the Fleet</li>
-						<li>Minimum 1 Year TIG as CO of their Division at O-7</li>
+						<li>Minimum 2 Years TIS with the Fleet</li>
+						<li>Minimum 1 Year TIG as CO of their Command at O-7</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -496,13 +496,13 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Vice Admiral</strong> (VADM)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Vice Admiral</strong> - VADM</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-9 is the rank granted to the Executive Officer and second-in-command for the VVarMachine Fleet. At times, this officer may also hold additional titles depending on their responsibilities (such as Technology Officer).
+					O-9 is the second-highest Flag Officer rank, and is designed as a balance of power for the Fleet CO. Fleet regulations limit the number of officers serving in O-9 grade to 2 at any one time. Of the two Division COs and the Fleet XO, two of them will serve as a Vice Admiral, and provide counsel to the Fleet CO. This 3-person assembly is important in the case of tie-breaker votes, where the Admiralty must rule on critical issues. In a majority of cases, it is the Fleet XO and the more-senior of the two Division COs who hold the O-9 grade.
 				</p>
 			</div>
 		</div>
@@ -542,7 +542,7 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Admiral</strong> (ADM)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Admiral</strong> - ADM</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

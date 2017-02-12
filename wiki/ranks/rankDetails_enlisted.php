@@ -71,8 +71,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Airman Apprentice</strong> (AA)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Private 1st Class</strong> (PFC)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Airman Apprentice</strong> - AA</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Private 1st Class</strong> - PFC</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -134,8 +134,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Airman</strong> (AN)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Lance Corporal</strong> (LCPL)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Airman</strong> - AN</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Lance Corporal</strong> - LCPL</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -198,8 +198,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 3rd Class</strong> (PO3)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Corporal</strong> (CPL)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 3rd Class</strong> - PO3</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Corporal</strong> - CPL</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -272,8 +272,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 2nd Class</strong> (PO2)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant</strong> (SGT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 2nd Class</strong> - PO2</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant</strong> - SGT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -345,8 +345,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 1st Class</strong> (PO1)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Staff Sergeant</strong> (SSGT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 1st Class</strong> - PO1</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Staff Sergeant</strong> - SSGT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -421,8 +421,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Chief Petty Officer</strong> (CPO)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Gunnery Sergeant</strong> (GYSGT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Chief Petty Officer</strong> - CPO</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Gunnery Sergeant</strong> - GYSGT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -496,8 +496,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Senior Chief Petty Officer</strong> (SCPO)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>First Sergeant</strong> (1SGT)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Senior Chief Petty Officer</strong> - SCPO</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>First Sergeant</strong> - 1SGT</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -568,8 +568,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF; font-style: italic">Navy <strong>Master Chief Petty Officer</strong> (MCPO)</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant Major</strong> (SGM)</li>
+					<li style="color: #FFF; font-style: italic">Navy <strong>Master Chief Petty Officer</strong> - MCPO</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant Major</strong> - SGM</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

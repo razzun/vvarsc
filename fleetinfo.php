@@ -132,7 +132,7 @@
 					<div class=\"cornerToggle2 corner-bottom-right\">
 					</div>
 					<div class=\"fleet2_shipName_container\">
-						<a class=\"fleet2_shipName\" href=\"ship/$ship_id_info\" >$ship_manu_short_info $ship_name_info
+						<a class=\"fleet2_shipName\" href=\"$link_base/ship/$ship_id_info\" >$ship_manu_short_info $ship_name_info
 						</a>
 					</div>
 					

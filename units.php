@@ -11,7 +11,11 @@
 				if ($has_children==false)
 				{
 					$has_children=true;
-					echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: '.($level * 8).'px;">';
+					if ($level == 0)
+						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 0px;">';
+					else
+						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 8px;">';
+					
 					$level++;
 				}
 
@@ -197,12 +201,13 @@
 							when u.UnitLevel = 'Fleet' then 1
 							when u.UnitLevel = 'Department' then 2
 							when u.UnitLevel = 'Division' then 3
-							when u.UnitLevel = 'Group' then 4
-							when u.UnitLevel = 'Wing' then 5
-							when u.UnitLevel = 'Company' then 5
-							when u.UnitLevel = 'Squadron' then 6
-							when u.UnitLevel = 'Platoon' then 6
-							when u.UnitLevel = 'QRF' then 6
+							when u.UnitLevel = 'Command' then 4
+							when u.UnitLevel = 'Group' then 5
+							when u.UnitLevel = 'Wing' then 6
+							when u.UnitLevel = 'Company' then 6
+							when u.UnitLevel = 'Squadron' then 7
+							when u.UnitLevel = 'Platoon' then 7
+							when u.UnitLevel = 'QRF' then 7
 						end as SortOrder
 					from projectx_vvarsc2.Units u
 					left join (

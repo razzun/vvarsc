@@ -426,48 +426,46 @@
 		";
 		
 		$owners_query ="
-		select distinct
-			m.mem_id
-			,m.mem_callsign as mem_name
-			,m.mem_avatar_link
-			,DATE_FORMAT(DATE(m.CreatedOn),'%d %b %Y') as mem_CreatedOn
-			,r.rank_abbr
-			,r.rank_image
-			,r.rank_tinyImage
-			,r.rank_level
-			,r.rank_name
-			,r.rank_groupName
-			,d.div_name
-			,(
-				select
-					case
-						when r2.isPrivate = 0 then r2.role_name
-						when r2.role_id is null then ''
-						else '[Redacted]'
-					end as role_name
-				from projectx_vvarsc2.UnitMembers um
-				left join projectx_vvarsc2.roles r2
-					on r2.role_id = um.MemberRoleID
-				where um.MemberID = m.mem_id
-				order by
-					r2.role_orderby
-				limit 1
-			) as role_name
-		from projectx_vvarsc2.ships s
-		left join projectx_vvarsc2.ships_has_members shm
-			on shm.ships_ship_id = s.ship_id
-		left join projectx_vvarsc2.members m
-			on shm.members_mem_id = m.mem_id
-			and m.mem_sc = 1
-		left join projectx_vvarsc2.ranks r
-			on r.rank_id = m.ranks_rank_id
-		left join projectx_vvarsc2.divisions d
-			on d.div_id = m.divisions_div_id
-		where s.ship_id = $ship_id
-		order by
-			r.rank_orderby
-			,m.mem_name";
-		
+			select distinct
+				m.mem_id
+				,m.mem_callsign as mem_name
+				,m.mem_avatar_link
+				,DATE_FORMAT(DATE(m.CreatedOn),'%d %b %Y') as mem_CreatedOn
+				,r.rank_abbr
+				,r.rank_image
+				,r.rank_tinyImage
+				,r.rank_level
+				,r.rank_name
+				,r.rank_groupName
+				,d.div_name
+				,(
+					select
+						r2.role_name
+					from projectx_vvarsc2.UnitMembers um
+					join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+						and r2.isPrivate = 0
+					where um.MemberID = m.mem_id
+					order by
+						r2.role_orderby
+					limit 1
+				) as role_name
+			from projectx_vvarsc2.ships s
+			left join projectx_vvarsc2.ships_has_members shm
+				on shm.ships_ship_id = s.ship_id
+			left join projectx_vvarsc2.members m
+				on shm.members_mem_id = m.mem_id
+				and m.mem_sc = 1
+			left join projectx_vvarsc2.ranks r
+				on r.rank_id = m.ranks_rank_id
+			left join projectx_vvarsc2.divisions d
+				on d.div_id = m.divisions_div_id
+			where s.ship_id = $ship_id
+			order by
+				r.rank_orderby
+				,m.mem_name
+		";
+	
         $owners_query_results = $connection->query($owners_query);
 		$display_owners = "";
 		
@@ -507,7 +505,7 @@
 			}
 			
 			if ($mem_role == null || $mem_role == "") {
-				$mem_role = "No Role Assigned";
+				$mem_role = "- No Role Assigned -";
 			}
 			
 			if ($infoSecLevelID > 1)

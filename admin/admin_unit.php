@@ -846,37 +846,40 @@
 					</div>
 					<div class="adminDetailEntryValue">
 						<select name="Level" id="Level" class="adminDialogDropDown" required>
-							<option selected="true" disabled="true" value="default" id="IsActive-default">
+							<option selected="true" disabled="true" value="default" id="Level-default">
 								Hierarchy Level
 							</option>
 							<option value="Fleet" id="Level-0">
 								Fleet
 							</option>
-							<option value="Division" id="Level-000">
+							<option value="Division" id="Level-010">
 								Division
+							</option>
+							<option value="Command" id="Level-011">
+								Command
 							</option>
 							<option value="Department" id="Level-001">
 								Department
 							</option>
-							<option value="Group" id="Level-011">
+							<option value="Group" id="Level-021">
 								Group
 							</option>
-							<option value="Battalion" id="Level-012">
+							<option value="Battalion" id="Level-022">
 								Battalion
 							</option>
-							<option value="Wing" id="Level-021">
+							<option value="Wing" id="Level-031">
 								Wing
 							</option>
-							<option value="Company" id="Level-022">
+							<option value="Company" id="Level-032">
 								Company
 							</option>
-							<option value="Squadron" id="Level-031">
+							<option value="Squadron" id="Level-041">
 								Squadron
 							</option>
-							<option value="Platoon" id="Level-032">
+							<option value="Platoon" id="Level-042">
 								Platoon
 							</option>
-							<option value="QRF" id="Level-033">
+							<option value="QRF" id="Level-043">
 								Quick Reaction Force
 							</option>
 						</select>

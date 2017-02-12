@@ -13,7 +13,7 @@
 		$infoSecLevelID = $_SESSION['sess_infoseclevel'];
 		$display_login .= "
 			<div>
-				Welcome <a href=\"$link_base/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=/logout.php>Logout</a>
+				Welcome <a href=\"$link_base/player/$userID\">$userName</a> // <a class=\"headerLoginLink\" href=\"$link_base/logout.php\">Logout</a>
 			</div>
 		";
 	}
@@ -21,7 +21,7 @@
 	{
 		$display_login .= "
 			<div>
-				<a class=\"headerLoginLink\" href=/login.php>Login</a>
+				<a class=\"headerLoginLink\" href=\"/login.php\">Login</a>
 			</div>
 		";
 	}

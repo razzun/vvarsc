@@ -15,7 +15,11 @@
 				if ($has_children==false)
 				{
 					$has_children=true;
-					echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: '.($realLevel * 8).'px;">';
+					if ($level == 0)
+						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 0px;">';
+					else
+						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 8px;">';
+					
 					$level++;
 					$realLevel++;
 				}
@@ -210,59 +214,149 @@
 	}
 	
 	if(is_numeric($UnitID)) {
-		$unit_query = "select
-							case
-								when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
-								else u.UnitFullName
-							end as UnitName
-							,u.UnitCallsign
-							,u.UnitDepth
-							,u.UnitLevel
-							,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
-							,u.ParentUnitID
-							,u.UnitSlogan
-							,u.UnitBackgroundImage
-							,u.UnitEmblemImage
-							,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
-							,d.div_name
-							,m.mem_id
-							,m.mem_callsign as mem_name
-							,r.rank_name
-							,r.rank_abbr
-							,r.rank_image
-							,r.rank_tinyImage
-							,r.rank_level
-							,r.rank_name
-							,r.rank_groupName
-							,case
-								when r2.isPrivate = 0 then r2.role_name
-								when r2.role_id is null then 'n/a'
-								else '[Redacted]'
-							end as role_name
-							,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
-							,m2.mem_id UnitLeaderID
-							,m2.mem_callsign UnitLeaderName
-							,r3.rank_abbr UnitLeaderRank
-						from projectx_vvarsc2.Units u
-						left join projectx_vvarsc2.UnitMembers um
-							on um.UnitID = u.UnitID
-						left join projectx_vvarsc2.members m
-							on m.mem_id = um.MemberID
-						left join projectx_vvarsc2.ranks r
-							on r.rank_id = m.ranks_rank_id
-						left join projectx_vvarsc2.roles r2
-							on r2.role_id = um.MemberRoleID
-						left join projectx_vvarsc2.divisions d
-							on d.div_id = u.DivisionID
-						left join projectx_vvarsc2.members m2
-							on m2.mem_id = u.UnitLeaderID
-						left join projectx_vvarsc2.ranks r3
-							on r3.rank_id = m2.ranks_rank_id
-						where u.UnitID = $UnitID
-						order by
-							r2.role_orderby
-							,r.rank_orderby
-							,m.mem_callsign";	
+	
+		if ($infoSecLevelID == 4 || $role == "Admin")
+		{
+			$unit_query = "
+				select
+					case
+						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+						else u.UnitFullName
+					end as UnitName
+					,u.UnitCallsign
+					,u.UnitDepth
+					,u.UnitLevel
+					,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
+					,u.ParentUnitID
+					,u.UnitSlogan
+					,u.UnitBackgroundImage
+					,u.UnitEmblemImage
+					,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
+					,d.div_name
+					,um.mem_id
+					,um.mem_callsign as mem_name
+					,um.rank_name
+					,um.rank_abbr
+					,um.rank_image
+					,um.rank_tinyImage
+					,um.rank_level
+					,um.rank_name
+					,um.rank_groupName
+					,um.role_name
+					,um.MemberAssigned
+					,m2.mem_id UnitLeaderID
+					,m2.mem_callsign UnitLeaderName
+					,r3.rank_abbr UnitLeaderRank
+				from projectx_vvarsc2.Units u
+				left join (
+					select
+						um.UnitID
+						,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
+						,m.mem_id
+						,r2.role_name
+						,r2.role_orderby
+						,r.rank_orderby
+						,m.mem_callsign
+						,r.rank_abbr
+						,r.rank_image
+						,r.rank_tinyImage
+						,r.rank_level
+						,r.rank_name
+						,r.rank_groupName
+					from projectx_vvarsc2.UnitMembers um
+					join projectx_vvarsc2.members m
+						on m.mem_id = um.MemberID
+					join projectx_vvarsc2.ranks r
+						on r.rank_id = m.ranks_rank_id
+					join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+				) um
+					on um.UnitID = u.UnitID
+				left join projectx_vvarsc2.divisions d
+					on d.div_id = u.DivisionID
+				left join projectx_vvarsc2.members m2
+					on m2.mem_id = u.UnitLeaderID
+				left join projectx_vvarsc2.ranks r3
+					on r3.rank_id = m2.ranks_rank_id
+				where u.UnitID = $UnitID
+				order by
+					um.role_orderby
+					,um.rank_orderby
+					,um.mem_callsign
+			";
+		}
+		else
+		{
+			$unit_query = "
+				select
+					case
+						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
+						else u.UnitFullName
+					end as UnitName
+					,u.UnitCallsign
+					,u.UnitDepth
+					,u.UnitLevel
+					,TRIM(LEADING '\t' from u.UnitDescription) as UnitDescription
+					,u.ParentUnitID
+					,u.UnitSlogan
+					,u.UnitBackgroundImage
+					,u.UnitEmblemImage
+					,DATE_FORMAT(DATE(u.CreatedOn),'%d %b %Y') as UnitCreatedOn
+					,d.div_name
+					,um.mem_id
+					,um.mem_callsign as mem_name
+					,um.rank_name
+					,um.rank_abbr
+					,um.rank_image
+					,um.rank_tinyImage
+					,um.rank_level
+					,um.rank_name
+					,um.rank_groupName
+					,um.role_name
+					,um.MemberAssigned
+					,m2.mem_id UnitLeaderID
+					,m2.mem_callsign UnitLeaderName
+					,r3.rank_abbr UnitLeaderRank
+				from projectx_vvarsc2.Units u
+				left join (
+					select
+						um.UnitID
+						,DATE_FORMAT(DATE(um.CreatedOn),'%d %b %Y') as MemberAssigned
+						,m.mem_id
+						,r2.role_name
+						,r2.role_orderby
+						,r.rank_orderby
+						,m.mem_callsign
+						,r.rank_abbr
+						,r.rank_image
+						,r.rank_tinyImage
+						,r.rank_level
+						,r.rank_name
+						,r.rank_groupName
+					from projectx_vvarsc2.UnitMembers um
+					join projectx_vvarsc2.members m
+						on m.mem_id = um.MemberID
+					join projectx_vvarsc2.ranks r
+						on r.rank_id = m.ranks_rank_id
+					join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+						and r2.isPrivate = 0
+				) um
+					on um.UnitID = u.UnitID
+				left join projectx_vvarsc2.divisions d
+					on d.div_id = u.DivisionID
+				left join projectx_vvarsc2.members m2
+					on m2.mem_id = u.UnitLeaderID
+				left join projectx_vvarsc2.ranks r3
+					on r3.rank_id = m2.ranks_rank_id
+				where u.UnitID = $UnitID
+				order by
+					um.role_orderby
+					,um.rank_orderby
+					,um.mem_callsign
+			";
+		
+		}
 		
 		$unit_query_result = $connection->query($unit_query);
 		
@@ -447,7 +541,7 @@
 		$displayUnitDescription1 = "";
 		$displayUnitDescription2 = "";
 		
-		if ($depth < 5)
+		if ($depth < 6)
 		{
 			if ($unitDescription == null || $unitDescription == "")
 			{
@@ -530,12 +624,13 @@
 								when u.UnitLevel = 'Fleet' then 1
 								when u.UnitLevel = 'Department' then 2
 								when u.UnitLevel = 'Division' then 3
-								when u.UnitLevel = 'Group' then 4
-								when u.UnitLevel = 'Wing' then 5
-								when u.UnitLevel = 'Company' then 5
-								when u.UnitLevel = 'Squadron' then 6
-								when u.UnitLevel = 'Platoon' then 6
-								when u.UnitLevel = 'QRF' then 6
+								when u.UnitLevel = 'Command' then 4
+								when u.UnitLevel = 'Group' then 5
+								when u.UnitLevel = 'Wing' then 6
+								when u.UnitLevel = 'Company' then 6
+								when u.UnitLevel = 'Squadron' then 7
+								when u.UnitLevel = 'Platoon' then 7
+								when u.UnitLevel = 'QRF' then 7
 							end as SortOrder
 						from projectx_vvarsc2.Units u
 						left join (

@@ -14,8 +14,7 @@
 		,REPLACE(d.div_name,'Command ','') AS div_info
 		,case
 			when ro.isPrivate = 0 then ro.role_name
-			when ro.role_id is null then 'n/a'
-			else '[Redacted]'
+			else 'n/a'
 		end as mem_role
 		,COUNT(shm.ships_ship_id) as ship_info
 	FROM projectx_vvarsc2.members m 
