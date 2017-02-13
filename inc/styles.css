@@ -4337,6 +4337,10 @@ img.fleet:after {
 
 }
 
+.redactedRole {
+	color: rgba(180, 0, 0, 0.8);
+}
+
 @media only screen and (max-height: 799px) {
 	.yard_stats_2 {
 		display: none;

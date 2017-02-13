@@ -243,6 +243,7 @@
 					,um.rank_name
 					,um.rank_groupName
 					,um.role_name
+					,um.IsPrivate as role_isPrivate
 					,um.MemberAssigned
 					,m2.mem_id UnitLeaderID
 					,m2.mem_callsign UnitLeaderName
@@ -255,6 +256,7 @@
 						,m.mem_id
 						,r2.role_name
 						,r2.role_orderby
+						,r2.IsPrivate
 						,r.rank_orderby
 						,m.mem_callsign
 						,r.rank_abbr
@@ -313,6 +315,7 @@
 					,um.rank_name
 					,um.rank_groupName
 					,um.role_name
+					,um.IsPrivate as role_isPrivate
 					,um.MemberAssigned
 					,m2.mem_id UnitLeaderID
 					,m2.mem_callsign UnitLeaderName
@@ -325,6 +328,7 @@
 						,m.mem_id
 						,r2.role_name
 						,r2.role_orderby
+						,r2.IsPrivate
 						,r.rank_orderby
 						,m.mem_callsign
 						,r.rank_abbr
@@ -387,6 +391,7 @@
 			$rank_groupName = $row1['rank_groupName'];
 			$mem_name = $row1['mem_name'];
 			$mem_role = $row1['role_name'];
+			$mem_role_isPrivate = $row1['role_isPrivate'];
 			$mem_assigned_date = $row1['MemberAssigned'];
 			$mem_id = $row1['mem_id'];
 			
@@ -425,9 +430,26 @@
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
 									<a href=\"".$link_base."/player/$mem_id\" target=\"_top\">$mem_name</a>
 								</div>
+				";
+				if ($mem_role_isPrivate == 1)
+				{
+					$display_members .= "
+								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3 redactedRole\">
+									$mem_role
+								</div>
+					
+					";
+				}
+				else
+				{
+					$display_members .= "
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									$mem_role
 								</div>
+					
+					";
+				}
+				$display_members .= "
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo4\">
 									Assigned $mem_assigned_date
 								</div>

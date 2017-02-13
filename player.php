@@ -290,7 +290,7 @@
     		}
     	}
 		
-		if ($infoSecLevelID == 4 || $role == "Admin")
+		if ($infoSecLevelID == 4 || $role == "Admin" || $loggedInPlayerID == $player_ID)
 		{
 			$roles_query = "
 				SELECT
@@ -307,6 +307,7 @@
 						when roles.role_id is null then 'n/a'
 						else roles.role_name
 					end as role_name
+					,roles.IsPrivate as role_isPrivate
 					,u.UnitID
 					,case
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
@@ -347,6 +348,7 @@
 						when roles.role_id is null then 'n/a'
 						else roles.role_name
 					end as role_name
+					,roles.IsPrivate as role_isPrivate
 					,u.UnitID
 					,case
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
@@ -377,6 +379,7 @@
 		
 		while(($row = $roles_query_results->fetch_assoc()) != false) {
     		$role_name = $row['role_name'];
+			$role_isPrivate = $row['role_isPrivate'];
 			$UnitID = $row['UnitID'];
 			$UnitName = $row['UnitName'];
 			$UnitEmblemImage = $row['UnitEmblemImage'];
@@ -409,13 +412,29 @@
 				$div_name .= " Division";
 			}
 			
+			if ($role_isPrivate == 1)
+			{
+				$displayRoles .= "
+					<div class =\"p_rank_role_name redactedRole\" style=\"
+						display: inline-table;
+						vertical-align: middle;
+						text-align: right;
+						width: 100%;
+					\">
+				";
+			}
+			else
+			{
+				$displayRoles .= "
+					<div class =\"p_rank_role_name\" style=\"
+						display: inline-table;
+						vertical-align: middle;
+						text-align: right;
+						width: 100%;
+					\">
+				";			
+			}
 			$displayRoles .= "
-				<div class =\"p_rank_role_name\" style=\"
-					display: inline-table;
-					vertical-align: middle;
-					text-align: right;
-					width: 100%;
-				\">
 					<div class=\"p_rank_role_text\">
 						$full_role_name
 					</div>
@@ -435,7 +454,7 @@
 						</div>
 						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" /></a>
 					</div>					
-				</div>				
+				</div>
 			";
 		}	
 		
