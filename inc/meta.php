@@ -6,3 +6,5 @@
 <link href='https://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 <link href="<? $link_base; ?>/inc/styles.css" rel="stylesheet" type="text/css" />
+<link href="<? $link_base; ?>/css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+<link href="<? $link_base; ?>/css/bootstrap.css" rel="stylesheet" media="screen">

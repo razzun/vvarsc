@@ -1446,7 +1446,11 @@
 				<label for="StartDate" class="adminDialogInputLabel">
 					Mission Start Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
 				</label>
+				<div class="input-group date form_datetime col-md-5" data-date="" data-date-format="yyyy-mm-dd hh:ii:00" data-link-field="dtp_input1">
 				<input type="text" name="StartDate" id="StartDate" value="" class="adminDialogTextInput" required>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
 				
 				<label for="EndDate" class="adminDialogInputLabel">
 					Mission End Date (UTC, Format: YYYY-MM-DD HH:MM:SS)
@@ -1918,6 +1922,21 @@
 <script type="text/javascript" src="/js/jquery.jScale.js">
 </script>
 <script type="text/javascript" src="<? $link_base; ?>/js/jquery.jscroll.min.js">
+</script>
+
+<script type="text/javascript" src="/js/jquery-3.1.1.slim.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        weekStart: 0,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 0
+    });
 </script>
 
 <!--FORM CONTROLS-->
