@@ -11,7 +11,7 @@
 <?php
 	require_once('../../dbconn/dbconn.php');
 	
-	print_r($_POST);
+	//print_r($_POST);
 
 	$Name = "";
 	$Type = "";
@@ -65,7 +65,7 @@
 		)
 	";
 
-	print_r($q);
+	//print_r($q);
 	
 	$_SESSION['maintain_edit'] = 'true';
 	$query_result = $connection->query($q);
