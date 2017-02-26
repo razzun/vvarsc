@@ -508,7 +508,7 @@
 					<br />
 					<strong>Advancement from E-7 to E-8 requires the following:</strong>
 					<ol>
-						<li>Minimum One Year TIS with the Fleet</li>
+						<li>Minimum Nine Months TIS with the Fleet</li>
 						<li>Minimum Three Months TIG with their Division at E-7</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
@@ -580,8 +580,8 @@
 					<br />
 					<strong>Advancement from E-8 to E-9 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Years TIS with the Fleet</li>
-						<li>Minimum Six Months TIG with their Division at E-8</li>
+						<li>Minimum One Year TIS with the Fleet</li>
+						<li>Minimum Three Months TIG with their Division at E-8</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>

@@ -549,6 +549,7 @@
 					<div class=\"shipyard_mainTable_row_content\" style=\"
 						padding-top: 0px;
 						border-top: none;
+						width: 100%;
 					\">
 						<div class=\"WikiText OperationText\" style=\"
 							margin-left: 8px;

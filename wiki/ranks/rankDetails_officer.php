@@ -233,7 +233,7 @@
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>
 					<ol>
-						<li>Minimum Three Months TIG for their Division at O-3</li>
+						<li>Minimum Two Months TIG for their Division at O-3</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
@@ -344,7 +344,7 @@
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Year TIS with the Fleet</li>
+						<li>Minimum 9 Months TIS with the Fleet</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
@@ -399,7 +399,7 @@
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>
 					<ol>
-						<li>Minimum 18 Months TIS with the Fleet</li>
+						<li>Minimum 1 Year TIS with the Fleet</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -453,8 +453,8 @@
 					<br />
 					<strong>Advancement from O-7 to O-8 requires the following:</strong>
 					<ol>
-						<li>Minimum 2 Years TIS with the Fleet</li>
-						<li>Minimum 1 Year TIG as CO of their Command at O-7</li>
+						<li>Minimum 18 Months TIS with the Fleet</li>
+						<li>Minimum 6 Months TIG as CO of their Command at O-7</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
