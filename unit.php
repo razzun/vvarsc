@@ -697,7 +697,7 @@
 		$displayChildren1 = "";
 		$displayChildren2 = "";
 		
-		if (($divName == "Military" && $depth < 4 && $unitLevel != "Department")
+		if (($divName == "Military" && $depth < 5 && $unitLevel != "Department")
 			|| ($divName == "Economy" && $depth < 2 && $unitLevel != "Department")
 			|| $divName == "Command" && $unitLevel != "Department")
 		{

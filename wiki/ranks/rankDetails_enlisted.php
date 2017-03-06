@@ -431,7 +431,7 @@
 					E-7 is the first of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing and Combat-Team units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles for higher units, offices, and departments, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
-					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7, while retaining their current assignment.
+					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7 upon completion of TIS/TIG requirements listed below, bypassing any required approval from Division and Fleet HQs.
 					<br />
 					<br />
 					<strong>Advancement from E-6 to E-7 requires the following:</strong>
@@ -440,6 +440,7 @@
 						<li>Minimum Two Months TIG for their Unit at E-6</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
+						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
 			</div>

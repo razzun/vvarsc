@@ -122,7 +122,7 @@
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
 						<li>Minimum Two Months TIS for the Fleet</li>
-						<li>Minimum One Month TIG for their Division at O-1</li>
+						<li>Minimum One Month TIG for their Division at O-1 <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
 					</ol>
@@ -178,7 +178,7 @@
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
 					<ol>
 						<li>Minimum Two Months TIG for their Unit at O-2</li>
-						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <strong>(for Military Squadron/Platoon Leaders)</strong></li>
+						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
