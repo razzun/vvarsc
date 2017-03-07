@@ -668,6 +668,7 @@
 							on m.mem_id = u.UnitLeaderID
 						left join projectx_vvarsc2.divisions d
 							on d.div_id = u.DivisionID
+						where u.UnitName not like '%OPFOR%'
 						order by
 							17
 							,u.UnitName";	

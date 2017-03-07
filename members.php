@@ -16,7 +16,7 @@
 			when ro.isPrivate = 0 then ro.role_name
 			else 'n/a'
 		end as mem_role
-		,COUNT(shm.ships_ship_id) as ship_info
+		,COUNT(distinct shm.RowID) as ship_info
 	FROM projectx_vvarsc2.members m 
 	LEFT JOIN projectx_vvarsc2.ships_has_members shm
 		ON m.mem_id = shm.members_mem_id
