@@ -212,10 +212,7 @@
 					<ol>
 						<li>Minimum One Month Time-in-Service (TIS) with the Fleet</li>
 						<li>Minimum Two Weeks Time-in-Grade (TIG) for their unit at E-3</li>
-						<!--
-						<li>Listing of VVAR as the Member's Primary Organization on the RSI Website</li>
-						-->
-						<li>Formal acceptance into their Unit by their Commanding Officer</li>
+						<li>Attainment of the Level 1 Certification in their Unit's Primary Qualification Area</li>
 					</ol>
 				</p>
 			</div>

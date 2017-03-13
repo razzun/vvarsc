@@ -292,9 +292,12 @@
 		$display_div .= "
 				<a href=\"$link_base/player/$mem_id_info\" target=\"_top\">
 					<div class=\"divinfo_memAvatarContainer\">
-						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/player_avatars/$mem_avatar_info.png\" />
+						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/player_avatars/$mem_avatar_info.png\"/ style=\"
+								height:100px;
+								width:100px;
+							\">
 						<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
-							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\" />
+							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
 						</div>
 						<div class=\"divinfo_memAvatar_textOverlay_memName\">
 							$mem_name_info
@@ -346,13 +349,3 @@
  
  
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.jScale.js"></script>
-
- <!--Script to Resize Avatar Images to 50%-->
-<script>
-
-	jQuery(document).ready(function($) {
-		$('.divinfo_memAvatarImg').jScale({w:'50%'})
-	});
-
-</script>
