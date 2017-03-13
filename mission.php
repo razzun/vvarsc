@@ -566,9 +566,7 @@
 			";
 			
 			//Objectives for Unit
-			if (
-				($opUnitsListItem_UnitType == "Squadron" ||	$opUnitsListItem_UnitType == "Platoon")
-				&& ($opUnitsListItem_OpUnitObjectives != null && $opUnitsListItem_OpUnitObjectives != ""))
+			if ($opUnitsListItem_OpUnitObjectives != null && $opUnitsListItem_OpUnitObjectives != "")
 			{
 				$display_opUnits_list .= "
 					<h6 class=\"operations_h6\" style=\"
@@ -2033,16 +2031,9 @@
 			var unitType = $self.parent().parent().data("unittype");
 			var opUnitObjectives = $self.parent().parent().find('.OpUnitObjectives').text();
 			
-			if (unitType != "Platoon" && unitType != "Squadron")
-			{
-				dialog.find('#OpUnitObjectives').hide();
-				dialog.find('#OpUnitObjectivesLabel').hide();
-			}
-			else
-			{
-				dialog.find('#OpUnitObjectives').show();
-				dialog.find('#OpUnitObjectivesLabel').show();
-			}
+			
+			dialog.find('#OpUnitObjectives').show();
+			dialog.find('#OpUnitObjectivesLabel').show();
 			
 			dialog.find('#OpTemplateID').val(operationID).text();
 			dialog.find('#OpTemplateUnitID').val(opUnitID).text();
