@@ -655,71 +655,30 @@
 		//PLAYER STATISTICS
 		$playerStats_query = "
 			select
-				CONCAT(a2.TimeInFleet_Years,a2.TimeInFleet_Months,a2.TimeInFleet_Days) as 'TimeInFleet'
-				,CONCAT(a2.TimeInGrade_Years,a2.TimeInGrade_Months,a2.TimeInGrade_Days) as 'TimeInGrade'
-			from 
-			(
-				select
-					case
-						when a.TIF_Years = 1 and a.TIF_Months = 0 and a.TIF_Days = 0 then CONCAT(a.TIF_Years, ' Year')
-						when a.TIF_Years = 1 then CONCAT(a.TIF_Years, ' Year, ')
-						when a.TIF_Years = 0 then ''
-						when a.TIF_Months = 0 and TIF_Days = 0 then CONCAT(a.TIF_Years, ' Years')
-						else CONCAT(a.TIF_YEARS, ' Years, ')
-					end as 'TimeInFleet_Years'
-					,case
-						when a.TIF_Months = 1 and a.TIF_Days = 0 then CONCAT(a.TIF_Months, ' Month')
-						when a.TIF_Months = 1 then CONCAT(a.TIF_Months, ' Month, ')
-						when a.TIF_Months = 0 then ''
-						when a.TIF_Days = 0 then CONCAT(a.TIF_Months, ' Months')
-						else CONCAT(a.TIF_Months, ' Months, ')
-					end as 'TimeInFleet_Months'
-					,case
-						when a.TIF_Days = 1 then CONCAT(a.TIF_Days, ' Day')
-						when a.TIF_Days = 0 then ''
-						else CONCAT(a.TIF_Days, ' Days')
-					end as 'TimeInFleet_Days'
-					,case
-						when a.TIG_Years = 1 and a.TIG_Months = 0 and a.TIG_Days = 0 then CONCAT(a.TIG_Years, ' Year')
-						when a.TIG_Years = 1 then CONCAT(a.TIG_Years, ' Year, ')
-						when a.TIG_Years = 0 then ''
-						when a.TIG_Months = 0 and TIG_Days = 0 then CONCAT(a.TIG_Years, ' Years')
-						else CONCAT(a.TIG_Years, ' Years, ')
-					end as 'TimeInGrade_Years'
-					,case
-						when a.TIG_Months = 1 and a.TIG_Days = 0 then CONCAT(a.TIG_Months, ' Month')
-						when a.TIG_Months = 1 then CONCAT(a.TIG_Months, ' Month, ')
-						when a.TIG_Months = 0 then ''
-						when a.TIG_Days = 0 then CONCAT(a.TIG_Months, ' Months')
-						else CONCAT(a.TIG_Months, ' Months, ')
-					end as 'TimeInGrade_Months'
-					,case
-						when a.TIG_Days = 1 then CONCAT(a.TIG_Days, ' Day')
-						when a.TIG_Days = 0 and a.TIG_Months = 0 and a.TIG_Years = 0 then '< 1 Day'
-						when a.TIG_Days = 0 then ''
-						else CONCAT(a.TIG_Days, ' Days')
-					end as 'TimeInGrade_Days'
-				from
-				(
-					select
-						TIMESTAMPDIFF( YEAR, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) as 'TIF_Years'
-						,TIMESTAMPDIFF( MONTH, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) % 12 as 'TIF_Months'
-						,FLOOR(TIMESTAMPDIFF( DAY, m.CreatedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR))% 30.4375) as 'TIF_Days'
-						,TIMESTAMPDIFF( YEAR, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) as 'TIG_Years'
-						,TIMESTAMPDIFF( MONTH, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR)) % 12 as 'TIG_Months'
-						,FLOOR(TIMESTAMPDIFF( DAY, m.RankModifiedOn, DATE_ADD(CURDATE(),INTERVAL 930 YEAR))% 30.4375) as 'TIG_Days'
-					from projectx_vvarsc2.members m
-					where m.mem_id = $player_id
-				) a
-			) a2
+				m.CreatedOn
+				,m.RankModifiedOn
+				,DATE_ADD(CURDATE(),INTERVAL 930 YEAR) as 'CurrentDate'
+			from projectx_vvarsc2.members m
+			where m.mem_id = $player_id			
 		";
 		
 		$playerStats_query_results = $connection->query($playerStats_query);
 		
 		while(($row = $playerStats_query_results->fetch_assoc()) != false)
 		{
-			$timeInFleet = $row['TimeInFleet'];
-			$timeInGrade = $row['TimeInGrade'];
+			$mem_createdOn = $row['CreatedOn'];
+			$mem_rankModifiedOn = $row['RankModifiedOn'];
+			$currentDate = $row['CurrentDate'];
+		
+			$datetime_mem_createdOn = date_create($mem_createdOn);
+			$datetime_mem_rankModifiedOn = date_create($mem_rankModifiedOn);
+			$datetime_sc_today = date_create($currentDate);
+			
+			$interval_tis = date_diff($datetime_mem_createdOn, $datetime_sc_today);
+			$interval_tig = date_diff($datetime_mem_rankModifiedOn, $datetime_sc_today);
+			
+			$interval_tis_formatted = $interval_tis->format('%y Years, %m Months, %d Days');
+			$interval_tig_formatted = $interval_tig->format('%y Years, %m Months, %d Days');
 		}
 		
 		$display_playerStats .= "
@@ -728,7 +687,7 @@
 					Time-In-Service
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
-					$timeInFleet
+					$interval_tis_formatted
 				</div>
 			</div>
 			<div class=\"p_rank_stats_entry\">
@@ -736,7 +695,7 @@
 					Time-In-Grade
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
-					$timeInGrade
+					$interval_tig_formatted
 				</div>
 			</div>
 			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; \">
@@ -927,7 +886,7 @@
 							Ships Owned: <strong><? echo $ship_count; ?></strong>
 						</div>
 						<div id="p_rank_stats">
-							<? echo $display_playerStats; ?>				
+							<? echo $display_playerStats; ?>
 						</div>
 					</div>	
 					
