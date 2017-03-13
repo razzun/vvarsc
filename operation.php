@@ -317,7 +317,8 @@
 				on lk1.OpUnitTypeID = ou.OpTemplateUnitType
 			where ou.OpTemplateID = $OperationID
 			order by
-				u.UnitLevel
+				lk1.OpUnitType_OrderBy
+				,u.UnitLevel
 				,u.UnitName
 				,ou.OpTemplateUnitID
 		";
@@ -342,7 +343,7 @@
 			
 			$callSign = "";
 			//Callsign Logic for Squadrons
-			if ($opUnitsListItem_UnitType == 'Squadron')
+			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF')
 			{
 				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
@@ -365,7 +366,7 @@
 					}
 					else
 					{
-						$callSign = $opUnitsListItem_OpUnitCallsign.' 1';
+						$callSign = $opUnitsListItem_OpUnitCallsign;
 					}
 				}
 			}

@@ -373,7 +373,8 @@
 				on lk1.OpUnitTypeID = ou.MissionUnitType
 			where ou.MissionID = $MissionID
 			order by
-				u.UnitLevel
+				lk1.OpUnitType_OrderBy
+				,u.UnitLevel
 				,u.UnitName
 				,ou.MissionUnitID
 		";
@@ -398,7 +399,7 @@
 			
 			$callSign = "";
 			//Callsign Logic for Squadrons
-			if ($opUnitsListItem_UnitType == 'Squadron')
+			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF')
 			{
 				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
@@ -421,7 +422,7 @@
 					}
 					else
 					{
-						$callSign = $opUnitsListItem_OpUnitCallsign.' 1';
+						$callSign = $opUnitsListItem_OpUnitCallsign;
 					}
 				}
 			}
@@ -449,7 +450,7 @@
 					}
 					else
 					{
-						$callSign = $opUnitsListItem_OpUnitCallsign.'-1';
+						$callSign = $opUnitsListItem_OpUnitCallsign;
 					}
 				}
 			}
@@ -639,6 +640,7 @@
 							,r.rank_abbr
 							,r.rank_tinyImage
 							,r.rank_orderBy
+							,0 as member_orderBy
 						from projectx_vvarsc2.MissionUnitMembers om
 						join projectx_vvarsc2.members m
 							on m.mem_id = om.MemberID
@@ -660,6 +662,7 @@
 							,null as rank_abbr
 							,null as rank_tinyImage
 							,null as rank_orderBy
+							,1 as member_orderBy
 						from projectx_vvarsc2.MissionUnitMembers om
 						join projectx_vvarsc2.OpUnitTypeMemberRoles mr
 							on mr.OpUnitMemberRoleID = om.OpUnitMemberRoleID
@@ -669,6 +672,7 @@
 					order by
 						om.RoleOrderBy
 						,om.RoleName
+						,om.member_orderBy
 						,om.rank_orderBy
 						,om.mem_name
 				";
@@ -1051,6 +1055,7 @@
 								,r.rank_abbr
 								,r.rank_tinyImage
 								,r.rank_orderBy
+								,0 as member_orderBy
 							from projectx_vvarsc2.MissionShipMembers osm
 							join projectx_vvarsc2.members m
 								on m.mem_id = osm.MemberID
@@ -1072,6 +1077,7 @@
 								,null as rank_abbr
 								,null as rank_tinyImage
 								,null as rank_orderBy
+								,1 as member_orderBy
 							from projectx_vvarsc2.MissionShipMembers osm
 							join projectx_vvarsc2.OpUnitTypeMemberRoles mr
 								on mr.OpUnitMemberRoleID = osm.OpUnitMemberRoleID
@@ -1081,6 +1087,7 @@
 						order by
 							osm.RoleOrderBy
 							,osm.RoleName
+							,osm.member_orderBy
 							,osm.rank_orderBy
 							,osm.mem_name
 					";

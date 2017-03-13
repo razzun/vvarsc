@@ -224,6 +224,7 @@
 					left join projectx_vvarsc2.divisions d
 						on d.div_id = u.DivisionID
 					where u.UnitName not like '%OPFOR%'
+						and u.UnitName not like '%Civilian%'
 					order by
 						17
 						,u.UnitName";	
