@@ -12,10 +12,19 @@
 		,r.rank_tinyImage as rank_image
 		,CONCAT(r.rank_level,' ',r.rank_abbr) as rank_name
 		,REPLACE(d.div_name,'Command ','') AS div_info
-		,case
-			when ro.isPrivate = 0 then ro.role_name
-			else 'n/a'
-		end as mem_role
+		,(select
+				case
+					when ro.isPrivate = 0 then ro.role_name
+					else 'n/a'
+				end
+			from projectx_vvarsc2.UnitMembers um
+			left join projectx_vvarsc2.roles ro
+				ON um.MemberRoleID = ro.role_id
+			where um.MemberID = m.mem_id
+			order by
+				ro.role_orderBy
+			limit 1
+		) as mem_role
 		,COUNT(distinct shm.RowID) as ship_info
 	FROM projectx_vvarsc2.members m 
 	LEFT JOIN projectx_vvarsc2.ships_has_members shm
@@ -28,10 +37,6 @@
 		ON m.ranks_rank_id = r.rank_id
 	JOIN projectx_vvarsc2.divisions d
 		ON m.divisions_div_id = d.div_id
-	left join projectx_vvarsc2.UnitMembers um
-		on um.MemberID = m.mem_id
-	left join projectx_vvarsc2.roles ro
-		ON um.MemberRoleID = ro.role_id
 	WHERE
 		m.mem_sc = 1
 			and m.mem_name <> 'guest'
