@@ -679,6 +679,26 @@
 			
 			$interval_tis_formatted = $interval_tis->format('%y Years, %m Months, %d Days');
 			$interval_tig_formatted = $interval_tig->format('%y Years, %m Months, %d Days');
+			
+			//Clean up TIS
+			$interval_tis_formatted = str_replace("0 Years, ","",$interval_tis_formatted);
+			$interval_tis_formatted = str_replace("1 Years, ","1 Year, ",$interval_tis_formatted);
+			
+			$interval_tis_formatted = str_replace("0 Months, ","",$interval_tis_formatted);
+			$interval_tis_formatted = str_replace("1 Months, ","1 Month, ",$interval_tis_formatted);
+			
+			$interval_tis_formatted = str_replace(", 0 Days","",$interval_tis_formatted);
+			$interval_tis_formatted = str_replace("1 Days","1 Day",$interval_tis_formatted);
+			
+			//Clean up TIG
+			$interval_tig_formatted = str_replace("0 Years, ","",$interval_tig_formatted);
+			$interval_tig_formatted = str_replace("1 Years, ","1 Year, ",$interval_tig_formatted);
+			
+			$interval_tig_formatted = str_replace("0 Months, ","",$interval_tig_formatted);
+			$interval_tig_formatted = str_replace("1 Months, ","1 Month, ",$interval_tig_formatted);
+			
+			$interval_tig_formatted = str_replace(", 0 Days","",$interval_tig_formatted);
+			$interval_tig_formatted = str_replace("1 Days","1 Day",$interval_tig_formatted);
 		}
 		
 		$display_playerStats .= "
