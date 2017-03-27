@@ -85,17 +85,37 @@
 								echo '</div>';
 								*/
 						echo '<div class="unitHierarchyHeader_textContainer">';
-							if ($value['IsActive'] == "Active")
+							if ($value['UnitLevel'] == 'Squadron' && $value['UnitDesignation'] != null && $value['UnitDesignation'] != '')
 							{
-								echo '<div class="unitHierarchyHeader_unitName">';
-									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
-								echo '</div>';				
+								$formattedUnitName = substr($value['UnitName'],6);
+							
+								if ($value['IsActive'] == "Active")
+								{
+									echo '<div class="unitHierarchyHeader_unitName">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitDesignation'].' '.$formattedUnitName.'</a>';
+									echo '</div>';				
+								}
+								else
+								{
+									echo '<div class="unitHierarchyHeader_unitName inactive">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitDesignation'].' '.$formattedUnitName.'</a>';
+									echo '</div>';
+								}
 							}
 							else
 							{
-								echo '<div class="unitHierarchyHeader_unitName inactive">';
-									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
-								echo '</div>';
+								if ($value['IsActive'] == "Active")
+								{
+									echo '<div class="unitHierarchyHeader_unitName">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '</div>';				
+								}
+								else
+								{
+									echo '<div class="unitHierarchyHeader_unitName inactive">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '</div>';
+								}							
 							}
 							
 							#CreatedOn Div for Active Units (not Team,Flight,Division,Fleet)
@@ -179,6 +199,7 @@
 	
 	$units_query = "select
 						u.UnitID
+						,u.UnitDesignation
 						,u.UnitName
 						,u.UnitShortName
 						,u.UnitCallsign
@@ -226,7 +247,7 @@
 					where u.UnitName not like '%OPFOR%'
 						and u.UnitName not like '%Civilian%'
 					order by
-						17
+						18
 						,u.UnitName";	
     
     $units_query_results = $connection->query($units_query);
@@ -235,6 +256,7 @@
 	
 		$units[$row['UnitID']] = array(
 			'UnitID' => $row['UnitID']
+			,'UnitDesignation' => $row['UnitDesignation']
 			,'UnitName' => $row['UnitName']
 			,'UnitShortName' => $row['UnitShortName']
 			,'UnitCallsign' => $row['UnitCallsign']

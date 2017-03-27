@@ -10,10 +10,12 @@
 			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_usmc'
 			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_usmc'
 			,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
+			,r.rank_orderBy
 		from projectx_vvarsc2.ranks r
 		where r.rank_level like 'E-%'
+			and r.rank_type in ('Navy','USMC')
 		order by
-			r.rank_orderby desc	
+			r.rank_orderBy desc
 	";
 	
 	$enlistedTable = "
@@ -43,7 +45,11 @@
 		$rank_abbr_usmc = $row1['rank_abbr_usmc'];
 		$rank_name_usmc = $row1['rank_name_usmc'];
 		$rank_tinyImage_usmc = $row1['rank_tinyImage_usmc'];
-		$rank_groupName = $row1['rank_groupName'];		
+		$rank_groupName = $row1['rank_groupName'];
+		
+		if ($rank_name_usmc == null)
+			$rank_name_usmc = "not used -";
+		
 		
 		$enlistedTable .= "
 			<tr class=\"adminTableRow\">

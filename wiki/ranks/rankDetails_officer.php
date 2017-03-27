@@ -442,7 +442,6 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral</strong> - RADM</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Major General</strong> - MAJGEN</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

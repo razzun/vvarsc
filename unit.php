@@ -85,17 +85,37 @@
 					echo '<div class="unitHierarchyHeader_mainContainer">';
 					
 						echo '<div class="unitHierarchyHeader_textContainer">';
-							if ($value['IsActive'] == "Active")
+							if ($value['UnitLevel'] == 'Squadron' && $value['UnitDesignation'] != null && $value['UnitDesignation'] != '')
 							{
-								echo '<div class="unitHierarchyHeader_unitName">';
-									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
-								echo '</div>';				
+								$formattedUnitName = substr($value['UnitName'],6);
+							
+								if ($value['IsActive'] == "Active")
+								{
+									echo '<div class="unitHierarchyHeader_unitName">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitDesignation'].' '.$formattedUnitName.'</a>';
+									echo '</div>';				
+								}
+								else
+								{
+									echo '<div class="unitHierarchyHeader_unitName inactive">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitDesignation'].' '.$formattedUnitName.'</a>';
+									echo '</div>';
+								}
 							}
 							else
 							{
-								echo '<div class="unitHierarchyHeader_unitName inactive">';
-									echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
-								echo '</div>';
+								if ($value['IsActive'] == "Active")
+								{
+									echo '<div class="unitHierarchyHeader_unitName">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '</div>';				
+								}
+								else
+								{
+									echo '<div class="unitHierarchyHeader_unitName inactive">';
+										echo '<a href="'.$link_base.'/unit/'.$value['UnitID'].'" target="_top">'.$value['UnitName'].'</a>';
+									echo '</div>';
+								}							
 							}
 							
 							#CreatedOn Div for Active Units (not Team,Flight,Division,Fleet)
@@ -223,6 +243,7 @@
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 						else u.UnitFullName
 					end as UnitName
+					,u.UnitDesignation
 					,u.UnitCallsign
 					,u.UnitDepth
 					,u.UnitLevel
@@ -295,6 +316,7 @@
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 						else u.UnitFullName
 					end as UnitName
+					,u.UnitDesignation
 					,u.UnitCallsign
 					,u.UnitDepth
 					,u.UnitLevel
@@ -373,6 +395,7 @@
 			$unitLevel = $row1['UnitLevel'];
 			$divName = $row1['div_name'];
 			$unitName = $row1['UnitName'];
+			$unitDesignation = $row1['UnitDesignation'];
 			$unitCallsign = $row1['UnitCallsign'];
 			$unitSlogan = $row1['UnitSlogan'];
 			$unitDescription = $row1['UnitDescription'];
@@ -497,11 +520,25 @@
 					$unitName
 				</h2>
 				<div class=\"shipDetails_info2\">
-					<table class=\"shipDetails_info1_table\">";
+					<table class=\"shipDetails_info1_table\">
+		";
 					
 						if ($unitLevel != "Department")
 						{
-							$display_details .= "
+							if ($unitLevel == "Squadron" && $unitDesignation != null && $unitDesignation != "")
+							{
+								$display_details .= "
+									<tr class=\"shipDetails_info1_table_row\">
+										<td class=\"shipDetails_info1_table_row_td_key\">
+											Unit Designation
+										</td>
+										<td class=\"shipDetails_info1_table_row_td_value\">
+											$unitDesignation
+										</td>
+									</tr>
+								";
+							}
+							$display_details .= "								
 								<tr class=\"shipDetails_info1_table_row\">
 									<td class=\"shipDetails_info1_table_row_td_key\">
 										Slogan
@@ -563,7 +600,7 @@
 		$displayUnitDescription1 = "";
 		$displayUnitDescription2 = "";
 		
-		if ($depth < 6)
+		if ($depth < 5)
 		{
 			if ($unitDescription == null || $unitDescription == "")
 			{
@@ -624,6 +661,7 @@
 		
 		$units_query = "select
 							u.UnitID
+							,u.UnitDesignation
 							,u.UnitName
 							,u.UnitShortName
 							,u.UnitCallsign
@@ -671,7 +709,7 @@
 						where u.UnitName not like '%OPFOR%'
 							and u.UnitName not like '%Civilian%'
 						order by
-							17
+							18
 							,u.UnitName";	
 		
 		$units_query_results = $connection->query($units_query);
@@ -680,6 +718,7 @@
 		
 			$units[$row['UnitID']] = array(
 				'UnitID' => $row['UnitID']
+				,'UnitDesignation' => $row['UnitDesignation']
 				,'UnitName' => $row['UnitName']
 				,'UnitShortName' => $row['UnitShortName']
 				,'UnitCallsign' => $row['UnitCallsign']
@@ -699,7 +738,7 @@
 		$displayChildren1 = "";
 		$displayChildren2 = "";
 		
-		if (($divName == "Military" && $depth < 5 && $unitLevel != "Department")
+		if (($divName == "Military" && $depth < 4 && $unitLevel != "Department")
 			|| ($divName == "Economy" && $depth < 2 && $unitLevel != "Department")
 			|| $divName == "Command" && $unitLevel != "Department")
 		{
