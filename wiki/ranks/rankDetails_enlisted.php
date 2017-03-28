@@ -210,8 +210,8 @@
 					<br />
 					<strong>Advancement from E-3 to E-4 requires the following:</strong>
 					<ol>
-						<li>Minimum One Month Time-in-Service (TIS) with the Fleet</li>
-						<li>Minimum Two Weeks Time-in-Grade (TIG) for their unit at E-3</li>
+						<li>Minimum 1 Month Time-in-Service (TIS) with the Fleet</li>
+						<li>Minimum 2 Weeks Time-in-Grade (TIG) for their unit at E-3</li>
 						<li>Attainment of the Level 1 Certification in their Unit's Primary Qualification Area</li>
 					</ol>
 				</p>
@@ -281,8 +281,8 @@
 					<br />
 					<strong>Advancement from E-4 to E-5 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Months TIS with the Fleet</li>
-						<li>Minimum One Month TIG for their Unit at E-4</li>
+						<li>Minimum 2 Months TIS with the Fleet</li>
+						<li>Minimum 1 Month TIG for their Unit at E-4</li>
 						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a Flight Leader or Squad Leader Role</li>
 						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
@@ -357,8 +357,8 @@
 					<br />
 					<strong>Advancement from E-5 to E-6 requires the following:</strong>
 					<ol>
-						<li>Minimum Three Months TIS with the Fleet</li>
-						<li>Minimum One Month TIG for their Unit at E-5, serving in a Flight Leader or Squad Leader Role</li>
+						<li>Minimum 3 Months TIS with the Fleet</li>
+						<li>Minimum 1 Month TIG for their Unit at E-5, serving in a Flight Leader or Squad Leader Role</li>
 						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a Flight or Squad Leader Role</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
@@ -425,7 +425,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-7 is the first of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air-Wing and Combat-Team units as a senior advisor to the Commanding-Officer. E-7 Members can also be seen performing highly specialized roles for higher units, offices, and departments, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-7 is the first of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air Wing and Combat Team units as a senior advisor to the Commanding Officer. E-7 Members can also be seen performing highly specialized roles for higher units, offices, and departments, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7 upon completion of TIS/TIG requirements listed below, bypassing any required approval from Division and Fleet HQs.
@@ -433,8 +433,8 @@
 					<br />
 					<strong>Advancement from E-6 to E-7 requires the following:</strong>
 					<ol>
-						<li>Minimum Six Months TIS with the Fleet</li>
-						<li>Minimum Two Months TIG for their Unit at E-6</li>
+						<li>Minimum 6 Months TIS with the Fleet</li>
+						<li>Minimum 2 Months TIG for their Unit at E-6</li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
@@ -501,13 +501,13 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Combat Group units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles at the HQ for higher-level units, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Warfare Command units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles in Offices or Departments of higher-level units, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					<strong>Advancement from E-7 to E-8 requires the following:</strong>
 					<ol>
-						<li>Minimum Nine Months TIS with the Fleet</li>
-						<li>Minimum Three Months TIG with their Division at E-7</li>
+						<li>Minimum 9 Months TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG with their Division at E-7</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
@@ -578,8 +578,8 @@
 					<br />
 					<strong>Advancement from E-8 to E-9 requires the following:</strong>
 					<ol>
-						<li>Minimum One Year TIS with the Fleet</li>
-						<li>Minimum Three Months TIG with their Division at E-8</li>
+						<li>Minimum 1 Year TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG with their Division at E-8</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>

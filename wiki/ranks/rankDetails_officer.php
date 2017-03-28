@@ -20,6 +20,59 @@
 		PayGrade Details - Officers
 	</h3>
 	<div class="PayGradeDetails">
+		<!-- OC -->
+		<div id="OC" class="table_header_block">
+		</div>
+		<div class="yard_filters" style="
+			margin-bottom: 16px
+		">
+			<div class="PayGradeDetails_Entry_Header">
+				<h4 style="
+					padding: 8px 8px 0px;
+					margin-left: 0;
+					font-size: 12pt
+				">
+					OC [ Officer Candidate ]
+				</h4>
+			</div>
+			<div class="shipDetails_ownerInfo_tableRow_inner" style="
+				display: inline-block;
+				padding: 8px
+			">
+				<div class="shipDetails_ownerInfo_tableRow_ImgContainer">
+					<div class="corner corner-top-left">
+					</div>
+					<div class="corner corner-top-right">
+					</div>
+					<div class="corner corner-bottom-left">
+					</div>
+					<div class="corner corner-bottom-right">
+					</div>
+					<img class="divinfo_rankImg" align="center" alt="OC" src="<? $link_base; ?>/images/ranks/Navy/MIDN_4C.png" />
+				</div>
+			</div>
+			<div class="PayGradeDetails_Entry_Text">
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF; font-style: italic">Navy <strong>Midshipman</strong> - MIDN</li></li>
+				</ul>
+				<p style="
+					padding-left: 12px;
+					font-size: 10pt
+				">
+					MIDN (OC) is the PayGrade held by Officer Candidates during their time in the Officer-in-Training Program. For Military Officers, this will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-1 and assigned as the CO of a Squadron or Platoon. For Economy Officers, no unit-assignment is granted, as there are no permanent units within the Division. OCs are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
+					<br />
+					<br />
+					<strong>Entering the PayGrade of OC and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
+					<ol>
+						<li>Minimum 1 Month TIS for the Fleet</li>
+						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
+					</ol>
+				</p>
+			</div>
+		</div>	
+	
 		<!-- O1 -->
 		<div id="O-1" class="table_header_block">
 		</div>
@@ -48,7 +101,7 @@
 					</div>
 					<div class="corner corner-bottom-right">
 					</div>
-					<img class="divinfo_rankImg" align="center" alt="O2" src="<? $link_base; ?>/images/ranks/Common/O1.png" />
+					<img class="divinfo_rankImg" align="center" alt="O1" src="<? $link_base; ?>/images/ranks/Common/O1.png" />
 				</div>
 			</div>
 			<div class="PayGradeDetails_Entry_Text">
@@ -62,13 +115,15 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					Newly-Commissioned Officers will start at this rank. For Military Officers, this will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-2 and assigned as the CO of a Squadron or Platoon. For Economy Officers, no unit-assignment is granted, as there are no permanent units within the Division. O-1s are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
+					O-1s are fully-commissioned Officers; proficient and qualified Squadron/Platoon Leaders. They have successfully passed their OIT phase, and have taken-on the responsibility of leading and managing their unit in all regards. O-1s also gain the ability to create and manage Operational Templates and Mission Plans for the Fleet's activities during the operational planning phase.
 					<br />
 					<br />
-					<strong>Entering the role of O-1 and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
+					<strong>Advancement from OC to O-1 requires the following:</strong>
 					<ol>
-						<li>Minimum One Month TIS for the Fleet</li>
-						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
+						<li>Minimum 2 Months TIS for the Fleet</li>
+						<li>Minimum 1 Month TIG for their Division at OC <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
+						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
+						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
 					</ol>
 				</p>
 			</div>
@@ -116,15 +171,16 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-2s are proficient and qualified Squadron/Platoon Leaders. They have successfully passed their OIT phase, and have taken-on the responsibility of leading and managing their unit in all regards. O-2s also gain the ability to create and manage Operational Templates and Mission Plans for the Fleet's activities during the operational planning phase.
+					O-2s are decorated and experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, creation and maintenance of Unit SOPs, and adapting operational methodologies to an ever-changing mission environment.
 					<br />
 					<br />
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Months TIS for the Fleet</li>
-						<li>Minimum One Month TIG for their Division at O-1 <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
+						<li>Minimum 4 Months TIS for the Fleet</li>
+						<li>Minimum 2 Months TIG for their Unit at O-1</li>
+						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
 						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
-						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
+						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
 				</p>
 			</div>
@@ -172,15 +228,15 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-3s are decorated and experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, creation and maintenance of Unit SOPs, and adapting operational methodologies to an ever-changing mission environment.
+					The PayGrade of O-3 grants the ability for an Officer to be assigned as the Commander of an Air Wing, or a Marine Combat Team. O-3 may also be held by senior Squadron/Platoon Commanders who are in-holding for an Air Wing or Combat Team CO position when it becomes available.
 					<br />
 					<br />
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Months TIG for their Unit at O-2</li>
-						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
+						<li>Minimum 6 Months TIS for the Fleet</li>
+						<li>Minimum 2 Months TIG for their Unit at O-2</li>
 						<li>Promotion Approval by Division Headquarters</li>
+						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
 			</div>
@@ -198,7 +254,7 @@
 					margin-left: 0;
 					font-size: 12pt
 				">
-					O-4 [ Officer ]
+					O-4 [ Senior Officer ]
 				</h4>
 			</div>
 			<div class="shipDetails_ownerInfo_tableRow_inner" style="
@@ -228,13 +284,12 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-4 is the highest of the "Line-Officer" ranks, and is held by the most-senior Squadron and Platoon Commanders, along with the Executive Officers of Air Wings and Marine Teams. In addition to the above, O-4s can perform specialized roles for the HQ of their Division such as: Intelligence Officer, Finance Officer, and others.
+					O-4 is the first of the Senior Officer ranks, and is held by the most-senior Air Wing and Combat-Team Commanders, along with the Executive Officers of Warfare Commands. In addition to the above, O-4s can be placed in-charge of a Division or Fleet Office/Department such as Public Relations, Intelligence, Technology, etc.
 					<br />
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>
 					<ol>
-						<li>Minimum Two Months TIG for their Division at O-3</li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
+						<li>Minimum 6 Months TIS for the Fleet</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
@@ -284,12 +339,13 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-5 is the first of the two Senior Officer Ranks. Officers in this grade are usually assigned as the Commander of an Air Wing, or a Marine Combat Team. In addition, the rank of O-5 comes with the eligibility to serve as the Executive Officer for a Combat Group. Members in this PayGrade can also perform specialized roles at Fleet Headquarters, assisting the Fleet CO with duties such as public relations, recruitment, and technology management.
+					O-5 is the second of the Senior Officer Ranks. Officers in this grade can be assigned as the CO for a Warfare Command, and as Executive Officer of the Economy Division. Additionally, O-5s can serve as the XO for a Warfare Command when the CO is promoted to O-6. This is the highest PayGrade that can be held by Officers in Command of an Office or Department within the Fleet as their Primary Role.
 					<br />
 					<br />
 					<strong>Advancement from O-4 to O-5 requires the following:</strong>
 					<ol>
-						<li>Minimum Six Months TIS with the Fleet</li>
+						<li>Minimum 9 Months TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG with their Division at O-4</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
@@ -339,13 +395,13 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-6 is the second of the Senior-Officer ranks, normally being held by the Commanding Officer of a Combat Group, and also grants the ability for the Member to serve as the Executive Officer of a Naval Warfare Command, or as Division XO. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet.
+					O-6 is the highest of the Senior Officer ranks, held by the most-senior Warfare Command COs, and also grants the ability for a Military Division Officer to serve as the Division's XO. On the Economy-side, this is the higher of the two ranks mapped to the XO position. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet.
 					<br />
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>
 					<ol>
-						<li>Minimum 9 Months TIS with the Fleet</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 1 Year TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG with their Division at O-5</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -394,7 +450,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-7 is the first of the Flag Officer Ranks, held by the most senior Combat Group Commanders, and also grants the eligibility for a Member to serve as the Commanding Officer for a Naval Warfare Command.
+					O-7 is the first of the Flag Officer Ranks, held by the Economy Division Commanding Officer (DCOE), and is the 2nd of the PayGrades that can be granted to the Military Division Executive Officer.
 					<br />
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>
@@ -447,13 +503,12 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-8 is the second of the Flag Officer Ranks, and is granted to Officers in charge of a Naval Warfare Command after an extended period of honourable and dedicated service to the Fleet. In addition, it gives the eligibility to serve as the CO for a Division, and is the highest rank that can be held by Officers not serving as the Commander of a Division, or as Fleet CO/XO.
+					O-8 is the second of the Flag Officer Ranks, and is the PayGrade held by the Military Division Commanding Officer (DCOM).
 					<br />
 					<br />
 					<strong>Advancement from O-7 to O-8 requires the following:</strong>
 					<ol>
-						<li>Minimum 18 Months TIS with the Fleet</li>
-						<li>Minimum 6 Months TIG as CO of their Command at O-7</li>
+						<li>Minimum 1 Year TIS with the Fleet</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -501,7 +556,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-9 is the second-highest Flag Officer rank, and is designed as a balance of power for the Fleet CO. Fleet regulations limit the number of officers serving in O-9 grade to 2 at any one time. Of the two Division COs and the Fleet XO, two of them will serve as a Vice Admiral, and provide counsel to the Fleet CO. This 3-person assembly is important in the case of tie-breaker votes, where the Admiralty must rule on critical issues. In a majority of cases, it is the Fleet XO and the more-senior of the two Division COs who hold the O-9 grade.
+					O-9 is the second-highest Flag Officer rank, held by the Fleet Executive Officer.
 				</p>
 			</div>
 		</div>

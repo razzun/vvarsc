@@ -1,21 +1,39 @@
 <?php include_once('functions/function_auth_user.php'); ?>
 <?
 	$enlistedRanksQuery = "
-		select distinct
-			r.rank_level
-			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_abbr_navy'
-			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_name_navy'
-			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
-			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_abbr_usmc'
-			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_usmc'
-			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_usmc'
-			,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
-			,r.rank_orderBy
-		from projectx_vvarsc2.ranks r
-		where r.rank_level like 'E-%'
-			and r.rank_type in ('Navy','USMC')
+		select
+		*
+		from (
+			select distinct
+				r.rank_level
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_abbr_navy'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_name_navy'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_abbr_usmc'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_usmc'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_usmc'
+				,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
+				,r.rank_orderBy
+			from projectx_vvarsc2.ranks r
+			where r.rank_level like 'E-%'
+				and r.rank_type in ('Navy','USMC')
+			union
+			select distinct
+				r.rank_level
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy-Special') as 'rank_abbr_navy'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy-Special') as 'rank_name_navy'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy-Special') as 'rank_tinyImage_navy'
+				,null as 'rank_abbr_usmc'
+				,null as 'rank_name_usmc'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = 'E-9' and r2.rank_type = 'USMC') as 'rank_tinyImage_usmc'
+				,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
+				,r.rank_orderBy
+			from projectx_vvarsc2.ranks r
+			where r.rank_level = 'E-9'
+				and r.rank_type in ('Navy-Special')
+		) a
 		order by
-			r.rank_orderBy desc
+			a.rank_orderBy desc
 	";
 	
 	$enlistedTable = "
@@ -90,19 +108,37 @@
 	";
 	
 	$officerRanksQuery = "
-		select distinct
-			r.rank_level
-			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_abbr_navy'
-			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_name_navy'
-			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
-			,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_abbr_common'
-			,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_common'
-			,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_common'
-			,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
-		from projectx_vvarsc2.ranks r
-		where r.rank_level like 'O-%'
+		select
+		*
+		from (
+			select distinct
+				r.rank_level
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_abbr_navy'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_name_navy'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_abbr_common'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_name_common'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level and r2.rank_type = 'USMC') as 'rank_tinyImage_common'
+				,(select distinct rank_groupName from projectx_vvarsc2.ranks r2 where r2.rank_level = r.rank_level) as 'rank_groupName'
+				,r.rank_orderBy
+			from projectx_vvarsc2.ranks r
+			where r.rank_level like 'O-%'
+			union
+			select distinct
+				r.rank_level
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_abbr_navy'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_name_navy'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_tinyImage_navy'
+				,(select rank_abbr from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_abbr_common'
+				,(select rank_name from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_abbr_common'
+				,(select rank_tinyImage from projectx_vvarsc2.ranks r2 where r2.rank_level = 'OC' and r2.rank_type = 'Navy') as 'rank_tinyImage_common'
+				,'Officer' as 'rank_groupName'
+				,r.rank_orderBy
+			from projectx_vvarsc2.ranks r
+			where r.rank_level = 'OC'
+		) a
 		order by
-			r.rank_orderby desc	
+			a.rank_orderBy desc
 	";
 	
 	$officerTable = "
