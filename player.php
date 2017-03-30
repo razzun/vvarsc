@@ -859,7 +859,9 @@
 												color: inherit;
 												font-size: inherit;
 											">
-												<? echo $rank_name; ?> (<? echo $rank_level; ?>)
+												<? echo $rank_level; ?>
+												<br />
+												<? echo $rank_name; ?>
 											</a>
 										</span>
 										<br />
