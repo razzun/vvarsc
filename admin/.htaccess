@@ -2,7 +2,9 @@
 # AddHandler application/x-httpd-php54 .php
 
 # Disable directory transversal
-Options All -Indexes
+# For security reasons, Option all cannot be overridden.
+#Options All -Indexes
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
 RedirectMatch 404 /\..*$
 
 # turn rewriting on
