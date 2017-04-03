@@ -21,7 +21,7 @@
 		join projectx_vvarsc2.ranks r
 			on r.rank_id = m.ranks_rank_id
 		order by
-			o.OpTemplateName
+			o.ModifiedOn desc
 	";
 	
 	$operationsList_query_result = $connection->query($operationsList_query);
