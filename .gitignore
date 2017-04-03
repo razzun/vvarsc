@@ -28,6 +28,9 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 
+# Test Directory
+.test*
+
 # Thumbnails
 ._*
 
