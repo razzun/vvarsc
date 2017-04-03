@@ -12,9 +12,9 @@
 	{
 		$username = $_POST['username'];
 	}
-	if (isset($_POST['p']))
+	if (isset($_POST['password']))
 	{
-		$password = $_POST['p'];
+		$password = $_POST['password'];
 	}
 	if (isset($_POST['url']))
 	{
@@ -30,7 +30,6 @@
 			,m.InfoSecLevelID
 		FROM projectx_vvarsc2.members m
 		WHERE m.mem_name = '$username'
-			AND m.password = '$password'
 			AND m.mem_sc = '1'
 	";
 
@@ -48,25 +47,35 @@
 		{
 			$row = $query_result->fetch_assoc();
 			
-			session_regenerate_id();
-			$_SESSION['sess_user_id'] = $row['mem_id'];
-			$_SESSION['sess_username'] = $row['mem_name'];
-			$_SESSION['sess_userrole'] = $row['websiteRole'];
-			$_SESSION['sess_infoseclevel'] = $row['InfoSecLevelID'];
-
-			session_write_close();
+			print_r($row['password']);
 			
-			//print_r($_SESSION);
-			if(isset($_POST['url']))
+			if(!verify_password($row['password'],$password))
 			{
-				header("Location: ".$link_base.$reqURL);
+				//bad password supplied - fail login process
+				header("Location: ".$link_base."/login.php?err=1");
 			}
-			elseif($_SESSION['sess_userrole'] == "admin")
+			else
 			{
-				header("Location: ".$link_base."/admin/index.php");
-			}
-			else{
-				header("Location: ".$link_base."/player/".$_SESSION['sess_user_id']);
+				session_regenerate_id();
+				$_SESSION['sess_user_id'] = $row['mem_id'];
+				$_SESSION['sess_username'] = $row['mem_name'];
+				$_SESSION['sess_userrole'] = $row['websiteRole'];
+				$_SESSION['sess_infoseclevel'] = $row['InfoSecLevelID'];
+
+				session_write_close();
+				
+				//print_r($_SESSION);
+				if(isset($_POST['url']))
+				{
+					header("Location: ".$link_base.$reqURL);
+				}
+				elseif($_SESSION['sess_userrole'] == "admin")
+				{
+					header("Location: ".$link_base."/admin/index.php");
+				}
+				else{
+					header("Location: ".$link_base."/player/".$_SESSION['sess_user_id']);
+				}
 			}		
 		}
 	}

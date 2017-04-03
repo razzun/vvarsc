@@ -8,9 +8,10 @@
 ?>
 
 <?php
-	print_r($_POST);
+	//print_r($_POST);
 	
 	require_once('../../dbconn/dbconn.php');
+	require_once('../../functions/security/function_verify_password.php');
 	
 	session_start();
 
@@ -34,60 +35,80 @@
 	{
 		$Callsign = mysqli_real_escape_string($connection, $_POST['Callsign']);
 	}
-	if (isset($_POST['cp']))
+	if (isset($_POST['CurrentPassword']))
 	{
-		$CurrentPassword = $_POST['cp'];
+		$CurrentPassword = $_POST['CurrentPassword'];
 	}
-	if (isset($_POST['np']))
+	if (isset($_POST['NewPassword']))
 	{
-		$NewPassword = $_POST['np'];
+		$NewPassword = $_POST['NewPassword'];
 	}
 	if (isset($_POST['Biography']))
 	{
 		$MemberBio =  mysqli_real_escape_string($connection, $_POST['Biography']);
 	}
 	
+	$NewHashedPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
+	
 	if($ID == $SessionMemID)
 	{
 		if($CurrentPassword != "" && $CurrentPassword != null)
 		{
-			//If New Password is Passed-In, Update it
-			if($NewPassword != "" && $NewPassword != null)
-			{
-				$q = "UPDATE projectx_vvarsc2.members set
-						mem_name = '$Name'
-						,mem_callsign = '$Callsign'
-						,password = '$NewPassword'
-						,member_bio = '$MemberBio'
-					where mem_id = '$ID'
-						and password = '$CurrentPassword'
-				";				
-			}
-			//If not, only update member profile fields
-			else
-			{
-				$q = "UPDATE projectx_vvarsc2.members set
-						mem_name = '$Name'
-						,mem_callsign = '$Callsign'
-						,member_bio = '$MemberBio'
-					where mem_id = '$ID'
-						and password = '$CurrentPassword'
-				";					
-			}
+			//If New Password is Passed-In, check to make sure it's legit
+			$initialQuery = "
+				SELECT 
+					m.password
+				FROM projectx_vvarsc2.members m
+				WHERE m.mem_id = $ID
+			";
+			$initialQuery_result = $connection->query($initialQuery);
+			$row2 = $initialQuery_result->fetch_assoc();
 			
-			$query_result = $connection->query($q);
-			if ($query_result)
+			if(!verify_password($row2['password'],$CurrentPassword))
 			{
-				header("Location: $link_base/?page=player&pid=$ID");
+				//print_r('verify password failed');
+				header("Location: ".$link_base."/login.php?err=1");
 			}
 			else
 			{
-				header("Location: $link_base/error_generic");
+				if($NewPassword != "" && $NewPassword != null)
+				{
+					$q = "UPDATE projectx_vvarsc2.members set
+							mem_name = '$Name'
+							,mem_callsign = '$Callsign'
+							,password = '$NewHashedPassword'
+							,member_bio = '$MemberBio'
+						where mem_id = '$ID'
+					";				
+				}
+			
+				//If not, only update member profile fields
+				else
+				{
+					$q = "UPDATE projectx_vvarsc2.members set
+							mem_name = '$Name'
+							,mem_callsign = '$Callsign'
+							,member_bio = '$MemberBio'
+						where mem_id = '$ID'
+					";					
+				}
+			
+				$query_result = $connection->query($q);
+				if ($query_result)
+				{
+					header("Location: $link_base/?page=player&pid=$ID");
+				}
+				else
+				{
+					//print_r('update statement failed');
+					header("Location: $link_base/error_generic");
+				}
 			}
 		}
 		else
 		{
 			//Add Meaningful Error if user doesn't enter their current password
+			//print_r('no current password supplied');
 			header("Location: $link_base/error_generic");
 		}
 	}

@@ -11,10 +11,14 @@
 	print_r($_POST);
 	
 	require_once('../dbconn/dbconn.php');
+	require_once('../functions/security/function_csprng.php');
+	require_once('../functions/security/function_hash_password.php');
 	
 	session_start();
 
 	$ID = "";
+	$NewPassword = csprng(16);
+	$NewHashedPassword = hash_password($NewPassword);
 	
 	if(isset($_POST['ID']))
 	{
@@ -42,7 +46,7 @@
 	$password2 = md5($password); */
 	 
 	$q = "UPDATE projectx_vvarsc2.members set
-			password = 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'
+			password = '$NewHashedPassword'
 		where mem_id = '$ID'
 	";
 
@@ -57,7 +61,7 @@
 			'X-Mailer: PHP/' . phpversion();
 		$message = 'Per your request, an administrator has reset your password. Please go to $link_base, login and change your password.  Your new password is: ' . $memPassword;
 		 */
-		header("Location: $link_base/admin/?page=admin_mem");
+		header("Location: $link_base/admin/?page=admin_mem_success&pw=$NewPassword");
 	}
 	else
 	{

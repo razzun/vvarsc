@@ -22,7 +22,6 @@
     		,members.mem_avatar_link
 			,members.membership_type
 			,TRIM(LEADING '\t' from members.member_bio) as member_bio
-			##,TRIM(Replace(members.member_bio,'\t','')) as member_bio
 			,DATE_FORMAT(DATE(members.CreatedOn),'%d %b %Y') as MemberCreatedOn
 			,ranks.rank_id
     		,ranks.rank_groupName
@@ -1019,10 +1018,7 @@
 				<input type="password" name="NewPassword" id="NewPassword" value="" class="adminDialogTextInput">
 			</fieldset>
 				<div class="adminDialogButtonPane">
-					<input type="button" 
-							value="Submit"
-							class="adminDialogButton dialogButtonSubmit"
-							onclick="formhash(this.form, this.form.CurrentPassword, this.form.NewPassword);" />
+					<input type="submit" value="Submit"/>
 				</div>	
 		</form>
 	</div>	
@@ -1699,36 +1695,3 @@
     });
 </script>
 -->
-
-<script>
-function formhash(form, currentPassword, newPassword){
-    
-	if (currentPassword.value != "")
-	{
-		// Create a new element input, this will be our hashed password field. 
-		var cp = document.createElement("input");
-		var np = document.createElement("input");
-	 
-		// Add the new element to our form. 
-		form.appendChild(cp);
-		cp.name = "cp";
-		cp.type = "hidden";
-		cp.value = hex_sha512(currentPassword.value);
-		
-		if (newPassword.value != "")
-		{
-			form.appendChild(np);
-			np.name = "np";
-			np.type = "hidden";
-			np.value = hex_sha512(newPassword.value);
-		}
-	 
-		// Make sure the plaintext password doesn't get sent. 
-		currentPassword.value = "";
-		newPassword.value = "";
-	 
-		// Finally submit the form. 
-		form.submit();
-	}
-}
-</script>

@@ -1,5 +1,5 @@
 <?php
-require_once "../../lib/random_compat.phar";
+require_once(__DIR__.'/../../lib/random_compat.phar');
 
 function csprng(
     $length,

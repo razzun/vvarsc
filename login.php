@@ -40,7 +40,7 @@
 														echo '<p class="text-danger">'.$errors[$error_id].' </p>';
 													}
 											   ?>  
-											<form action="authenticate.php" method="POST" class="form-signin col-md-8 col-md-offset-2" role="form">
+											<form action="authenticate_v2.php" method="POST" class="form-signin col-md-8 col-md-offset-2" role="form">
 												<input type="text" name="username" class="form-control" placeholder="Username" onkeypress="entsub(this.form, this.form.password);" required autofocus>
 												<br/>
 												<input id="password" type="password" name="password" class="form-control" placeholder="Password" onkeypress="entsub(this.form, this.form.password);" required>
@@ -52,10 +52,7 @@
 														echo '<input id="url" type="hidden" name="url" value="'.$reqURL.'" />';
 													}
 												?>
-												<input type="button" 
-														id="button"
-														value="Login"
-														onclick="formhash(this.form, this.form.password);" /> 
+												<input type="submit" value="Submit"/>
 											</form>
 										</div>
 									</div>
@@ -189,17 +186,17 @@
 
 <script>
 	function formhash(form, password){
-		// Create a new element input, this will be our hashed password field. 
-		var p = document.createElement("input");
+		// // Create a new element input, this will be our hashed password field. 
+		// var p = document.createElement("input");
 	 
-		// Add the new element to our form. 
-		form.appendChild(p);
-		p.name = "p";
-		p.type = "hidden";
-		p.value = hex_sha512(password.value);
+		// // Add the new element to our form. 
+		// form.appendChild(p);
+		// p.name = "p";
+		// p.type = "hidden";
+		// p.value = hex_sha512(password.value);
 	 
-		// Make sure the plaintext password doesn't get sent. 
-		password.value = "";
+		// // Make sure the plaintext password doesn't get sent. 
+		// password.value = "";
 	 
 		// Finally submit the form. 
 		form.submit();

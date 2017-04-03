@@ -8,10 +8,10 @@
 ?>
 
 <?php
-	//print_r($_POST);
+	print_r($_POST);
 	
 	require_once('../dbconn/dbconn.php');
-	require_once('../functions/security/function_csprng.php');
+	require_once('/security/function_csprng.php');
 	
 	session_start();
 
@@ -22,8 +22,7 @@
 	$Division = "";
 	$MembershipType = "";
 	$InfoSecLevel = "";
-	$NewPassword = csprng(16);
-	$NewHashedPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
+	$NewPassword = csprng();
 	
 	if (isset($_POST['VVarID']))
 	{
@@ -53,7 +52,7 @@
 	{
 		$InfoSecLevel = $_POST['InfoSecLevel'];
 	}
-	
+	 
 	$q = "INSERT into projectx_vvarsc2.members (
 				mem_name
 				,mem_callsign
@@ -80,25 +79,23 @@
 				,'$Division'
 				,DATE_ADD(CURDATE(),INTERVAL 930 YEAR)
 				,'user'
-				,'$NewHashedPassword'
+				,'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'
 				,'$MembershipType'
 				,'$InfoSecLevel'
 				,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
 				,'$VVarID'
 			)";
-			
-	print_r($NewPassword);
 
 	$query_result = $connection->query($q);
 			
 	if ($query_result)
 	{
-		header("Location: $link_base/admin/?page=admin_mem_success&pw=$NewPassword");
+		header("Location: $link_base/admin/?page=admin_mem");
 	}
 	else
 	{
 		header("Location: $link_base/error_generic");
 	}
-
+	
 	$connection->close();
 ?>
