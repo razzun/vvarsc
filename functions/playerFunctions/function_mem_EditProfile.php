@@ -11,8 +11,9 @@
 	//print_r($_POST);
 	
 	require_once('../../dbconn/dbconn.php');
+	require_once('../../functions/security/function_hash_password.php');
 	require_once('../../functions/security/function_verify_password.php');
-	
+
 	session_start();
 
 	$SessionMemID = $_SESSION['sess_user_id'];
@@ -48,7 +49,7 @@
 		$MemberBio =  mysqli_real_escape_string($connection, $_POST['Biography']);
 	}
 	
-	$NewHashedPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
+	$NewHashedPassword = hash_password($NewPassword);
 	
 	if($ID == $SessionMemID)
 	{
