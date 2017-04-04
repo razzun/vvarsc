@@ -61,58 +61,147 @@
 		{
 			$displayMembershipType = 'Affiliate';
 		}
-	
+		
 		$displayMembers .= "
-			<tr class=\"adminTableRow\">
-				<td class=\"adminTableRowTD memID\" data-id=\"$memID\">
-					$memID					
-				</td>
-				<td class=\"adminTableRowTD vvarID\" data-vvarid=\"$memVVarID\">
-					$memVVarID					
-				</td>
-				<td class=\"adminTableRowTD memCallsign\" data-callsign=\"$memCallsign\">
-					<a href=\"../player/$memID\" target=\"_blank\">
-						$memCallsign
-					</a>
-				</td>
-				<td class=\"adminTableRowTD memName\" data-name=\"$memName\">
-					$memName
-				</td>
-				<td class=\"adminTableRowTD memRankInfo\" data-rankid=\"$memRankID\">
-					<div class=\"clickableRow_memRank_inner\">
-						<button class=\"adminButton adminButtonEditRank\" style=\"
-								display: table-cell;
-								margin-left: 0px;
-							\" title=\"Edit Member Rank\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
-						</button>
-						<img class=\"clickableRow_memRank_Image\" src=\"../images/ranks/TS3/$rank_image.png\" />
-						<div class=\"rank_image_text\">
-							$memRankLevel - $memRankName
-						</div>
-					</div>
-				</td>
-				<td class=\"adminTableRowTD memDivisionInfo\" data-divinfo=\"$memDivisionID\">
-					$memDivisionName
-				</td>
-				<td class=\"adminTableRowTD membershipType\" data-memtype=\"$membershipType\">
-					$displayMembershipType
-				</td>
-				<td class=\"adminTableRowTD infoSecLevel\" data-infoseclevel=\"$infoSecLevelID\">
-					$infoSecLevelShortName
-				</td>
-				<td class=\"adminTableRowTD passReset\" data-email=\"$memEmail\">
-					<button class=\"adminButton adminButtonPassReset\" title=\"Reset Member Password\" style=\"margin-right: 0px;\">PassReset</button>
-				</td>
-				<td class=\"adminTableRowTD\">
+			<div class=\"table_header_block\">
+			</div>
+			<div class=\"yard_filters\" style=\"margin-bottom: 8px;\"
+				data-id=\"$memID\"
+				data-vvarid=\"$memVVarID\"
+				data-callsign=\"$memCallsign\"
+				data-name=\"$memName\"
+				data-rankid=\"$memRankID\"
+				data-divinfo=\"$memDivisionID\"
+				data-memtype=\"$membershipType\"
+				data-infoseclevel=\"$infoSecLevelID\"
+				data-email=\"$memEmail\"
+			>
+				<div class=\"\" style=\"
+					float: right;
+					text-align: right;
+					margin-right: 8px;
+					width: 50%;
+					margin-top: 4px;
+				\">
 					<button class=\"adminButton adminButtonEdit\" title=\"Edit Member\" style=\"margin-right: 0px;\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 					</button>
 					<button class=\"adminButton adminButtonDelete\" title=\"Delete Member\" style=\"margin-left: 0px;\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 					</button>
-				</td>
-			</tr>
+				</div>
+				
+				
+				<div class=\"PayGradeDetails_Entry_Header\" style=\"
+					cursor: pointer;
+					vertical-align: middle;
+					margin-top: 6px;
+					display: table;
+					padding-bottom: 4px;
+				\">
+					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"../images/misc/SC_Button01.png\" align=\"middle\">
+					<div class=\"player_qual_row_name\" style=\"
+						margin-top:8px;
+						margin-bottom:8px;
+						padding-left:8px;
+						display: table-cell;
+						vertical-align: middle;
+					\">
+						MemberID: $memID
+						<br />
+						<strong>$memCallsign</strong>
+					</div>
+				</div>
+				<div class=\"shipyard_mainTable_row_content\" style=\"
+					padding-top:0px;
+					width: 100%;
+				\">
+					<div class=\"shipDetails_ownerInfo_tableRow_inner\" style=\"
+						display: inline-block;
+						padding: 8px;
+					\">
+						<div class=\"clickableRow_memRank_inner\">
+							<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
+								height: 24px;
+								width: 24px;
+								padding-left: 0px;
+								padding-right: 0px;
+							\">
+								<img class=\"divinfo_rankImg\" align=\"center\" style=\"
+									height:16px;
+									width:16px;
+									display: table-cell;
+									vertical-align: middle;
+								\"src=\"../images/ranks/TS3/$rank_image.png\" />					
+							</div>
+							<div class=\"rank_image_text\">
+								$memRankLevel - $memRankName
+							</div>
+							<button class=\"adminButton adminButtonEditRank\" style=\"
+									display: table-cell;
+									margin-left: 0px;
+								\" title=\"Edit Member Rank\">
+								<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
+							</button>
+						</div>
+					</div>
+					<button class=\"adminButton adminButtonPassReset\" title=\"Reset Member Password\" style=\"
+						padding-right: 4px;
+						float: right;
+					\">
+						PassReset
+					</button>
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						VVAR PlayerName
+						<br />
+						<strong>$memName</strong>
+					</div>
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						VVAR MemberID
+						<br />
+						<strong>$memVVarID</strong>
+					</div>
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Status
+						<br />
+						<strong>Active</strong>
+					</div>	
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Division
+						<br />
+						<strong>$memDivisionName</strong>
+					</div>	
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Membership Type
+						<br />
+						<strong>$displayMembershipType</strong>
+					</div>	
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						InfoSec Level
+						<br />
+						<strong>$infoSecLevelShortName</strong>
+					</div>
+				</div>
+			</div>
+			
 		";
 	}
 	
@@ -218,13 +307,13 @@
 			
 			var $self = jQuery(this);
 			
-			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
-			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
-			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
-			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
-			var memInfoSecLevelInfo = $self.parent().parent().find('.adminTableRowTD.infoSecLevel').data("infoseclevel");
+			var memID = $self.parent().parent().data("id");
+			var vvarID = $self.parent().parent().data("vvarid");
+			var memName = $self.parent().parent().data("name");
+			var memCallsign = $self.parent().parent().data("callsign");
+			var memDivisionInfo = $self.parent().parent().data("divinfo");
+			var memTypeInfo = $self.parent().parent().data("memtype");
+			var memInfoSecLevelInfo = $self.parent().parent().data("infoseclevel");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#VVarID').val(vvarID).text();
@@ -256,13 +345,13 @@
 			
 			var $self = jQuery(this);
 			
-			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
-			var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
-			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
-			var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
-			var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
+			var memID = $self.parent().parent().data("id");
+			var vvarID = $self.parent().parent().data("vvarid");
+			var memName = $self.parent().parent().data("name");
+			var memCallsign = $self.parent().parent().data("callsign");
+			var memRankID = $self.parent().parent().data("rankid");
+			var memDivisionInfo = $self.parent().parent().data("divinfo");
+			var memTypeInfo = $self.parent().parent().data("memtype");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#VVarID').val(vvarID).text();
@@ -285,17 +374,12 @@
 			
 			var $self = jQuery(this);
 			
-			var memID = $self.parent().parent().find('.adminTableRowTD.memID').data("id");
-			//var vvarID = $self.parent().parent().find('.adminTableRowTD.vvarID').data("vvarid");
-			var memName = $self.parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memEmail = $self.parent().parent().find('.adminTableRowTD.passReset').data("email");
-			var memCallsign = $self.parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			//var memRankID = $self.parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
-			//var memDivisionInfo = $self.parent().parent().find('.adminTableRowTD.memDivisionInfo').data("divinfo");
-			//var memTypeInfo = $self.parent().parent().find('.adminTableRowTD.membershipType').data("memtype");
+			var memID = $self.parent().parent().data("id");
+			var memName = $self.parent().parent().data("name");
+			var memEmail = $self.parent().parent().data("email");
+			var memCallsign = $self.parent().parent().data("callsign");
 			
 			dialog.find('#ID').val(memID).text();
-			//dialog.find('#VVarID').val(vvarID).text();
 			dialog.find('#Name').val(memName).text();
 			dialog.find('#Callsign').val(memCallsign).text();
 			dialog.find('#Email').val(memEmail).text();
@@ -316,10 +400,10 @@
 			
 			var $self = jQuery(this);
 			
-			var memID = $self.parent().parent().parent().find('.adminTableRowTD.memID').data("id");
-			var memName = $self.parent().parent().parent().find('.adminTableRowTD.memName').data("name");
-			var memCallsign = $self.parent().parent().parent().find('.adminTableRowTD.memCallsign').data("callsign");
-			var memRankID = $self.parent().parent().parent().find('.adminTableRowTD.memRankInfo').data("rankid");
+			var memID = $self.parent().parent().parent().parent().data("id");
+			var memName = $self.parent().parent().parent().parent().data("name");
+			var memCallsign = $self.parent().parent().parent().parent().data("callsign");
+			var memRankID = $self.parent().parent().parent().parent().data("rankid");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#Name').val(memName).text();
@@ -389,6 +473,21 @@
 	});
 </script>
 
+<!--Script to Show/Hide Rows when Arrows are clicked on each row-->
+<script language="javascript">
+    $(document).ready(function () {
+        $(".shipyard_mainTable_row_content").hide();
+		//$(".shipyard_mainTable_row_header_arrow").addClass('rotate90CW');
+		
+        $(".PayGradeDetails_Entry_Header").click(function () {
+            $(this).parent().find(".shipyard_mainTable_row_content").slideToggle(500);
+			$(this).find('.shipyard_mainTable_row_header_arrow').toggleClass('rotate90CW');
+			$(this).find('.OperationText_Hideable').toggleClass('hidden');
+        });		
+    });
+</script>
+</script>
+
 <br />
 <div class="div_filters_container">
 	<div class="div_filters_entry">
@@ -401,49 +500,30 @@
 <h2 id="MainPageHeaderText">Member Management</h2>
 <div id="TEXT">
 	<div id="adminMemberTableContainer" class="adminTableContainer">
-	<button id="adminCreateMember" class="adminButton adminButtonCreate" title="Add New Member" style="
-			float: right;
+		<button id="adminCreateMember" class="adminButton adminButtonCreate" title="Add New Member" style="
 			margin-left: 0px;
 			margin-right: 2%;
+			width: 100%;
+			text-align: right;
 		">
 			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">
 			Add New Member
 		</button>
-		<table id="adminMemberTable" class="adminTable">
-			<tr class="adminTableHeaderRow">
-				<td class="adminTableHeaderRowTD">
-					ID
-				</td>
-				<td class="adminTableHeaderRowTD">
-					VVarID
-				</td>
-				<td class="adminTableHeaderRowTD">
-					RSI Handle
-				</td>
-				<td class="adminTableHeaderRowTD">
-					UserName
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Rank Info
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Division
-				</td>
-				<td class="adminTableHeaderRowTD">
-					MembershipType
-				</td>
-				<td class="adminTableHeaderRowTD">
-					InfoSEC
-				</td>
-				<td class="adminTableHeaderRowTD">
-					PassReset
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Actions
-				</td>
-			</tr>
-			<? echo $displayMembers ?>
-		</table>
+		<div id="adminQualificationsTable" class="unit_description_container">
+			<div class="top-line">
+			</div>
+			<div class="corner4 corner-diag-blue-topLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-topRight">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomLeft">
+			</div>
+			<div class="corner4 corner-diag-blue-bottomRight">
+			</div>
+			<div class="PayGradeDetails">
+				<? echo $displayMembers ?>
+			</div>
+		</div>
 		
 		<!--Create Form-->
 		<div id="dialog-form-create" class="adminDialogFormContainer">
