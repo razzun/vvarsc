@@ -23,6 +23,8 @@
 			</p>
 			<br />
 			<p>
+				<strong>Awards Management - </strong> Used to manage the different Awards that can be granted to Members of the Fleet.
+				</br>
 				<strong>Manufacturer Management - </strong> Used to manage the different manufacturers used in Star Citizen.
 				</br>
 				<strong>Member Management - </strong> Used to manage VVarMachine members, and their owned ships.

@@ -5,6 +5,7 @@
 	$player_id = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	include_once('inc/OptionQueries/qualifications_query.php');
+	include_once('inc/OptionQueries/awards_query.php');
 	
 	$display_player_ships;
 	$display_player_qualifications;
@@ -602,7 +603,73 @@
 				</button>
 				<br />
 			";
+		
+		//Awards
+		$awards_query = "
+			select
+				ma.RowID
+				,a.AwardID
+				,a.AwardName
+				,a.AwardImage
+				,a.AwardRequirements
+				,a.AwardOrderBy
+				,ma.ModifiedOn
+			from projectx_vvarsc2.member_Awards ma
+			join projectx_vvarsc2.Awards a
+				on a.AwardID = ma.AwardID
+			where ma.MemberID = $player_id
+			order by
+				a.AwardOrderBy
+				,a.AwardName
+		";
+		$awards_query_results = $connection->query($awards_query);
+		$display_player_awards = "";
+		
+		while(($row2 = $awards_query_results->fetch_assoc()) != false)
+		{
+			$rowID = $row2['RowID'];
+			$award_id = $row2['AwardID'];
+			$award_name = $row2['AwardName'];
+			$award_image = $link_base."/images/awards/".$row2['AwardImage'];
+			$level1_reqs = $row2['AwardRequirements'];
+			$award_modifiedOn = $row2['ModifiedOn'];
 			
+			if ($level1_reqs == null || $level1_reqs == "")
+				$level1_reqs = "- No Requirements Found -";
+				
+			$display_player_awards .= "
+				<div class=\"p_award tooltip-wrap\">
+					<img src=\"$award_image\" height=\"14px\" width=\"60px\" style=\"
+						vertical-align: middle;
+					\">
+					<div class=\"rsi-tooltip\" style=\"
+						bottom: 28px;
+						left: -122px;
+					\">
+						<div class=\"rsi-tooltip-content\">
+							<strong>$award_name</strong>
+							<br />
+							$level1_reqs
+						</div>
+						<span class=\"rsi-tooltip-bottom\"></span>
+					</div>
+				</div>
+			";
+
+		}
+		$display_awards_edit = "";
+		if ($_SESSION['sess_userrole'] == "admin")
+			$display_awards_edit = "
+				<button id=\"adminAddAward\" class=\"adminButton adminButtonCreate\" title=\"Add Award\"style=\"
+					float: right;
+					margin-left: 0px;
+					margin-right: 2%;
+				\">
+					<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_add.png\">
+					Add Award
+				</button>
+				<br />
+			";		
 		
 		//MISSION STATISTICS
 		$missionStats_query = "
@@ -959,7 +1026,27 @@
 			</div>
 			<div class="p_awards">
 				<div class="p_section_header" style="float:left">
-					Awards (coming soon)
+					Awards
+				</div>
+				<? echo $display_awards_edit ?>
+				<div class="p_info" valign="top" align="left">
+
+					<div id="p_awards_container" style="
+						font-size:0;
+						text-align: center;
+					">
+						<div class="partialBorder-left-blue border-left border-top border-4px">
+						</div>			
+						<div class="partialBorder-right-blue border-right border-top border-4px">
+						</div>
+						
+						<? echo $display_player_awards; ?>
+
+						<div class="partialBorder-left-blue border-left border-bottom border-4px">
+						</div>			
+						<div class="partialBorder-right-blue border-right border-bottom border-4px">
+						</div>							
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1338,7 +1425,35 @@
 		</form>
 	</div>
 		
-	
+	<!--Add Award Form-->
+	<div id="dialog-form-add-award" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add Award to Member</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/playerFunctions/function_award_Create.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="MemID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="AwardID" class="adminDialogInputLabel">
+					Award Name
+				</label>
+				<select name="AwardID" id="AwardID" class="adminDialogDropDown" required>
+					<option selected="true" disabled="true" value="default" id="AwardID-default">
+						--Select an Award--
+					</option>
+					<? echo $displayAwardsSelectors ?>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>	
 </div>
   
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -1646,7 +1761,34 @@
 				filter: 'blur(2px)'
 			});
 
-		});			
+		});
+
+		//Add Award
+		$('#adminAddAward').click(function() {
+			var dialog = $('#dialog-form-add-award');
+			
+			var $self = jQuery(this);
+			
+			var memID = "<? echo $mem_id ?>";
+			
+			dialog.find('#MemID').val(memID).text();
+
+			dialog.find('select').find('option').prop('selected',false);
+			
+			dialog.find('#QualificationID').find('#AwardID-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.player_topTable_Container').css({
+				filter: 'blur(2px)'
+			});
+			$('.player_shipsTable_Container').css({
+				filter: 'blur(2px)'
+			});
+
+		});
+		
+		//Delete Award
 		
 		//Cancel
 		$('.adminDialogButton.dialogButtonCancel').click(function() {
@@ -1666,6 +1808,8 @@
 			$('#dialog-form-add-qual').hide();
 			$('#dialog-form-edit-qual').hide();
 			$('#dialog-form-delete-qual').hide();
+			
+			$('#dialog-form-add-award').hide();
 			
 			overlay.hide();
 			$('.player_topTable_Container').css({

@@ -1988,7 +1988,7 @@
 					
 				}
 				//Marine
-				else if (id == "2" || id =="12")
+				else if (id == "2" || id =="12" || id == "14")
 				{
 					//Show PlayerCount
 					playerCountSelectorLabel.html('Member Count');

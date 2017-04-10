@@ -246,6 +246,7 @@
 						on d.div_id = u.DivisionID
 					where u.UnitName not like '%OPFOR%'
 						and u.UnitName not like '%Civilian%'
+						and u.UnitName not like '%Training%'
 					order by
 						18
 						,u.UnitName";	

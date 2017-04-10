@@ -777,7 +777,8 @@ table.tbmem a:hover {
 	border: solid rgba(92, 236, 244, 0.85);
 	border-width: 1px 1px 0 1px;
 	background-color: rgba(0, 0, 0, 0.85);
-	position: absolute;	
+	position: absolute;
+	font-size: 10pt;
 }
 
 .tooltip-wrap:hover > .rsi-tooltip {
@@ -810,7 +811,7 @@ table.tbmem a:hover {
 
 /* -----------------------------------------------*/
 
-#p_rank_container {
+#p_rank_container, #p_awards_container {
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 	position: relative;
@@ -826,6 +827,13 @@ table.tbmem a:hover {
 	background-repeat: repeat;
 	background-position: left bottom;
 	background-image: url(../images/fading-bars.png);	
+}
+
+.p_award {
+	display: inline-block;
+	vertical-align: middle;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 #p_rank_outer {

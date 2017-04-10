@@ -30,6 +30,10 @@
 									case "admin":
 										$content = "admin.php";
 										break;
+										
+									case "admin_awards":
+										$content = "admin_awards.php";
+										break;
 
 									case "admin_manu":
 										$content = "admin_manu.php";
