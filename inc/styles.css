@@ -768,10 +768,10 @@ table.tbmem a:hover {
 
 .rsi-tooltip {
 	display: none;
-	text-align: center;
+	text-align: left;
 	bottom: 48px;
 	left: -132px;
-	width: 180px;
+	width: 200px;
 	border-color: #00d6ff;
 	box-shadow: 0 0 20px rgba(0,133,255,0.3);
 	border: solid rgba(92, 236, 244, 0.85);
@@ -834,6 +834,14 @@ table.tbmem a:hover {
 	vertical-align: middle;
 	padding-top: 2px;
 	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#p_awards_inner {
+	width: 260px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #p_rank_outer {
@@ -4544,6 +4552,11 @@ img.fleet:after {
 	.p_awards {
 		display: table-row;
 	}
+	
+	#p_awards_container {
+		padding-left:0px;
+		padding-right:0px;
+	}	
 	/*End Player Page*/
 	
 	/*Links Page*/

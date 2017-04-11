@@ -103,11 +103,11 @@
 						padding: 8px;
 					\">
 						<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
-							height: 22px;
-							width: 68px;
+							height: 30px;
+							width: 88px;
 							padding-left: 0px;
 							padding-right: 0px;
-							vertical-align: unset;
+							vertical-align: middle;
 						\">
 							<div class=\"corner corner-top-left\">
 							</div>
@@ -117,7 +117,7 @@
 							</div>
 							<div class=\"corner corner-bottom-right\">
 							</div>
-							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:14px;width:60px;vertical-align:middle;\"src=\"../images/awards/$awardImage\" />					
+							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:22px;width:80px;vertical-align:middle;\"src=\"../images/awards/$awardImage\" />					
 						</div>
 					</div>
 					<div class=\"player_qual_row_name\" style=\"
@@ -316,7 +316,7 @@
 		<a href="?page=admin">&#8672; Back to Admin Home</a>
 	</div>
 </div>
-<h2 id="MainPageHeaderText">awards Management</h2>
+<h2 id="MainPageHeaderText">Awards Management</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<button id="adminCreateQual" class="adminButton adminButtonCreate" title="Add Qualifcation" style="

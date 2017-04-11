@@ -19,6 +19,8 @@
 		</div>		
 		<div id="adminMainText">
 			<p>
+				<strong>Awards - </strong> View Awards available for Members.
+				</br>
 				<strong>Formations - </strong> Dynamic 4-ship Flight Formations Viewer.
 				</br>
 				<!--

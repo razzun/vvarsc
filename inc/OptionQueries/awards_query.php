@@ -8,8 +8,16 @@
 			,a.IsActive
 			,a.AwardOrderBy
 		from projectx_vvarsc2.Awards a
+		where a.IsActive = 1
+			and a.AwardID not in (
+				select
+					ma.AwardID
+				from projectx_vvarsc2.member_Awards ma
+				where ma.MemberID = $player_id
+			)
 		order by
-			a.AwardName
+			a.AwardOrderBy
+			,a.AwardName
 	";
 	
 	$getAwards_query_results = $connection->query($getAwards_query);
@@ -19,10 +27,11 @@
 	{
 		$awardID = $row['AwardID'];
 		$awardName = $row['AwardName'];
+		$awardOrderBy = $row['AwardOrderBy'];
 	
 		$displayAwardsSelectors .= "
 			<option value=\"$awardID\" id=\"$awardID\">
-				$awardName
+				[$awardOrderBy] $awardName
 			</option>
 		";
 	}

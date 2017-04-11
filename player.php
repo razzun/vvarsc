@@ -639,12 +639,12 @@
 				
 			$display_player_awards .= "
 				<div class=\"p_award tooltip-wrap\">
-					<img src=\"$award_image\" height=\"14px\" width=\"60px\" style=\"
+					<img src=\"$award_image\" height=\"22px\" width=\"80px\" style=\"
 						vertical-align: middle;
 					\">
 					<div class=\"rsi-tooltip\" style=\"
-						bottom: 28px;
-						left: -122px;
+						bottom: 36px;
+						left: -116px;
 					\">
 						<div class=\"rsi-tooltip-content\">
 							<strong>$award_name</strong>
@@ -672,7 +672,7 @@
 			";		
 		
 		//MISSION STATISTICS
-		$missionStats_query = "
+		$missionParticipationStats_query = "
 			select
 				COUNT(distinct um.MissionID) as Missions
 				,COUNT(case when um.IsLeadership = 1 then 1 else null end) as MissionsAsLeader
@@ -710,12 +710,29 @@
 			) um		
 		";
 		
-		$missionStats_query_results = $connection->query($missionStats_query);
+		$missionParticipationStats_query_results = $connection->query($missionParticipationStats_query);
 		
-		while(($row = $missionStats_query_results->fetch_assoc()) != false)
+		while(($row = $missionParticipationStats_query_results->fetch_assoc()) != false)
 		{
 			$completedMissions = $row['Missions'];
 			$completedMissionsAsLeader = $row['MissionsAsLeader'];
+		}
+		
+		$missionsCreatedStats_query = "
+			select
+				COUNT(distinct m.MissionID) as MissionsPlanned
+			from projectx_vvarsc2.Missions m
+			join projectx_vvarsc2.LK_MissionStatus lk1
+				on lk1.MissionStatus = m.MissionStatus
+				and lk1.Description = 'Completed'
+			where m.CreatedBy = $player_id		
+		";
+		
+		$missionsCreatedStats_query_results = $connection->query($missionsCreatedStats_query);
+		
+		while(($row = $missionsCreatedStats_query_results->fetch_assoc()) != false)
+		{
+			$plannedCompletedMissions = $row['MissionsPlanned'];
 		}
 		
 		//PLAYER STATISTICS
@@ -798,6 +815,14 @@
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
 					$completedMissionsAsLeader
+				</div>
+			</div>
+			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; padding-left: 12px;\":>
+				<div class=\"p_rank_stats_entry_key\">
+					Planned Completed Missions
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$plannedCompletedMissions
 				</div>
 			</div>
 		";
@@ -1026,7 +1051,14 @@
 			</div>
 			<div class="p_awards">
 				<div class="p_section_header" style="float:left">
-					Awards
+					<a href="<? echo $link_base; ?>/wiki/?page=awards" target="_blank" style="
+						text-decoration: none;
+						font-size: 1.1em;
+						font-weight: normal;
+						color: #FFF;
+					">
+						Awards
+					</a>
 				</div>
 				<? echo $display_awards_edit ?>
 				<div class="p_info" valign="top" align="left">
@@ -1040,7 +1072,9 @@
 						<div class="partialBorder-right-blue border-right border-top border-4px">
 						</div>
 						
-						<? echo $display_player_awards; ?>
+						<div id="p_awards_inner">
+							<? echo $display_player_awards; ?>
+						</div>
 
 						<div class="partialBorder-left-blue border-left border-bottom border-4px">
 						</div>			
@@ -1775,7 +1809,7 @@
 
 			dialog.find('select').find('option').prop('selected',false);
 			
-			dialog.find('#QualificationID').find('#AwardID-default').prop('selected',true);
+			dialog.find('#AwardID').find('#AwardID-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
