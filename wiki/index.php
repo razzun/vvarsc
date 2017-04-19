@@ -47,6 +47,10 @@
 										$content = "rankStructure.php";
 										break;
 										
+									case "qual":
+										$content = "qualifications.php";
+										break;
+										
 									case "units":
 										$content = "unitStructure.php";
 										break;

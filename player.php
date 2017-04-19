@@ -438,11 +438,7 @@
 					<div class=\"p_rank_role_text\">
 						$full_role_name
 					</div>
-					<div class=\"shipDetails_ownerInfo_tableRow_ImgContainer\" style=\"
-						height: 52px;
-						width: 52px;
-						padding-left: 0px;
-						padding-right: 0px;
+					<div class=\"player_unitImgContainer\"
 					\">
 						<div class=\"corner corner-top-left\">
 						</div>
@@ -452,7 +448,7 @@
 						</div>
 						<div class=\"corner corner-bottom-right\">
 						</div>
-						<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:44px;width:44px;\"src=\"$UnitEmblemImage\" /></a>
+						<img class=\"player_unitImg\" align=\"center\" src=\"$UnitEmblemImage\" /></a>
 					</div>					
 				</div>
 			";

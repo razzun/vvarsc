@@ -4357,6 +4357,26 @@ img.fleet:after {
 	color: rgba(180, 0, 0, 0.8);
 }
 
+.player_unitImg {
+		width: 44px;
+		height: 44px;
+	}
+
+.player_unitImgContainer {
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    height: 52px;
+    width: 52px;
+    position: relative;
+    background-color: rgba(2, 6, 14, 0.7);
+    border: 1px solid #222;
+    transition: all 0.4s ease 0s;
+	padding-left: 0px;
+	padding-right: 0px;
+	background-image: url(../images/fading-bars.png);
+}
+
 @media only screen and (max-height: 799px) {
 	.yard_stats_2 {
 		display: none;
@@ -4456,6 +4476,15 @@ img.fleet:after {
 	/*End Ship Page*/
 	
 	/* Player Page */
+	.player_unitImg {
+		width: 20px;
+		height: 20px;
+	}
+	.player_unitImgContainer {
+		width: 26px;
+		height: 26px;
+	}
+
 	/* End Player Page */
 	
 	/* Units Page */
