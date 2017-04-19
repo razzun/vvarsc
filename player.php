@@ -670,12 +670,14 @@
 		//MISSION STATISTICS
 		$missionParticipationStats_query = "
 			select
-				COUNT(distinct um.MissionID) as Missions
+				um.RoleCategory
+				,COUNT(distinct um.MissionID) as Missions
 				,COUNT(case when um.IsLeadership = 1 then 1 else null end) as MissionsAsLeader
 			from
 			(
 				select
 					um.MissionID
+					,r.RoleCategory
 					,r.RoleName
 					,r.IsLeadership
 				from projectx_vvarsc2.MissionUnitMembers um
@@ -692,6 +694,7 @@
 
 				select
 					sm.MissionID
+					,r.RoleCategory
 					,r.RoleName
 					,r.IsLeadership
 				from projectx_vvarsc2.MissionShipMembers sm
@@ -703,15 +706,52 @@
 					on lk.MissionStatus = m.MissionStatus
 					and lk.Description = 'Completed'
 				where sm.MemberID = $player_id
-			) um		
+			) um
+			GROUP BY
+				um.RoleCategory
+			ORDER BY
+				um.RoleCategory
+							
 		";
 		
 		$missionParticipationStats_query_results = $connection->query($missionParticipationStats_query);
 		
 		while(($row = $missionParticipationStats_query_results->fetch_assoc()) != false)
 		{
+			$roleCategory = $row['RoleCategory'];
 			$completedMissions = $row['Missions'];
 			$completedMissionsAsLeader = $row['MissionsAsLeader'];
+			
+			$display_player_missionStats .="
+				<div class=\"p_rank_stats_entry_header\" style=\"
+					
+				\">
+					<div class=\"player_qual_row_name noPadding\">
+						<strong>$roleCategory</strong>
+					</div>
+				</div>
+				<div class=\"p_rank_stats_entry\" style=\"
+					display: table-cell;
+					padding-left: 4px;
+				\">
+					<div class=\"p_rank_stats_entry_key\">
+						Total
+					</div>
+					<div class=\"p_rank_stats_entry_value\">
+						$completedMissions
+					</div>
+				</div>
+				<div class=\"p_rank_stats_entry\" style=\"
+					display: table-cell;
+				\">
+					<div class=\"p_rank_stats_entry_key\">
+						Leadership
+					</div>
+					<div class=\"p_rank_stats_entry_value\">
+						$completedMissionsAsLeader
+					</div>
+				</div>
+			";			
 		}
 		
 		$missionsCreatedStats_query = "
@@ -730,6 +770,25 @@
 		{
 			$plannedCompletedMissions = $row['MissionsPlanned'];
 		}
+		
+		$display_player_missionStats .= "
+			<div class=\"p_rank_stats_entry_header\">
+				<div class=\"player_qual_row_name noPadding\">
+					<strong>Mission Planning</strong>
+				</div>
+			</div>
+			<div class=\"p_rank_stats_entry\" style=\"
+				display: table-cell;
+				padding-left: 4px;
+			\">
+				<div class=\"p_rank_stats_entry_key\">
+					Missions Planned
+				</div>
+				<div class=\"p_rank_stats_entry_value\">
+					$plannedCompletedMissions
+				</div>
+			</div>		
+		";
 		
 		//PLAYER STATISTICS
 		$playerStats_query = "
@@ -795,30 +854,6 @@
 				</div>
 				<div class=\"p_rank_stats_entry_value\">
 					$interval_tig_formatted
-				</div>
-			</div>
-			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; \">
-				<div class=\"p_rank_stats_entry_key\">
-					Total Completed Missions 
-				</div>
-				<div class=\"p_rank_stats_entry_value\">
-					$completedMissions
-				</div>
-			</div>
-			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; padding-left: 12px;\":>
-				<div class=\"p_rank_stats_entry_key\">
-					Completed Missions as Leader
-				</div>
-				<div class=\"p_rank_stats_entry_value\">
-					$completedMissionsAsLeader
-				</div>
-			</div>
-			<div class=\"p_rank_stats_entry\" style=\"display: table-cell; padding-left: 12px;\":>
-				<div class=\"p_rank_stats_entry_key\">
-					Planned Completed Missions
-				</div>
-				<div class=\"p_rank_stats_entry_value\">
-					$plannedCompletedMissions
 				</div>
 			</div>
 		";
@@ -965,69 +1000,97 @@
 							</div>	
 							<div class="partialBorder-left-blue border-left border-bottom border-4px">
 							</div>	
-						</div>					
+						</div>
 
 					</div>					
 				</div>
 				
 				<div class="pbio">
 					<!--Member Info-->
-					<h4 style="padding-left: 0px; margin-left: 8px; padding-bottom:0px;">
-						General Info & Statistics
-					</h4>
 					<div class="p_details_container">
-						<div class="player_qual_row_name">
-							VVAR Player Name: <strong><? echo $mem_name; ?></strong>
+						<!--General Info-->
+						<div id="p_general_stats_container">
+							<h4>
+								Player Information
+							</h4>
+							<div id="p_general_stats">
+								<div class="player_qual_row_name noPadding">
+									VVAR Player Name: <strong><? echo $mem_name; ?></strong>
+								</div>
+								<div class="player_qual_row_name noPadding">
+									Player ID: <strong><? echo $temp_player_id; ?></strong>
+								</div>
+								<div class="player_qual_row_name noPadding">
+									Enlisted: <strong><? echo $mem_createdOn; ?></strong>
+								</div>
+								<div class="player_qual_row_name noPadding">
+									Callsign / RSI Handle: <strong><a href="https://robertsspaceindustries.com/citizens/<? echo $mem_callsign; ?>" target="_blank"><? echo $mem_callsign; ?></a></strong>
+								</div>
+								<div class="player_qual_row_name noPadding">
+									Membership Type: <strong><? echo $displayMembershipType; ?></strong>
+								</div>
+								<div class="player_qual_row_name noPadding" style="margin-bottom: 4px;">
+									Ships Owned: <strong><? echo $ship_count; ?></strong>
+								</div>
+							</div>
 						</div>
-						<div class="player_qual_row_name">
-							Player ID: <strong><? echo $temp_player_id; ?></strong>
+						<!--Rank Stats-->
+						<div id="p_rank_stats_container">
+							<h4 style="
+								padding-top: 4px;
+							">
+								Rank Statistics
+							</h4>
+							<div id="p_rank_stats">
+								<? echo $display_playerStats; ?>
+							</div>
 						</div>
-						<div class="player_qual_row_name">
-							Enlisted: <strong><? echo $mem_createdOn; ?></strong>
+						<!--Mission Stats-->
+						<div id="p_mission_stats_container">
+							<h4 style="
+								padding-top: 4px;
+							">
+								Completed Mission Statistics
+							</h4>
+							<div id="p_mission_stats">
+								<? echo $display_player_missionStats; ?>
+							</div>
 						</div>
-						<div class="player_qual_row_name">
-							Callsign / RSI Handle: <strong><a href="https://robertsspaceindustries.com/citizens/<? echo $mem_callsign; ?>" target="_blank"><? echo $mem_callsign; ?></a></strong>
-						</div>
-						<div class="player_qual_row_name">
-							Membership Type: <strong><? echo $displayMembershipType; ?></strong>
-						</div>
-						<div class="player_qual_row_name" style="margin-bottom: 4px;">
-							Ships Owned: <strong><? echo $ship_count; ?></strong>
-						</div>
-						<div id="p_rank_stats">
-							<? echo $display_playerStats; ?>
-						</div>
-					</div>	
-					
-					<!--BIOGRAPHY-->
-					<h4 style="padding-left: 0px; margin-left: 8px">
-						Member Biography
-					</h4>
-					<div class="unit_description_container" style="
-						margin-bottom: 8px;
-						margin-left: 8px;
-						margin-right: 8px;
-					">
-						<div class="top-line">
-						</div>
-						<div class="corner4 corner-diag-blue-topLeft">
-						</div>
-						<div class="corner4 corner-diag-blue-topRight">
-						</div>
-						<div class="corner4 corner-diag-blue-bottomLeft">
-						</div>
-						<div class="corner4 corner-diag-blue-bottomRight">
-						</div>
-						<? echo nl2br($DisplayMemberBio) ?>
 					</div>
-				</div>
+					
+
+				</div>				
+				
 			</div>
 		</div>
+
+				<!--BIOGRAPHY-->
+				<h4 style="padding-left: 0px; margin-left: 0px">
+					Member Biography
+				</h4>
+				<div class="unit_description_container" style="
+					margin-bottom: 8px;
+					margin-left: 0px;
+					margin-right: 0px;
+					font-size: 10pt;
+				">
+					<div class="top-line">
+					</div>
+					<div class="corner4 corner-diag-blue-topLeft">
+					</div>
+					<div class="corner4 corner-diag-blue-topRight">
+					</div>
+					<div class="corner4 corner-diag-blue-bottomLeft">
+					</div>
+					<div class="corner4 corner-diag-blue-bottomRight">
+					</div>
+					<? echo nl2br($DisplayMemberBio) ?>
+				</div>
 		
 
 		<!--QUALIFICATIONS-->
 		<h4 style="padding-left: 0px; margin-left: 0px">
-			Qualifications and Awards
+			Qualifications & Awards
 		</h4>	
 		<div class="table_header_block">
 		</div>	

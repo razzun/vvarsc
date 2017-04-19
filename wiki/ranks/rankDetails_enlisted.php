@@ -78,7 +78,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					All new Recruits to the VVarMachine Fleet will start at this rank.
+					All new Recruits to the VVarMachine Gaming Community and SC Fleet will start at this rank.
 				</p>
 			</div>
 		</div>
@@ -141,7 +141,8 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					Advancement for a new Member from E-2 to E-3 can be attained following the completion of the minimum two-week Vetting and Evaluation Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet.
+					Advancement for a new Member from E-2 to E-3 can be attained immediately following the completion of the minimum two-week Vetting and Evaluation Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet. Existing members of the VVarMachine Gaming Community who enlist in the Fleet will start at this rank.
+					<br />
 					<br />
 					NOTE: Because advancement beyond E-3 requires registration with a Division/Unit, many casual members will choose to stay at this rank.
 				</p>
@@ -213,6 +214,7 @@
 						<li>Minimum 1 Month Time-in-Service (TIS) with the Fleet</li>
 						<li>Minimum 2 Weeks Time-in-Grade (TIG) for their unit at E-3</li>
 						<li>Attainment of the Level 1 Certification in their Unit's Primary Qualification Area</li>
+						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
 				</p>
 			</div>
@@ -284,7 +286,6 @@
 						<li>Minimum 2 Months TIS with the Fleet</li>
 						<li>Minimum 1 Month TIG for their Unit at E-4</li>
 						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a Flight Leader or Squad Leader Role</li>
-						<li>Recommendation for Promotion by a higher-grade NCO within their Unit based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
 				</p>
@@ -360,7 +361,6 @@
 						<li>Minimum 3 Months TIS with the Fleet</li>
 						<li>Minimum 1 Month TIG for their Unit at E-5, serving in a Flight Leader or Squad Leader Role</li>
 						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a Flight or Squad Leader Role</li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
 				</p>
@@ -435,7 +435,6 @@
 					<ol>
 						<li>Minimum 6 Months TIS with the Fleet</li>
 						<li>Minimum 2 Months TIG for their Unit at E-6</li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in their Unit's Responsibilities</li>
 						<li>Promotion Approval by Division Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>

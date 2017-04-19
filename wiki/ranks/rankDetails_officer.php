@@ -122,7 +122,7 @@
 					<ol>
 						<li>Minimum 2 Months TIS for the Fleet</li>
 						<li>Minimum 1 Month TIG for their Division at OC <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
+						<li>Recommendation for Promotion by their Training Officer based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
 					</ol>
 				</p>
@@ -179,7 +179,6 @@
 						<li>Minimum 4 Months TIS for the Fleet</li>
 						<li>Minimum 2 Months TIG for their Unit at O-1</li>
 						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
-						<li>Recommendation for Promotion by their Commanding-Officer (CO) based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
 				</p>
@@ -284,7 +283,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-4 is the first of the Senior Officer ranks, and is held by the most-senior Air Wing and Combat-Team Commanders, along with the Executive Officers of Warfare Commands. In addition to the above, O-4s can be placed in-charge of a Division or Fleet Office/Department such as Public Relations, Intelligence, Technology, etc.
+					O-4 is the first of the Senior Officer ranks, and is held by the most senior Air Wing and Combat Team Commanders, along with the Executive Officers of Warfare Commands. In addition to the above, O-4s can be placed in-charge of a Division or Fleet Office/Department such as Public Relations, Intelligence, Technology, etc.
 					<br />
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>

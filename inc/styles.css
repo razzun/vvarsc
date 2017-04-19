@@ -602,12 +602,10 @@ table.tbmem a:hover {
 	margin-bottom: 10px;
 	background-color: rgba(0, 0, 0, 0.75);
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
-	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
+	/*border-bottom: 1px solid rgba(0, 153, 170, 0.9);*/
 	width: 100%;
 	font-size: 10pt;
 	display: inline-table;
-	padding-right: 4px; 
-	padding-left: 4px;
 }
 
 .play th {
@@ -638,8 +636,8 @@ table.tbmem a:hover {
 	*/
 	width: 320px;
 	position: relative;
-	padding-top: 40px;
-	padding-bottom: 4px;
+	padding-top: 36px;
+	padding-bottom: 8px;
 }
 
 .pavatar_image_container {
@@ -677,7 +675,6 @@ table.tbmem a:hover {
 	border-bottom: 1px solid rgba(102, 102, 102, 0.9);
 	width: 100%;
 	margin-top: 8px;
-	margin-bottom: 8px;
 }
 
 /* -----------------------------------------------*/
@@ -966,16 +963,47 @@ table.tbmem a:hover {
 	padding-right: 8px;
 }
 
-#p_rank_stats {
+#p_rank_stats, #p_mission_stats, #p_general_stats {
+	vertical-align: top;
+	border-bottom: 1px solid rgba(102, 102, 102, 0.9);
+	border-left: 2px solid rgba(102, 102, 102, 0.9);
+	background: url('../images/block_background.png') repeat scroll 0% 0% rgba(0, 0, 0, 0.1);
 	padding-left: 4px;
 	padding-right: 4px;
-	vertical-align: top;
-	border-top: 1px solid rgba(102, 102, 102, 0.9);
-	padding-top: 4px;	
 }
+
+#p_rank_stats {
+}
+
+#p_mission_stats {
+}
+
+#p_general_stats {
+}
+
+#p_rank_stats_container h4,
+#p_mission_stats_container h4,
+#p_general_stats_container h4
+{
+	padding-left: 0px;
+	margin-left: 0px;
+	padding-bottom:0px;
+	padding-top: 0px;
+	transition: all 0.3s ease 0s;
+}
+
+/*
+#p_rank_stats_container:hover h4,
+#p_mission_stats_container:hover h4,
+#p_general_stats_container:hover h4
+{
+	padding-left: 24px;
+}
+*/
 
 .p_rank_stats_entry {
 	padding-bottom: 4px;
+	min-width: 80px;
 }
 
 .p_rank_stats_entry_key {
@@ -996,6 +1024,8 @@ table.tbmem a:hover {
 .p_details_container {
 	margin-left: 8px;
 	margin-right: 8px;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .p_details
@@ -3520,7 +3550,11 @@ img.fleet:after {
 	font-style: normal;	
 }
 
-/* VISIBILITY VARIABLES FOR DYNAMIC CONTENT IN SIDE PANEL */
+/* COMMON VISIBILITY CLASSES*/
+.noPadding {
+	padding: 0px;
+}
+
 .hidden {
     visibility: hidden;
 	display: none;
