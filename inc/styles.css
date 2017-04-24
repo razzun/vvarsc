@@ -1328,7 +1328,7 @@ img.player_fleet:hover {
 {
 	text-align: right;
 	vertical-align: middle;
-	width: 40%;
+	/*width: 40%;*/
 }
 
 .tooltip_shipTable2_key_inner

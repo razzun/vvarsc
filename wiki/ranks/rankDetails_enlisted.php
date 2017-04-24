@@ -74,6 +74,14 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Airman Apprentice</strong> - AA</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Private 1st Class</strong> - PFC</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">None</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -136,6 +144,14 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Airman</strong> - AN</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Lance Corporal</strong> - LCPL</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Trainee</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -201,6 +217,16 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 3rd Class</strong> - PO3</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Corporal</strong> - CPL</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">All Non-Leadership Flight Roles</li>
+					<li style="color: #FFF;">All Non-Leadership Marine Roles</li>
+					<li style="color: #FFF;">Office Assistant Roles</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -274,6 +300,18 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 2nd Class</strong> - PO2</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant</strong> - SGT</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">All Non-Leadership Flight Roles</li>
+					<li style="color: #FFF;">Flight Leader</li>
+					<li style="color: #FFF;">All Non-Leadership Marine Roles</li>
+					<li style="color: #FFF;">Squad Leader</li>
+					<li style="color: #FFF;">Office Assistant Roles</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -345,6 +383,18 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Petty Officer 1st Class</strong> - PO1</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Staff Sergeant</strong> - SSGT</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Flight Leader</li>
+					<li style="color: #FFF;">Assistant Squadron Leader</li>
+					<li style="color: #FFF;">Squad Leader</li>
+					<li style="color: #FFF;">Assistant Platoon Leader</li>
+					<li style="color: #FFF;">Office Assistant Roles</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -421,6 +471,18 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Chief Petty Officer</strong> - CPO</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Gunnery Sergeant</strong> - GYSGT</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Assistant Squadron Leader</li>
+					<li style="color: #FFF;">Air Wing Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Assistant Platoon Leader</li>
+					<li style="color: #FFF;">Combat Team Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Office Chief Roles</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -496,6 +558,16 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Senior Chief Petty Officer</strong> - SCPO</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>First Sergeant</strong> - 1SGT</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Division Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Office Chief Roles</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -567,6 +639,16 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Master Chief Petty Officer</strong> - MCPO</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Sergeant Major</strong> - SGM</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Division Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Fleet Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

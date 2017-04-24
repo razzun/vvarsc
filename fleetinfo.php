@@ -12,7 +12,10 @@
 	{
 		$fleet_query = "SELECT
 							s.ship_pName
+							,s.ship_canBeNamed
 							,shm.RowID as ship_vvarID_info
+							,shm.shm_assetDesignation
+							,shm.shm_assetName
 							,s.ship_id as ship_id_info
 							,s.ship_name as ship_name_info
 							,COALESCE(s.ship_model_designation,'-') as ship_designation_info
@@ -61,6 +64,7 @@
 		
 		while (($row = $fleet_query_results->fetch_assoc()) != false) {
 			$ship_pname = $row['ship_pName'];
+			$ship_canBeNamed = $row['ship_canBeNamed'];
 			$ship_silo_info = $row['ship_silo_info'];
 			$mem_id_info = $row['mem_id_info'];
 			$mem_name_info = $row['mem_name_info'];
@@ -72,6 +76,8 @@
 			$ship_division_info = $row['ship_division_info'];
 			$ship_rank_info = $row['ship_rank_info'];
 			$ship_vvarID_info = $row['ship_vvarID_info'];
+			$ship_assetDesignation = $row['shm_assetDesignation'];
+			$ship_assetName = $row['shm_assetName'];
 			$ship_id_info = $row['ship_id_info'];
 			$ship_manu_short_info = $row['ship_manu_short_info'];
 			
@@ -290,6 +296,46 @@
 					</span>
 					<span class=\"tooltip2\">
 						<table class=\"tooltip_shipTable\">
+					";
+					//For Named Ships, Display Differently
+					if ($ship_canBeNamed == 1
+						&& $ship_assetDesignation != null && $ship_assetDesignation != ""
+						&& $ship_assetName != null && $ship_assetName != "")
+					{
+						$display_fleet .= "
+							<tr class=\"tooltip_shipTable_row\">
+								<td class=\"tooltip_shipTable_key\">
+									<div class=\"tooltip_shipTable_key_inner\">
+									Asset Designation
+									</div>
+								</td>
+								<td class=\"tooltip_shipTable_value\">
+									<div class=\"tooltip_shipTable_value_inner\" style=\"
+										font-weight: bold;
+									\">
+									$ship_assetDesignation $ship_vvarID_info
+									</div>
+								</td>
+							</tr>
+							<tr class=\"tooltip_shipTable_row\">
+								<td class=\"tooltip_shipTable_key\">
+									<div class=\"tooltip_shipTable_key_inner\">
+									Asset Name
+									</div>
+								</td>
+								<td class=\"tooltip_shipTable_value\">
+									<div class=\"tooltip_shipTable_value_inner\" style=\"
+										font-weight: bold;
+									\">
+									VMNS $ship_assetName
+									</div>
+								</td>
+							</tr>						
+						";						
+					}
+					else
+					{
+						$display_fleet .= "
 							<tr class=\"tooltip_shipTable_row\">
 								<td class=\"tooltip_shipTable_key\">
 									<div class=\"tooltip_shipTable_key_inner\">
@@ -301,7 +347,10 @@
 									$ship_vvarID_info
 									</div>
 								</td>
-							</tr>									
+							</tr>							
+						";
+					}					
+						$display_fleet .= "									
 							<tr class=\"tooltip_shipTable_row\">
 								<td class=\"tooltip_shipTable_key\">
 									<div class=\"tooltip_shipTable_key_inner\">

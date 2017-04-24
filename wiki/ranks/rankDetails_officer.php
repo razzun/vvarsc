@@ -57,6 +57,14 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Midshipman</strong> - MIDN</li></li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Officer-in-Training</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -110,6 +118,16 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Ensign</strong> - ENS</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>2nd Lieutenant</strong> - 2LT</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Squadron Commanding Officer</li>
+					<li style="color: #FFF;">Platoon Leader</li>
+					<li style="color: #FFF;">Office Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -167,6 +185,16 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Junior Grade</strong> - LTJG</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>1st Lieutenant</strong> - 1LT</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Squadron Commanding Officer</li>
+					<li style="color: #FFF;">Platoon Leader</li>
+					<li style="color: #FFF;">Office Officer Role</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -222,6 +250,18 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant </strong> - LT</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Captain</strong> - CAPT</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Squadron Commanding Officer (holding)</li>
+					<li style="color: #FFF;">Air Wing Commanding Officer</li>
+					<li style="color: #FFF;">Platoon Leader (holding)</li>
+					<li style="color: #FFF;">Combat Team Commanding Officer</li>
+					<li style="color: #FFF;">Office Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -279,6 +319,17 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Commander </strong> - LCDR</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Major</strong> - MAJ</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Air Wing Commanding Officer</li>
+					<li style="color: #FFF;">Combat Team Commanding Officer</li>
+					<li style="color: #FFF;">Warfare Command Executive Officer</li>
+					<li style="color: #FFF;">Office Senior Officer Role</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -333,6 +384,17 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Commander </strong> - CDR</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Lieutenant Colonel</strong> - LTCOL</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Warfare Command Executive Officer</li>
+					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
+					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
+					<li style="color: #FFF;">Office Senior Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -390,6 +452,17 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Captain </strong> - CAPT</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Colonel</strong> - COL</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
+					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
+					<li style="color: #FFF;">Division Executive Officer (Military)</li>
+					<li style="color: #FFF;">Office Senior Officer Role</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -445,6 +518,15 @@
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral (Lower-Half) </strong> - RDML</li>
 					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> - BGEN</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Division Executive Officer (Military)</li>
+					<li style="color: #FFF;">Division Commanding Officer (Economy)</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -497,6 +579,14 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral</strong> - RADM</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Division Commanding Officer (Military)</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -551,6 +641,14 @@
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Vice Admiral</strong> - VADM</li>
 				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Fleet Executive Officer</li>
+				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
@@ -596,6 +694,14 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Admiral</strong> - ADM</li>
+				</ul>
+				<h5 class="WikiH5" style="padding-top:0px;">
+					Supported Roles
+				</h5>
+				<ul style="
+					margin-top: 0
+				">
+					<li style="color: #FFF;">Fleet Commanding Officer</li>
 				</ul>
 				<p style="
 					padding-left: 12px;

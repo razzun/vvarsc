@@ -12,7 +12,8 @@
 		from projectx_vvarsc2.Awards a
 		where a.IsActive = 1
 		order by
-			a.AwardName
+			a.AwardOrderBy
+			,a.AwardName
 	";
 	
 	$awards_query_results = $connection->query($awards_query);

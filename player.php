@@ -40,11 +40,14 @@
 			,ships.ship_silo
 			,ships.ship_id
 			,ships.ship_price
+			,ships.ship_canBeNamed
     		,shm.shm_lti
 			,shm.shm_package
     		,DATE_FORMAT(DATE(shm.CreatedOn),'%d %b %Y') as CreatedOn
     		,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,shm.rowID AS ship_vvarID
+			,shm.shm_assetName
+			,shm.shm_assetDesignation
         FROM projectx_vvarsc2.members
     		LEFT JOIN projectx_vvarsc2.ships_has_members shm
     			ON members.mem_id=shm.members_mem_id
@@ -85,11 +88,14 @@
 			$ship_silo = $row['ship_silo'];
 			$ship_cost = $row['ship_price'];
 			$ship_id = $row['ship_id'];
+			$ship_canBeNamed = $row['ship_canBeNamed'];
     		$shm_lti = $row['shm_lti'];
     		$shm_package = $row['shm_package'];
 			$shm_createdOn = $row['CreatedOn'];
 			$shm_modifiedOn = $row['ModifiedOn'];
 			$shm_ship_vvarID = $row['ship_vvarID'];
+			$ship_assetName = $row['shm_assetName'];
+			$ship_assetDesignation = $row['shm_assetDesignation'];
 			$temp_player_id = $row['player_id'];
 			$ship_model_designation = $row['ship_model_designation'];
 			$ship_model_visible = $row['ship_model_visible'];
@@ -195,6 +201,48 @@
 								<div class=\"corner2 corner-bottom-right\">
 								</div>
 								<table class=\"tooltip_shipTable2\">
+					";
+					//For Named Ships, Display Differently
+					if ($ship_canBeNamed == 1
+						&& $ship_assetDesignation != null && $ship_assetDesignation != ""
+						&& $ship_assetName != null && $ship_assetName != "")
+					{
+						$display_player_ships .= "
+									<tr>
+										<td class=\"tooltip_shipTable2_key\">
+											<div class=\"tooltip_shipTable2_key_inner\">
+											Asset Designation
+											</div>
+										</td>
+										<td class=\"tooltip_shipTable2_value\">
+											<div class=\"tooltip_shipTable2_value_inner\" style=\"
+												font-weight: bold;
+												text-shadow: 0px 0px 8px #CCA300;
+											\">
+											$ship_assetDesignation $shm_ship_vvarID
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class=\"tooltip_shipTable2_key\">
+											<div class=\"tooltip_shipTable2_key_inner\">
+											Asset Name
+											</div>
+										</td>
+										<td class=\"tooltip_shipTable2_value\">
+											<div class=\"tooltip_shipTable2_value_inner\" style=\"
+												font-weight: bold;
+												text-shadow: 0px 0px 8px #CCA300;
+											\">
+											VMNS $ship_assetName
+											</div>
+										</td>
+									</tr>
+						";
+					}
+					else
+					{
+						$display_player_ships .= "
 									<tr>
 										<td class=\"tooltip_shipTable2_key\">
 											<div class=\"tooltip_shipTable2_key_inner\">
@@ -206,7 +254,10 @@
 											$shm_ship_vvarID
 											</div>
 										</td>
-									</tr>									
+									</tr>
+						";					
+					}
+						$display_player_ships .= "
 									<tr>
 										<td class=\"tooltip_shipTable2_key\">
 											<div class=\"tooltip_shipTable2_key_inner\">
@@ -255,20 +306,6 @@
 											</div>
 										</td>
 									</tr>
-									<!--
-									<tr>
-										<td class=\"tooltip_shipTable2_key\">
-											<div class=\"tooltip_shipTable2_key_inner\">
-											Ship Value
-											</div>
-										</td>
-										<td class=\"tooltip_shipTable2_value\">
-											<div class=\"tooltip_shipTable2_value_inner\">
-											$$ship_cost
-											</div>
-										</td>
-									</tr>
-									-->
 								</table>
 							</div>
 						</div>
@@ -667,7 +704,7 @@
 				<br />
 			";		
 		
-		//MISSION STATISTICS
+		//MISSION STATISTICS		
 		$missionParticipationStats_query = "
 			select
 				um.RoleCategory
@@ -754,41 +791,44 @@
 			";			
 		}
 		
-		$missionsCreatedStats_query = "
-			select
-				COUNT(distinct m.MissionID) as MissionsPlanned
-			from projectx_vvarsc2.Missions m
-			join projectx_vvarsc2.LK_MissionStatus lk1
-				on lk1.MissionStatus = m.MissionStatus
-				and lk1.Description = 'Completed'
-			where m.CreatedBy = $player_id		
-		";
-		
-		$missionsCreatedStats_query_results = $connection->query($missionsCreatedStats_query);
-		
-		while(($row = $missionsCreatedStats_query_results->fetch_assoc()) != false)
+		if ($rank_groupName == "Officer" || $rank_groupName == "Senior Officer" || $rank_groupName == "Flag Officer" || $rank_groupName == "Officer Candidate")
 		{
-			$plannedCompletedMissions = $row['MissionsPlanned'];
+			$missionsCreatedStats_query = "
+				select
+					COUNT(distinct m.MissionID) as MissionsPlanned
+				from projectx_vvarsc2.Missions m
+				join projectx_vvarsc2.LK_MissionStatus lk1
+					on lk1.MissionStatus = m.MissionStatus
+					and lk1.Description = 'Completed'
+				where m.CreatedBy = $player_id		
+			";
+			
+			$missionsCreatedStats_query_results = $connection->query($missionsCreatedStats_query);
+			
+			while(($row = $missionsCreatedStats_query_results->fetch_assoc()) != false)
+			{
+				$plannedCompletedMissions = $row['MissionsPlanned'];
+			}
+			
+			$display_player_missionStats .= "
+				<div class=\"p_rank_stats_entry_header\">
+					<div class=\"player_qual_row_name noPadding\">
+						<strong>Mission Planning</strong>
+					</div>
+				</div>
+				<div class=\"p_rank_stats_entry\" style=\"
+					display: table-cell;
+					padding-left: 4px;
+				\">
+					<div class=\"p_rank_stats_entry_key\">
+						Missions Planned
+					</div>
+					<div class=\"p_rank_stats_entry_value\">
+						$plannedCompletedMissions
+					</div>
+				</div>		
+			";
 		}
-		
-		$display_player_missionStats .= "
-			<div class=\"p_rank_stats_entry_header\">
-				<div class=\"player_qual_row_name noPadding\">
-					<strong>Mission Planning</strong>
-				</div>
-			</div>
-			<div class=\"p_rank_stats_entry\" style=\"
-				display: table-cell;
-				padding-left: 4px;
-			\">
-				<div class=\"p_rank_stats_entry_key\">
-					Missions Planned
-				</div>
-				<div class=\"p_rank_stats_entry_value\">
-					$plannedCompletedMissions
-				</div>
-			</div>		
-		";
 		
 		//PLAYER STATISTICS
 		$playerStats_query = "
