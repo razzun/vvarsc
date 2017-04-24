@@ -312,6 +312,7 @@
 								<td class=\"tooltip_shipTable_value\">
 									<div class=\"tooltip_shipTable_value_inner\" style=\"
 										font-weight: bold;
+										text-shadow: 0px 0px 8px #00A0B6;
 									\">
 									$ship_assetDesignation-$ship_vvarID_info
 									</div>
@@ -326,6 +327,7 @@
 								<td class=\"tooltip_shipTable_value\">
 									<div class=\"tooltip_shipTable_value_inner\" style=\"
 										font-weight: bold;
+										text-shadow: 0px 0px 8px #00A0B6;
 									\">
 									VMNS $ship_assetName
 									</div>
@@ -359,7 +361,9 @@
 								</td>
 								<td class=\"tooltip_shipTable_value\">
 									<div class=\"tooltip_shipTable_value_inner\">
-									<a href=\"/player/$mem_id_info\" target=\"_top\">$mem_name_info</a>
+										<a href=\"/player/$mem_id_info\" target=\"_top\">
+										$mem_name_info
+										</a>
 									</div>
 								</td>
 							</tr>									
