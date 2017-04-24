@@ -313,7 +313,7 @@
 									<div class=\"tooltip_shipTable_value_inner\" style=\"
 										font-weight: bold;
 									\">
-									$ship_assetDesignation $ship_vvarID_info
+									$ship_assetDesignation-$ship_vvarID_info
 									</div>
 								</td>
 							</tr>

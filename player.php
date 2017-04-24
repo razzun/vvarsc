@@ -219,7 +219,7 @@
 												font-weight: bold;
 												text-shadow: 0px 0px 8px #CCA300;
 											\">
-											$ship_assetDesignation $shm_ship_vvarID
+											$ship_assetDesignation-$shm_ship_vvarID
 											</div>
 										</td>
 									</tr>
