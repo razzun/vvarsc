@@ -58,9 +58,9 @@
 			,'$StartingLocation'
 			,'$Mission'
 			,'$Description'
-			,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 			,'$userID'
-			,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 			,'$userID'
 		)
 	";

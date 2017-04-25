@@ -46,7 +46,7 @@
 				,members_mem_id = '$MemberID'
 				,shm_package = '$Package'
 				,shm_lti = '$LTI'
-				,ModifiedOn = DATE_ADD(CURDATE(),INTERVAL 930 YEAR)
+				,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(),INTERVAL 930 YEAR)
 			where RowID = '$RowID'
 		";
 

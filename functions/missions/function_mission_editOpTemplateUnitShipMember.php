@@ -54,7 +54,7 @@
 			UPDATE projectx_vvarsc2.MissionShipMembers set
 				OpUnitMemberRoleID = $OpUnitMemberRoleID
 				,MemberID = $MemberID
-				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+				,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID
 				and MissionShipID = '$MissionShipID'
@@ -66,7 +66,7 @@
 			UPDATE projectx_vvarsc2.MissionShipMembers set
 				OpUnitMemberRoleID = $OpUnitMemberRoleID
 				,MemberID = null
-				,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+				,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 				,ModifiedBy = '$userID'
 			where RowID = $RowID
 				and MissionShipID = '$MissionShipID'

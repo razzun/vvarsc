@@ -75,7 +75,7 @@
 			,Mission = '$Mission'
 			,Description = '$Description'
 			,MissionStatus = $MissionStatus
-			,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 			,ModifiedBy = '$userID'
 		where MissionID = '$MissionID'
 	";

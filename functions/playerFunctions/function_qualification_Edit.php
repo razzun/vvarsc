@@ -44,7 +44,7 @@
 	$q = "
 		UPDATE projectx_vvarsc2.member_qualifications set
 			qualification_level_id = $Level
-			,last_updated = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,last_updated = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 		where RowID = $RowID
 			and qualification_id = $ID
 			and member_id = $MemID

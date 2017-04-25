@@ -78,12 +78,12 @@
 				,'default'
 				,'$Rank'
 				,'$Division'
-				,DATE_ADD(CURDATE(),INTERVAL 930 YEAR)
+				,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 930 YEAR)
 				,'user'
 				,'$NewHashedPassword'
 				,'$MembershipType'
 				,'$InfoSecLevel'
-				,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+				,DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 				,'$VVarID'
 			)";
 			

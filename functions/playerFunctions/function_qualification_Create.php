@@ -42,7 +42,7 @@
 			$MemID
 			,SUBSTRING('$QualificationID',(LOCATE('_','$QualificationID') + 1),LENGTH('$QualificationID'))
 			,$Level
-			,DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 		)
 	";
 	

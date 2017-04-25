@@ -38,7 +38,7 @@
 	$q = "
 		UPDATE projectx_vvarsc2.OpTemplateUnitMembers set
 			OpUnitMemberRoleID = '$OpUnitMemberRoleID'
-			,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 			,ModifiedBy = '$userID'
 		where RowID = $RowID
 			and OpTemplateUnitID = '$OpTemplateUnitID'

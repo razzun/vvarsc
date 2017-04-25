@@ -835,7 +835,7 @@
 			select
 				m.CreatedOn
 				,m.RankModifiedOn
-				,DATE_ADD(CURDATE(),INTERVAL 930 YEAR) as 'CurrentDate'
+				,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 930 YEAR) as 'CurrentDate'
 			from projectx_vvarsc2.members m
 			where m.mem_id = $player_id			
 		";
@@ -1165,6 +1165,7 @@
 					<div id="p_awards_container" style="
 						font-size:0;
 						text-align: center;
+						margin-bottom: 4px;
 					">
 						<div class="partialBorder-left-blue border-left border-top border-4px">
 						</div>			

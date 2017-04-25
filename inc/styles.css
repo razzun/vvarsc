@@ -861,8 +861,9 @@ table.tbmem a:hover {
 	display: table-cell;
 	padding-top: 4px;
 	padding-bottom: 4px;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 4px;
+	padding-right: 4px;
+	position: relative;
 }
 
 .p_rankimage
@@ -879,12 +880,11 @@ table.tbmem a:hover {
 
 .p_rankExtendedData
 {
-	padding-left: 4px;
-	padding-right: 12px;
-	padding-top: 4px;
+	padding-left: 8px;
 	display: table-cell;
 	vertical-align: top;
 	text-align: left;
+	padding-top: 4px;
 }
 
 .p_rankExtendedData_rank_level

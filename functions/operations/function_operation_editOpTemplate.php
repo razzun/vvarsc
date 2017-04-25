@@ -52,7 +52,7 @@
 			,StartingLocation = '$StartingLocation'
 			,Mission = '$Mission'
 			,Description = '$Description'
-			,ModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,ModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 			,ModifiedBy = '$userID'
 		where OpTemplateID = '$ID'
 	";

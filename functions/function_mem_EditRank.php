@@ -28,7 +28,7 @@
 	 
 	$q = "UPDATE projectx_vvarsc2.members set
 			ranks_rank_id = '$Rank'
-			,RankModifiedOn = DATE_ADD(CURDATE(), INTERVAL 930 YEAR)
+			,RankModifiedOn = DATE_ADD(UTC_TIMESTAMP(), INTERVAL 930 YEAR)
 		where mem_id = '$ID'
 	";
 
