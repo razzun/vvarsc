@@ -26,6 +26,7 @@
 		) am
 			on am.MemberID = m.mem_id
 		where m.mem_sc = 1
+			and m.mem_name not like '%guest%'
 		order by
 			r.rank_orderBy
 			,m.mem_callsign
