@@ -17,10 +17,10 @@
 			<? echo $welcomeText; ?>
 		</p>		
 		<p>
-			This website is designed to give VVarMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVarMachine please go to <a href="http://vvarmachine.com" target="_top">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>.
+			This website is designed to give VVarMachine an ability to manage our Star Citizen Division by recording number of players, ships and organizational structure.  If you are interested in joining VVarMachine please go to <a href="http://vvarmachine.com" target="_blank">http://vvarmachine.com</a> or visit our RSI Organization page at <a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">https://robertsspaceindustries.com/orgs/VVAR</a>.  You can find additional organization information on our recruitment thread, on <a href="http://rsi.vvarmachine.com" target="_blank">RSI Spectrum</a>. 
 		</p>
 		<p>
-			VVarMachine is proudly aligned with Cognition Corp, Interstellar Logistics & Transport Service and the Auraxis Military Pact organizations.
+			VVarMachine is proudly aligned with Cognition Corp, Interstellar Logistics & Transport Service (ILTS), The Outer Rim Coalition (TORC) and the Auraxis Military Pact (AMP) organizations.
 		</p>	
 		<p>
 			Use the menu options above to navigate this site to find out information about our Star Citizen Division.
