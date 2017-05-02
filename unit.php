@@ -600,7 +600,7 @@
 		$displayUnitDescription1 = "";
 		$displayUnitDescription2 = "";
 		
-		if ($depth < 5)
+		if ($depth < 5 && $unitLevel != "Platoon")
 		{
 			if ($unitDescription == null || $unitDescription == "")
 			{
