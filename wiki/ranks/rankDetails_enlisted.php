@@ -477,9 +477,9 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Assistant Squadron Leader</li>
+					<li style="color: #FFF;">Squadron Chief / Assistant Squadron Leader</li>
 					<li style="color: #FFF;">Air Wing Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Assistant Platoon Leader</li>
+					<li style="color: #FFF;">Platoon Sergeant / Assistant Platoon Leader</li>
 					<li style="color: #FFF;">Combat Team Senior Enlisted Advisor</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>

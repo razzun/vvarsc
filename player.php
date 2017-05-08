@@ -47,7 +47,7 @@
     		,DATE_FORMAT(DATE(shm.ModifiedOn),'%d %b %Y') as ModifiedOn
 			,shm.rowID AS ship_vvarID
 			,shm.shm_assetName
-			,shm.shm_assetDesignation
+			,ships.ship_asset_designationCode
         FROM projectx_vvarsc2.members
     		LEFT JOIN projectx_vvarsc2.ships_has_members shm
     			ON members.mem_id=shm.members_mem_id
@@ -95,7 +95,7 @@
 			$shm_modifiedOn = $row['ModifiedOn'];
 			$shm_ship_vvarID = $row['ship_vvarID'];
 			$ship_assetName = $row['shm_assetName'];
-			$ship_assetDesignation = $row['shm_assetDesignation'];
+			$ship_assetDesignation = $row['ship_asset_designationCode'];
 			$temp_player_id = $row['player_id'];
 			$ship_model_designation = $row['ship_model_designation'];
 			$ship_model_visible = $row['ship_model_visible'];
@@ -202,46 +202,69 @@
 								</div>
 								<table class=\"tooltip_shipTable2\">
 					";
-					//For Named Ships, Display Differently
-					if ($ship_canBeNamed == 1
-						&& $ship_assetDesignation != null && $ship_assetDesignation != ""
-						&& $ship_assetName != null && $ship_assetName != "")
+					if ($ship_assetDesignation != null && $ship_assetDesignation != "")
 					{
-						$display_player_ships .= "
-									<tr>
-										<td class=\"tooltip_shipTable2_key\">
-											<div class=\"tooltip_shipTable2_key_inner\">
-											Asset Designation
-											</div>
-										</td>
-										<td class=\"tooltip_shipTable2_value\">
-											<div class=\"tooltip_shipTable2_value_inner\" style=\"
-												font-weight: bold;
-												text-shadow: 0px 0px 8px #CCA300;
-											\">
-											$ship_assetDesignation-$shm_ship_vvarID
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class=\"tooltip_shipTable2_key\">
-											<div class=\"tooltip_shipTable2_key_inner\">
-											Asset Name
-											</div>
-										</td>
-										<td class=\"tooltip_shipTable2_value\">
-											<div class=\"tooltip_shipTable2_value_inner\" style=\"
-												font-weight: bold;
-												text-shadow: 0px 0px 8px #CCA300;
-											\">
-											VMNS $ship_assetName
-											</div>
-										</td>
-									</tr>
-						";
+						//For Named Ships, Display Differently
+						if ($ship_canBeNamed == 1
+							&& $ship_assetName != null && $ship_assetName != "")
+						{
+							$display_player_ships .= "
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Asset Designation
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\" style=\"
+													font-weight: bold;
+													text-shadow: 0px 0px 8px #CCA300;
+												\">
+												$ship_assetDesignation-$shm_ship_vvarID
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Asset Name
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\" style=\"
+													font-weight: bold;
+													text-shadow: 0px 0px 8px #CCA300;
+												\">
+												VMNS $ship_assetName
+												</div>
+											</td>
+										</tr>
+							";
+						}
+						else
+						{
+							$display_player_ships .= "
+										<tr>
+											<td class=\"tooltip_shipTable2_key\">
+												<div class=\"tooltip_shipTable2_key_inner\">
+												Asset Designation
+												</div>
+											</td>
+											<td class=\"tooltip_shipTable2_value\">
+												<div class=\"tooltip_shipTable2_value_inner\" style=\"
+													font-weight: bold;
+													text-shadow: 0px 0px 8px #CCA300;
+												\">
+												$ship_assetDesignation-$shm_ship_vvarID
+												</div>
+											</td>
+										</tr>
+							";					
+						}
 					}
 					else
 					{
+					
 						$display_player_ships .= "
 									<tr>
 										<td class=\"tooltip_shipTable2_key\">
@@ -255,7 +278,7 @@
 											</div>
 										</td>
 									</tr>
-						";					
+						";	
 					}
 						$display_player_ships .= "
 									<tr>

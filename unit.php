@@ -418,6 +418,16 @@
 			$mem_assigned_date = $row1['MemberAssigned'];
 			$mem_id = $row1['mem_id'];
 			
+			$unitLeaderTitle = "";
+			
+			if ($unitLevel == "Squadron")
+				$unitLeaderTitle = "Squadron Leader";
+			else if ($unitLevel == "Platoon")
+				$unitLeaderTitle = "Platoon Leader";
+			else
+				$unitLeaderTitle = "Commanding Officer";
+				
+			
 			if ($unitBackgroundImage == null || $unitBackgroundImage == '')
 			{
 				$unitBackgroundImage = $link_base.'/images/backgrounds/Gladius_01.jpg';
@@ -560,7 +570,7 @@
 						$display_details .= "
 						<tr class=\"shipDetails_info1_table_row\">
 							<td class=\"shipDetails_info1_table_row_td_key\">
-								Commanding Officer
+								$unitLeaderTitle
 							</td>
 							<td class=\"shipDetails_info1_table_row_td_value\">
 								<a style=\"text-decoration: none\" href=\"$link_base/player/$unitLeaderID\" target=\"_top\">$unitLeaderRank $unitLeaderName</a>
