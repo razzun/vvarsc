@@ -3391,7 +3391,6 @@ img.fleet:after {
 	top: 2px;
 	left: 2px;
 	background: rgba(0, 0, 0, 0.75) none repeat scroll 0% 0%;
-	font-size: 1em;
 	padding-left: 2px;
 	padding-right: 2px;
 	color: #DDD;
@@ -3400,6 +3399,7 @@ img.fleet:after {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	max-width: 90%;
+	font-size: 8pt;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {
@@ -3407,12 +3407,12 @@ img.fleet:after {
 	top: 86px;
 	left: 2px;
 	background: rgba(0, 0, 0, 0.75) none repeat scroll 0% 0%;
-	font-size: 0.9em;
 	padding-left: 2px;
 	padding-right: 2px;
 	color: #EEE;
 	font-style: italic;
 	font-weight: normal;
+	font-size: 6pt;
 }
 
 .divinfo_memAvatar_textOverlay_rankTinyImage {

@@ -548,7 +548,9 @@
 									</tr>
 								";
 							}
-							$display_details .= "								
+							if ($unitSlogan != null && $unitSlogan != "")
+							{
+							$display_details .= "
 								<tr class=\"shipDetails_info1_table_row\">
 									<td class=\"shipDetails_info1_table_row_td_key\">
 										Slogan
@@ -557,6 +559,9 @@
 										$unitSlogan
 									</td>
 								</tr>
+								";
+							}
+							$display_details .= "
 								<tr class=\"shipDetails_info1_table_row\">
 									<td class=\"shipDetails_info1_table_row_td_key\">
 										Radio Callsign

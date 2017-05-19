@@ -13,7 +13,6 @@
 	
 	print_r($_POST);
 
-
 	$MissionID = "";
 	$MissionUnitID = "";
 	$MissionUnitType = "";
@@ -44,7 +43,8 @@
 	$_SESSION['maintain_edit'] = 'true';
 	$q = "
 		UPDATE projectx_vvarsc2.MissionUnits set
-			MissionUnitObjectives = '$OpUnitObjectives'
+			UnitID = SUBSTRING('$UnitID',(LOCATE('_','$UnitID') + 1),LENGTH('$UnitID'))
+			,MissionUnitObjectives = '$OpUnitObjectives'
 		where MissionUnitID = '$MissionUnitID'
 			and MissionID = '$MissionID'
 	";

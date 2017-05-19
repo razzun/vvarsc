@@ -1561,7 +1561,7 @@
 				<label for="UnitID" class="adminDialogInputLabel">
 					Source Unit
 				</label>
-				<select name="UnitID" id="UnitID" class="adminDialogDropDown" disabled>
+				<select name="UnitID" id="UnitID" class="adminDialogDropDown">
 					<option selected disabled value="default" id="UnitID-default">
 						- Select a Unit -
 					</option>	
@@ -2665,7 +2665,7 @@
 <script>
 	$(document).ready(function($) {
 		$(".operationsListItemContainer").click(function() {
-			window.document.location = $(this).data("targetid");
+			window.document.location = $(this).data("url");
 		});
 	});	
 </script>

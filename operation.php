@@ -2617,7 +2617,7 @@
 <script>
 	$(document).ready(function($) {
 		$(".operationsListItemContainer").click(function() {
-			window.document.location = $(this).data("targetid");
+			window.document.location = $(this).data("url");
 		});
 	});	
 </script>
