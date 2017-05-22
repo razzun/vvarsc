@@ -69,6 +69,9 @@
 				</td>
 				<td class="links_table_cell_content">
 					<div class="links_table_cell_content_inner">
+						<a href="https://docs.google.com/document/d/1WqlYsNqtwgz1SugF1peg5Dby9o1qVjyb4hDIsgAQkYs/edit?usp=drivesdk" target="_blank">Flight Communications Guidelines</a>
+					</div>
+					<div class="links_table_cell_content_inner">
 						<a href="http://imperialnews.network/lis/" target="_blank">Legacy Instructional Series</a>
 					</div>
 				</td>
