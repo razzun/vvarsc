@@ -1603,7 +1603,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" required>
 					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
@@ -1658,7 +1658,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" required>
 					<option selected disabled value="" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
@@ -1768,7 +1768,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" required>
 					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
@@ -1828,7 +1828,7 @@
 				<label for="OpUnitMemberRoleID" class="adminDialogInputLabel">
 					Role
 				</label>
-				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown">
+				<select name="OpUnitMemberRoleID" id="OpUnitMemberRoleID" class="adminDialogDropDown" required>
 					<option selected disabled value="default" id="OpUnitMemberRoleID-default">
 						- Select a Role -
 					</option>	
