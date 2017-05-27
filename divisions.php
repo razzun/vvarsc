@@ -220,7 +220,7 @@
 							</div>
 							<div class=\"corner corner-bottom-right\">
 							</div>
-							<img class=\"divinfo_rankImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/$rank_image.png\" />
+							<img class=\"divinfo_rankImg_medium\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/$rank_image.png\" />
 						</div>
 						<div class=\"divinfo_tableCell_rankDetailsName\">
 							$rank_name
@@ -290,20 +290,34 @@
 		}
 		
 		$display_div .= "
-				<a href=\"$link_base/player/$mem_id_info\" target=\"_top\">
+				<a href=\"$link_base/player/$mem_id_info\" target=\"_top\" style=\"
+					text-decoration: none;
+					padding: 2px 2px 2px 0;
+					border-collapse: collapse;
+					width: 101%;
+				\">
 					<div class=\"divinfo_memAvatarContainer\">
-						<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/player_avatars/$mem_avatar_info.png\"/ style=\"
-								height:100px;
-								width:100px;
+						<div style=\"display: table-row;\">
+							<img class=\"divinfo_memAvatarImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/player_avatars/$mem_avatar_info.png\"/ style=\"
+									height:40px;
+									width:40px;
+									display: table-cell;
+								\">
+							<div style=\"
+								display: table-cell;
+								vertical-align: middle;
+								padding-left: 4px;
 							\">
-						<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
-							<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
-						</div>
-						<div class=\"divinfo_memAvatar_textOverlay_memName\">
-							$mem_name_info
-						</div>
-						<div class=\"divinfo_memAvatar_textOverlay_memRole\">
-							$mem_role_info
+								<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
+									<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
+								</div>
+								<div class=\"divinfo_memAvatar_textOverlay_memName\">
+									$mem_name_info
+								</div>
+								<div class=\"divinfo_memAvatar_textOverlay_memRole\">
+									$mem_role_info
+								</div>					
+							</div>
 						</div>
 					</div>
 				</a>

@@ -3262,7 +3262,7 @@ img.fleet:after {
 }
 
 .divinfo_tableCell_rankDetailsContainer {
-	width: 110px;
+	width: 80px;
 	border-left: 4px solid #1F4858;
 	padding-left: 8px;
 	display: table-cell;
@@ -3272,11 +3272,8 @@ img.fleet:after {
 	vertical-align: middle;
 	display: table-cell;
 	text-align: center;
-	height: 68px;
-	width: 68px;
 	position: relative;
-	padding-left: 16px;
-	padding-right: 16px;
+	padding: 2px 8px 2px 8px;
     background-color: rgba(2, 6, 14, 0.7);
     border: 1px solid #222;	
 	transition: all 0.4s ease 0s;
@@ -3285,6 +3282,11 @@ img.fleet:after {
 
 .divinfo_rankImg {
 	
+}
+
+.divinfo_rankImg_medium{
+	height: 40px;
+	width: 40px;
 }
 
 .divinfo_tableCell_rankDetailsName {
@@ -3313,10 +3315,9 @@ img.fleet:after {
 
 .divinfo_tableCell_membersTable {
 	display: inline-table;
-	padding: 4px;
 	width: 98%;
 	border-bottom: 1px solid rgba(31, 72, 88, 0.7);
-	margin-bottom: 4px;
+	height: 100%;
 }
 
 .divinfo_tableCell_membersTable_tableRow {
@@ -3324,7 +3325,7 @@ img.fleet:after {
 }
 
 .divinfo_tableCell_membersTable_tableCell {
-	text-align: center;
+	text-align: left;
     background: rgba(2, 6, 14, 0.45);
 	border: 1px solid rgba(0,0,0,0);
 	margin: 4px;
@@ -3334,12 +3335,8 @@ img.fleet:after {
 	border-top: 1px solid RGBA(160, 160, 160, 0.4);
 	border-right: 1px solid RGBA(160, 160, 160, 0.4);
 	border-bottom: 1px solid RGBA(160, 160, 160, 0.4);
-	padding-left: 8px;
-	/*
-	padding-top: 2px;
-	padding-right: 2px;
-	padding-bottom: 2px;
-	*/
+	padding-left: 4px;
+	width: 176px;
 }
 
 .divinfo_comm {
@@ -3387,38 +3384,34 @@ img.fleet:after {
 }
 
 .divinfo_memAvatar_textOverlay_memName {
-	position: absolute;
+	/*position: absolute;
 	top: 2px;
-	left: 2px;
+	left: 2px;*/
 	background: rgba(0, 0, 0, 0.75) none repeat scroll 0% 0%;
 	padding-left: 2px;
 	padding-right: 2px;
 	color: #DDD;
-	text-shadow: 0px 0px 8px #EDBD00;
+	text-shadow: 0px 0px 8px #00A0B6;
 	font-weight: normal;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	max-width: 90%;
+	width: 80px;
 	font-size: 8pt;
+	font-weight: bold;
+	white-space: nowrap;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {
-	position: absolute;
-	top: 86px;
-	left: 2px;
 	background: rgba(0, 0, 0, 0.75) none repeat scroll 0% 0%;
 	padding-left: 2px;
 	padding-right: 2px;
-	color: #EEE;
+	color: #BBB;
 	font-style: italic;
 	font-weight: normal;
 	font-size: 6pt;
 }
 
 .divinfo_memAvatar_textOverlay_rankTinyImage {
-	position: absolute;
-	top: 16px;
-	left: 4px;
 }
 
 .divinfo_memAvatarRankTinyImg {
@@ -4866,20 +4859,16 @@ img.fleet:after {
 		display: none;
 	}
 	
-	.divinfo_memAvatarContainer {
-		display: table;
-		border: none;
-		background: none;
-	}
-	
 	.divinfo_memAvatar_textOverlay_memName,
 	.divinfo_memAvatar_textOverlay_memRole,
 	.divinfo_memAvatar_textOverlay_rankTinyImage {
-		position: relative;
+		/*position: relative;
 		top: 0px;
 		left: 0px;
 		font-size: 1.0em;
 		display: table-cell;
+		*/
+		text-shadow: none;
 		vertical-align: middle;
 		background: none;
 	}
@@ -4905,7 +4894,7 @@ img.fleet:after {
 	
 	/*Divisions Page*/
 	.divinfo_memAvatar_textOverlay_memRole {
-		display: none;
+		
 	}
 	/*End Divisions Page*/	
 }
