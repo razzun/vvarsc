@@ -3335,7 +3335,7 @@ img.fleet:after {
 	border-top: 1px solid RGBA(160, 160, 160, 0.4);
 	border-right: 1px solid RGBA(160, 160, 160, 0.4);
 	border-bottom: 1px solid RGBA(160, 160, 160, 0.4);
-	padding-left: 4px;
+	padding-left: 2px;
 	width: 176px;
 }
 

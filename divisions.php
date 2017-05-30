@@ -211,19 +211,21 @@
 			$display_div .= "
 				<tr class=\"divinfo_tableRow\">
 					<td class=\"divinfo_tableCell_rankDetailsContainer\">
-						<div class=\"divinfo_tableCell_rankDetailsImgContainer\">
-							<div class=\"corner corner-top-left\">
+						<div style=\"display: table-cell;\">
+							<div class=\"divinfo_tableCell_rankDetailsImgContainer\">
+								<div class=\"corner corner-top-left\">
+								</div>
+								<div class=\"corner corner-top-right\">
+								</div>
+								<div class=\"corner corner-bottom-left\">
+								</div>
+								<div class=\"corner corner-bottom-right\">
+								</div>
+								<img class=\"divinfo_rankImg_medium\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/$rank_image.png\" />
 							</div>
-							<div class=\"corner corner-top-right\">
+							<div class=\"divinfo_tableCell_rankDetailsName\">
+								$rank_name
 							</div>
-							<div class=\"corner corner-bottom-left\">
-							</div>
-							<div class=\"corner corner-bottom-right\">
-							</div>
-							<img class=\"divinfo_rankImg_medium\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/$rank_image.png\" />
-						</div>
-						<div class=\"divinfo_tableCell_rankDetailsName\">
-							$rank_name
 						</div>
 					</td>
 					<td class=\"divinfo_tableCell_membersContainer\">
