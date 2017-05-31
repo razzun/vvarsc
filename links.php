@@ -23,7 +23,7 @@
 						<a href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F5%2F10" target="_blank">Fleet Structure Document</a>
 						<br />
 						<br />
-						<a href="https://forums.robertsspaceindustries.com/discussion/53591/vvarmachine-military-structured-self-sufficient-uee-friendly/" target="_blank">RSI Forums Recruitment Thread</a>
+						<a href="http://rsi.vvarmachine.com" target="_blank">RSI Forums Recruitment Thread</a>
 						<br />
 						<br />
 						<a href="https://robertsspaceindustries.com/orgs/VVAR" target="_blank">RSI Organization Page</a>
@@ -32,7 +32,27 @@
 						<a href="http://vvarmachine.com/forum/index.php?page=forumview&id=star-citizen-discussion" target="_blank">VVAR Star Citizen Forums</a>									
 					</div>
 				</td>
-			</tr>
+			</tr>			
+			<tr class="links_main_table_row">
+				<td class="links_table_cell_desc">					
+					<div class="links_table_cell_desc_inner">
+						<div class="corner corner-top-left">						
+						</div>
+						<div class="corner corner-top-right">
+						</div>
+						<div class="corner corner-bottom-left">
+						</div>
+						<div class="corner corner-bottom-right">
+						</div>
+						Fleet Videos
+					</div>
+				</td>
+				<td class="links_table_cell_content">
+					<div class="links_table_cell_content_inner">
+						<a href="https://youtube.com/watch?v=I5HvHtsOnXA" target="_blank">VVAR & UMEC Joint Ops</a>								
+					</div>
+				</td>
+			</tr>			
 			<tr class="links_main_table_row">
 				<td class="links_table_cell_desc">
 					<div class="links_table_cell_desc_inner">

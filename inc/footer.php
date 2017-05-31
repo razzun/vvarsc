@@ -18,7 +18,7 @@
 		<div class="corner2 corner-bottom-right">
 		</div>
 		<p>
-			<a href="http://vvarmachine.com" target="_top">VVARMachine Home</a> &bull; <a href="http://vvarmachine.com/index.php?page=cedi&type=misc&id=1%2F25" target="_top">About Us &#38; CoC</a>
+			<a href="http://vvarmachine.com" target="_top">VVARMachine Home</a> &bull; <a href="http://coc.vvarmachine.com" target="_top">About Us &#38; CoC</a>
 		</p>
 		<p>
 			<a href="http://www.russteicheira.net" target="_blank">RussTeicheira.net</a> &copy; 2012-<?php echo date("Y"); ?>
