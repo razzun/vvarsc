@@ -985,6 +985,54 @@
 		}
 		/*END SHIPS QUERY*/
 		
+		/*KILL STATS QUERY*/
+		$killStats_query = "
+			select
+				COUNT(case when k.KillType = 'Aerial' then 1 else null end) as 'AerialKillCount'
+				,COUNT(case when k.KillType = 'Aerial' and IsSoloKill = 1 then 1 else null end) as 'SoloAerialKillCount'
+				,COUNT(case when k.KillType = 'Infantry' then 1 else null end) as 'InfantryKillCount'
+				,COUNT(case when k.KillType = 'Infantry' and IsSoloKill = 1 then 1 else null end) as 'SoloInfantryKillCount'
+			from projectx_vvarsc2.MemberKills k
+			where k.MemberID = $player_id		
+		";
+		
+		$killStats_query_results = $connection->query($killStats_query);
+		
+		while(($row = $killStats_query_results->fetch_assoc()) != false)
+		{
+			$aerialKills = $row['AerialKillCount'];
+			$soloAerialKills = $row['SoloAerialKillCount'];
+			$infantryKills = $row['InfantryKillCount'];
+			$soloInfantryKills = $row['SoloInfantryKillCount'];
+		}		
+		
+		if (($aerialKills != null && $aerialKills != 0) ||
+			($infantryKills != null && $infantryKills != 0))
+		{
+			$display_player_killStats = "
+				<div class=\"p_rank_stats_entry\">
+					<div class=\"p_rank_stats_entry_key\">
+						Confirmed Air-to-Air Kills (solo)
+					</div>
+					<div class=\"p_rank_stats_entry_value\">
+						$soloAerialKills
+					</div>
+				</div>
+				<div class=\"p_rank_stats_entry\">
+					<div class=\"p_rank_stats_entry_key\">
+						Confirmed Infantry Kills (solo)
+					</div>
+					<div class=\"p_rank_stats_entry_value\">
+						$soloInfantryKills
+					</div>
+				</div>
+			";
+		}
+		else
+		{
+			$display_player_killStats = "- no combat records found -";
+		}
+		
     	$connection->close();
     } else {
         header("Location: ".$link_base."/?page=members");
@@ -1117,10 +1165,22 @@
 							<h4 style="
 								padding-top: 4px;
 							">
-								Completed Mission Statistics
+								Completed Missions
 							</h4>
 							<div id="p_mission_stats">
 								<? echo $display_player_missionStats; ?>
+							</div>
+						</div>
+						<!--Combat Stats-->
+						<div id="p_combat_stats_container">
+							<h4 style="
+								padding-top: 4px;
+							">
+								Combat Statistics
+							</h4>
+							<div id="p_combat_stats">
+								<? echo $display_player_killStats; ?>
+								<a href="../../combatRecord/<? echo $player_id; ?>" style="">View/Edit Combat Records</a>
 							</div>
 						</div>
 					</div>

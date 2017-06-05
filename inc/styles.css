@@ -983,7 +983,8 @@ table.tbmem a:hover {
 
 #p_rank_stats_container h4,
 #p_mission_stats_container h4,
-#p_general_stats_container h4
+#p_general_stats_container h4,
+#p_combat_stats_container h4
 {
 	padding-left: 0px;
 	margin-left: 0px;

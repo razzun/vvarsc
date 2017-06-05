@@ -595,7 +595,7 @@
 				{
 					$display_details .= "				
 						<div class=\"operationsListItem_MetaData_Right\" style=\"
-							width: 100%;
+							float: right;
 							font-size: 10pt;
 							margin-top: 4px;
 						\">
@@ -607,7 +607,87 @@
 						</div>
 					";
 				}
-				$display_details .= "
+				
+
+				/*KILL STATS QUERY*/
+				$killStats_query = "
+					select
+						COUNT(case when k.KillType = 'Aerial' then 1 else null end) as 'AerialKillCount'
+						,COUNT(case when k.KillType = 'Aerial' and IsSoloKill = 1 then 1 else null end) as 'SoloAerialKillCount'
+						,COUNT(case when k.KillType = 'Infantry' then 1 else null end) as 'InfantryKillCount'
+						,COUNT(case when k.KillType = 'Infantry' and IsSoloKill = 1 then 1 else null end) as 'SoloInfantryKillCount'
+					from projectx_vvarsc2.MemberKills k
+					where k.MemberID in (
+						select
+							um.MemberID
+						from projectx_vvarsc2.UnitMembers um
+						where um.UnitID = $UnitID
+					)
+				";
+				
+				$killStats_query_results = $connection->query($killStats_query);
+				
+				while(($row = $killStats_query_results->fetch_assoc()) != false)
+				{
+					$aerialKills = $row['AerialKillCount'];
+					$soloAerialKills = $row['SoloAerialKillCount'];
+					$infantryKills = $row['InfantryKillCount'];
+					$soloInfantryKills = $row['SoloInfantryKillCount'];
+				}
+
+				//AGGREGATE COMBAT STATISTICS
+				if ($unitLevel == "Squadron" || $unitLevel == "Platoon" || $unitLevel == "QRF")
+				{
+					$display_details .= "
+						<div class=\"pbio\" style=\"display: block;\">
+							<div class=\"p_details_container\">
+								<!--Combat Stats-->
+								<div id=\"p_combat_stats_container\">
+									<h4 style=\"
+										padding-top: 4px;
+									\">
+										Combat Statistics
+									</h4>
+									<div id=\"p_combat_stats\">
+										<div class=\"p_rank_stats_entry_header\" style=\"
+											
+										\">
+											<div class=\"player_qual_row_name noPadding\">
+												<strong>Confirmed Aerial KIA</strong>
+											</div>
+										</div>
+										<div class=\"p_rank_stats_entry\" style=\"display: inline-block;\">
+											<div class=\"p_rank_stats_entry_key\">
+												Total
+											</div>
+											<div class=\"p_rank_stats_entry_value\">
+												$aerialKills
+											</div>
+										</div>
+										<br />
+										<div class=\"p_rank_stats_entry_header\" style=\"
+											
+										\">
+											<div class=\"player_qual_row_name noPadding\">
+												<strong>Confirmed Infantry KIA</strong>
+											</div>
+										</div>
+										<div class=\"p_rank_stats_entry\" style=\"display: inline-block;\">
+											<div class=\"p_rank_stats_entry_key\">
+												Total
+											</div>
+											<div class=\"p_rank_stats_entry_value\">
+												$infantryKills
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					";
+				}
+
+				$display_details .= "				
 			</div>
 		</div>
 		";		
@@ -1032,11 +1112,6 @@
 		<? echo $displayEdit ?>
 	
 		<? echo $display_details ?>
-<!--
-<h3>
-	Unit Radio Callsign: <i><? echo $unitCallsign ?></i>
-</h3>
--->
 		
 		<? echo $displayUnitDescription1 ?>
 		<? echo nl2br($displayUnitDescriptionContent) ?>
