@@ -323,7 +323,7 @@
 					<ol>
 						<li>Minimum 2 Months TIS with the Fleet</li>
 						<li>Minimum 1 Month TIG for their Unit at E-4</li>
-						<li>Participation in a total of 6 Fleet Operations, including at least 2 in a Flight Leader or Squad Leader Role</li>
+						<li>Participation in a total of 6 Fleet Operations. For members being promoted to E-5 Flight Leader or Squad Leader, this count must include at least 2 in a Flight Leader or Squad Leader Role</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
 				</p>
