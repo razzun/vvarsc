@@ -1092,7 +1092,6 @@
 			";
 			
 			$CurrentUnitID = $opUnitsListItem_UnitID;
-			$UnitIndex = 1;
 		}
 		
 		//Close List of Units

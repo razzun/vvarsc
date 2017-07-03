@@ -309,16 +309,17 @@
 								display: table-cell;
 								vertical-align: middle;
 								padding-left: 4px;
+								width: 100%;
 							\">
 								<div class=\"divinfo_memAvatar_textOverlay_rankTinyImage\">
 									<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
 								</div>
 								<div class=\"divinfo_memAvatar_textOverlay_memName\">
 									$mem_name_info
-								</div>
+								</div>	
 								<div class=\"divinfo_memAvatar_textOverlay_memRole\">
 									$mem_role_info
-								</div>					
+								</div>				
 							</div>
 						</div>
 					</div>

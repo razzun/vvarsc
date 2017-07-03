@@ -3315,7 +3315,7 @@ img.fleet:after {
 }
 
 .divinfo_tableCell_membersTable {
-	display: inline-table;
+	display: table;
 	width: 98%;
 	border-bottom: 1px solid rgba(31, 72, 88, 0.7);
 	height: 100%;
@@ -3396,10 +3396,11 @@ img.fleet:after {
 	font-weight: normal;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	width: 80px;
-	font-size: 8pt;
+	font-size: 9pt;
 	font-weight: bold;
 	white-space: nowrap;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {
@@ -3413,6 +3414,7 @@ img.fleet:after {
 }
 
 .divinfo_memAvatar_textOverlay_rankTinyImage {
+	display: table-cell;
 }
 
 .divinfo_memAvatarRankTinyImg {
