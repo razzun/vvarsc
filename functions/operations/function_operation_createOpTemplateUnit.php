@@ -12,7 +12,6 @@
 	require_once('../../dbconn/dbconn.php');
 	
 	print_r($_POST);
-
 	$OpTemplateID = "";
 	$OpTemplateUnitType = "";
 	$UnitID = "";

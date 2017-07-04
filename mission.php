@@ -1994,7 +1994,7 @@
 			});
 		});
 		
-		//Delete Operation (misison)
+		//Delete Operation (mission)
 		$('#ButtonDeleteOperation').click(function() {
 			var dialog = $('#dialog-form-delete-operation');
 			

@@ -127,13 +127,11 @@
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_edit.png\">
 					</button>
-					<!--
 					<button id=\"ButtonDeleteOperation\" class=\"adminButton adminButtonDelete\" title=\"Delete Operation\"style=\"
 						margin: 0px;
 					\">
 						<img height=\"20px\" class=\"adminButtonImage\" src=\"$link_base/images/misc/button_delete.png\">
 					</button>
-					-->
 				</div>
 			";
 		}		
@@ -1277,6 +1275,42 @@
 				</div>	
 		</form>
 	</div>
+	
+	<!--Delete Operation Form-->
+	<div id="dialog-form-delete-operation" class="adminDialogFormContainer" style="max-width:80%;min-width:50%">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">WARNING - You are about to delete this Operation Plan Template. This is a non-reversible operation.</p>
+		<form class="adminDialogForm" action="<? $link_base; ?>/functions/operations/function_operation_deleteOpTemplate.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="MissionID" class="adminDialogInputLabel" style="display: none">
+					OperationID
+				</label>
+				<input type="none" name="MissionID" id="MissionID" value="" class="adminDialogTextInput" readonly style="display: none">
+				
+				<label for="OperationName" class="adminDialogInputLabel">
+					Name
+				</label>
+				<input type="text" name="OperationName" id="OperationName" value="" class="adminDialogTextInput" required autofocus readonly>
+				
+				<label for="OperationType" class="adminDialogInputLabel">
+					Type
+				</label>
+				<input type="text" name="OperationType" id="OperationType" value="" class="adminDialogTextInput" required readonly>
+				
+				<label for="StartingLocation" class="adminDialogInputLabel">
+					Starting Location
+				</label>
+				<input type="text" name="StartingLocation" id="StartingLocation" value="" class="adminDialogTextInput" readonly>
+			</fieldset>
+				<div class="adminDialogButtonPane">
+					<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+						Submit
+					</button>
+				</div>	
+		</form>
+	</div>
 
 	<!--Create OpUnit Form-->
 	<div id="dialog-form-create-opUnit" class="adminDialogFormContainer" style="max-width:80%;min-width:50%">	
@@ -1921,6 +1955,35 @@
 			});
 		});
 		
+		//Delete Operation
+		$('#ButtonDeleteOperation').click(function() {
+			var dialog = $('#dialog-form-delete-operation');
+			
+			var $self = jQuery(this);
+			
+			var operationID = $self.parent().parent().data("operationid");
+			var operationName = "<? echo $operationDetails_Name ?>";
+			var operationType = "<? echo $operationDetails_Type ?>";
+			var startingLocation = "<? echo $operationDetails_StartingLocation ?>";
+			
+			dialog.find('#MissionID').val(operationID).text();
+			dialog.find('#OperationName').val(operationName).text();
+			dialog.find('#OperationType').val(operationType).text();
+			dialog.find('#StartingLocation').val(startingLocation).text();
+			
+			dialog.show();
+			overlay.show();
+			$('.operation_main_container').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+			$('#filtersContainer_OpMenu_Show').css({
+				filter: 'blur(2px)'
+			});
+		});	
+		
 		//Add Unit
 		$('#ButtonAddOpUnit').click(function() {
 			var dialog = $('#dialog-form-create-opUnit');
@@ -2079,7 +2142,7 @@
 				}
 			});
 			dialog.find('#OpTemplateUnitType').trigger('change');			
-		});
+		});		
 		//Remove Unit
 		$('.ButtonDeleteOpUnit').click(function() {
 			var dialog = $('#dialog-form-delete-opUnit');
@@ -2392,6 +2455,7 @@
 			
 			//Hide All Dialog Containers
 			$('#dialog-form-edit-operation').hide();
+			$('#dialog-form-delete-operation').hide();
 			
 			$('#dialog-form-create-opUnit').hide();
 			$('#dialog-form-edit-opUnit').hide();
