@@ -237,7 +237,15 @@
 						
 						<div class=\"divinfo_tableCell_membersTable\">
 			";
-		}		
+		}
+		
+		//Separator Between Ranks within a Group
+		if ($currentRankOrder != $previousRankOrder)
+		{
+			$display_div .= "
+				<br />
+			";
+		}
 		
 		//Command Division
 		if ($mem_div_info == "Command")
@@ -294,14 +302,6 @@
 		{
 			$display_div .= "
 				<div class=\"divinfo_tableCell_membersTable_tableCell\">";
-		}
-		
-		//Separator Between Ranks within a Group
-		if ($currentRankOrder != $previousRankOrder)
-		{
-			$display_div .= "
-				<br />
-			";
 		}
 		
 		$display_div .= "
