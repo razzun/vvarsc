@@ -296,6 +296,14 @@
 				<div class=\"divinfo_tableCell_membersTable_tableCell\">";
 		}
 		
+		//Separator Between Ranks within a Group
+		if ($currentRankOrder != $previousRankOrder)
+		{
+			$display_div .= "
+				<br />
+			";
+		}
+		
 		$display_div .= "
 				<a href=\"$link_base/player/$mem_id_info\" target=\"_top\" style=\"
 					text-decoration: none;
@@ -332,13 +340,6 @@
 				
 			</div>
 		";
-		
-		if ($currentRankOrder != $previousRankOrder)
-		{
-			$display_div .= "
-				<br />
-			";
-		}
 		
 		$previousGroup = $currentGroup;
 		$previousRankOrder = $currentRankOrder;
