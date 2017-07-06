@@ -238,13 +238,16 @@
 						<div class=\"divinfo_tableCell_membersTable\">
 			";
 		}
-		
-		//Separator Between Ranks within a Group
-		if ($currentRankOrder != $previousRankOrder)
+		else
 		{
-			$display_div .= "
-				<br />
-			";
+			//Separator Between Ranks within a Group
+			if ($currentRankOrder != $previousRankOrder)
+			{
+				$display_div .= "
+					<br />
+					<br />
+				";
+			}
 		}
 		
 		//Command Division
@@ -343,7 +346,6 @@
 		
 		$previousGroup = $currentGroup;
 		$previousRankOrder = $currentRankOrder;
-		
 	}
 	
 	//Close Last Row
