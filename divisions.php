@@ -16,6 +16,7 @@
 			,s1.mem_avatar_link as mem_avatar_info
 			,s1.role_name as mem_role_info
 			,s1.div_name as mem_div_info
+			,s1.rank_orderby
 		from
 		(
 		";
@@ -176,6 +177,8 @@
 		
 	$previousGroup = "";
 	$currentGroup = "";
+	$previousRankOrder = "";
+	$currentRankOrder = "";
 	
 	while (($row = $div_query_results->fetch_assoc()) != false)
 	{
@@ -189,8 +192,10 @@
 		$mem_role_info = $row['mem_role_info'];
 		$mem_rank_info = $row['mem_rank_info'];
 		$mem_div_info = $row['mem_div_info'];
+		$rank_orderby = $row['rank_orderby'];
 		
 		$currentGroup = $rank_name;
+		$currentRankOrder = $rank_orderby;
 		
 		//If This is a New Group, Open a New Row and Title
 		if ($currentGroup != $previousGroup)
@@ -328,7 +333,15 @@
 			</div>
 		";
 		
+		if ($currentRankOrder != $previousRankOrder)
+		{
+			$display_div .= "
+				<br />
+			";
+		}
+		
 		$previousGroup = $currentGroup;
+		$previousRankOrder = $currentRankOrder;
 		
 	}
 	
