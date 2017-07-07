@@ -3404,6 +3404,7 @@ img.fleet:after {
 	white-space: nowrap;
 	display: table-cell;
 	vertical-align: middle;
+	max-width: 100px;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {
