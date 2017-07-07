@@ -3319,6 +3319,9 @@ img.fleet:after {
 	height: 100%;
 	margin-left: 24px;
 	margin-right: 24px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	display: inline-table;
 }
 
 .divinfo_tableCell_membersTable_tableRow {
@@ -4835,13 +4838,14 @@ img.fleet:after {
 	.divinfo_tableCell_membersContainer
 	{
 		background-image: none;
+		border-left: 1px solid rgba(31,72,88,0.7);
+		border-top: 1px solid rgba(31,72,88,0.7);
 	}
 	
 	
-	
 	.divinfo_tableCell_membersTable {
-		margin-top: 0px;
-		padding: 0px;
+		margin-left: 2px;
+		margin-right: 2px;
 	}
 	
 	.divinfo_tableCell_membersTable_tableCell {
