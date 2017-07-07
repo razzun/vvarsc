@@ -3301,7 +3301,7 @@ img.fleet:after {
 
 .divinfo_tableCell_membersContainer {
 	vertical-align: middle;
-	text-align: center;
+	text-align: left;
 	display: table-cell;
 	border-bottom: 1px solid #1F4858;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -3314,10 +3314,11 @@ img.fleet:after {
 }
 
 .divinfo_tableCell_membersTable {
-	display: table;
-	width: 98%;
-	border-bottom: 1px solid rgba(31, 72, 88, 0.7);
+	width: auto;
+	border-bottom: 1px solid rgba(31,72,88,0.7);
 	height: 100%;
+	margin-left: 24px;
+	margin-right: 24px;
 }
 
 .divinfo_tableCell_membersTable_tableRow {
