@@ -27,7 +27,7 @@
 				<h4 class="WikiH4">Unit Types</h4>
 				<h5 class="WikiH5">Squadrons & Platoons</h5>
 				<div class="WikiText">
-					Our Military Division is built using a unit-hierarchy system. The lowest-level of the tree, and smallest permanent units are <strong>Squadrons</strong> and <strong>Platoons</strong>. These units are commanded by Junior Officers (O-2, O-3, O-4). Each Squadron or Platoon will sortie one or more <strong>Flights</strong> or <strong>Squads</strong> for organized operations. These Flights/Squads are led by NCOs, but are not considered Permanent Units within the Fleet.
+					Our Military Division is built using a unit-hierarchy system. The lowest-level of the tree, and smallest permanent units are <strong>Squadrons</strong> and <strong>Platoons</strong>. These units are commanded by Junior Officers (O-1, O-2, O-3). At times, especially when an Officer is promoted and assigned to a higher command, authority to lead a Squadron or Platoon will be delegated to a Senior NCO of that unit. Each Squadron or Platoon will sortie one or more <strong>Flights</strong> or <strong>Squads</strong> for organized operations. These Flights/Squads are led by NCOs, but are not considered Permanent Units within the Fleet.
 					<br />
 					<br />
 					For air units, a Flight normally consists of at least 2 ships, and the number of ships per Flight will vary based on the type of equipment operated by each Squadron during a particular operation. In some cases, especially with larger multi-crew ships, a single vessel may comprise the entire Flight.
@@ -40,46 +40,41 @@
 				</div>
 				<h5 class="WikiH5">Air-Wings & Marine Combat Teams</h5>
 				<div class="WikiText">
-					Moving up the hierarchy tree, we find the <strong>Air Wing</strong> and <strong>Marine Combat Team</strong> units. These units will only be activated once there are an adequate number of established Squadrons/Platoons existing below them, and there is a need for a parent-unit to be created for oversight in planning and operational execution. Due to constraints inherent to the numbering system described below, a single Air Wing can contain a maximum of 9 Squadrons. The Air Wing and Combat Team units will be commanded by an Officer of at-least O-5 PayGrade, assisted by an O-4. Their command staff may also include additional Officers, and Senior NCOs serving as advisers.
-				</div>
-				<h5 class="WikiH5">Combat Groups</h5>
-				<div class="WikiText">
-					The next level in the tree holds the <strong>Combat Group</strong> units. These units are commanded by a Senior Officer (at least O-6 PayGrade), along with an O-5 Senior Officer serving as the unit's Executive Officer (XO) and second-in-command. In addition, one or more Senior NCO members may be assigned to the unit to serve as an adviser, or perform highly-specialized roles outside of the normal duties of the units below them. As is the case with lower units, the formation of a Combat Group will only take place when there is a need for a parent-unit to be created for oversight in planning and operational execution for its children.
+					Moving up the hierarchy tree, we find the <strong>Air Wing</strong> and <strong>Marine Combat Team</strong> units. These units will only be activated once there are an adequate number of established Squadrons/Platoons existing below them, and there is a need for a parent-unit to be created for oversight in planning and operational execution. Due to constraints inherent to the numbering system described below, a single Air Wing can contain a maximum of 9 Squadrons. The Air Wing and Combat Team units will be commanded by an Officer of at-least O-3 PayGrade. Their command staff may also include additional Officers, and Senior NCOs serving as advisers or specialists.
 				</div>
 				<h5 class="WikiH5">Warfare Commands</h5>
 				<div class="WikiText">
-					Next comes the level of <strong>Warfare Commands</strong>. These units serve as the single, static container for all units of a certain combat discipline (Air Warfare, Surface Warfare, and Special Warfare). The list of Warfare Commands is also static, meaning there will never be multiple commands of the same type within the Military Division. This ensures that regardless of how large the Fleet grows, there is a single point-of-control for all units of a certain discipline directly beneath the MILDIV HQ. Warfare Commands are led by a Flag Officer of O-9 PayGrade, assisted by another Senior Officer of at-least O-6 PayGrade. In addition, just like Combat Group units, additional Officers and Senior NCOs can be assigned to this level as advisers or specialized operatives performing unconventional roles for their Division.
+					Next comes the level of <strong>Warfare Commands</strong>. These units serve as the single, static container for all units of a certain combat discipline (Air Warfare, Surface Warfare (Marine), and Special Warfare). The list of Warfare Commands is also static, meaning there will never be multiple commands of the same type within the Military Division. This ensures that regardless of how large the Fleet grows, there is a single point-of-control for all units of a certain discipline directly beneath the MILDIV HQ. Warfare Commands are led by a Senior Officer of at-least O-5 PayGrade, assisted by another Senior Officer of at-least O-4 PayGrade. Futhermore, additional Officers and Senior NCOs can be assigned to this level as advisers or specialized operatives performing unconventional roles for their Command.
 				</div>
 				<h5 class="WikiH5">Division</h5>
 				<div class="WikiText">
-					Finally, we reach the level of the Division Headquarters (DIV HQ). While units at the level of Air Wing/MSWT, or Combat Group will not exist until needed, the DIV HQ is already established with leadership assigned. This means that any lower-level units will report directly to DIV HQ until the Fleet grows enough to create their immediate parent units. Each Division HQ is commanded by a Flag Officer (Admiral) of O-9 PayGrade, who is assisted by a Senior Officer of at-least O-6 PayGrade. In addition, just like Combat Groups and Warfare Commands, Senior NCOs will be present and assigned as advisers or specialized operatives performing unconventional roles for their Division or the Fleet. DIV HQ may also include other Officers working in non-operational roles such as Intelligence, Finance, Public Relations, Recruitment, etc.
+					Finally, we reach the level of the Division Headquarters (DIV HQ). While units at the levels of Air Wing/Combat Team and Warfare Command will not be activated until needed, the DIV HQ is already established with leadership assigned. This means that any lower-level units will report directly to DIV HQ until the Fleet grows enough to create their immediate parent units. Each Division HQ is commanded by a Flag Officer (Admiral) of at-least O-7 PayGrade, who is assisted by a Senior Officer of at-least O-5 PayGrade. In addition, just like Combat Groups and Warfare Commands, Senior NCOs will be present and assigned as advisers or specialized operatives performing unconventional roles for their Division or the Fleet. DIV HQ may also include other Officers working in non-operational roles such as Intelligence, Finance, Public Relations, Recruitment, etc.
 				</div>
 				<br />
 				<h4 class="WikiH4">Unit Numbering and Naming</h4>
 				<div class="WikiText">
-					Larger-size units such as Combat Groups and Air Wings/Combat Teams are numbered in the order they are created - meaning that the first Air Combat Group created within the Military Division will be numbered and named "1st Air Combat Group".
+					Larger-size units such as Air Wings/Combat Teams are numbered in the order they are created. Air Wing numbers are unique across the entire Fleet, as they are used both within Naval Air Forces Command (NAVAIRFORCOM) and Naval Special Warfare Command (NAVSPECWARCOM). Air Wings are not numbered by type - examples of this are "Fighter Wing 1", "Strike Wing 2", etc. There will be no reuse of these numbers within the Fleet. If a new Air Wing needs to be created, it will take-on the lowest available number after all other established Air Wings, regardless of its purpose.
 					<br />
 					<br />
-					For Air Wings, these are also numbered by type - examples of this are "1st Fighter Wing", "1st Bomber Wing", etc. There will be no reuse of these names within the Fleet. The second Fighter Wing established will be called the "2nd Fighter Wing", regardless of which Air Combat Group it belongs to.
+					For Marine Combat Teams, these are simply numbered in the order of creation, based on their type. The examples would be "Infantry Combat Team 1 (ICT 1)","ICT 2", "Armored Combat Team 1 (ACT 1)", etc.
 					<br />
 					<br />
-					For Marine Combat Teams, these are simply numbered in the order of creation, regardless of the Combat Group to which they belong. The examples would be "ICT 1","ICT 2", etc.
+					All Squadrons within the Fleet are designated with a three-digit number, indicative of the Air Wing to which they belong. Squadron numbering starts at 110, with numbers 110 through 119 reserved for units of Fighter Wing 1, and Strike Wing 2 having Squadron numbers 120 through 129. This pattern continues for all Air Wings within the Fleet. The 2nd digit of the Squadron number will always match the Air Wing's number.
 					<br />
 					<br />
-					Squadrons are named with a three-digit number, indicative of their Air Combat Group's number, and the type of Squadron. The rules for these numberings are defined below, where "X" refers to the Air Combat Group's (or Special Operations Group's) number:
-					<br />
-					<br />
+					In addition, Squadrons are given a multi-letter designation. The complete alphanumerical designation of each Squadron is a combination of their unique 3-digit number, and letters signifying their roles, responsibilities, and capabilities. All Squadron Designations start with the letter “V”. This is a remnant of historical Naval Air Forces using this letter for all fixed-wing aircraft Squadrons, as opposed to rotary-wing aircraft. The subsequent letters in the designation are defined below - this list may be expanded as needs change.
 					<ul class="WikiOL">
-						<li><strong>Fighter Squadrons:</strong> X11 through X19</li>
-						<li><strong>Strike Squadrons:</strong> X21 through X29</li>
-						<li><strong>Primary SOC Air Squadrons:</strong> X31 through X39</li>
-						<li><strong>Support SOC Air Squadrons:</strong> X41 through X49</li>
+						<li><strong>A:</strong> Attack / Bomber</li>
+						<li><strong>C:</strong> Transport</li>
+						<li><strong>F:</strong> Fighter</li>
+						<li><strong>M:</strong> Medical / Rescue</li>
+						<li><strong>Q:</strong> Electronic Warfare</li>
+						<li><strong>R:</strong> Recon & Surveillance</li>
+						<li><strong>T:</strong> Training</li>
 					</ul>
 					<br />
-					For Example, the "2nd Air Combat Group" may contain the "8th Fighter Wing" and the "4th Bomber Wing", with each Wing's Squadrons being numbered 211th through 219th, and 221st through 229th, respectively - note how the number assigned to the Air Wing has no impact on the Squadron's number. The 2nd digit is derived from the type of Squadron, and is consistent across Air Wings in the entire Fleet. Based on this system, there can only be one Squadron within the entire Fleet with a given three-digit number.
 					<br />
-					<br />
-					For Marine Platoons, these are numbered in-order of creation within an Combat Team ("1st Platoon", "2nd Platoon", etc), where names will be reused between Combat Teams.
+					For Marine Platoons, these simply are numbered in-order of creation within an Combat Team ("1st Platoon", "2nd Platoon", etc), where numbers will be reused between Combat Teams.
 				</div>
 			</div>
 			<br />
@@ -95,7 +90,7 @@
 				</div>
 				<h4 class="WikiH4">Unit Types</h4>
 				<div class="WikiText">
-					At this time, our Economic Division doesn't contain permanent Organizational Units (OrgUnits) like our Military Division. Due to the ECONDIV's primary responsibility being the financing and supply of our MILDIV Forces, the required tasks to be performed by the ECONDIV will vary with a high degree of frequency, based on the needs of the MILDIV at a given time. Despite this difference in organization, our ECONDIV will still utilize the <a href="<? $link_base; ?>/wiki/?page=ranks">Rank Structure</a> defined for our Fleet, along with a certification system designed to identify members who have attained skills in particular areas of gameplay, and assign them into positions of leadership (both NCO and Officer positions) for commanding <a href="<? $link_base; ?>/wiki/?page=operations">Operational Units</a> (OpUnits) during a given mission or campaign.
+					At this time, our Economic Division doesn't contain permanent Organizational Units (OrgUnits) like our Military Division. Due to the ECONDIV's primary responsibility being the financing and supply of our MILDIV Forces, the required tasks to be performed by the ECONDIV will vary with a high degree of frequency, based on the needs of the MILDIV at a given time. Despite this difference in organization, our ECONDIV will still utilize the <a href="<? $link_base; ?>/wiki/?page=ranks">Rank Structure</a> defined for our Fleet, along with a <a href="<? $link_base; ?>/wiki/?page=qual">Qualification system</a> designed to identify members who have attained skills in particular areas of gameplay, and assign them into positions of leadership (both NCO and Officer positions) for commanding <a href="<? $link_base; ?>/wiki/?page=operations">Operational Units</a> (OpUnits) during a given mission or campaign.
 				</div>
 				<h4 class="WikiH4">Economic Division Roles/Tasks</h4>
 				<div class="WikiText">
@@ -113,7 +108,10 @@
 				</div>
 				<h4 class="WikiH4">Qualification System</h4>
 				<div class="WikiText">
-					Information on this system is being actively developed by ECONDIV HQ and will be forthcoming in the near future.
+					Regardless of a player's unit assignment, they can always choose to develop their knowledge in multiple areas of gameplay, and earn various Qualification Ratings (QR). Each QR is broken into three levels: Basic, Intermediate, and Advanced proficiency. The highest level of each QR also siginfies the ability for said member to perform leadership and training of the duties related to that QR.
+					<br />
+					<br />
+					QRs are developed, managed, and adminstered by various Officers within the Fleet. In a majority of cases, the Officer governing a QR is also the CO for one or more units that require the QR for their members. For example, QRs related to Fighter Pilots are managed by the leadership of Fighter Wing 1, and members wishing to earn a QR of that type will work with those Officers to perform their QR exam and show that they have the required knowledge. QRs are continuning to be developed, and will constantly be refined as more information about the game is released in the future. A list of current Qualifications is available on this Wiki, including descriptions for requirements of each QR level. Specific requirements for the exam at each level are owned by the CO governing that QR.
 				</div>
 			</div>			
 			
