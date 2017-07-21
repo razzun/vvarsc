@@ -461,7 +461,6 @@
 					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
 					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
 					<li style="color: #FFF;">Division Executive Officer (Military)</li>
-					<li style="color: #FFF;">Office Senior Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
