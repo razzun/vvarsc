@@ -564,8 +564,9 @@
 				<ul style="
 					margin-top: 0
 				">
+					<li style="color: #FFF;">Air Wing Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Combat Team Senior Enlisted Advisor</li>
 					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Division Senior Enlisted Advisor</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
 				<p style="
@@ -646,8 +647,9 @@
 				<ul style="
 					margin-top: 0
 				">
+					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
 					<li style="color: #FFF;">Division Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Fleet Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Fleet Senior Enlisted Advisor (E-9 variant FMCPO used here)</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
 				<p style="
