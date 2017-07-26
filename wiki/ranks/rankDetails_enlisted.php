@@ -400,7 +400,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-6 is the highest of the NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. E-6 Members are typically seen performing the role of Assistant Squadron or Platoon Leader, working closely with the Unit's CO on duties such as personnel training, unit branding / public relations, recruitment, and operational planning.
+					E-6 is the highest of the NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. Promotion to E-6 is normally accompanied by an assignment to a combat-leadership position within a Squadron / Platoon, or as a specialist serving at a higher level HQ unit. E-6 Members are also seen performing the role of Assistant Squadron or Platoon Leader, working closely with the Unit's CO on duties such as personnel training, unit branding / public relations, recruitment, and operational planning.
 					<br />
 					<br />
 					In periods of Fleet re-structuring due to expansion, E-6 Members may be selected for a <strong>Commission</strong> to Officer Status (O-1) to begin their path towards commanding a newly created Unit of the same type.
@@ -409,8 +409,8 @@
 					<strong>Advancement from E-5 to E-6 requires the following:</strong>
 					<ol>
 						<li>Minimum 3 Months TIS with the Fleet</li>
-						<li>Minimum 1 Month TIG for their Unit at E-5, serving in a Flight Leader or Squad Leader Role</li>
-						<li>Participation in a total of 10 Fleet Operations, including at least 5 in a Flight or Squad Leader Role</li>
+						<li>Minimum 1 Month TIG for their Unit at E-5</li>
+						<li>Participation in a total of 10 Fleet Operations</li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
 				</p>
