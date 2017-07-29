@@ -207,6 +207,10 @@
 					</div>					
 				</div>
 			</div>
+			
+			<h4 class=\"operations_h4\">
+				Mission Data
+			</h4>
 			<div class=\"operationsListItem_MetaData_Right\">
 				<div class=\"clickableRow_memRank_inner\" style=\"
 					display: inline-table;
@@ -227,10 +231,6 @@
 					</div>
 				</div>
 			</div>
-			
-			<h4 class=\"operations_h4\">
-				Mission Data
-			</h4>
 			<div class=\"WikiText OperationText\" style=\"
 				background: none;
 				margin-left: 0px;
