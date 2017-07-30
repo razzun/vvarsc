@@ -3301,7 +3301,7 @@ img.fleet:after {
 
 .divinfo_tableCell_membersContainer {
 	vertical-align: middle;
-	text-align: left;
+	text-align: center;
 	display: table-cell;
 	border-bottom: 1px solid #1F4858;
 	background-color: rgba(0, 0, 0, 0.8);
