@@ -3412,7 +3412,8 @@ img.fleet:after {
 	color: #BBB;
 	font-style: italic;
 	font-weight: normal;
-	font-size: 6pt;
+	font-size: 7pt;
+	margin-top: 4px;
 }
 
 .divinfo_memAvatar_textOverlay_rankTinyImage {
