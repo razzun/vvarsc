@@ -391,6 +391,8 @@
 				<ul style="
 					margin-top: 0
 				">
+					<li style="color: #FFF;">Air Wing Commanding Officer (holding)</li>
+					<li style="color: #FFF;">Combat Team Commanding Officer (holding)</li>
 					<li style="color: #FFF;">Warfare Command Executive Officer</li>
 					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
 					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
