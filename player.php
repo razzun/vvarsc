@@ -773,7 +773,7 @@
 				um.RoleCategory
 							
 		";
-		
+		$display_player_missionStats = null;
 		$missionParticipationStats_query_results = $connection->query($missionParticipationStats_query);
 		
 		while(($row = $missionParticipationStats_query_results->fetch_assoc()) != false)
@@ -812,6 +812,11 @@
 					</div>
 				</div>
 			";			
+		}
+		
+		if ($display_player_missionStats == null)
+		{
+			$display_player_missionStats = "- no mission records found -";
 		}
 		
 		if ($rank_groupName == "Officer" || $rank_groupName == "Senior Officer" || $rank_groupName == "Flag Officer" || $rank_groupName == "Officer Candidate")
