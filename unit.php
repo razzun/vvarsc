@@ -775,18 +775,7 @@
 							,m.mem_callsign as UnitLeaderName
 							,m.rank_tinyImage as LeadeRankImage
 							,m.rank_abbr as LeaderRankAbbr
-							,case
-								when u.UnitLevel = 'Fleet' then 1
-								when u.UnitLevel = 'Department' then 2
-								when u.UnitLevel = 'Division' then 3
-								when u.UnitLevel = 'Command' then 4
-								when u.UnitLevel = 'Group' then 5
-								when u.UnitLevel = 'Wing' then 6
-								when u.UnitLevel = 'Company' then 6
-								when u.UnitLevel = 'Squadron' then 7
-								when u.UnitLevel = 'Platoon' then 7
-								when u.UnitLevel = 'QRF' then 7
-							end as SortOrder
+							,u.UnitCode as SortOrder
 						from projectx_vvarsc2.Units u
 						left join (
 							select
