@@ -205,7 +205,7 @@
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
 						<li>Minimum 4 Months TIS for the Fleet</li>
-						<li>Minimum 2 Months TIG for their Unit at O-1</li>
+						<li>Minimum 1 Month TIG for their Unit at O-1</li>
 						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
 						<li>Promotion Approval by Division Headquarters</li>
 					</ol>
