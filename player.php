@@ -1234,6 +1234,8 @@
 				<? echo $display_qual_edit ?>
 				<div style="
 					width:100%;
+					max-height: 280px;
+					overflow-y: scroll;
 				">
 					<table class="player_qualifications">
 						<? echo $display_player_qualifications; ?>
