@@ -9,8 +9,18 @@
 			,a.IsActive
 			,a.AwardRequirements
 			,a.AwardOrderBy
+            ,COUNT(distinct ma.MemberID) as AwardedCount
 		from projectx_vvarsc2.Awards a
+        left join projectx_vvarsc2.member_Awards ma
+			on ma.AwardID = a.AwardID
 		where a.IsActive = 1
+		group by
+			a.AwardID
+			,a.AwardName
+			,a.AwardImage
+			,a.IsActive
+			,a.AwardRequirements
+			,a.AwardOrderBy
 		order by
 			a.AwardOrderBy
 			,a.AwardName
@@ -27,6 +37,7 @@
 		$awardIsActive = $row['IsActive'];
 		$awardReqs = $row['AwardRequirements'];
 		$awardOrderBy = $row['AwardOrderBy'];
+		$awardedCount = $row['AwardedCount'];
 		
 		$awardIsActiveDisplay = "";
 		$awardReqsDisplay = "";
@@ -72,9 +83,17 @@
 						<br />
 					</div>
 				</div>
+				<div style=\"
+					padding-left: 8px;
+					font-size: 8pt;
+					font-style: italic;
+				\">
+					Recipients: $awardedCount
+				</div>
 				<div class=\"shipyard_mainTable_row_content\" style=\"
 					padding-top:0px;
 					width: 100%;
+					border-top: none;
 				\">
 					<div class=\"shipDetails_ownerInfo_tableRow_inner\" style=\"
 						display: inline-block;
@@ -97,14 +116,7 @@
 							</div>
 							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:22px;width:80px;vertical-align:middle;\"src=\"../images/awards/$awardImage\" />					
 						</div>
-					</div>				
-					<h4 style=\"
-						padding: 0px 8px 0px 8px;
-						margin-left: 0;
-						font-size: 12pt;
-					\">
-						Requirements
-					</h4>
+					</div>
 					<div class=\"qual_reqs\" style=\"
 						padding-left: 12px;
 						font-size: 9pt;
