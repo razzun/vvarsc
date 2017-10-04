@@ -117,7 +117,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Ensign</strong> - ENS</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>2nd Lieutenant</strong> - 2LT</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>2nd Lieutenant</strong> - 2ndLt</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -183,7 +183,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Junior Grade</strong> - LTJG</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>1st Lieutenant</strong> - 1LT</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>1st Lieutenant</strong> - 1stLt</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -249,7 +249,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant </strong> - LT</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Captain</strong> - CAPT</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Captain</strong> - Capt</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -317,7 +317,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Lieutenant Commander </strong> - LCDR</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Major</strong> - MAJ</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Major</strong> - Maj</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -383,7 +383,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Commander </strong> - CDR</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Lieutenant Colonel</strong> - LTCOL</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Lieutenant Colonel</strong> - LtCol</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -452,7 +452,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Captain </strong> - CAPT</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Colonel</strong> - COL</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Colonel</strong> - Col</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
@@ -517,7 +517,7 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF; font-style: italic">Navy <strong>Rear Admiral (Lower-Half) </strong> - RDML</li>
-					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> - BGEN</li>
+					<li style="color: #FFF; font-style: italic">Marine <strong>Brigadier General</strong> - BGen</li>
 				</ul>
 				<h5 class="WikiH5" style="padding-top:0px;">
 					Supported Roles
