@@ -48,9 +48,13 @@
 									case "main":
 										$content = "main.php";
 										break;
-									
+										
 									case "members":
 										$content = "members.php";
+										break;
+									
+									case "membersList":
+										$content = "membersList.php";
 										break;
 										
 									case "combatRecord":

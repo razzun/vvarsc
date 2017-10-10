@@ -26,40 +26,17 @@
 
 				#Unit Header
 				echo '<div class="unitHierarchyHeader">';
-					
-					if ($value['DivisionName'] == "Economy")
+					#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
+					if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 					{
-						if ($value['UnitLevel'] == "Division")
-						{
-							echo '<div class="unitHierarchy_arrowContainer" style="display:table-cell; vertical-align:middle;">';
-								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
-							echo '</div>';
-						}
-						else
-						{
-							echo '<div class="unitHierarchy_row_header_arrow_empty">';
-							echo '</div>';
-						}
-					}
-					else if ($value['DivisionName'] == "Military")
-					{
-						#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
-						if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
-						{
-							echo '<div class="unitHierarchy_arrowContainer"  style="display:table-cell; vertical-align:middle;">';
-								echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
-							echo '</div>';
-						}
-						else
-						{
-							echo '<div class="unitHierarchy_row_header_arrow_empty">';
-							echo '</div>';
-						}
+						echo '<div class="unitHierarchy_arrowContainer"  style="display:table-cell; vertical-align:middle;">';
+							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
+						echo '</div>';
 					}
 					else
 					{
 						echo '<div class="unitHierarchy_row_header_arrow_empty">';
-						echo '</div>';					
+						echo '</div>';
 					}
 					
 					//Unit Image//
@@ -117,26 +94,11 @@
 									echo '</div>';
 								}							
 							}
-							
-							#CreatedOn Div for Active Units (not Team,Flight,Division,Fleet)
-							/*
-							if($value['UnitLevel'] != "Division" && 
-								$value['UnitLevel'] != "Fleet")
-							{
-								if ($value['IsActive'] == "Active")
-								{
-									echo '<div class="unitHierarchyHeader_unitDate">';
-										echo 'Established '.$value['UnitCreatedOn'];
-									echo '</div>';
-								}
-							}
-							*/
-							
 
 							#Unit Commander (not applied to Economy "Group" within the Division
 							echo '<div class="unitHierarchyHeader_unitCO">';
 								echo '<div class="unitHierarchyHeader_key">';
-									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
+									if ($value['UnitLevel'] == "Group")
 									{
 										echo '';
 									}
@@ -162,7 +124,7 @@
 								
 								echo '<div class="unitHierarchyHeader_value">';
 									echo '<div class="unitHierarchyHeader_value_container">';
-									if ($value['UnitLevel'] == "Group" && $value['DivisionName'] == "Economy")
+									if ($value['UnitLevel'] == "Group")
 									{
 										echo '';
 									}
@@ -695,7 +657,7 @@
 		$displayUnitDescription1 = "";
 		$displayUnitDescription2 = "";
 		
-		if ($depth < 5 && $unitLevel != "Platoon")
+		if ($depth < 4 && $unitLevel != "Platoon")
 		{
 			if ($unitDescription == null || $unitDescription == "")
 			{
@@ -790,9 +752,7 @@
 							on m.mem_id = u.UnitLeaderID
 						left join projectx_vvarsc2.divisions d
 							on d.div_id = u.DivisionID
-						where u.UnitName not like '%OPFOR%'
-							and u.UnitName not like '%Civilian%'
-							and u.UnitName not like '%Training%'
+						where u.IsHidden = 0
 						order by
 							18
 							,u.UnitName";	
@@ -823,9 +783,7 @@
 		$displayChildren1 = "";
 		$displayChildren2 = "";
 		
-		if (($divName == "Military" && $depth < 4 && $unitLevel != "Department")
-			|| ($divName == "Economy" && $depth < 2 && $unitLevel != "Department")
-			|| $divName == "Command" && $unitLevel != "Department")
+		if ($unitLevel != "Department" & $unitLevel!= "Platoon" & $unitLevel != "Squadron")
 		{
 				$displayChildren1 .= "
 				<br />

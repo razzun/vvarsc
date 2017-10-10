@@ -14,8 +14,6 @@
 		on m.`manu_id` = s.`manufacturers_manu_id`
 	join `projectx_vvarsc2`.`ship_extended_data` sed
 		on sed.`ships_ship_id` = s.`ship_id`
-	join `projectx_vvarsc2`.`ships_has_members` shm
-		on shm.`ships_ship_id` = s.`ship_id`
 	order by
 		m.`manu_name`";
 		
@@ -86,9 +84,9 @@
 		on m.`manu_id` = s.`manufacturers_manu_id`
 	join `projectx_vvarsc2`.`ship_extended_data` sed
 		on sed.`ships_ship_id` = s.`ship_id`
-	join `projectx_vvarsc2`.`ships_has_members` shm
+	left join `projectx_vvarsc2`.`ships_has_members` shm
 		on shm.`ships_ship_id` = s.`ship_id`
-	join `projectx_vvarsc2`.`members` mem
+	left join `projectx_vvarsc2`.`members` mem
 		on shm.`members_mem_id` = mem.`mem_id`
 		and mem.mem_sc = 1
 	group by

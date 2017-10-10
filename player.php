@@ -57,7 +57,7 @@
     			ON ships.manufacturers_manu_id = manufacturers.manu_id
     		JOIN projectx_vvarsc2.ranks
     			ON members.ranks_rank_id = ranks.rank_id
-    		JOIN projectx_vvarsc2.divisions d
+    		left JOIN projectx_vvarsc2.divisions d
     			ON members.divisions_div_id = d.div_id
         WHERE members.mem_sc = 1 AND members.mem_id = $player_id
         ORDER BY manufacturers.manu_name,ships.ship_name";
