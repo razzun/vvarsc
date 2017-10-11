@@ -69,12 +69,12 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					MIDN (OC) is the PayGrade held by Officer Candidates during their time in the Officer-in-Training Program. For Military Officers, this will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-1 and assigned as the CO of a Squadron or Platoon. For Economy Officers, no unit-assignment is granted, as there are no permanent units within the Division. OCs are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
+					MIDN (OC) is the PayGrade held by Officer Candidates during their time in the Officer-in-Training Program. This will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-1 and assigned as the CO of a Squadron or Platoon. OCs are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
 					<br />
 					<br />
 					<strong>Entering the PayGrade of OC and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Month TIS for the Fleet</li>
+						<li>Minimum 6 Months TIS for the Fleet</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
 				</p>
@@ -138,10 +138,10 @@
 					<br />
 					<strong>Advancement from OC to O-1 requires the following:</strong>
 					<ol>
-						<li>Minimum 2 Months TIS for the Fleet</li>
-						<li>Minimum 1 Month TIG for their Division at OC <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
+						<li>Minimum 7 Months TIS for the Fleet</li>
+						<li>Minimum 1 Month TIG for their Command at OC <i>(not applicable for Officer Candidates who have served as a Senior NCO)</i></li>
 						<li>Recommendation for Promotion by their Training Officer based on the Member's Qualifications in leadership and management of their Unit and Operations</li>
-						<li>Promotion Approval by Division Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
+						<li>Promotion Approval by Command Headquarters including a final vote-of-confidence by the Officer Corps for the Member to become a full-fledged Officer of the VVarMachine Gaming Community</li>
 					</ol>
 				</p>
 			</div>
@@ -199,15 +199,15 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-2s are decorated and experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, creation and maintenance of Unit SOPs, and adapting operational methodologies to an ever-changing mission environment.
+					O-2s are experienced veterans of leading Squadrons or Platoons for organized operations. These members have displayed consistent success in Tactical Planning, creation and maintenance of Unit SOPs, and adapting operational methodologies to an ever-changing mission environment.
 					<br />
 					<br />
 					<strong>Advancement from O-1 to O-2 requires the following:</strong>
 					<ol>
-						<li>Minimum 4 Months TIS for the Fleet</li>
-						<li>Minimum 1 Month TIG for their Unit at O-1</li>
+						<li>Minimum 9 Months TIS for the Fleet</li>
+						<li>Minimum 2 Months TIG for their Unit at O-1</li>
 						<li>Participation in a total of 9 Fleet Operations, including at least 6 in a command capacity <i>(for Military Squadron/Platoon Leaders)</i></li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Promotion Approval by Command Headquarters</li>
 					</ol>
 				</p>
 			</div>
@@ -257,24 +257,24 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Squadron Commanding Officer (holding)</li>
-					<li style="color: #FFF;">Air Wing Commanding Officer</li>
-					<li style="color: #FFF;">Platoon Leader (holding)</li>
-					<li style="color: #FFF;">Combat Team Commanding Officer</li>
+					<li style="color: #FFF;">Squadron Commanding Officer</li>
+					<li style="color: #FFF;">Air Wing Executive Officer</li>
+					<li style="color: #FFF;">Platoon Leader</li>
+					<li style="color: #FFF;">Combat Team Executive Officer</li>
 					<li style="color: #FFF;">Office Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					The PayGrade of O-3 grants the ability for an Officer to be assigned as the Commander of an Air Wing, or a Marine Combat Team. O-3 may also be held by senior Squadron/Platoon Commanders who are in-holding for an Air Wing or Combat Team CO position when it becomes available.
+					O-3s are highly decorated, respected Squadron and Platoon leaders that have shown continued effort to grow and progress in their role towards the command of larger units. O-3 grants the ability for an Officer to be assigned as the XO for an Air Wing or Marine Combat Team.
 					<br />
 					<br />
 					<strong>Advancement from O-2 to O-3 requires the following:</strong>
 					<ol>
-						<li>Minimum 6 Months TIS for the Fleet</li>
-						<li>Minimum 2 Months TIG for their Unit at O-2</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 1 Year TIS for the Fleet</li>
+						<li>Minimum 3 Months TIG for their Unit at O-2</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -325,22 +325,23 @@
 				<ul style="
 					margin-top: 0
 				">
+					<li style="color: #FFF;">Air Wing Executive Officer</li>
 					<li style="color: #FFF;">Air Wing Commanding Officer</li>
+					<li style="color: #FFF;">Combat Team  Executive Officer</li>
 					<li style="color: #FFF;">Combat Team Commanding Officer</li>
-					<li style="color: #FFF;">Warfare Command Executive Officer</li>
 					<li style="color: #FFF;">Office Senior Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-4 is the first of the Senior Officer ranks, and is held by the most senior Air Wing and Combat Team Commanders, along with the Executive Officers of Warfare Commands. In addition to the above, O-4s can be placed in-charge of a Division or Fleet Office/Department such as Public Relations, Intelligence, Technology, etc.
+					O-4 is the first of the Senior Officer ranks, and allows an Officer to be assigned as the CO for an Air Wing or Marine Combat Team. In addition to the above, O-4s can be placed in-charge of a Fleet Office/Department such as Public Relations, Intelligence, Technology, etc.
 					<br />
 					<br />
 					<strong>Advancement from O-3 to O-4 requires the following:</strong>
 					<ol>
-						<li>Minimum 6 Months TIS for the Fleet</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 15 Months TIS for the Fleet</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -391,25 +392,23 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Air Wing Commanding Officer (holding)</li>
-					<li style="color: #FFF;">Combat Team Commanding Officer (holding)</li>
-					<li style="color: #FFF;">Warfare Command Executive Officer</li>
-					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
-					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
+					<li style="color: #FFF;">Air Wing Commanding Officer</li>
+					<li style="color: #FFF;">Combat Team Commanding Officer</li>
+					<li style="color: #FFF;">Naval Command Executive Officer</li>
 					<li style="color: #FFF;">Office Senior Officer Role</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-5 is the second of the Senior Officer Ranks. Officers in this grade can be assigned as the CO for a Warfare Command, and as Executive Officer of the Economy Division. Additionally, O-5s can serve as the XO for a Warfare Command when the CO is promoted to O-6. This is the highest PayGrade that can be held by Officers in Command of an Office or Department within the Fleet as their Primary Role.
+					O-5 is the second of the Senior Officer Ranks, held by the most senior Air Wing and Combat Team commanders. Officers in this grade can be assigned as the XO for a Naval Command. This is the highest PayGrade that can be held by Officers in command of an Office or Department within the Fleet as their Primary Role.
 					<br />
 					<br />
 					<strong>Advancement from O-4 to O-5 requires the following:</strong>
 					<ol>
-						<li>Minimum 9 Months TIS with the Fleet</li>
-						<li>Minimum 3 Months TIG with their Division at O-4</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 18 Months TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG with their Command at O-4</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -460,21 +459,20 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Warfare Command Commanding Officer</li>
-					<li style="color: #FFF;">Division Executive Officer (Economy)</li>
-					<li style="color: #FFF;">Division Executive Officer (Military)</li>
+					<li style="color: #FFF;">Naval Command Executive Officer</li>
+					<li style="color: #FFF;">Naval Command Commanding Officer</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-6 is the highest of the Senior Officer ranks, held by the most-senior Warfare Command COs, and also grants the ability for a Military Division Officer to serve as the Division's XO. On the Economy-side, this is the higher of the two ranks mapped to the XO position. These members have attained expert qualifications in multiple areas of responsibility, and are highly involved in Strategic Planning for their Division and the Fleet.
+					O-6 is the highest of the Senior Officer ranks, granting the Officer the ability to lead a Naval Command. XOs of NAVCOMs can also reach O-6 PayGrade.
 					<br />
 					<br />
 					<strong>Advancement from O-5 to O-6 requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Year TIS with the Fleet</li>
-						<li>Minimum 3 Months TIG with their Division at O-5</li>
+						<li>Minimum 2 Years TIS with the Fleet</li>
+						<li>Minimum 6 Months TIG with their Command at O-5</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -525,19 +523,18 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Division Executive Officer (Military)</li>
-					<li style="color: #FFF;">Division Commanding Officer (Economy)</li>
+					<li style="color: #FFF;">Naval Command Commanding Officer</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-7 is the first of the Flag Officer Ranks, held by the Economy Division Commanding Officer (DCOE), and is the 2nd of the PayGrades that can be granted to the Military Division Executive Officer.
+					O-7 is the first of the Flag Officer Ranks, held by the the most senior NAVCOM COs.
 					<br />
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Year TIS with the Fleet</li>
+						<li>Minimum 2 Years TIS with the Fleet</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -587,18 +584,18 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Division Commanding Officer (Military)</li>
+					<li style="color: #FFF;">Chief of Naval Operations</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-8 is the second of the Flag Officer Ranks, and is the PayGrade held by the Military Division Commanding Officer (DCOM).
+					O-8 is the second of the Flag Officer Ranks, and is the PayGrade held by the Chief of Naval Operations at Fleet Headquarters.
 					<br />
 					<br />
 					<strong>Advancement from O-7 to O-8 requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Year TIS with the Fleet</li>
+						<li>Minimum 2 Years TIS with the Fleet</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>

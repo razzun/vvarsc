@@ -261,9 +261,6 @@
 				<h4 style="padding-left: 8px; margin-left: 0; font-size: 12pt">Officer Ranks</h4>
 				<? echo $officerTable ?>
 				<br />
-				Military Flight Units and Division/Fleet Command utilize the Navy Rank Names and Images. Marine Names and Images are used by dedicated ground combat units, along with Quick Reaction Force (QRF) Units.
-				<br />
-				<br />
 				Details about each PayGrade can be found below, including the requirements for advancement from one to the next.
 			</div>
 		</div>

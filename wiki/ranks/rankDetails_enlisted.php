@@ -160,7 +160,7 @@
 					Advancement for a new Member from E-2 to E-3 can be attained immediately following the completion of the minimum two-week Vetting and Evaluation Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet. Existing members of the VVarMachine Gaming Community who enlist in the Fleet will start at this rank.
 					<br />
 					<br />
-					NOTE: Because advancement beyond E-3 requires registration with a Division/Unit, many casual members will choose to stay at this rank.
+					NOTE: Because advancement beyond E-3 requires registration with a Unit, many casual members will choose to stay at this rank.
 				</p>
 			</div>
 		</div>
@@ -321,8 +321,8 @@
 					<br />
 					<strong>Advancement from E-4 to E-5 requires the following:</strong>
 					<ol>
-						<li>Minimum 2 Months TIS with the Fleet</li>
-						<li>Minimum 1 Month TIG for their Unit at E-4</li>
+						<li>Minimum 3 Months TIS with the Fleet</li>
+						<li>Minimum 2 Months TIG for their Unit at E-4</li>
 						<li>Participation in a total of 6 Fleet Operations. For members being promoted to E-5 Flight Leader or Squad Leader, this count must include at least 2 in a Flight Leader or Squad Leader Role</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
@@ -408,10 +408,10 @@
 					<br />
 					<strong>Advancement from E-5 to E-6 requires the following:</strong>
 					<ol>
-						<li>Minimum 3 Months TIS with the Fleet</li>
-						<li>Minimum 1 Month TIG for their Unit at E-5</li>
+						<li>Minimum 6 Months TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG for their Unit at E-5</li>
 						<li>Participation in a total of 10 Fleet Operations</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Promotion Approval by Command Headquarters</li>
 					</ol>
 				</p>
 			</div>
@@ -490,14 +490,14 @@
 					E-7 is the first of the Senior NCO Ranks, and is normally the highest enlisted rank held by members deployed in operations within a Squadron or Platoon. E-7 denotes a Member's mastery of their Unit's skill-set, and their consistent success as leaders and teachers of subordinate NCOs and Members. As is the case with E-6, E-7 Members are seen performing the role of Assistant Squadron/Platoon Leader, but are also eligible for assignment to Air Wing and Combat Team units as a senior advisor to the Commanding Officer. E-7 Members can also be seen performing highly specialized roles for higher units, offices, and departments, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
-					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7 upon completion of TIS/TIG requirements listed below, bypassing any required approval from Division and Fleet HQs.
+					E-6 Members who have been offered, but have declined a Commission to Officer Status will automatically be advanced to E-7 upon completion of TIS/TIG requirements listed below, bypassing any required approval from NAVCOM and Fleet HQs.
 					<br />
 					<br />
 					<strong>Advancement from E-6 to E-7 requires the following:</strong>
 					<ol>
-						<li>Minimum 6 Months TIS with the Fleet</li>
-						<li>Minimum 2 Months TIG for their Unit at E-6</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 9 Months TIS with the Fleet</li>
+						<li>Minimum 3 Months TIG for their Unit at E-6</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -573,14 +573,14 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Warfare Command units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles in Offices or Departments of higher-level units, rather than serving as an adviser and representative of the enlisted personnel below them.
+					E-8s serve as high-level advisers to larger organizational units within the Fleet. They are typically attached to Air Wing / Combat Team or Naval Command units, and assist with the development of NCOs in their subordinate units - utilizing their superior skills attained over an extended career of service. E-8 Members can also be seen performing highly specialized roles in Offices or Departments of higher-level units, rather than serving as an adviser and representative of the enlisted personnel below them.
 					<br />
 					<br />
 					<strong>Advancement from E-7 to E-8 requires the following:</strong>
 					<ol>
-						<li>Minimum 9 Months TIS with the Fleet</li>
-						<li>Minimum 3 Months TIG with their Division at E-7</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 18 Months TIS with the Fleet</li>
+						<li>Minimum 6 Months TIG with their Command at E-7</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
@@ -648,7 +648,6 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Division Senior Enlisted Advisor</li>
 					<li style="color: #FFF;">Fleet Senior Enlisted Advisor (E-9 variant FMCPO used here)</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
@@ -656,14 +655,13 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-9s are the highest-ranking Enlisted personnel within the Fleet, and serve as senior advisers to both the Division Command Staff, and Fleet Command Staff. E-9s have proven their strength in leadership, conflict resolution, and strategic planning in all aspects of their Division's operations. The rank of E-9 is a highly-prestigious position, and is not attained easily. Members must commit to a lengthy career of service, along with involvement in non-gameplay tasks (aka paperwork) listed above.
+					E-9s are the highest-ranking Enlisted personnel within the Fleet, and serve as senior advisers to both the NAVCOM Command Staff, and Fleet Command Staff. E-9s have proven their strength in leadership, conflict resolution, and strategic planning in all aspects of their Commands's operations. The rank of E-9 is a highly-prestigious position, and is not attained easily. Members must commit to a lengthy career of service, along with involvement in non-gameplay tasks (aka paperwork) listed above.
 					<br />
 					<br />
 					<strong>Advancement from E-8 to E-9 requires the following:</strong>
 					<ol>
-						<li>Minimum 1 Year TIS with the Fleet</li>
-						<li>Minimum 3 Months TIG with their Division at E-8</li>
-						<li>Promotion Approval by Division Headquarters</li>
+						<li>Minimum 2 Years TIS with the Fleet</li>
+						<li>Promotion Approval by Command Headquarters</li>
 						<li>Promotion Approval by Fleet Headquarters</li>
 					</ol>
 				</p>
