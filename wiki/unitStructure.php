@@ -12,7 +12,7 @@
 		</div>
 		<div class="unit_details_container">
 			<p style="text-align: center; font-style: italic">
-				The VVarMachine Combined Fleet uses a Hierarchical Military Unit Structure, with design elements incorporated from the organization of the US Navy, AirForce, and Marine Corps. In broad terms, our fleet is arranged into four branches, referred to as <strong>(Commands)</strong> - Naval Air Forces, Marine Forces, Naval Logistics, and Naval Special Warfare.
+				The VVarMachine Combined Fleet uses a Hierarchical Military Unit Structure, with design elements incorporated from the organization of the US Navy, AirForce, and Marine Corps. In broad terms, our fleet is arranged into four branches, referred to as <strong>Commands</strong> - Naval Air Forces, Marine Forces, Naval Logistics, and Naval Special Warfare.
 			</p>
 			<h3 id="MilDivOrganization" style="padding-left: 4px; margin-left: 0">Naval Command Organizational Structure</h3>
 			<div class="shipDetails_info1_table_ship_desc" style="font-style: normal">
@@ -49,7 +49,7 @@
 				<br />
 				<h4 class="WikiH4">Unit Numbering and Naming</h4>
 				<div class="WikiText">
-					Larger-size units such as Air Wings/Combat Teams are numbered in the order they are created. Air Wing numbers are unique across the entire Fleet, as they are used both within Naval Air Forces Command (NAVAIRFORCOM) and Naval Special Warfare Command (NAVSPECWARCOM). Air Wings are not numbered by type - examples of this are "Fighter Wing 1", "Strike Wing 2", etc. There will be no reuse of these numbers within the Fleet. If a new Air Wing needs to be created, it will take-on the lowest available number after all other established Air Wings, regardless of its purpose.
+					Larger-size units such as Air Wings/Combat Teams are numbered in the order they are created. Air Wing numbers are unique across the entire Fleet, as they are used within Naval Air Forces Command (NAVAIRFORCOM), Naval Logistics Command (NAVLOGCOM), and Naval Special Warfare Command (NAVSPECWARCOM). Air Wings are not numbered by type - examples of this are "Fighter Wing 1", "Strike Wing 2", etc. There will be no reuse of these numbers within the Fleet. If a new Air Wing needs to be created, it will take-on the lowest available number after all other established Air Wings, regardless of its purpose.
 					<br />
 					<br />
 					For Marine Combat Teams, these are simply numbered in the order of creation, based on their type. The examples would be "Infantry Combat Team 1 (ICT 1)","ICT 2", "Armored Combat Team 1 (ACT 1)", etc.
