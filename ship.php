@@ -451,9 +451,9 @@
 					limit 1
 				) as role_name
 			from projectx_vvarsc2.ships s
-			left join projectx_vvarsc2.ships_has_members shm
+			join projectx_vvarsc2.ships_has_members shm
 				on shm.ships_ship_id = s.ship_id
-			left join projectx_vvarsc2.members m
+			join projectx_vvarsc2.members m
 				on shm.members_mem_id = m.mem_id
 				and m.mem_sc = 1
 			left join projectx_vvarsc2.ranks r
