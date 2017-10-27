@@ -826,6 +826,180 @@
 			";
 		}
 		
+		$unitQualificationsQuery = "
+			select
+				r.role_name
+				,lk.CategoryName
+				,q.qualification_name
+				,q.qualification_image
+				,u.QualificationLevel
+				,q.level1_reqs
+				,q.level2_reqs
+				,q.level3_reqs
+			from projectx_vvarsc2.UnitQualifications u
+			join projectx_vvarsc2.roles r
+				on r.role_id = u.RoleID
+			join projectx_vvarsc2.qualifications q
+				on q.qualification_id = u.QualificationID
+			join projectx_vvarsc2.LK_QualificationCategories lk
+				on lk.CategoryID = q.qualification_categoryID
+			where u.UnitID = $UnitID
+			order by
+				r.role_orderby
+				,r.role_name
+				,q.qualification_name
+		";
+		
+		$unitQual_query_results = $connection->query($unitQualificationsQuery);
+		
+		$displayUnitQual = "";
+		
+		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
+			&& mysqli_num_rows($unitQual_query_results) > 0)
+		{
+			$displayUnitQual .= "
+				<br />
+				<h3>
+					Role Requirements
+				</h3>
+				<div class=\"table_header_block\">
+				</div>
+				<div class=\"unit_details_container\" style=\"
+					border-spacing: 8px;
+					display:inline-table;
+				\">
+			";
+		}
+		
+		$previousGroup = "";
+		$currentGroup = "";
+		while(($row5 = $unitQual_query_results->fetch_assoc()) != false)
+		{
+			$roleName = $row5['role_name'];
+			$categoryName = $row5['CategoryName'];
+			$qualName = $row5['qualification_name'];
+			$qualImage = $link_base."/images/qualifications/".$row5['qualification_image'];
+			$qualLevel = $row5['QualificationLevel'];
+			$level1_reqs = $row5['level1_reqs'];
+			$level2_reqs = $row5['level2_reqs'];
+			$level3_reqs = $row5['level3_reqs'];
+			
+			if ($level1_reqs == null || $level1_reqs == "")
+				$level1_reqs = "- No Requirements Found -";
+				
+			if ($level2_reqs == null || $level2_reqs == "")
+				$level2_reqs = "- No Requirements Found -";
+				
+			if ($level3_reqs == null || $level3_reqs == "")
+				$level3_reqs = "- No Requirements Found -";
+			
+			$imageClassName1 = "player_qual_row_image";
+			$imageClassName2 = "player_qual_row_image";
+			$imageClassName3 = "player_qual_row_image";
+			if ($qualLevel == 1) {
+				$imageClassName1 = "player_qual_row_image_highlighted";
+				$imageClassName2 = "player_qual_row_image";
+				$imageClassName3 = "player_qual_row_image";
+			}
+			else if ($qualLevel == 2) {
+				$imageClassName1 = "player_qual_row_image_highlighted";
+				$imageClassName2 = "player_qual_row_image_highlighted";
+				$imageClassName3 = "player_qual_row_image";
+			}
+			else if ($qualLevel == 3) {
+				$imageClassName1 = "player_qual_row_image_highlighted";
+				$imageClassName2 = "player_qual_row_image_highlighted";
+				$imageClassName3 = "player_qual_row_image_highlighted";
+			}
+				
+			$currentGroup = $roleName;
+		
+			//If This is a New Group, Open a New Row and Title
+			if ($currentGroup != $previousGroup)
+			{
+				//If This is not 1st Row, Close Previous Row
+				if ($previousGroup != "")
+				{
+					$displayUnitQual .= "
+							</table>
+						</div>
+					";
+				}
+				
+				//Open New Group
+				$displayUnitQual .= "
+					<div class=\"qual_block\">
+						<div class=\"corner corner-top-left\">
+						</div>
+						<div class=\"corner corner-top-right\">
+						</div>
+						<div class=\"corner corner-bottom-left\">
+						</div>
+						<div class=\"corner corner-bottom-right\">
+						</div>
+						<div class=\"p_section_header\" style=\"
+							margin-top: 0;
+							text-align: center;
+							padding-left: 0;
+						\">
+							$roleName
+						</div>
+						<table class=\"player_qualifications\">
+				";
+			}
+			//Content of Group
+			$displayUnitQual .= "
+				<tr class=\"player_qual_row\">
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
+						<img class=\"$imageClassName1\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qualName - Level 1</strong>
+								<br />
+								$level1_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
+					</td>
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
+						<img class=\"$imageClassName2\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qual_name - Level 2</strong>
+								<br />
+								$level2_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
+					</td>
+					<td class=\"player_qual_row_image_container tooltip-wrap\">
+						<img class=\"$imageClassName3\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+						<div class=\"rsi-tooltip\">
+							<div class=\"rsi-tooltip-content\">
+								<strong>$qual_name - Level 3</strong>
+								<br />
+								$level3_reqs
+							</div>
+							<span class=\"rsi-tooltip-bottom\"></span>
+						</div>
+					</td>
+					<td class=\"player_qual_row_name\">$categoryName<br /><strong>$qualName</strong></td>
+				</tr>			
+			";
+			$previousGroup = $currentGroup;
+		}
+		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
+			&& mysqli_num_rows($unitQual_query_results) > 0)
+		{
+			//Close Last Group
+			$displayUnitQual .= "
+						</table>
+					</div>
+				</div>
+			";		
+		}			
+		
+		
 		$unitShipsQuery = "
 			select
 				m.manu_shortName
@@ -1062,7 +1236,8 @@
 		
 		<? echo $displayUnitDescription1 ?>
 		<? echo nl2br($displayUnitDescriptionContent) ?>
-		<? echo $displayUnitDescription2 ?>		
+		<? echo $displayUnitDescription2 ?>	
+		<? echo $displayUnitQual ?>		
 		
 		<br />
 		<h3>

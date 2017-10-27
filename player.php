@@ -700,7 +700,6 @@
 					\">
 					<div class=\"rsi-tooltip\" style=\"
 						bottom: 36px;
-						left: -116px;
 					\">
 						<div class=\"rsi-tooltip-content\">
 							<strong>$award_name</strong>

@@ -724,9 +724,26 @@ table.tbmem a:hover {
 
 .player_qual_row_name {
 	padding-left: 4px;
+	padding-right: 4px;
 	width: 100%;
 	font-style: italic;
 	font-size: 8pt;
+}
+
+.qual_block {
+	position: relative;
+	font-size: 10pt;
+	font-style: italic;
+	color: #A2B5D2;
+	border: 1px solid #222;
+	background: url(../images/fading-bars.png);
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	display: inline-block;
+	margin: 4px;
+	min-width: 240px;
 }
 
 .player_qual_row_name strong{
@@ -767,7 +784,7 @@ table.tbmem a:hover {
 	display: none;
 	text-align: left;
 	bottom: 48px;
-	left: -132px;
+	left: -16px;
 	width: 200px;
 	border-color: #00d6ff;
 	box-shadow: 0 0 20px rgba(0,133,255,0.3);
@@ -803,7 +820,7 @@ table.tbmem a:hover {
 	position: absolute;
 	bottom: -8px;
 	left: 0;
-	background-position: -60px;
+	background-position: -180px;
 }
 
 /* -----------------------------------------------*/
