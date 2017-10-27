@@ -864,8 +864,7 @@
 				</h3>
 				<div class=\"table_header_block\">
 				</div>
-				<div class=\"unit_details_container\" style=\"
-					border-spacing: 8px;
+				<div class=\"unit_details_container blkBackground35\" style=\"
 					display:inline-table;
 				\">
 			";
@@ -949,7 +948,7 @@
 			}
 			//Content of Group
 			$displayUnitQual .= "
-				<tr class=\"player_qual_row\">
+				<tr class=\"player_qual_row\" style=\"background:none;\">
 					<td class=\"player_qual_row_image_container tooltip-wrap\">
 						<img class=\"$imageClassName1\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
 						<div class=\"rsi-tooltip\">
@@ -1245,7 +1244,7 @@
 		</h3>
 		<div class="table_header_block">
 		</div>
-		<div class="unit_details_container">
+		<div class="unit_details_container blkBackground35">
 			<table class="shipDetails_ownerInfo_table">
 				<?echo $display_members; ?>
 			</table>
