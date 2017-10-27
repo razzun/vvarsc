@@ -965,7 +965,7 @@
 						<img class=\"$imageClassName2\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
 						<div class=\"rsi-tooltip\">
 							<div class=\"rsi-tooltip-content\">
-								<strong>$qual_name - Level 2</strong>
+								<strong>$qualName - Level 2</strong>
 								<br />
 								$level2_reqs
 							</div>
@@ -976,7 +976,7 @@
 						<img class=\"$imageClassName3\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
 						<div class=\"rsi-tooltip\">
 							<div class=\"rsi-tooltip-content\">
-								<strong>$qual_name - Level 3</strong>
+								<strong>$qualName - Level 3</strong>
 								<br />
 								$level3_reqs
 							</div>
