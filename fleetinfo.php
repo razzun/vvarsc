@@ -28,16 +28,16 @@
 							,man.manu_shortName as ship_manu_short_info
 							,d.div_name as ship_division_info
 							,r.rank_name as ship_rank_info
-							,sed.ship_length as ship_length_info
-							,sed.ship_width as ship_width_info
-							,sed.ship_height as ship_height_info
-							,sed.ship_mass as ship_mass_info
-							,sed.ship_cargo_capacity as ship_cargo_info
-							,sed.ship_max_crew  as ship_crew_info
-							,sed.ship_max_powerPlant as ship_powerPlant_info
-							,sed.ship_max_mainThruster as ship_mainThruster_info
-							,sed.ship_max_maneuveringThruster as ship_maneuveringThruster_info
-							,sed.ship_max_shield as ship_shield_info
+							,ss.Length as ship_length_info
+							,ss.Beam as ship_width_info
+							,ss.Height as ship_height_info
+							,ss.Mass as ship_mass_info
+							,ss.CargoCapacity as ship_cargo_info
+							,ss.MaxCrew  as ship_crew_info
+							,ss.PowerPlants as ship_powerPlant_info
+							,ss.MainThrusters as ship_mainThruster_info
+							,ss.ManueveringThrusters as ship_maneuveringThruster_info
+							,ss.ShieldGenerators as ship_shield_info
 						FROM projectx_vvarsc2.ships s
 						JOIN projectx_vvarsc2.manufacturers man
 							on man.manu_id = s.manufacturers_manu_id
@@ -45,6 +45,8 @@
 							ON shm.ships_ship_id = s.ship_id
 						LEFT JOIN projectx_vvarsc2.ship_extended_data sed
 							ON sed.ships_ship_id = s.ship_id
+						LEFT JOIN projectx_vvarsc2.ShipStats_v2 ss
+							on ss.ShipID = s.ship_id
 						JOIN projectx_vvarsc2.members m
 							ON shm.members_mem_id = m.mem_id
 							AND m.mem_sc = 1
@@ -483,13 +485,15 @@
 		
 		$count_query = 
 		"select
-			REPLACE(s.ship_classification,'_',' ') as `ship_classification`
+			REPLACE(ss.Focus,'_',' ') as `ship_classification`
 			,COUNT(shm.RowID) `number_of_ships`
 		from projectx_vvarsc2.ships s
+		join projectx_vvarsc2.ShipStats_v2 ss
+			on ss.ShipID = s.ship_id
 		join projectx_vvarsc2.ships_has_members shm
 			on shm.ships_ship_id = s.ship_id
 		group by
-			s.ship_classification";
+			ss.Focus";
 			
 		$count_query_results = $connection->query($count_query);
 		

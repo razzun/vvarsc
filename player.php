@@ -217,8 +217,7 @@
 											</td>
 											<td class=\"tooltip_shipTable2_value\">
 												<div class=\"tooltip_shipTable2_value_inner\" style=\"
-													font-weight: bold;
-													text-shadow: 0px 0px 8px #CCA300;
+													text-shadow: 0px 0px 4px #CCA300;
 												\">
 												$ship_assetDesignation-$shm_ship_vvarID
 												</div>
@@ -232,8 +231,7 @@
 											</td>
 											<td class=\"tooltip_shipTable2_value\">
 												<div class=\"tooltip_shipTable2_value_inner\" style=\"
-													font-weight: bold;
-													text-shadow: 0px 0px 8px #CCA300;
+													text-shadow: 0px 0px 4px #CCA300;
 												\">
 												VMNS $ship_assetName
 												</div>
@@ -252,8 +250,7 @@
 											</td>
 											<td class=\"tooltip_shipTable2_value\">
 												<div class=\"tooltip_shipTable2_value_inner\" style=\"
-													font-weight: bold;
-													text-shadow: 0px 0px 8px #CCA300;
+													text-shadow: 0px 0px 4px #CCA300;
 												\">
 												$ship_assetDesignation-$shm_ship_vvarID
 												</div>

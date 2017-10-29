@@ -50,6 +50,33 @@
 			,m.manu_name
 			,m.manu_shortName
 			,m.manu_smallImage
+            ,ss.Focus
+            ,ss.ProductionState
+            ,ss.Length
+            ,ss.Beam
+            ,ss.Height
+            ,ss.Size
+            ,ss.Mass
+            ,ss.CargoCapacity
+            ,ss.MinCrew
+            ,ss.MaxCrew
+            ,ss.Radar
+            ,ss.Computers
+            ,ss.FuelIntake
+            ,ss.FuelTank
+            ,ss.QuantumDrive
+            ,ss.JumpModules
+            ,ss.QuantumFuelTank
+            ,ss.MainThrusters
+            ,ss.ManueveringThrusters
+            ,ss.PowerPlants
+            ,ss.Coolers
+            ,ss.ShieldGenerators
+            ,ss.Weapons
+            ,ss.Turrets
+            ,ss.Missiles
+            ,ss.UtilityItems
+            ,ss.Link
 		from projectx_vvarsc2.ships s
 		join projectx_vvarsc2.manufacturers m
 			on m.manu_id = s.manufacturers_manu_id
@@ -60,6 +87,8 @@
 		left join projectx_vvarsc2.members mem
 			on shm.members_mem_id = mem.mem_id
 			and mem.mem_sc = 1
+		left join projectx_vvarsc2.ShipStats_v2 ss
+			on ss.ShipID = s.ship_id
 		where s.ship_id = $ship_id";
     	
         $ship_query_results = $connection->query($ship_query);
@@ -68,10 +97,10 @@
 		
 		//Title
 		$ship_name = $row1['ship_name'];
-		$ship_classification = $row1['ship_classification'];
+		$ship_classification = $row1['Focus'];
 		$manu_smallImage = $row1['manu_smallImage'];
 		
-		//Info1
+		//Info1 - General
 		$ship_role_primary = $row1['ship_role_primary'];
 		$ship_role_secondary = $row1['ship_role_secondary'];
 		$ship_desc = $row1['ship_desc'];
@@ -79,37 +108,41 @@
 		$manu_name = $row1['manu_name'];
 		$ship_model_designation = $row1['ship_model_designation'];
 		
-		//Info2
-		$ship_length = number_format($row1['ship_length']);
-		$ship_width = number_format($row1['ship_width']);
-		$ship_height = number_format($row1['ship_height']);
-		$ship_mass = number_format($row1['ship_mass']);
-		$ship_cargo_capacity = number_format($row1['ship_cargo_capacity']);
-		$ship_max_crew = $row1['ship_max_crew'];
+		//Info2 - Specifications
+		$ship_length = number_format($row1['Length']);
+		$ship_width = number_format($row1['Beam']);
+		$ship_height = number_format($row1['Height']);
+		$ship_mass = number_format($row1['Mass']);
+		$ship_cargo_capacity = number_format($row1['CargoCapacity']);
+		$ship_min_crew = $row1['MinCrew'];
+		$ship_max_crew = $row1['MaxCrew'];
 		$ship_silo = $row1['ship_silo'];
 		
-		//Info 3
-		$ship_max_powerPlant = $row1['ship_max_powerPlant'];
-		$ship_max_mainThruster = $row1['ship_max_mainThruster'];
-		$ship_max_maneuveringThruster = $row1['ship_max_maneuveringThruster'];
-		$ship_max_shield = $row1['ship_max_shield'];
+		//Info 3 - Propulsion $ Thrusters
+		$ship_fuelIntake = $row1['FuelIntake'];
+		$ship_fuelTank = $row1['FuelTank'];
+		$ship_quantumDrive = $row1['QuantumDrive'];
+		$ship_jumpModules = $row1['JumpModules'];
+		$ship_quantumFuelTank = $row1['QuantumFuelTank'];
+		$ship_max_mainThruster = $row1['MainThrusters'];
+		$ship_max_maneuveringThruster = $row1['ManueveringThrusters'];
 		
-		//Info 4
-		$ship_hardpoint_fixed = $row1['ship_hardpoint_fixed'];
-		$ship_hardpoint_gimbal = $row1['ship_hardpoint_gimbal'];
-		$ship_hardpoint_pylon = $row1['ship_hardpoint_pylon'];
-		$ship_hardpoint_unmannedTurret = $row1['ship_hardpoint_unmannedTurret'];
-		$ship_hardpoint_mannedTurret = $row1['ship_hardpoint_mannedTurret'];
-		$ship_hardpoint_class6 = $row1['ship_hardpoint_class6'];
-		$ship_hardpoint_class7 = $row1['ship_hardpoint_class7'];
-		$ship_hardpoint_class8 = $row1['ship_hardpoint_class8'];
-		$ship_hardpoint_class9 = $row1['ship_hardpoint_class9'];
+		//Info 4 - Avionics, Systems, Weapons
+		$ship_radar = $row1['Radar'];
+		$ship_computers = $row1['Computers'];
+		$ship_powerPlants = $row1['PowerPlants'];
+		$ship_coolers = $row1['Coolers'];
+		$ship_shieldGenerators = $row1['ShieldGenerators'];
+		$ship_weapons = $row1['Weapons'];
+		$ship_turrets = $row1['Turrets'];
+		$ship_missiles = $row1['Missiles'];
+		$ship_utility = $row1['UtilityItems'];
 		
 		//Info 5
-		$ship_link = $row1['ship_link'];
+		$ship_link = $row1['link'];
 		$ship_price = $row1['ship_price'];
 		$ship_brochure = $row1['ship_brochure_link'];
-		$ship_status = $row1['ship_status'];
+		$ship_status = $row1['ProductionState'];
 		
 		$display_ship_title .= "
 			<div class=\"shipDetails_shipTitle_container\">
@@ -246,10 +279,18 @@
 						</tr>
 						<tr class=\"shipDetails_info2_table_row\">
 							<td class=\"shipDetails_info2_table_row_td_key\">
+								Min Crew
+							</td>
+							<td class=\"shipDetails_info2_table_row_td_value\">
+								$ship_min_crew
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info2_table_row\">
+							<td class=\"shipDetails_info2_table_row_td_key\">
 								Max Crew
 							</td>
 							<td class=\"shipDetails_info2_table_row_td_value\">
-								$ship_max_crew Persons
+								$ship_max_crew
 							</td>
 						</tr>
 					</table>
@@ -263,10 +304,42 @@
 					<table class=\"shipDetails_info3_table\">
 						<tr class=\"shipDetails_info3_table_row\">
 							<td class=\"shipDetails_info3_table_row_td_key\">
-								Max Power Plant
+								Fuel Intake
 							</td>
 							<td class=\"shipDetails_info3_table_row_td_value\">
-								$ship_max_powerPlant
+								$ship_fuelIntake
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info3_table_row\">
+							<td class=\"shipDetails_info3_table_row_td_key\">
+								Fuel Tank
+							</td>
+							<td class=\"shipDetails_info3_table_row_td_value\">
+								$ship_fuelTank
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info3_table_row\">
+							<td class=\"shipDetails_info3_table_row_td_key\">
+								 Quantum Drive
+							</td>
+							<td class=\"shipDetails_info3_table_row_td_value\">
+								$ship_quantumDrive
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info3_table_row\">
+							<td class=\"shipDetails_info3_table_row_td_key\">
+								Quantum Fuel Tank
+							</td>
+							<td class=\"shipDetails_info3_table_row_td_value\">
+								$ship_quantumFuelTank
+							</td>
+						</tr>
+						<tr class=\"shipDetails_info3_table_row\">
+							<td class=\"shipDetails_info3_table_row_td_key\">
+								Jump Module
+							</td>
+							<td class=\"shipDetails_info3_table_row_td_value\">
+								$ship_jumpModules
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info3_table_row\">
@@ -279,24 +352,16 @@
 						</tr>
 						<tr class=\"shipDetails_info3_table_row\">
 							<td class=\"shipDetails_info3_table_row_td_key\">
-								 Maneuvering Thrusters
+								Manuevering Thrusters
 							</td>
 							<td class=\"shipDetails_info3_table_row_td_value\">
 								$ship_max_maneuveringThruster
 							</td>
 						</tr>
-						<tr class=\"shipDetails_info3_table_row\">
-							<td class=\"shipDetails_info3_table_row_td_key\">
-								Max Shield
-							</td>
-							<td class=\"shipDetails_info3_table_row_td_value\">
-								$ship_max_shield
-							</td>
-						</tr>
 					</table>
 				</div>
 			</div>
-		";
+		";	
 		
 		$display_ship_info4 .= "
 			<div class=\"shipDetails_info4_content\">
@@ -304,74 +369,74 @@
 					<table class=\"shipDetails_info4_table\">
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Fixed Mount
+								Radar
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_fixed
+								$ship_radar
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Gimbal Mount
+								Computers
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_gimbal
+								$ship_computers
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								 Pylon Mount (Missile)
+								Power Plants
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_pylon
+								$ship_powerPlants
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Un-Manned Turret
+								Coolers
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_unmannedTurret
+								$ship_coolers
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Manned Turret
+								Shield Generators
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_mannedTurret
+								$ship_shieldGenerators
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Class-6 Hardpoint
+								Weapons
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_class6
+								$ship_weapons
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Class-7 Hardpoint
+								Turrets
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_class7
+								$ship_turrets
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Class-8 Hardpoint
+								 Missiles
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_class8
+								$ship_missiles
 							</td>
 						</tr>
 						<tr class=\"shipDetails_info4_table_row\">
 							<td class=\"shipDetails_info4_table_row_td_key\">
-								Class-9 Hardpoint
+								Utility Items
 							</td>
 							<td class=\"shipDetails_info4_table_row_td_value\">
-								$ship_hardpoint_class9
+								$ship_utility
 							</td>
 						</tr>
 					</table>
@@ -579,13 +644,13 @@
 				</div>
 				<div class="shipDetails_info2"> <!--Structural Stats-->
 					<div class="shipDetails_info_title">
-						Structural Stats
+						Specifications
 					</div>
 					<? echo $display_ship_info2; ?>
 				</div>
 				<div class="shipDetails_info3"> <!--Technical Stats - Powerplant, Engines, Shields-->
 					<div class="shipDetails_info_title">
-						Technical Stats - Propulsion & Shields
+						Technical Stats - Propulsion & Thrusters
 					</div>
 					<? echo $display_ship_info3; ?>
 				</div> 
@@ -595,7 +660,7 @@
 				</div>
 				<div class="shipDetails_info4">
 					<div class="shipDetails_info_title">
-						Technical Stats - Weapons
+						Technical Stats - Avonics, Systems, & Weapons
 					</div>
 					<? echo $display_ship_info4; ?>
 				</div>

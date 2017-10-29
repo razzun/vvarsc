@@ -845,7 +845,7 @@
 				on lk.CategoryID = q.qualification_categoryID
 			where u.UnitID = $UnitID
 			order by
-				r.role_orderby
+				r.role_orderby desc
 				,r.role_name
 				,q.qualification_name
 		";
@@ -927,7 +927,7 @@
 				
 				//Open New Group
 				$displayUnitQual .= "
-					<div class=\"qual_block\">
+					<div class=\"qual_block blkBackground35\">
 						<div class=\"corner corner-top-left\">
 						</div>
 						<div class=\"corner corner-top-right\">

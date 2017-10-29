@@ -737,10 +737,10 @@ table.tbmem a:hover {
 	color: #A2B5D2;
 	border: 1px solid #222;
 	background: url(../images/fading-bars.png);
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	display: inline-block;
 	margin: 4px;
 	min-width: 240px;
