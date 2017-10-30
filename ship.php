@@ -109,9 +109,9 @@
 		$ship_model_designation = $row1['ship_model_designation'];
 		
 		//Info2 - Specifications
-		$ship_length = number_format($row1['Length']);
-		$ship_width = number_format($row1['Beam']);
-		$ship_height = number_format($row1['Height']);
+		$ship_length = $row1['Length'];
+		$ship_width = $row1['Beam'];
+		$ship_height = $row1['Height'];
 		$ship_mass = number_format($row1['Mass']);
 		$ship_cargo_capacity = number_format($row1['CargoCapacity']);
 		$ship_min_crew = $row1['MinCrew'];
