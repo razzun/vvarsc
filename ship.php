@@ -139,7 +139,7 @@
 		$ship_utility = $row1['UtilityItems'];
 		
 		//Info 5
-		$ship_link = $row1['link'];
+		$ship_link = $row1['Link'];
 		$ship_price = $row1['ship_price'];
 		$ship_brochure = $row1['ship_brochure_link'];
 		$ship_status = $row1['ProductionState'];
