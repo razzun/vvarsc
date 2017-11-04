@@ -619,6 +619,12 @@
 <script>
 	$(document).ready(function() {
 	
+		/*
+		$('#MainWebsiteInner').css({
+			"max-width" : 'none'
+		});
+		*/
+	
 		var imageClass = $('.fleet');
 		
 		if(($( window ).width() < 900)) {
