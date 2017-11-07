@@ -69,16 +69,14 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					MIDN (OC) is the PayGrade held by Officer Candidates during their time in the Officer-in-Training Program. This will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-1 and assigned as the CO of a Squadron or Platoon. OCs are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. 
+					MIDN (OC) is the PayGrade held by Officer Candidates during their time in the Officer-in-Training Program. This will be accompanied by an assignment to a permanent Squadron or Platoon to serve as an  Assistant to the CO, much like an apprenticeship. Once the new Officer has attained the skills needed to lead a unit of their own, they will be advanced to O-1 and assigned as the CO of a Squadron or Platoon. OCs are expected to manage all aspects of their Unit's development under the guidance of the CO; operational planning, personnel training, unit public relations, recruitment, and member evaluation. Additional details regarding the Officer-in-Training program can be found at the following link: <a href="https://docs.google.com/document/d/1IgS0uZcUaxvuKbpLtBE3UQMpUD3dBJbu9_nsJGRyhaQ/edit?usp=sharing" target="_blank">Officer Training Program - Google Docs</a>
 					<br />
 					<br />
-					<strong>Entering the PayGrade of OC and beginning the <strong>Officer-in-Training</strong> Regimen requires the following:</strong>
+					<strong>Entering the PayGrade of OC and beginning the Officer-in-Training Program requires the following:</strong>
 					<ol>
 						<li>Minimum 6 Months TIS for the Fleet</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
-					<br />
-					Additional details regarding the Officer-in-Training program can be found at the following link: <a href="https://docs.google.com/document/d/1IgS0uZcUaxvuKbpLtBE3UQMpUD3dBJbu9_nsJGRyhaQ/edit?usp=sharing" target="_blank">Officer Training Program - Google Docs</a>
 				</p>
 			</div>
 		</div>	
