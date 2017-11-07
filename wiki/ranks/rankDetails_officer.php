@@ -77,6 +77,8 @@
 						<li>Minimum 6 Months TIS for the Fleet</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
+					<br />
+					Additional details regarding the Officer-in-Training program can be found at the following link: <a href="https://docs.google.com/document/d/1IgS0uZcUaxvuKbpLtBE3UQMpUD3dBJbu9_nsJGRyhaQ/edit?usp=sharing" target="_blank">Officer Training Program - Google Docs</a>
 				</p>
 			</div>
 		</div>	

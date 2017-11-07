@@ -27,6 +27,8 @@
 				<strong>Marine Squad/Team Organization - </strong> Outlining the details of Squad and Team organization for Marine Special Warfare Teams during Operations.
 				</br>
 				-->
+				<strong>Officer Training Program - </strong> Link to Google Document outlining OIT Program for Officer Candidates.
+				</br>
 				<strong>Organized Operations - </strong> Information pertaining to the planning and execution of Military and Economic Operations in the Persistent Universe.
 				</br>
 				<strong>Qualifications - </strong> View Qualifications attainable by Members.
