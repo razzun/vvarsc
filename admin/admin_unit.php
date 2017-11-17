@@ -250,7 +250,97 @@
 				$RoleName
 			</option>
 		";
-	}		
+	}
+	
+	if ($unitLevel == 'Squadron' || $unitLevel == 'Platoon')
+	{
+		//Query for UnitQualifications Table
+		$unitQual_query = "
+			select
+				u.RowID
+				,r.role_id
+				,r.role_name
+				,lk.CategoryName
+				,q.qualification_id
+				,q.qualification_name
+				,u.QualificationLevel
+				,u.IsActive
+			from projectx_vvarsc2.UnitQualifications u
+			join projectx_vvarsc2.roles r
+				on r.role_id = u.RoleID
+			join projectx_vvarsc2.qualifications q
+				on q.qualification_id = u.QualificationID
+			join projectx_vvarsc2.LK_QualificationCategories lk
+				on lk.CategoryID = q.qualification_categoryID
+			where u.UnitID = '$unit_id'
+			order by
+				r.role_orderby
+				,r.role_name
+				,q.qualification_name		
+		";
+		
+		$unitQual_query_results = $connection->query($unitQual_query);
+		$displayunitQuals = "";
+		
+		/*while(($row = $unitQual_query_results->fetch_assoc()) != false)
+		{
+			$rowID = $row['RowID'];
+			$memID = $row['mem_id'];
+			$memName = $row['mem_name'];
+			$rankLevel = $row['rank_level'];
+			$rankName = $row['rank_name'];
+			$roleID = $row['role_id'];
+			$roleName = $row['role_name'];
+			$unitLeader = $row['UnitLeader'];
+		
+			$displayunitQuals .= "
+				<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
+					<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
+						$rowID
+					</td>
+					<td class=\"adminTableRowTD memID\" data-memid=\"$memID\">
+						$memID
+					</td>
+					<td class=\"adminTableRowTD memName\" data-memname=\"$memName\">
+						<a href=\"../player/$memID\" target=\"_blank\">
+							$memName
+						</a>
+					</td>
+					<td class=\"adminTableRowTD rankLevel\" data-ranklevel=\"$rankLevel\">
+						$rankLevel
+					</td>
+					<td class=\"adminTableRowTD rankName\" data-rankname=\"$rankName\">
+						$rankName
+					</td>
+					<td class=\"adminTableRowTD roleID\" data-roleid=\"$roleID\">
+						$roleID
+					</td>
+					<td class=\"adminTableRowTD roleName\" data-rolename=\"$roleName\">
+						$roleName
+					</td>
+					<td class=\"adminTableRowTD unitLeader\" data-unitleader=\"$unitLeader\">
+						$unitLeader
+					</td>
+					<td class=\"adminTableRowTD\">
+			";
+					if($unitLeader == "No" && $_SESSION['sess_userrole'] == "admin")
+					$displayunitQuals .= "
+						<button class=\"adminButton adminButtonAssignLeader\">
+							Assign Leader
+						</button>
+					";
+					$displayunitQuals .= "
+						<button class=\"adminButton adminButtonEdit Member\" title=\"Edit Member Role\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
+						</button>
+						<button class=\"adminButton adminButtonDelete Member\" title=\"Remove Member\">
+							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
+						</button>
+					</td>
+				</tr>
+			";
+		}*/	
+	}
 	
 	//Query for UnitMembers Table
 	$unitMember_query = "

@@ -1225,7 +1225,14 @@
 		<div id="p_qual_container" class="play" valign="top" align="left">
 			<div class="p_qual" valign="top">
 				<div class="p_section_header" style="float:left">
-					Qualifications
+					<a href="<? echo $link_base; ?>/wiki/?page=qual" target="_blank" style="
+						text-decoration: none;
+						font-size: 1.1em;
+						font-weight: normal;
+						color: #FFF;
+					">
+						Qualifications
+					</a>
 				</div>
 				<? echo $display_qual_edit ?>
 				<div style="
@@ -1566,7 +1573,7 @@
 				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>				
 				
 				<label for="Name" class="adminDialogInputLabel">
-					Category / Name
+					Name
 				</label>
 				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required readonly>
 				
@@ -1617,7 +1624,7 @@
 				<input type="none" name="MemID" id="MemID" value="" class="adminDialogTextInput" style="display: none" readonly>				
 				
 				<label for="Name" class="adminDialogInputLabel">
-					Category / Name
+					Name
 				</label>
 				<input type="text" name="Name" id="Name" value="" class="adminDialogTextInput" required readonly>
 				
@@ -1932,7 +1939,7 @@
 			var rowID = $self.parent().parent().parent().data("rowid");
 			var qualID = $self.parent().parent().parent().data("id");
 			var qualLevel = $self.parent().parent().parent().data("level");
-			var qualName = $self.parent().parent().parent().find('.player_qual_row_name').text().trim();
+			var qualName = $self.parent().parent().parent().find('.player_qual_row_name strong').text().trim();
 			
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#MemID').val(memID).text();
@@ -1964,7 +1971,7 @@
 			var rowID = $self.parent().parent().parent().data("rowid");
 			var qualID = $self.parent().parent().parent().data("id");
 			var qualLevel = $self.parent().parent().parent().data("level");
-			var qualName = $self.parent().parent().parent().find('.player_qual_row_name').text().trim();
+			var qualName = $self.parent().parent().parent().find('.player_qual_row_name strong').text().trim();
 			
 			dialog.find('#RowID').val(rowID).text();
 			dialog.find('#MemID').val(memID).text();

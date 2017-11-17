@@ -844,6 +844,7 @@
 			join projectx_vvarsc2.LK_QualificationCategories lk
 				on lk.CategoryID = q.qualification_categoryID
 			where u.UnitID = $UnitID
+				and u.IsActive = 1
 			order by
 				r.role_orderby desc
 				,r.role_name
