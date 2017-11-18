@@ -659,18 +659,23 @@
 		
 		//Awards
 		$awards_query = "
-			select
-				ma.RowID
-				,a.AwardID
+			select distinct
+				a.AwardID
 				,a.AwardName
 				,a.AwardImage
 				,a.AwardRequirements
 				,a.AwardOrderBy
-				,ma.ModifiedOn
+				,COUNT(distinct ma.RowID) as AwardCount
 			from projectx_vvarsc2.member_Awards ma
 			join projectx_vvarsc2.Awards a
 				on a.AwardID = ma.AwardID
 			where ma.MemberID = $player_id
+			group by
+				a.AwardID
+				,a.AwardName
+				,a.AwardImage
+				,a.AwardRequirements
+				,a.AwardOrderBy
 			order by
 				a.AwardOrderBy
 				,a.AwardName
@@ -680,10 +685,11 @@
 		
 		while(($row2 = $awards_query_results->fetch_assoc()) != false)
 		{
-			$rowID = $row2['RowID'];
+			$award_count = $row2['AwardCount'];
 			$award_id = $row2['AwardID'];
 			$award_name = $row2['AwardName'];
 			$award_image = $link_base."/images/awards/".$row2['AwardImage'];
+			$device_image = $link_base."/images/awards/serviceStar.png";
 			$level1_reqs = $row2['AwardRequirements'];
 			$award_modifiedOn = $row2['ModifiedOn'];
 			
@@ -695,11 +701,55 @@
 					<img src=\"$award_image\" height=\"22px\" width=\"80px\" style=\"
 						vertical-align: middle;
 					\">
+			";
+			
+			if ($award_count > 1)
+			{
+				if ($award_count > 5)
+				{
+					$award_count_calculated = 5;
+				}
+				else
+				{
+					$award_count_calculated = $award_count;
+				}
+					
+				$display_player_awards .= "
+					<div class=\"awardDeviceContainer\">
+						<div class=\"awardDevices\">
+				";
+				for ($i=0; $i < $award_count_calculated - 1; $i++)
+				{
+					$display_player_awards .= "
+							<div class=\"awardDeviceImageContainer\">
+								<img class=\"awardDeviceImg\"src=\"$device_image\" height:\"12px\" width=\"13px\" style=\"
+									vertical-align: middle;
+								\">
+							</div>
+					";
+				}
+				$display_player_awards .= "
+						</div>
+					</div>
+				";
+			}
+			
+			
+			$display_player_awards .= "
 					<div class=\"rsi-tooltip\" style=\"
 						bottom: 36px;
 					\">
 						<div class=\"rsi-tooltip-content\">
-							<strong>$award_name</strong>
+							<strong>$award_name 
+			";
+			if ($award_count > 1)
+			{
+				$display_player_awards .= "
+					(x$award_count)
+				";
+			}
+			
+			$display_player_awards .= "</strong>
 							<br />
 							$level1_reqs
 						</div>

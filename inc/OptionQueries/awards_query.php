@@ -9,12 +9,16 @@
 			,a.AwardOrderBy
 		from projectx_vvarsc2.Awards a
 		where a.IsActive = 1
-			and a.AwardID not in (
-				select
-					ma.AwardID
-				from projectx_vvarsc2.member_Awards ma
-				where ma.MemberID = $player_id
-			)
+			and (a.IsSingular = 0
+				or (a.IsSingular = 1
+					and a.AwardID not in (
+					select
+						ma.AwardID
+					from projectx_vvarsc2.member_Awards ma
+					where ma.MemberID = $player_id
+					)
+				)
+            )
 		order by
 			a.AwardOrderBy
 			,a.AwardName

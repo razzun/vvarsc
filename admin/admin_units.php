@@ -46,7 +46,7 @@
 					$unitID
 				</td>
 				<td class=\"adminTableRowTD unitName\" data-name=\"$unitName\">
-					<a href=\"../unit/$unitID\" target=\"_top\">	
+					<a href=\"../admin/?page=admin_unit&pid=$unitID\" target=\"_top\">	
 						$unitName
 					</a>	
 				</td>

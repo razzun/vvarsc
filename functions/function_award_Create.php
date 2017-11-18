@@ -17,6 +17,7 @@
 	$Name = "";
 	$Image = "";
 	$IsActive = "";
+	$IsSingular = "";
 	$Level1Reqs = "";
 	$OrderBy = "";
 	
@@ -31,6 +32,10 @@
 	if (isset($_POST['IsActive']))
 	{
 		$IsActive = $_POST['IsActive'];
+	}
+	if (isset($_POST['IsSingular']))
+	{
+		$IsSingular = $_POST['IsSingular'];
 	}
 	if (isset($_POST['Level1Reqs']))
 	{
@@ -47,6 +52,7 @@
 			,IsActive
 			,AwardRequirements
 			,AwardOrderBy
+			,IsSingular
 		)
 		VALUES (
 			'$Name'
@@ -54,6 +60,7 @@
 			,$IsActive
 			,'$Level1Reqs'
 			,$OrderBy
+			,$IsSingular
 		)
 	";
 	

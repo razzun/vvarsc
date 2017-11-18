@@ -851,10 +851,37 @@ table.tbmem a:hover {
 .p_award {
 	display: inline-block;
 	vertical-align: middle;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.awardDeviceContainer {
+	position: absolute;
+	z-index: 115;
+	height: 22px;
+	width: 80px;
+	top: 1px;
+}
+
+.awardDevices {
+	height: 100%;
+	display: table;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.awardDeviceImageContainer {
+	height: 12px;
+	width: 13px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.awardDeviceImg {
+
 }
 
 #p_awards_inner {

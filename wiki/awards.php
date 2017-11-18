@@ -7,6 +7,7 @@
 			,a.AwardName
 			,a.AwardImage
 			,a.IsActive
+			,a.IsSingular
 			,a.AwardRequirements
 			,a.AwardOrderBy
             ,COUNT(distinct ma.MemberID) as AwardedCount
@@ -19,6 +20,7 @@
 			,a.AwardName
 			,a.AwardImage
 			,a.IsActive
+			,a.IsSingular
 			,a.AwardRequirements
 			,a.AwardOrderBy
 		order by
@@ -35,6 +37,7 @@
 		$awardName = $row['AwardName'];
 		$awardImage = $row['AwardImage'];
 		$awardIsActive = $row['IsActive'];
+		$awardIsSingular = $row['IsSingular'];
 		$awardReqs = $row['AwardRequirements'];
 		$awardOrderBy = $row['AwardOrderBy'];
 		$awardedCount = $row['AwardedCount'];
@@ -46,6 +49,11 @@
 			$awardIsActiveDisplay = "Active";
 		else
 			$awardIsActiveDisplay = "Inactive";
+			
+		if ($awardIsSingular == 1)
+			$awardIsSingularDisplay = "Yes";
+		else
+			$awardIsSingularDisplay = "No";
 		
 		if ($awardReqs == null || $awardReqs == "")
 			$awardReqsDisplay = "-- no requirements found --";
@@ -88,7 +96,8 @@
 					font-size: 8pt;
 					font-style: italic;
 				\">
-					Recipients: $awardedCount
+					Recipients: $awardedCount</br>
+					One-Time-Award: $awardIsSingularDisplay
 				</div>
 				<div class=\"shipyard_mainTable_row_content\" style=\"
 					padding-top:0px;

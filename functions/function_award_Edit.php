@@ -18,6 +18,7 @@
 	$Name = "";
 	$Image = "";
 	$IsActive = "";
+	$IsSingular = "";
 	$Level1Reqs = "";
 	$OrderBy = "";
 	
@@ -37,6 +38,10 @@
 	{
 		$IsActive = $_POST['IsActive'];
 	}
+	if (isset($_POST['IsSingular']))
+	{
+		$IsSingular = $_POST['IsSingular'];
+	}
 	if (isset($_POST['Level1Reqs']))
 	{
 		$Level1Reqs = mysqli_real_escape_string($connection, $_POST['Level1Reqs']);
@@ -53,6 +58,7 @@
 			,IsActive = $IsActive
 			,AwardRequirements = '$Level1Reqs'
 			,AwardOrderBy = $OrderBy
+			,IsSingular = $IsSingular
 		where AwardID = $ID
 	";
 	

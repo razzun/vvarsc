@@ -1,5 +1,6 @@
 <?php include_once('../functions/function_auth_officer.php'); ?>
 <?php include_once('../functions/function_getUnitsForUser.php'); ?>
+<?php include_once('../inc/OptionQueries/getRoles_query.php'); ?>
 
 
 <?php
@@ -226,32 +227,6 @@
 		";
 	}
 	
-	//Query for Roles Drop-Down Menu
-	$roles_query = "
-		select
-			r.role_id
-			,r.role_name
-		from projectx_vvarsc2.roles r
-		order by
-			r.role_orderby
-			,r.role_name
-	";
-	
-	$roles_query_results = $connection->query($roles_query);
-	$displayRoles = "";
-	
-	while(($row = $roles_query_results->fetch_assoc()) != false)
-	{
-		$RoleID = $row['role_id'];
-		$RoleName = $row['role_name'];
-	
-		$displayRoles .= "
-			<option value=\"$RoleID\" id=\"RoleID-$RoleID\">
-				$RoleName
-			</option>
-		";
-	}
-	
 	if ($unitLevel == 'Squadron' || $unitLevel == 'Platoon')
 	{
 		//Query for UnitQualifications Table
@@ -282,64 +257,56 @@
 		$unitQual_query_results = $connection->query($unitQual_query);
 		$displayunitQuals = "";
 		
-		/*while(($row = $unitQual_query_results->fetch_assoc()) != false)
+		while(($row = $unitQual_query_results->fetch_assoc()) != false)
 		{
 			$rowID = $row['RowID'];
-			$memID = $row['mem_id'];
-			$memName = $row['mem_name'];
-			$rankLevel = $row['rank_level'];
-			$rankName = $row['rank_name'];
 			$roleID = $row['role_id'];
 			$roleName = $row['role_name'];
-			$unitLeader = $row['UnitLeader'];
+			$categoryName = $row['CategoryName'];
+			$qualID = $row['qualification_id'];
+			$qualName = $row['qualification_name'];
+			$qualLevel = $row['QualificationLevel'];
+			$isActive = $row['IsActive'];
 		
 			$displayunitQuals .= "
 				<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
 					<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
 						$rowID
 					</td>
-					<td class=\"adminTableRowTD memID\" data-memid=\"$memID\">
-						$memID
-					</td>
-					<td class=\"adminTableRowTD memName\" data-memname=\"$memName\">
-						<a href=\"../player/$memID\" target=\"_blank\">
-							$memName
-						</a>
-					</td>
-					<td class=\"adminTableRowTD rankLevel\" data-ranklevel=\"$rankLevel\">
-						$rankLevel
-					</td>
-					<td class=\"adminTableRowTD rankName\" data-rankname=\"$rankName\">
-						$rankName
-					</td>
-					<td class=\"adminTableRowTD roleID\" data-roleid=\"$roleID\">
+					<td class=\"adminTableRowTD memID\" data-roleid=\"$roleID\">
 						$roleID
 					</td>
-					<td class=\"adminTableRowTD roleName\" data-rolename=\"$roleName\">
+					<td class=\"adminTableRowTD rankLevel\" data-rolename=\"$roleName\">
 						$roleName
 					</td>
-					<td class=\"adminTableRowTD unitLeader\" data-unitleader=\"$unitLeader\">
-						$unitLeader
+					<td class=\"adminTableRowTD rankName\" data-categoryname=\"$categoryName\">
+						$categoryName
+					</td>
+					<td class=\"adminTableRowTD roleID\" data-qualid=\"$qualID\">
+						$qualID
+					</td>
+					<td class=\"adminTableRowTD roleName\" data-qualname=\"$qualName\">
+						$qualName
+					</td>
+					<td class=\"adminTableRowTD unitLeader\" data-quallevel=\"$qualLevel\">
+						$qualLevel
+					</td>
+					<td class=\"adminTableRowTD unitLeader\" data-isactive=\"$isActive\">
+						$isActive
 					</td>
 					<td class=\"adminTableRowTD\">
 			";
-					if($unitLeader == "No" && $_SESSION['sess_userrole'] == "admin")
 					$displayunitQuals .= "
-						<button class=\"adminButton adminButtonAssignLeader\">
-							Assign Leader
-						</button>
-					";
-					$displayunitQuals .= "
-						<button class=\"adminButton adminButtonEdit Member\" title=\"Edit Member Role\">
+						<button class=\"adminButton adminButtonEdit roleQual\" title=\"Edit Role Qualification\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 						</button>
-						<button class=\"adminButton adminButtonDelete Member\" title=\"Remove Member\">
+						<button class=\"adminButton adminButtonDelete roleQual\" title=\"Remove Role Qualification\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 						</button>
 					</td>
 				</tr>
 			";
-		}*/	
+		}	
 	}
 	
 	//Query for UnitMembers Table
@@ -599,6 +566,29 @@
 
 		var overlay = $('#overlay');
 		
+		//Add Qual
+		/*
+		$('#adminAddRoleQual').click(function() {
+			var dialog = $('#dialog-form-createRoleQual');
+			var $self = jQuery(this);
+			
+			var unitID = $('.adminTableHeaderRow').data("unitid");
+
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#MemberID').find('#MemberID-default').prop('selected',true);
+			dialog.find('#RoleID').find('#RoleID-default').prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTableContainer').css({
+				filter: 'blur(2px)'
+			});		
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+		});
+		*/
+		
 		//Add Member
 		$('#adminAddMember').click(function() {
 			var dialog = $('#dialog-form-createMember');
@@ -618,8 +608,6 @@
 			$('#MainPageHeaderText').css({
 				filter: 'blur(2px)'
 			});
-
-			
 		});
 		
 		//Assign Member as Leader
@@ -834,6 +822,8 @@
 			//Hide All Dialog Containers
 			$('#dialog-form-assignMemberAsLeader').hide();
 			
+			//$('#dialog-form-createRoleQual').hide();
+			
 			$('#dialog-form-createMember').hide();
 			$('#dialog-form-editMember').hide();
 			$('#dialog-form-deleteMember').hide();
@@ -1036,6 +1026,52 @@
 		</form>
 		
 		<br />
+		<!--Role Qualifications Table-->
+		<!--
+		<button id="adminAddRoleQual" class="adminButton adminButtonCreate" title="Add Role Qualification" style="
+			float: right;
+			margin-left: 0px;
+			margin-right: 2%;			
+		">
+			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">	
+			Add Role Qualification		
+		</button>
+		<h3 id="UnitRoleQualsHeader">Role Qualifications</h3>
+		<table id="adminRoleQualTable" class="adminTable">
+			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
+				<td class="adminTableHeaderRowTD">
+					RowID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					RoleID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Role Name
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Category
+				</td>
+				<td class="adminTableHeaderRowTD">
+					QualificationID
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Qualification Name
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Level
+				</td>
+				<td class="adminTableHeaderRowTD">
+					IsActive
+				</td>
+				<td class="adminTableHeaderRowTD">
+					Actions
+				</td>
+			</tr>
+			<? echo $displayunitQuals ?>
+		</table>
+		
+		<br />
+		-->
 		<!--Members Table-->
 		<button id="adminAddMember" class="adminButton adminButtonCreate" title="Add Member to Unit" style="
 			float: right;
@@ -1112,6 +1148,68 @@
 		</table>		
 		
 	</div>
+	
+	
+	<!--FORMS-->
+	<!--Add Role Qualification Form-->
+	<!--
+	<div id="dialog-form-createRoleQual" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Add Role Qualification Here!</p>
+		<p class="validateTips">All Fields are Required.</p>
+		<form class="adminDialogForm" action="../functions/function_unit_RoleQual.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+			
+				disable this
+				<label for="RowID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>
+				
+				<label for="RoleID" class="adminDialogInputLabel" required>
+					Role
+				</label>
+				<select name="RoleID" id="RoleID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayRoles ?>
+				</select>
+				
+				<label for="QualificationID" class="adminDialogInputLabel">
+					Qualification
+				</label>
+				<select name="QualID" id="QualID" class="adminDialogDropDown" required>
+					<option selected disabled value="default" id="QualID-default">
+						- Select a Qualification -
+					</option>	
+					<? echo $displayQuals ?>
+				</select>
+				
+				<label for="QualLevel" class="adminDialogInputLabel">
+					IsActive
+				</label>
+				<select name="QualLevel" id="QualLevel" class="adminDialogDropDown" required>
+					<option selected disabled value="default" id="QualLevel-default">
+						- Select an Option -
+					</option>
+					<option value="1" id="QualLevel-1">
+						Yes
+					</option>
+					<option value="0" id="QualLevel-0">
+						No
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	-->
 	
 	<!--Add Member Form-->
 	<div id="dialog-form-createMember" class="adminDialogFormContainer">

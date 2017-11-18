@@ -9,6 +9,7 @@
 			,a.IsActive
 			,a.AwardRequirements
 			,a.AwardOrderBy
+			,a.IsSingular
 		from projectx_vvarsc2.Awards a
 		order by
 			a.AwardOrderBy
@@ -26,6 +27,7 @@
 		$awardIsActive = $row['IsActive'];
 		$awardReqs = $row['AwardRequirements'];
 		$awardOrderBy = $row['AwardOrderBy'];
+		$awardIsSingular = $row['IsSingular'];
 		
 		$awardIsActiveDisplay = "";
 		$awardReqsDisplay = "";
@@ -34,6 +36,11 @@
 			$awardIsActiveDisplay = "Active";
 		else
 			$awardIsActiveDisplay = "Inactive";
+		
+		if ($awardIsSingular == 1)
+			$awardIsSingularDisplay = "Yes";
+		else
+			$awardIsSingularDisplay = "No";
 		
 		if ($awardReqs == null || $awardReqs == "")
 			$awardReqsDisplay = "-- no requirements found --";
@@ -50,6 +57,7 @@
 				data-isactive=\"$awardIsActive\"
 				data-reqs=\"$awardReqs\"
 				data-orderby=\"$awardOrderBy\"
+				data-issingular=\"$awardIsSingular\"
 			>
 				<div class=\"\" style=\"
 					float: right;
@@ -90,8 +98,6 @@
 						vertical-align: middle;
 					\">
 						<strong>$awardName</strong>
-						<br />
-						Order: $awardOrderBy
 					</div>
 				</div>
 				<div class=\"shipyard_mainTable_row_content\" style=\"
@@ -124,9 +130,13 @@
 						margin-bottom:8px;
 						padding-left:8px;
 					\">
-						Status
+						ID: $awardID
+						<br/>
+						OrderBy: $awardOrderBy
+						<br/>
+						Status: $awardIsActiveDisplay
 						<br />
-						<strong>$awardIsActiveDisplay</strong>
+						One-Time Award: $awardIsSingularDisplay
 					</div>				
 					<h4 style=\"
 						padding: 0px 8px 0px 8px;
@@ -191,6 +201,9 @@
 			dialog.find('#IsActive').find('option').prop('selected',false);
 			dialog.find('#IsActive').find('#IsActive-default').prop('selected',true);
 			
+			dialog.find('#IsSingular').find('option').prop('selected',false);
+			dialog.find('#IsSingular').find('#IsSingular-default').prop('selected',true);
+			
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
@@ -214,6 +227,7 @@
 			var isActive = $self.parent().parent().data("isactive");
 			var awardreqs = $self.parent().parent().data("reqs");
 			var orderby = $self.parent().parent().data("orderby");
+			var isSingular = $self.parent().parent().data("issingular");
 
 			dialog.find('#ID').val(awardID).text();
 			dialog.find('#Name').val(awardName).text();
@@ -221,6 +235,9 @@
 			
 			dialog.find('#IsActive').find('option').prop('selected',false);
 			dialog.find('#IsActive').find('#IsActive-' + isActive).prop('selected',true);
+			
+			dialog.find('#IsSingular').find('option').prop('selected',false);
+			dialog.find('#IsSingular').find('#IsSingular-' + isSingular).prop('selected',true);
 			
 			dialog.find('#Level1Reqs').val(awardreqs).text();
 			dialog.find('#OrderBy').val(orderby).text();
@@ -248,6 +265,7 @@
 			var isActive = $self.parent().parent().data("isactive");
 			var awardreqs = $self.parent().parent().data("reqs");
 			var orderby = $self.parent().parent().data("orderby");
+			var isSingular = $self.parent().parent().data("issingular");
 
 			dialog.find('#ID').val(awardID).text();
 			dialog.find('#Name').val(awardName).text();
@@ -276,6 +294,7 @@
 			$('.adminDiaglogFormFieldset').find('#ID').val("").text();
 			$('.adminDiaglogFormFieldset').find('#Name').val("").text();
 			$('.adminDiaglogFormFieldset').find('#IsActive').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#IsSingular').find('option').prop('selected',false);
 			$('.adminDiaglogFormFieldset').find('#OrderBy').val("").text();
 			$('.adminDiaglogFormFieldset').find('#Level1Reqs').val("").text();
 			
@@ -377,6 +396,21 @@
 						</option>
 					</select>
 					
+					<label for="IsSingular" class="adminDialogInputLabel">
+						IsSingular
+					</label>
+					<select name="IsSingular" id="IsSingular" class="adminDialogDropDown" required>
+						<option selected="true" disabled="true" value="default" id="IsSingular-default">
+							IsSingular?
+						</option>
+						<option value="1" id="IsSingular-1">
+							Yes
+						</option>
+						<option value="0" id="IsSingular-0">
+							No
+						</option>
+					</select>
+					
 					<label for="Level1Reqs" class="adminDialogInputLabel">
 						Requirements
 					</label>
@@ -431,6 +465,21 @@
 							No
 						</option>
 					</select>
+					
+					<label for="IsSingular" class="adminDialogInputLabel">
+						IsSingular
+					</label>
+					<select name="IsSingular" id="IsSingular" class="adminDialogDropDown" required>
+						<option selected="true" disabled="true" value="default" id="IsSingular-default">
+							IsSingular?
+						</option>
+						<option value="1" id="IsSingular-1">
+							Yes
+						</option>
+						<option value="0" id="IsSingular-0">
+							No
+						</option>
+					</select>					
 					
 					<label for="Level1Reqs" class="adminDialogInputLabel">
 						Requirements
