@@ -1011,15 +1011,15 @@
 				,s.ship_silo
 				,s.ship_price
 				,REPLACE(s.ship_classification,'_',' ') as ship_classification
-				,sed.ship_max_crew
+				,sed.MaxCrew
 				,us.Purpose
 			from projectx_vvarsc2.UnitShips us
 			join projectx_vvarsc2.ships s
 				on s.ship_id = us.ShipID
 			join projectx_vvarsc2.manufacturers m
 				on m.manu_id = s.manufacturers_manu_id
-			join projectx_vvarsc2.ship_extended_data sed
-				on sed.ships_ship_id = s.ship_id
+			left join projectx_vvarsc2.ShipStats_v2 sed
+				on sed.ShipID = s.ship_id
 			where us.UnitID = $UnitID
 			order by
 				m.manu_shortName
@@ -1058,7 +1058,7 @@
 				$ship_price = $row2['ship_price'];
 				$ship_purpose = $row2['Purpose'];
 				$ship_classification = $row2['ship_classification'];
-				$ship_max_crew = $row2['ship_max_crew'];
+				$ship_max_crew = $row2['MaxCrew'];
 				
 				if ($ship_model_designation != NULL && $ship_model_visible != "0") {
 					$full_ship_name = "";

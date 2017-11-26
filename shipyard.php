@@ -82,7 +82,7 @@
 	from `projectx_vvarsc2`.`ships` s
 	join `projectx_vvarsc2`.`manufacturers` m
 		on m.`manu_id` = s.`manufacturers_manu_id`
-	join `projectx_vvarsc2`.`ship_extended_data` sed
+	left join `projectx_vvarsc2`.`ship_extended_data` sed
 		on sed.`ships_ship_id` = s.`ship_id`
 	left join `projectx_vvarsc2`.`ships_has_members` shm
 		on shm.`ships_ship_id` = s.`ship_id`
