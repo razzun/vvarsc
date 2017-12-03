@@ -1268,7 +1268,7 @@
 
 		<!--QUALIFICATIONS-->
 		<h4 style="padding-left: 0px; margin-left: 0px">
-			Qualifications & Awards
+			Qualifications
 		</h4>	
 		<div class="table_header_block">
 		</div>	

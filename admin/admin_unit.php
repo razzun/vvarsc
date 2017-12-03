@@ -1,10 +1,12 @@
 <?php include_once('../functions/function_auth_officer.php'); ?>
 <?php include_once('../functions/function_getUnitsForUser.php'); ?>
 <?php include_once('../inc/OptionQueries/getRoles_query.php'); ?>
+<?php include_once('../inc/OptionQueries/getRanks_query.php'); ?>
 
 
 <?php
 	$unit_id = strip_tags(isset($_GET[pid]) ? $_GET[pid] : '');
+	include_once('../inc/OptionQueries/getAvailableRolesForUnit_query.php');
 	
 	//Function For Checking Unit Leaders of Parent Units For Edit Permissions on This Unit
 	function generate_list2($array,$child,$Access,$memberUnits)
@@ -227,87 +229,104 @@
 		";
 	}
 	
+	//UnitRoles
 	if ($unitLevel == 'Squadron' || $unitLevel == 'Platoon')
 	{
-		//Query for UnitQualifications Table
-		$unitQual_query = "
+		//Query for UnitRoles Table
+		$unitRoles_query = "
 			select
-				u.RowID
-				,r.role_id
-				,r.role_name
-				,lk.CategoryName
-				,q.qualification_id
-				,q.qualification_name
-				,u.QualificationLevel
-				,u.IsActive
-			from projectx_vvarsc2.UnitQualifications u
-			join projectx_vvarsc2.roles r
-				on r.role_id = u.RoleID
-			join projectx_vvarsc2.qualifications q
-				on q.qualification_id = u.QualificationID
-			join projectx_vvarsc2.LK_QualificationCategories lk
-				on lk.CategoryID = q.qualification_categoryID
+				ur.RowID
+				,ur.RoleID
+				,ro.role_name
+				,r1.rank_id as MinPayGradeID
+				,r1.rank_level as MinPayGrade
+				,r1.rank_abbr as MinPayGradeName
+				,r1.rank_tinyImage as MinPayGradeImage
+				,r2.rank_id as MaxPayGradeID
+				,r2.rank_level as MaxPayGrade
+				,r2.rank_abbr as MaxPayGradeName
+				,r2.rank_tinyImage as MaxPayGradeImage
+				,ur.IsActive
+			from projectx_vvarsc2.Units u
+			join projectx_vvarsc2.UnitRoles ur
+				on ur.UnitID = u.UnitID
+			join projectx_vvarsc2.roles ro
+				on ro.role_id = ur.RoleID
+			join projectx_vvarsc2.ranks r1
+				on r1.rank_id = ur.MinPayGrade
+			join projectx_vvarsc2.ranks r2
+				on r2.rank_id = ur.MaxPayGrade
 			where u.UnitID = '$unit_id'
 			order by
-				r.role_orderby
-				,r.role_name
-				,q.qualification_name		
+				ro.role_orderBy	
 		";
 		
-		$unitQual_query_results = $connection->query($unitQual_query);
-		$displayunitQuals = "";
+		$unitRoles_query_results = $connection->query($unitRoles_query);
+		$displayUnitRoles = "";
 		
-		while(($row = $unitQual_query_results->fetch_assoc()) != false)
+		while(($row = $unitRoles_query_results->fetch_assoc()) != false)
 		{
 			$rowID = $row['RowID'];
-			$roleID = $row['role_id'];
+			$roleID = $row['RoleID'];
 			$roleName = $row['role_name'];
-			$categoryName = $row['CategoryName'];
-			$qualID = $row['qualification_id'];
-			$qualName = $row['qualification_name'];
-			$qualLevel = $row['QualificationLevel'];
+			$minPayGradeID = $row['MinPayGradeID'];
+			$minPayGrade = $row['MinPayGrade'];
+			$minPayGradeName = $row['MinPayGradeName'];
+			$minPayGradeImage = $row['MinPayGradeImage'];
+			$maxPayGradeID = $row['MaxPayGradeID'];
+			$maxPayGrade = $row['MaxPayGrade'];
+			$maxPayGradeName = $row['MaxPayGradeName'];
+			$maxPayGradeImage = $row['MaxPayGradeImage'];
 			$isActive = $row['IsActive'];
 		
-			$displayunitQuals .= "
+			$displayUnitRoles .= "
 				<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
 					<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
 						$rowID
 					</td>
-					<td class=\"adminTableRowTD memID\" data-roleid=\"$roleID\">
+					<td class=\"adminTableRowTD roleID\" data-roleid=\"$roleID\">
 						$roleID
 					</td>
-					<td class=\"adminTableRowTD rankLevel\" data-rolename=\"$roleName\">
+					<td class=\"adminTableRowTD\" data-rolename=\"$roleName\">
 						$roleName
 					</td>
-					<td class=\"adminTableRowTD rankName\" data-categoryname=\"$categoryName\">
-						$categoryName
+					<td class=\"adminTableRowTD minRank\" data-minpaygrade=\"$minPayGradeID\">
+						<div class=\"clickableRow_memRank_inner\">
+							<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
+							<div class=\"rank_image_text\">
+								$minPayGradeName ($minPayGrade)
+							</div>
+						</div>
 					</td>
-					<td class=\"adminTableRowTD roleID\" data-qualid=\"$qualID\">
-						$qualID
+					<td class=\"adminTableRowTD maxRank\" data-maxpaygrade=\"$maxPayGradeID\">
+						<div class=\"clickableRow_memRank_inner\">
+							<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
+							<div class=\"rank_image_text\">
+								$maxPayGradeName ($maxPayGrade)
+							</div>
+						</div>
 					</td>
-					<td class=\"adminTableRowTD roleName\" data-qualname=\"$qualName\">
-						$qualName
-					</td>
-					<td class=\"adminTableRowTD unitLeader\" data-quallevel=\"$qualLevel\">
-						$qualLevel
-					</td>
-					<td class=\"adminTableRowTD unitLeader\" data-isactive=\"$isActive\">
+					<td class=\"adminTableRowTD isActive\" data-isactive=\"$isActive\">
 						$isActive
 					</td>
 					<td class=\"adminTableRowTD\">
 			";
-					$displayunitQuals .= "
-						<button class=\"adminButton adminButtonEdit roleQual\" title=\"Edit Role Qualification\">
+					$displayUnitRoles .= "
+						
+						<a href=\"../admin/?page=admin_unitRole&pid=$rowID\">
+							Edit Qualifications
+						</a>
+						<button class=\"adminButton adminButtonEdit unitRole\" title=\"Edit Role\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
 						</button>
-						<button class=\"adminButton adminButtonDelete roleQual\" title=\"Remove Role Qualification\">
+						<button class=\"adminButton adminButtonDelete unitRole\" title=\"Remove Role\">
 							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
 						</button>
 					</td>
 				</tr>
 			";
 		}	
-	}
+	}	
 	
 	//Query for UnitMembers Table
 	$unitMember_query = "
@@ -342,6 +361,7 @@
 	$unitMember_query_results = $connection->query($unitMember_query);
 	$displayUnitMembers = "";
 	
+	//UnitMembers
 	while(($row = $unitMember_query_results->fetch_assoc()) != false)
 	{
 		$rowID = $row['RowID'];
@@ -401,6 +421,7 @@
 		";
 	}
 	
+	//UnitShips
 	if ($unitLevel == 'Squadron' || $unitLevel == 'QRF')
 	{
 		//Query For UnitShips Table
@@ -505,7 +526,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
 </script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+<!--JAVASCRIPT-->
 <script>
 	function resizeInput() {
 		$(this).attr('size', $(this).val().length);
@@ -566,17 +587,17 @@
 
 		var overlay = $('#overlay');
 		
-		//Add Qual
-		/*
-		$('#adminAddRoleQual').click(function() {
-			var dialog = $('#dialog-form-createRoleQual');
+		//Add Role
+		$('#adminAddUnitRole').click(function() {
+			var dialog = $('#dialog-form-createUnitRole');
 			var $self = jQuery(this);
 			
 			var unitID = $('.adminTableHeaderRow').data("unitid");
 
 			dialog.find('#UnitID').val(unitID).text();
-			dialog.find('#MemberID').find('#MemberID-default').prop('selected',true);
 			dialog.find('#RoleID').find('#RoleID-default').prop('selected',true);
+			dialog.find('#MinRankID').find('#RankID-default').prop('selected',true);
+			dialog.find('#MaxRankID').find('#RankID-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -587,7 +608,68 @@
 				filter: 'blur(2px)'
 			});
 		});
-		*/
+		
+		//Edit UnitRole
+		$('.adminButton.adminButtonEdit.unitRole').click(function() {
+			var dialog = $('#dialog-form-editUnitRole');
+			
+			var $self = jQuery(this);
+			
+			var unitID = $('.adminTableHeaderRow').data("unitid");
+			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
+			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("roleid");
+			var minRankID = $self.parent().parent().find('.adminTableRowTD.minRank').data("minpaygrade");
+			var maxRankID = $self.parent().parent().find('.adminTableRowTD.maxRank').data("maxpaygrade");
+			var isActive = $self.parent().parent().find('.adminTableRowTD.isActive').data("isactive");
+			
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#RoleID').val(roleID).text();
+			dialog.find('#MinRankID').val(minRankID).text();
+			dialog.find('#MaxRankID').val(maxRankID).text();
+			dialog.find('#IsActive').find('#IsActive-' + isActive).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTableContainer').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
+		});	
+		
+		//Delete UnitRole
+		$('.adminButton.adminButtonDelete.unitRole').click(function() {
+			var dialog = $('#dialog-form-deleteUnitRole');
+			
+			var $self = jQuery(this);
+			
+			var unitID = $('.adminTableHeaderRow').data("unitid");
+			var rowID = $self.parent().parent().find('.adminTableRowTD.rowID').data("rowid");
+			var roleID = $self.parent().parent().find('.adminTableRowTD.roleID').data("roleid");
+			var minRankID = $self.parent().parent().find('.adminTableRowTD.minRank').data("minpaygrade");
+			var maxRankID = $self.parent().parent().find('.adminTableRowTD.maxRank').data("maxpaygrade");
+			var isActive = $self.parent().parent().find('.adminTableRowTD.isActive').data("isactive");
+			
+			dialog.find('#RowID').val(rowID).text();
+			dialog.find('#UnitID').val(unitID).text();
+			dialog.find('#RoleID').val(roleID).text();
+			dialog.find('#MinRankID').val(minRankID).text();
+			dialog.find('#MaxRankID').val(maxRankID).text();
+			dialog.find('#IsActive').find('#IsActive-' + isActive).prop('selected',true);
+			
+			dialog.show();
+			overlay.show();
+			$('.adminTableContainer').css({
+				filter: 'blur(2px)'
+			});
+			$('#MainPageHeaderText').css({
+				filter: 'blur(2px)'
+			});
+
+		});		
 		
 		//Add Member
 		$('#adminAddMember').click(function() {
@@ -822,7 +904,9 @@
 			//Hide All Dialog Containers
 			$('#dialog-form-assignMemberAsLeader').hide();
 			
-			//$('#dialog-form-createRoleQual').hide();
+			$('#dialog-form-createUnitRole').hide();
+			$('#dialog-form-editUnitRole').hide();
+			$('#dialog-form-deleteUnitRole').hide();
 			
 			$('#dialog-form-createMember').hide();
 			$('#dialog-form-editMember').hide();
@@ -1026,18 +1110,17 @@
 		</form>
 		
 		<br />
-		<!--Role Qualifications Table-->
-		<!--
-		<button id="adminAddRoleQual" class="adminButton adminButtonCreate" title="Add Role Qualification" style="
+		<!--UnitRoles Table-->
+		<button id="adminAddUnitRole" class="adminButton adminButtonCreate" title="Add Role" style="
 			float: right;
 			margin-left: 0px;
 			margin-right: 2%;			
 		">
 			<img height="20px" class="adminButtonImage" src="../images/misc/button_add.png">	
-			Add Role Qualification		
+			Add Role		
 		</button>
-		<h3 id="UnitRoleQualsHeader">Role Qualifications</h3>
-		<table id="adminRoleQualTable" class="adminTable">
+		<h3 id="UnitRolesHeader">Roles</h3>
+		<table id="adminUnitRoleTable" class="adminTable">
 			<tr class="adminTableHeaderRow" data-unitid="<? echo $unit_id ?>">
 				<td class="adminTableHeaderRowTD">
 					RowID
@@ -1049,16 +1132,10 @@
 					Role Name
 				</td>
 				<td class="adminTableHeaderRowTD">
-					Category
+					Min PayGrade
 				</td>
 				<td class="adminTableHeaderRowTD">
-					QualificationID
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Qualification Name
-				</td>
-				<td class="adminTableHeaderRowTD">
-					Level
+					Max PayGrade
 				</td>
 				<td class="adminTableHeaderRowTD">
 					IsActive
@@ -1067,11 +1144,10 @@
 					Actions
 				</td>
 			</tr>
-			<? echo $displayunitQuals ?>
+			<? echo $displayUnitRoles ?>
 		</table>
 		
 		<br />
-		-->
 		<!--Members Table-->
 		<button id="adminAddMember" class="adminButton adminButtonCreate" title="Add Member to Unit" style="
 			float: right;
@@ -1151,21 +1227,23 @@
 	
 	
 	<!--FORMS-->
-	<!--Add Role Qualification Form-->
-	<!--
-	<div id="dialog-form-createRoleQual" class="adminDialogFormContainer">
+	<!--Add UnitRole Form-->
+	<div id="dialog-form-createUnitRole" class="adminDialogFormContainer">
 		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
 			Cancel
 		</button>
-		<p class="validateTips">Add Role Qualification Here!</p>
+		<p class="validateTips">Add a Role to this Unit</p>
 		<p class="validateTips">All Fields are Required.</p>
-		<form class="adminDialogForm" action="../functions/function_unit_RoleQual.php" method="POST" role="form">
+		<p class="validateTips">MinPaygrade must be less than MaxPayGrade, PayGrade Types must match.</p>
+		<form class="adminDialogForm" action="../functions/function_unit_CreateUnitRole.php" method="POST" role="form">
 			<fieldset class="adminDiaglogFormFieldset">
-			
-				disable this
 				<label for="RowID" class="adminDialogInputLabel" style="display: none">
 				</label>
 				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>
+
+				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none">
 				
 				<label for="RoleID" class="adminDialogInputLabel" required>
 					Role
@@ -1174,30 +1252,40 @@
 					<option selected disabled value="default" id="RoleID-default">
 						- Select a Role -
 					</option>	
-					<? echo $displayRoles ?>
+					<? echo $displayAvailableRolesForUnit ?>
 				</select>
 				
-				<label for="QualificationID" class="adminDialogInputLabel">
-					Qualification
+				<label for="MinRankID" class="adminDialogInputLabel" required>
+					Minimum PayGrade
 				</label>
-				<select name="QualID" id="QualID" class="adminDialogDropDown" required>
-					<option selected disabled value="default" id="QualID-default">
-						- Select a Qualification -
+				<select name="MinRankID" id="MinRankID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
 					</option>	
-					<? echo $displayQuals ?>
+					<? echo $displayRanks ?>
 				</select>
 				
-				<label for="QualLevel" class="adminDialogInputLabel">
+				<label for="MaxRankID" class="adminDialogInputLabel" required>
+					Maximum PayGrade
+				</label>
+				<select name="MaxRankID" id="MaxRankID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
+					</option>	
+					<? echo $displayRanks ?>
+				</select>
+				
+				<label for="IsActive" class="adminDialogInputLabel">
 					IsActive
 				</label>
-				<select name="QualLevel" id="QualLevel" class="adminDialogDropDown" required>
-					<option selected disabled value="default" id="QualLevel-default">
+				<select name="IsActive" id="IsActive" class="adminDialogDropDown" required>
+					<option selected disabled value="default" id="IsActive-default">
 						- Select an Option -
 					</option>
-					<option value="1" id="QualLevel-1">
+					<option value="1" id="IsActive-1">
 						Yes
 					</option>
-					<option value="0" id="QualLevel-0">
+					<option value="0" id="IsActive-0">
 						No
 					</option>
 				</select>
@@ -1209,7 +1297,147 @@
 			</div>
 		</form>
 	</div>
-	-->
+
+	<!--Edit UnitRole Form-->
+	<div id="dialog-form-editUnitRole" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Edit Unit Role</p>
+		<p class="validateTips">All Fields are Required.</p>
+		<p class="validateTips">MinPaygrade must be less than MaxPayGrade, PayGrade Types must match.</p>
+		<form class="adminDialogForm" action="../functions/function_unit_EditUnitRole.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none" readonly>
+
+				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none">
+				
+				<label for="RoleID" class="adminDialogInputLabel" required>
+					Role
+				</label>
+				<select name="RoleID" id="RoleID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayAvailableRolesForUnit ?>
+				</select>
+				
+				<label for="MinRankID" class="adminDialogInputLabel" required>
+					Minimum PayGrade
+				</label>
+				<select name="MinRankID" id="MinRankID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
+					</option>	
+					<? echo $displayRanks ?>
+				</select>
+				
+				<label for="MaxRankID" class="adminDialogInputLabel" required>
+					Maximum PayGrade
+				</label>
+				<select name="MaxRankID" id="MaxRankID" class="adminDialogDropDown">
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
+					</option>	
+					<? echo $displayRanks ?>
+				</select>
+				
+				<label for="IsActive" class="adminDialogInputLabel">
+					IsActive
+				</label>
+				<select name="IsActive" id="IsActive" class="adminDialogDropDown" required>
+					<option selected disabled value="default" id="IsActive-default">
+						- Select an Option -
+					</option>
+					<option value="1" id="IsActive-1">
+						Yes
+					</option>
+					<option value="0" id="IsActive-0">
+						No
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	
+	<!--Delete UnitRole Form-->
+	<div id="dialog-form-deleteUnitRole" class="adminDialogFormContainer">
+		<button id="adminDialogCancel" class="adminDialogButton dialogButtonCancel" type="cancel">
+			Cancel
+		</button>
+		<p class="validateTips">Confirmation Required!</p>
+		<p class="validateTips">Are you sure you want to Remove this Role from the Unit?</p>
+		<form class="adminDialogForm" action="../functions/function_unit_DeleteUnitRole.php" method="POST" role="form">
+			<fieldset class="adminDiaglogFormFieldset">
+				<label for="RowID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="RowID" id="RowID" value="" class="adminDialogTextInput" style="display: none">
+
+				<label for="UnitID" class="adminDialogInputLabel" style="display: none">
+				</label>
+				<input type="none" name="UnitID" id="UnitID" value="" class="adminDialogTextInput" style="display: none">
+				
+				<label for="RoleID" class="adminDialogInputLabel" required>
+					Role
+				</label>
+				<select name="RoleID" id="RoleID" class="adminDialogDropDown" disabled>
+					<option selected disabled value="default" id="RoleID-default">
+						- Select a Role -
+					</option>	
+					<? echo $displayAvailableRolesForUnit ?>
+				</select>
+				
+				<label for="MinRankID" class="adminDialogInputLabel">
+					Minimum PayGrade
+				</label>
+				<select name="MinRankID" id="MinRankID" class="adminDialogDropDown" required disabled>
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
+					</option>	
+					<? echo $displayRanks ?>
+				</select>
+				
+				<label for="MaxRankID" class="adminDialogInputLabel" >
+					Maximum PayGrade
+				</label>
+				<select name="MaxRankID" id="MaxRankID" class="adminDialogDropDown" required disabled>
+					<option selected disabled value="default" id="RankID-default">
+						- Select a Rank -
+					</option>	
+					<? echo $displayRanks ?>
+				</select>
+				
+				<label for="IsActive" class="adminDialogInputLabel" disabled>
+					IsActive
+				</label>
+				<select name="IsActive" id="IsActive" class="adminDialogDropDown" required disabled>
+					<option selected disabled value="default" id="IsActive-default">
+						- Select an Option -
+					</option>
+					<option value="1" id="IsActive-1">
+						Yes
+					</option>
+					<option value="0" id="IsActive-0">
+						No
+					</option>
+				</select>
+			</fieldset>
+			<div class="adminDialogButtonPane">
+				<button id="adminDialogSubmit" class="adminDialogButton dialogButtonSubmit" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>	
 	
 	<!--Add Member Form-->
 	<div id="dialog-form-createMember" class="adminDialogFormContainer">

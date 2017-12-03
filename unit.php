@@ -832,19 +832,34 @@
 				,lk.CategoryName
 				,q.qualification_name
 				,q.qualification_image
-				,u.QualificationLevel
+				,uq.QualificationLevel
+				,q.IsActive
 				,q.level1_reqs
 				,q.level2_reqs
 				,q.level3_reqs
-			from projectx_vvarsc2.UnitQualifications u
+				,r1.rank_id as MinPayGradeID
+				,r1.rank_level as MinPayGrade
+				,r1.rank_abbr as MinPayGradeName
+				,r1.rank_tinyImage as MinPayGradeImage
+				,r2.rank_id as MaxPayGradeID
+				,r2.rank_level as MaxPayGrade
+				,r2.rank_abbr as MaxPayGradeName
+				,r2.rank_tinyImage as MaxPayGradeImage
+			from projectx_vvarsc2.UnitRoles ur
+			left join projectx_vvarsc2.UnitQualifications uq
+				on uq.UnitID = ur.UnitID
+				and uq.RoleID = ur.RoleID
 			join projectx_vvarsc2.roles r
-				on r.role_id = u.RoleID
-			join projectx_vvarsc2.qualifications q
-				on q.qualification_id = u.QualificationID
-			join projectx_vvarsc2.LK_QualificationCategories lk
+				on r.role_id = ur.RoleID
+			left join projectx_vvarsc2.qualifications q
+				on q.qualification_id = uq.QualificationID
+			left join projectx_vvarsc2.LK_QualificationCategories lk
 				on lk.CategoryID = q.qualification_categoryID
-			where u.UnitID = $UnitID
-				and u.IsActive = 1
+			join projectx_vvarsc2.ranks r1
+				on r1.rank_id = ur.MinPayGrade
+			join projectx_vvarsc2.ranks r2
+				on r2.rank_id = ur.MaxPayGrade
+			where ur.UnitID = $UnitID
 			order by
 				r.role_orderby desc
 				,r.role_name
@@ -853,26 +868,27 @@
 		
 		$unitQual_query_results = $connection->query($unitQualificationsQuery);
 		
-		$displayUnitQual = "";
+		$displayUnitRoleRequirements = "";
 		
 		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
 			&& mysqli_num_rows($unitQual_query_results) > 0)
 		{
-			$displayUnitQual .= "
+			$displayUnitRoleRequirements .= "
 				<br />
 				<h3>
 					Role Requirements
 				</h3>
 				<div class=\"table_header_block\">
 				</div>
-				<div class=\"unit_details_container blkBackground35\" style=\"
+				<div class=\"unit_details_container blkBackground50\" style=\"
 					display:inline-table;
+					text-align: center;
 				\">
 			";
 		}
 		
 		$previousGroup = "";
-		$currentGroup = "";
+		$currentGroup = "";	
 		while(($row5 = $unitQual_query_results->fetch_assoc()) != false)
 		{
 			$roleName = $row5['role_name'];
@@ -880,9 +896,19 @@
 			$qualName = $row5['qualification_name'];
 			$qualImage = $link_base."/images/qualifications/".$row5['qualification_image'];
 			$qualLevel = $row5['QualificationLevel'];
+			$isActive = $row5['IsActive'];
 			$level1_reqs = $row5['level1_reqs'];
 			$level2_reqs = $row5['level2_reqs'];
 			$level3_reqs = $row5['level3_reqs'];
+			
+			$minPayGradeID = $row5['MinPayGradeID'];
+			$minPayGrade = $row5['MinPayGrade'];
+			$minPayGradeName = $row5['MinPayGradeName'];
+			$minPayGradeImage = $row5['MinPayGradeImage'];
+			$maxPayGradeID = $row5['MaxPayGradeID'];
+			$maxPayGrade = $row5['MaxPayGrade'];
+			$maxPayGradeName = $row5['MaxPayGradeName'];
+			$maxPayGradeImage = $row5['MaxPayGradeImage'];
 			
 			if ($level1_reqs == null || $level1_reqs == "")
 				$level1_reqs = "- No Requirements Found -";
@@ -911,6 +937,13 @@
 				$imageClassName2 = "player_qual_row_image_highlighted";
 				$imageClassName3 = "player_qual_row_image_highlighted";
 			}
+		
+			if ($isActive == 0)
+			{
+				$imageClassName1 .= " image_inactive";
+				$imageClassName2 .= " image_inactive";
+				$imageClassName3 .= " image_inactive";
+			}
 				
 			$currentGroup = $roleName;
 		
@@ -920,14 +953,14 @@
 				//If This is not 1st Row, Close Previous Row
 				if ($previousGroup != "")
 				{
-					$displayUnitQual .= "
+					$displayUnitRoleRequirements .= "
 							</table>
 						</div>
 					";
 				}
 				
 				//Open New Group
-				$displayUnitQual .= "
+				$displayUnitRoleRequirements .= "
 					<div class=\"qual_block blkBackground35\">
 						<div class=\"corner corner-top-left\">
 						</div>
@@ -937,66 +970,137 @@
 						</div>
 						<div class=\"corner corner-bottom-right\">
 						</div>
-						<div class=\"p_section_header\" style=\"
-							margin-top: 0;
-							text-align: center;
-							padding-left: 0;
+						<div style=\"
+							border-bottom: 1px solid rgba(0, 153, 170, 0.5);
+							padding-bottom: 4px;
 						\">
-							$roleName
+							<div class=\"p_section_header\" style=\"
+								margin-top: 0;
+								text-align: center;
+								padding-left: 0;
+							\">
+								$roleName
+							</div>
+							<div class=\"clickableRow_memRank_inner\">
+								<div style=\"
+									min-width: 100px;
+									display: inline-block;
+									font-size: 9pt;
+								\">
+									Min PayGrade: 
+								</div>
+								<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
+								<div class=\"rank_image_text\">
+									$minPayGradeName ($minPayGrade)
+								</div>
+							</div>
+							<br />
+							<div class=\"clickableRow_memRank_inner\">
+								<div style=\"
+									min-width: 100px;
+									display: inline-block;
+									font-size: 9pt;
+								\">
+									Max PayGrade: 
+								</div>
+								<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
+								<div class=\"rank_image_text\">
+									$maxPayGradeName ($maxPayGrade)
+								</div>
+							</div>
 						</div>
+				";
+						
+				if ($qualName != null)
+				{
+					$displayUnitRoleRequirements .= "
+						<h5 class=\"WikiH5\" style=\"
+							padding-top: 4px;
+							padding-bottom: 0px;
+							padding-left: 0px;
+							padding-right: 0px;
+						\">
+							Qualifications
+						</h5>
 						<table class=\"player_qualifications\">
+					";
+				}
+			}
+			if ($qualName != null) {
+				//Content of Group
+				
+				$displayUnitRoleRequirements .= "
+					<tr class=\"player_qual_row\" style=\"background:none;\">
+						<td class=\"player_qual_row_image_container tooltip-wrap\">
+							<img class=\"$imageClassName1\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<div class=\"rsi-tooltip\">
+								<div class=\"rsi-tooltip-content\">
+									<strong>$qualName - Level 1</strong>
+									<br />
+									$level1_reqs
+								</div>
+								<span class=\"rsi-tooltip-bottom\"></span>
+							</div>
+						</td>
+						<td class=\"player_qual_row_image_container tooltip-wrap\">
+							<img class=\"$imageClassName2\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<div class=\"rsi-tooltip\">
+								<div class=\"rsi-tooltip-content\">
+									<strong>$qualName - Level 2</strong>
+									<br />
+									$level2_reqs
+								</div>
+								<span class=\"rsi-tooltip-bottom\"></span>
+							</div>
+						</td>
+						<td class=\"player_qual_row_image_container tooltip-wrap\">
+							<img class=\"$imageClassName3\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<div class=\"rsi-tooltip\">
+								<div class=\"rsi-tooltip-content\">
+									<strong>$qualName - Level 3</strong>
+									<br />
+									$level3_reqs
+								</div>
+								<span class=\"rsi-tooltip-bottom\"></span>
+							</div>
+						</td>";
+						if ($isActive == 1)
+						{
+							$displayUnitRoleRequirements .= "
+								<td class=\"player_qual_row_name\">$categoryName<br /><strong>$qualName</strong></td>
+							";
+						}
+						else
+						{
+							$displayUnitRoleRequirements .= "
+								<td class=\"player_qual_row_name inactive\">$categoryName<br />$qualName</td>
+							";
+						}
+						$displayUnitRoleRequirements .= "
+					</tr>			
 				";
 			}
-			//Content of Group
-			$displayUnitQual .= "
-				<tr class=\"player_qual_row\" style=\"background:none;\">
-					<td class=\"player_qual_row_image_container tooltip-wrap\">
-						<img class=\"$imageClassName1\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
-						<div class=\"rsi-tooltip\">
-							<div class=\"rsi-tooltip-content\">
-								<strong>$qualName - Level 1</strong>
-								<br />
-								$level1_reqs
-							</div>
-							<span class=\"rsi-tooltip-bottom\"></span>
-						</div>
-					</td>
-					<td class=\"player_qual_row_image_container tooltip-wrap\">
-						<img class=\"$imageClassName2\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
-						<div class=\"rsi-tooltip\">
-							<div class=\"rsi-tooltip-content\">
-								<strong>$qualName - Level 2</strong>
-								<br />
-								$level2_reqs
-							</div>
-							<span class=\"rsi-tooltip-bottom\"></span>
-						</div>
-					</td>
-					<td class=\"player_qual_row_image_container tooltip-wrap\">
-						<img class=\"$imageClassName3\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
-						<div class=\"rsi-tooltip\">
-							<div class=\"rsi-tooltip-content\">
-								<strong>$qualName - Level 3</strong>
-								<br />
-								$level3_reqs
-							</div>
-							<span class=\"rsi-tooltip-bottom\"></span>
-						</div>
-					</td>
-					<td class=\"player_qual_row_name\">$categoryName<br /><strong>$qualName</strong></td>
-				</tr>			
-			";
 			$previousGroup = $currentGroup;
 		}
 		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
 			&& mysqli_num_rows($unitQual_query_results) > 0)
 		{
 			//Close Last Group
-			$displayUnitQual .= "
-						</table>
+			if ($qualName != null)
+			{
+				$displayUnitRoleRequirements .= "
+							</table>
+						</div>
 					</div>
-				</div>
-			";		
+				";	
+			}
+			else
+			{
+				$displayUnitRoleRequirements .= "
+						</div>
+					</div>
+				";		
+			}
 		}			
 		
 		
@@ -1237,7 +1341,7 @@
 		<? echo $displayUnitDescription1 ?>
 		<? echo nl2br($displayUnitDescriptionContent) ?>
 		<? echo $displayUnitDescription2 ?>	
-		<? echo $displayUnitQual ?>		
+		<? echo $displayUnitRoleRequirements ?>		
 		
 		<br />
 		<h3>

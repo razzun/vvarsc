@@ -71,6 +71,10 @@
 										$content = "admin_roles.php";
 										break;
 								
+									case "admin_unitRole":
+										$content = "admin_unitRole.php";
+										break;
+								
 									case "admin_units":
 										$content = "admin_units.php";
 										break;

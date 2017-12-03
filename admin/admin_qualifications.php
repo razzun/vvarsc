@@ -159,14 +159,13 @@
 					</h4>
 					<div class=\"qual_reqs\" style=\"
 						padding-left: 12px;
+						padding-right: 8px;
 						font-size: 9pt;
-						font-style: italic;
 					\">
 						<div id=\"qual_reqs_entry-$qualID-level1\" class=\"qual_reqs_entry\">
 							<strong>Level 1</strong>
 							<p style=\"
 								font-size: 9pt;
-								font-style: italic;
 								color: #DDD;
 								margin-bottom: 4px;
 							\">
@@ -177,7 +176,6 @@
 							<strong>Level 2</strong>
 							<p style=\"
 								font-size: 9pt;
-								font-style: italic;
 								color: #DDD;
 								margin-bottom: 4px;
 							\">
@@ -188,7 +186,6 @@
 							<strong>Level 3</strong>
 							<p style=\"
 								font-size: 9pt;
-								font-style: italic;
 								color: #DDD;
 								margin-bottom: 4px;
 							\">

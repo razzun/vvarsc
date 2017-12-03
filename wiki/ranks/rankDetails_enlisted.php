@@ -400,7 +400,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-6 is the highest of the NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. Promotion to E-6 is normally accompanied by an assignment to a combat-leadership position within a Squadron / Platoon, or as a specialist serving at a higher level HQ unit. E-6 Members are also seen performing the role of Assistant Squadron or Platoon Leader, working closely with the Unit's CO on duties such as personnel training, unit branding / public relations, recruitment, and operational planning.
+					E-6 is the highest of the NCO Ranks. Members who have attained this PayGrade have achieved a high-level of qualification in the skills needed for their Unit's task(s), and have proven to be effective leaders of sub-units (Flights and Teams) in multiple operations. Promotion to E-6 is normally accompanied by an assignment to a combat-leadership position within a Squadron / Platoon, or as a specialist serving at a higher level HQ unit. In the absence of a qualified Senior NCO, E-6 Members can hold the role of Squadron Chief / Platoon Sergeant, working closely with the Unit's CO on duties such as personnel training, unit branding, public relations, recruitment, and operational planning.
 					<br />
 					<br />
 					In periods of Fleet re-structuring due to expansion, E-6 Members may be selected for a <strong>Commission</strong> to Officer Status (O-1) to begin their path towards commanding a newly created Unit of the same type.

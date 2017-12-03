@@ -1,5 +1,5 @@
 <?
-	//Query for Roles Drop-Down Menu
+	//Query for Roles Drop-Down Menu (all roles)
 	$roles_query = "
 		select
 			r.role_id

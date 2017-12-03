@@ -194,7 +194,7 @@ h1 {
 
 #MainWebsiteInner {
 	width: 95%;
-	max-width: 1600px;
+	max-width: 1920px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 8px;
@@ -337,7 +337,7 @@ h4 {
 	height: 152px;
 	margin-top: -152px;
 	clear: both;
-	max-width: 1600px;
+	max-width: 1920px;
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);	
 }
 
@@ -733,7 +733,6 @@ table.tbmem a:hover {
 .qual_block {
 	position: relative;
 	font-size: 10pt;
-	font-style: italic;
 	color: #A2B5D2;
 	border: 1px solid #222;
 	background: url(../images/fading-bars.png);
@@ -744,6 +743,8 @@ table.tbmem a:hover {
 	display: inline-block;
 	margin: 4px;
 	min-width: 240px;
+	vertical-align: top;
+	text-align: left;
 }
 
 .player_qual_row_name strong{
@@ -759,7 +760,7 @@ table.tbmem a:hover {
 }
 
 .player_qual_row_image {
-	opacity: 0.1;
+	opacity: 0.1 !important;
 	display: table;
 }
 
@@ -785,7 +786,7 @@ table.tbmem a:hover {
 	text-align: left;
 	bottom: 48px;
 	left: -16px;
-	width: 200px;
+	width: 240px;
 	border-color: #00d6ff;
 	box-shadow: 0 0 20px rgba(0,133,255,0.3);
 	border: solid rgba(92, 236, 244, 0.85);
@@ -826,6 +827,10 @@ table.tbmem a:hover {
 
 .blkBackground35 {
 	background-color: rgba(0,0,0,0.35)!important;
+}
+
+.blkBackground50 {
+	background-color: rgba(0,0,0,0.50)!important;
 }
 
 /* -----------------------------------------------*/
@@ -3257,7 +3262,7 @@ img.fleet:after {
 }
 
 .div_filters_container {
-	margin-left: 7.5%;
+
 }
 
 .div_filters_entry {
