@@ -3831,6 +3831,16 @@ img.fleet:after {
 	padding-left: 12px;
 }
 
+.roleRequirements {
+	display:inline-block;
+	text-align: center;
+	overflow-x: scroll;
+	white-space: nowrap;
+	max-width: 99%;
+	border-left: 2px solid rgba(0, 153, 170, 0.5);
+	border-right: 2px solid rgba(0, 153, 170, 0.5);
+}
+
 .unit_details_container {
 	height: 100%;
 	padding-top: 8px;
@@ -4483,6 +4493,15 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 1199px) {
+	.roleRequirements {
+		display: inline-table;
+		overflow-x: initial;
+		white-space: normal;
+		max-width: 100%;
+		border-left: none;
+		border-right: none;
+	}
+	
 	.player_ships_entry {
 		width: 35%;
 	}
@@ -4535,6 +4554,7 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 1023px) {
+
 	.player_ships_entry {
 		width: 40%;
 	}

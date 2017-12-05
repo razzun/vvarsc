@@ -880,10 +880,7 @@
 				</h3>
 				<div class=\"table_header_block\">
 				</div>
-				<div class=\"unit_details_container blkBackground50\" style=\"
-					display:inline-table;
-					text-align: center;
-				\">
+				<div class=\"unit_details_container roleRequirements blkBackground50\">
 			";
 		}
 		
