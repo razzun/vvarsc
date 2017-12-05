@@ -3435,21 +3435,20 @@ img.fleet:after {
 	background: rgba(80, 50, 0, 0.5);
 }
 
-.divinfo_mil {
+.divinfo_airForces {
 	background: rgba(0, 60, 80, 0.6);
 }
 
-.divinfo_econ {
+.divinfo_logistics {
 	background: rgba(0, 80, 20, 0.5);
 }
 
-.divinfo_DCO {
+.divinfo_marines {
+	background: rgba(120, 0, 0, 0.5);
 }
 
-.divinfo_DXO {
-}
-
-.divinfo_FCO {
+.divinfo_specialWarfare {
+	background: rgba(80, 50, 125, 0.5);
 }
 
 .divinfo_tableCell_membersTable_tableCell:hover {

@@ -20,49 +20,6 @@
 		from
 		(
 		";
-		
-		/*if ($div_id == 0)
-		{
-			$div_query .= "
-			select distinct
-				r.rank_groupName
-				,r.rank_group_orderby
-				,r.rank_groupImage
-				,r.rank_groupTinyImage
-				,r.rank_tinyImage
-				,r.rank_orderby
-				,d.div_name
-				,m.mem_id
-				,m.mem_callsign
-				,m.mem_avatar_link
-				,(
-					select
-						case
-							when r2.isPrivate = 0 and r2.role_shortName = '' then r2.role_name
-							when r2.isPrivate = 0 and r2.role_shortName != '' then r2.role_shortName
-							else ''
-						end as role_name
-					from projectx_vvarsc2.UnitMembers um
-					left join projectx_vvarsc2.roles r2
-						on r2.role_id = um.MemberRoleID
-					where um.MemberID = m.mem_id
-					order by
-						r2.role_orderby
-					limit 1
-				) as role_name		
-			from projectx_vvarsc2.members m
-			join projectx_vvarsc2.divisions d
-				on d.div_id = m.divisions_div_id
-				and d.div_name = 'Command'
-			join projectx_vvarsc2.ranks r
-				on r.rank_id = m.ranks_rank_id
-			left join projectx_vvarsc2.UnitMembers um
-				on um.MemberID = m.mem_id
-			where m.mem_sc = 1
-				and m.mem_name <> 'guest'
-			union
-			";
-		}*/
 			$div_query .= "
 			select distinct
 				r.rank_groupName
@@ -259,54 +216,34 @@
 		//Command Division
 		if ($mem_div_info == "Command")
 		{
-			if ($mem_role_info == "Fleet CO")
-			{
-				$display_div .= "<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm divinfo_FCO\">";
-			}
-			else
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm\">";
-			}
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm\">";
 		}
-		//Econ Division
-		else if ($mem_div_info == "Economy")
+		//Logistics
+		else if ($mem_div_info == "Logistics")
 		{
-			if ($mem_role_info == "Division CO")
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DCO\">";	
-			}
-			else if ($mem_role_info == "Division XO")
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ divinfo_DXO\">";
-			}
-			else
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_econ\">";
-			}
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_logistics\">";
 		}
-		//Military Division
-		else if ($mem_div_info == "Military")
+		//Air Forces
+		else if ($mem_div_info == "Air Forces")
 		{
-			if ($mem_role_info == "Division CO")
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DCO\">";	
-			}
-			else if ($mem_role_info == "Division XO")
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil divinfo_DXO\">";
-			}
-			else
-			{
-				$display_div .= "
-					<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_mil\">";
-			}
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_airForces\">";
+		}
+		//Marines
+		else if ($mem_div_info == "Marine Forces")
+		{
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_marines\">";
+		}
+		//Special Warfare
+		else if ($mem_div_info == "Special Warfare")
+		{
+			$display_div .= "
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_specialWarfare\">";
 		}	
+		//No Assignment
 		else
 		{
 			$display_div .= "
