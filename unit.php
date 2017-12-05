@@ -1030,6 +1030,7 @@
 					<tr class=\"player_qual_row\" style=\"background:none;\">
 						<td class=\"player_qual_row_image_container tooltip-wrap\">
 							<img class=\"$imageClassName1\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<!--
 							<div class=\"rsi-tooltip\">
 								<div class=\"rsi-tooltip-content\">
 									<strong>$qualName - Level 1</strong>
@@ -1038,9 +1039,11 @@
 								</div>
 								<span class=\"rsi-tooltip-bottom\"></span>
 							</div>
+							-->
 						</td>
 						<td class=\"player_qual_row_image_container tooltip-wrap\">
 							<img class=\"$imageClassName2\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<!--
 							<div class=\"rsi-tooltip\">
 								<div class=\"rsi-tooltip-content\">
 									<strong>$qualName - Level 2</strong>
@@ -1049,9 +1052,11 @@
 								</div>
 								<span class=\"rsi-tooltip-bottom\"></span>
 							</div>
+							-->
 						</td>
 						<td class=\"player_qual_row_image_container tooltip-wrap\">
 							<img class=\"$imageClassName3\" src=\"$qualImage\" height=\"30px\" width=\"30px\">
+							<!--
 							<div class=\"rsi-tooltip\">
 								<div class=\"rsi-tooltip-content\">
 									<strong>$qualName - Level 3</strong>
@@ -1060,6 +1065,7 @@
 								</div>
 								<span class=\"rsi-tooltip-bottom\"></span>
 							</div>
+							-->
 						</td>";
 						if ($isActive == 1)
 						{
