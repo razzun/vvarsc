@@ -951,61 +951,63 @@
 				if ($previousGroup != "")
 				{
 					$displayUnitRoleRequirements .= "
-							</table>
+								</table>
+							</div>
 						</div>
-					";
+						";
 				}
 				
 				//Open New Group
 				$displayUnitRoleRequirements .= "
-					<div class=\"qual_block blkBackground35\">
-						<div class=\"corner corner-top-left\">
-						</div>
-						<div class=\"corner corner-top-right\">
-						</div>
-						<div class=\"corner corner-bottom-left\">
-						</div>
-						<div class=\"corner corner-bottom-right\">
-						</div>
-						<div style=\"
-							border-bottom: 1px solid rgba(0, 153, 170, 0.5);
-							padding-bottom: 4px;
-						\">
-							<div class=\"p_section_header\" style=\"
-								margin-top: 0;
-								text-align: center;
-								padding-left: 0;
+					<div class=\"qual_block_container\">
+						<div class=\"qual_block blkBackground35\">
+							<div class=\"corner corner-top-left\">
+							</div>
+							<div class=\"corner corner-top-right\">
+							</div>
+							<div class=\"corner corner-bottom-left\">
+							</div>
+							<div class=\"corner corner-bottom-right\">
+							</div>
+							<div style=\"
+								border-bottom: 1px solid rgba(0, 153, 170, 0.5);
+								padding-bottom: 4px;
 							\">
-								$roleName
-							</div>
-							<div class=\"clickableRow_memRank_inner\">
-								<div style=\"
-									min-width: 100px;
-									display: inline-block;
-									font-size: 9pt;
+								<div class=\"p_section_header\" style=\"
+									margin-top: 0;
+									text-align: center;
+									padding-left: 0;
 								\">
-									Min PayGrade: 
+									$roleName
 								</div>
-								<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
-								<div class=\"rank_image_text\">
-									$minPayGradeName ($minPayGrade)
+								<div class=\"clickableRow_memRank_inner\">
+									<div style=\"
+										min-width: 100px;
+										display: inline-block;
+										font-size: 9pt;
+									\">
+										Min PayGrade: 
+									</div>
+									<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
+									<div class=\"rank_image_text\">
+										$minPayGradeName ($minPayGrade)
+									</div>
+								</div>
+								<br />
+								<div class=\"clickableRow_memRank_inner\">
+									<div style=\"
+										min-width: 100px;
+										display: inline-block;
+										font-size: 9pt;
+									\">
+										Max PayGrade: 
+									</div>
+									<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
+									<div class=\"rank_image_text\">
+										$maxPayGradeName ($maxPayGrade)
+									</div>
 								</div>
 							</div>
-							<br />
-							<div class=\"clickableRow_memRank_inner\">
-								<div style=\"
-									min-width: 100px;
-									display: inline-block;
-									font-size: 9pt;
-								\">
-									Max PayGrade: 
-								</div>
-								<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
-								<div class=\"rank_image_text\">
-									$maxPayGradeName ($maxPayGrade)
-								</div>
-							</div>
-						</div>
 				";
 						
 				if ($qualName != null)
@@ -1080,7 +1082,7 @@
 							";
 						}
 						$displayUnitRoleRequirements .= "
-					</tr>			
+					</tr>
 				";
 			}
 			$previousGroup = $currentGroup;
@@ -1092,7 +1094,8 @@
 			if ($qualName != null)
 			{
 				$displayUnitRoleRequirements .= "
-							</table>
+								</table>
+							</div>
 						</div>
 					</div>
 				";	
@@ -1101,6 +1104,7 @@
 			{
 				$displayUnitRoleRequirements .= "
 						</div>
+					</div>
 					</div>
 				";		
 			}

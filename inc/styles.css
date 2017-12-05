@@ -730,6 +730,41 @@ table.tbmem a:hover {
 	font-size: 8pt;
 }
 
+.roleRequirements {
+	display: flex;
+	text-align: center;
+	white-space: nowrap;
+	border-left: 2px solid rgba(0, 153, 170, 0.5);
+	border-right: 2px solid rgba(0, 153, 170, 0.5);
+}
+
+.qual_block_container {
+	flex: 1 0 1;
+	-ms-flex: 1 0 1;
+	-moz-flex: 1 0 1;
+	-webkit-flex: 1 0 1;
+	overflow-x: hidden;
+	transition: all .5s ease 0s;	
+	-webkit-transition: all .5s ease 0s;
+	-moz-transition: all .5s ease 0s;
+}
+
+.roleRequirements:hover .qual_block_container {
+	filter: blur(2px);
+}
+
+.qual_block_container:hover {
+	flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	-moz-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+	filter: none;
+}
+
+.roleRequirements:hover .qual_block_container:hover {
+	filter: none;
+}
+
 .qual_block {
 	position: relative;
 	font-size: 10pt;
@@ -742,7 +777,8 @@ table.tbmem a:hover {
 	padding-bottom: 4px;
 	display: inline-block;
 	margin: 4px;
-	min-width: 240px;
+	min-width: 320px;
+	max-width: 320px;
 	vertical-align: top;
 	text-align: left;
 }
@@ -2006,7 +2042,7 @@ img {
     background-color: rgba(0,0,0,0);
     position: relative;
 	border: 1px solid transparent;	
-	boder-collapse: collapse;
+	border-collapse: collapse;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
@@ -3042,7 +3078,7 @@ img.fleet:after {
 	font-size: 11pt;
 	color: #EEE;
 	text-decoration: none;
-    transition: all 0.6 ease 0s;
+    transition: all 0.6s ease 0s;
 }
 
 .shipDetails_ownerInfo_tableRow_memInfo2, .shipDetails_ownerInfo_tableRow_memInfo3 {
@@ -3831,16 +3867,6 @@ img.fleet:after {
 	padding-left: 12px;
 }
 
-.roleRequirements {
-	display:inline-block;
-	text-align: center;
-	overflow-x: scroll;
-	white-space: nowrap;
-	max-width: 99%;
-	border-left: 2px solid rgba(0, 153, 170, 0.5);
-	border-right: 2px solid rgba(0, 153, 170, 0.5);
-}
-
 .unit_details_container {
 	height: 100%;
 	padding-top: 8px;
@@ -4495,11 +4521,18 @@ img.fleet:after {
 @media only screen and (max-width: 1199px) {
 	.roleRequirements {
 		display: inline-table;
-		overflow-x: initial;
-		white-space: normal;
 		max-width: 100%;
 		border-left: none;
 		border-right: none;
+		white-space: normal;
+	}
+	.roleRequirements:hover .qual_block_container {
+		filter: none;
+	}	
+	
+	.qual_block_container {
+		display: inline-block;
+		vertical-align: top;
 	}
 	
 	.player_ships_entry {
