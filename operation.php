@@ -791,6 +791,10 @@
 					{
 						$opUnitShipsListItem_ShipCallsign = $callSign;
 					}
+					else
+					{
+						$opUnitShipsListItem_ShipCallsign = $opUnitShipsListItem_ShipCallsign + "-" + $shipIndex;
+					}
 					
 					$display_opUnitShip_edit = "";
 					if ($canEdit)
@@ -852,7 +856,7 @@
 												</td>
 												<td class=\"tooltip_shipTable2_value\">
 													<div class=\"tooltip_shipTable2_value_inner\">
-													$opUnitShipsListItem_ShipCallsign-$shipIndex
+													$opUnitShipsListItem_ShipCallsign
 													</div>
 												</td>
 											</tr>
