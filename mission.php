@@ -829,7 +829,7 @@
 					$display_opUnit_member_list
 				";				
 			}
-			else if ($opUnitsListItem_Support_AirFlight == "1")
+			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
 				$display_opUnitShips_list_edit = "";
 				/*
