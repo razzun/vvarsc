@@ -535,8 +535,13 @@
 				//GET MEMBERS FOR THIS OpUnit
 				$display_opUnit_member_list = "
 					$display_opUnitMembers_list_edit
-					<div class=\"OpUnitMemberList\" style=\"padding-bottom: 8px;\">			
-				";				
+					<div class=\"OpUnitMemberList\" style=\"padding-bottom: 8px;\">
+						<h6 class=\"operations_h6\">
+							Personnel
+						</h6>
+						<div class=\"OpUnit_Members\">				
+				";
+				
 				$opUnitMember_query = "
 					select
 						om.RowID
@@ -596,16 +601,6 @@
 				";
 				
 				$opUnitMember_query_result = $connection->query($opUnitMember_query);
-				if(mysqli_num_rows($opUnitMember_query) > 0)
-				{
-					$display_opUnit_member_list .= "
-						<h6 class=\"operations_h6\">
-							Personnel
-						</h6>
-						<div class=\"OpUnit_Members\">				
-					";
-				}
-				
 				while(($row5 = $opUnitMember_query_result->fetch_assoc()) != false) {
 					$opUnitMemberListItem_RowID = $row5['RowID'];
 					$opUnitMemberListItem_OpUnitID = $row5['OpTemplateUnitID'];
@@ -692,18 +687,16 @@
 					";
 				}
 				
-				if(mysqli_num_rows($opUnitMember_query) > 0) {
-					//Close list of Members
-					$display_opUnit_member_list .= "
-							</div>
+				//Close list of Members
+				$display_opUnit_member_list .= "
 						</div>
-					";
-				}	
-					
+					</div>
+				";
+				
 				//Add MemberList to UnitList
 				$display_opUnits_list .= "
 					$display_opUnit_member_list
-				";			
+				";				
 			}
 			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
