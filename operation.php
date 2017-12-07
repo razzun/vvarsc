@@ -698,7 +698,7 @@
 					$display_opUnit_member_list
 				";				
 			}
-			else
+			else if ($opUnitsListItem_Support_AirFlight == "1")
 			{
 				$display_opUnitShips_list_edit = "";
 				if ($canEdit)
