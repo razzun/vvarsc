@@ -698,12 +698,12 @@
 							</div>
 						</div>
 					";
+				}	
 					
-					//Add MemberList to UnitList
-					$display_opUnits_list .= "
-						$display_opUnit_member_list
-					";
-				}				
+				//Add MemberList to UnitList
+				$display_opUnits_list .= "
+					$display_opUnit_member_list
+				";			
 			}
 			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
