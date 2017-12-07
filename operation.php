@@ -692,16 +692,18 @@
 					";
 				}
 				
-				//Close list of Members
-				$display_opUnit_member_list .= "
+				if(mysqli_num_rows($opUnitMember_query) > 0) {
+					//Close list of Members
+					$display_opUnit_member_list .= "
+							</div>
 						</div>
-					</div>
-				";
-				
-				//Add MemberList to UnitList
-				$display_opUnits_list .= "
-					$display_opUnit_member_list
-				";				
+					";
+					
+					//Add MemberList to UnitList
+					$display_opUnits_list .= "
+						$display_opUnit_member_list
+					";
+				}				
 			}
 			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
