@@ -789,11 +789,7 @@
 
 					if ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == '')
 					{
-						$opUnitShipsListItem_ShipCallsign = $callSign;
-					}
-					else
-					{
-						$opUnitShipsListItem_ShipCallsign = $opUnitShipsListItem_ShipCallsign + "-" + $shipIndex;
+						$opUnitShipsListItem_ShipCallsign = $callSign + "-" + $shipIndex;
 					}
 					
 					$display_opUnitShip_edit = "";
