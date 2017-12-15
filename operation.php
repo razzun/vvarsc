@@ -698,7 +698,7 @@
 					$display_opUnit_member_list
 				";				
 			}
-			else
+			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
 				$display_opUnitShips_list_edit = "";
 				if ($canEdit)
@@ -746,15 +746,15 @@
 						,s.ship_model_visible
 						,m.manu_shortName
 						,os.Callsign
-						,sed.ship_max_crew
+						,sed.MaxCrew as ship_max_crew
 						,(select COUNT(1) from projectx_vvarsc2.OpTemplateShipMembers osm where osm.OpTemplateShipID = os.OpTemplateShipID) as MemberCount
 					from projectx_vvarsc2.OpTemplateShips os
 					join projectx_vvarsc2.ships s
 						on s.ship_id = os.ShipID
 					join projectx_vvarsc2.manufacturers m
 						on m.manu_id = s.manufacturers_manu_id
-					join projectx_vvarsc2.ship_extended_data sed
-						on sed.ships_ship_id = s.ship_id
+					join projectx_vvarsc2.ShipStats_v2 sed
+						on sed.ShipID = s.ship_id
 					where os.OpTemplateUnitID = $opUnitsListItem_OpUnitID
 					order by
 						os.OpTemplateShipOrderBy
@@ -789,7 +789,7 @@
 
 					if ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == '')
 					{
-						$opUnitShipsListItem_ShipCallsign = $callSign;
+						$opUnitShipsListItem_ShipCallsign = $callSign.'-'.$shipIndex;
 					}
 					
 					$display_opUnitShip_edit = "";
@@ -852,7 +852,7 @@
 												</td>
 												<td class=\"tooltip_shipTable2_value\">
 													<div class=\"tooltip_shipTable2_value_inner\">
-													$opUnitShipsListItem_ShipCallsign-$shipIndex
+													$opUnitShipsListItem_ShipCallsign
 													</div>
 												</td>
 											</tr>
@@ -1362,17 +1362,8 @@
 					<option value="4" id="PlayerCount-4">
 						4
 					</option>
-					<option value="5" id="PlayerCount-5">
-						5
-					</option>
 					<option value="6" id="PlayerCount-6">
 						6
-					</option>
-					<option value="7" id="PlayerCount-7">
-						7
-					</option>
-					<option value="8" id="PlayerCount-8">
-						8
 					</option>
 				</select>
 				

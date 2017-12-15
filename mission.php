@@ -829,7 +829,7 @@
 					$display_opUnit_member_list
 				";				
 			}
-			else
+			if ($opUnitsListItem_Support_AirFlight == "1")
 			{
 				$display_opUnitShips_list_edit = "";
 				/*
@@ -877,15 +877,15 @@
 						,s.ship_model_visible
 						,m.manu_shortName
 						,os.Callsign
-						,sed.ship_max_crew
+						,sed.MaxCrew as ship_max_crew
 						,(select COUNT(1) from projectx_vvarsc2.MissionShipMembers osm where osm.MissionShipID = os.MissionShipID) as MemberCount
 					from projectx_vvarsc2.MissionShips os
 					join projectx_vvarsc2.ships s
 						on s.ship_id = os.ShipID
 					join projectx_vvarsc2.manufacturers m
 						on m.manu_id = s.manufacturers_manu_id
-					join projectx_vvarsc2.ship_extended_data sed
-						on sed.ships_ship_id = s.ship_id
+					join projectx_vvarsc2.ShipStats_v2 sed
+						on sed.ShipID = s.ship_id
 					where os.MissionUnitID = $opUnitsListItem_OpUnitID
 					order by
 						os.MissionShipOrderBy
@@ -920,7 +920,7 @@
 
 					if ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == '')
 					{
-						$opUnitShipsListItem_ShipCallsign = $callSign;
+						$opUnitShipsListItem_ShipCallsign = $callSign.'-'.$shipIndex;
 					}
 					
 					$display_opUnitShip_edit = "";
@@ -986,7 +986,7 @@
 												</td>
 												<td class=\"tooltip_shipTable2_value\">
 													<div class=\"tooltip_shipTable2_value_inner\">
-													$opUnitShipsListItem_ShipCallsign-$shipIndex
+													$opUnitShipsListItem_ShipCallsign
 													</div>
 												</td>
 											</tr>
