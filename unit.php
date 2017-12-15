@@ -818,10 +818,18 @@
 		else
 		{
 			$display_selectors .= "
+			
 				<div class=\"div_filters_container\">
 					<div class=\"div_filters_entry\">
 						<a href=\"".$link_base."/unit/$parentUnitID\">&#8672; Back to Parent</a>
 					</div>
+					<!--
+					<div class=\"div_filters_entry\">
+						<div id=\"sideBar_toggle_on\">
+							Sidebar
+						</div>
+					</div>
+					-->
 				</div>
 			";
 		}
@@ -1322,6 +1330,31 @@
 			";
 		}
 		
+		$display_sideBar = "
+				<div id=\"sideBar\">
+					<div class=\"div_filters_container\" id=\"sideBar_Hide\" style=\"
+						background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
+						margin-left: 0px;
+						text-align: right;
+						float: right;
+					\">
+						<div class=\"div_filters_entry\">
+							<div id=\"sideBar_toggle_off\">
+								Close
+							</div>
+						</div>
+					</div>
+					<h4 class=\"operations_h4\" style=\"
+						padding-left:4px;
+					\">
+						Qualification Details
+					</h4>	
+					<div class=\"operations_menu_inner_items_container\">
+						
+					</div>
+				</div>
+			";
+		
 		$connection->close();
 	}
 	else
@@ -1331,7 +1364,6 @@
 
 ?>
 
-<? echo $display_selectors ?>
 <!--
 <h4>
 	<? echo $unitSlogan ?>
@@ -1340,7 +1372,13 @@
 <div id="TEXT">
 
   <!-- Comment -->
+	<div id="sideBar_container">
+		<div class="partialBorder-left-blue border-left border-top border-4px">
+		</div>
+		<? echo $display_sideBar; ?>
+	</div>
 	<div class="units_main_container">
+		<? echo $display_selectors ?>
 		<? echo $displayEdit ?>
 	
 		<? echo $display_details ?>
@@ -1427,6 +1465,54 @@
 		
     });
 	
+</script>
+
+<!--Script to Show/Hide SideBar when Qualification is Clicked-->
+<script>
+	$('#sideBar_toggle_on').click(function() {
+		var overlay = $('#overlay');
+		
+		//Show Overlay that prevents clicking on main elements
+		overlay.show();
+		
+		//Blur the Main Page
+		$('.units_main_container').css({
+			filter: 'blur(2px)'
+		});
+		$('#MainPageHeaderText').css({
+			filter: 'blur(2px)'
+		});
+		$('#filtersContainer_OpMenu_Show').css({
+			filter: 'blur(2px)'
+		});
+		
+		//Show the Operations Menu
+		$('#sideBar_container').css({
+			left: '16px'
+		});
+	});
+	$('#sideBar_toggle_off').click(function() {
+		var overlay = $('#overlay');
+		
+		//Hide the Operations Menu
+		$('#sideBar_container').css({
+			left: '-1000%'
+		});
+		
+		//un-Blur the Main Page
+		$('.units_main_container').css({
+			filter: 'none'
+		});
+		$('#MainPageHeaderText').css({
+			filter: 'none'
+		});
+		$('#filtersContainer_OpMenu_Show').css({
+			filter: 'none'
+		});
+		
+		//Hide Overlay that prevents clicking on main elements
+		overlay.hide();
+	});	
 </script>
 
 <!-- Script for changing background image-->

@@ -153,15 +153,15 @@
 </script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<br />
-<div class="div_filters_container">
-	<div class="div_filters_entry">
-		<a href="?page=wiki">&#8672; Back to Wiki Home</a>
-	</div>
-</div>
 <h2 id="MainPageHeaderText">Awards</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
+		<div class="div_filters_container">
+			<div class="div_filters_entry">
+				<a href="?page=wiki">&#8672; Back to Wiki Home</a>
+			</div>
+		</div>
+		<br />
 		<div id="adminawardsTable" class="unit_description_container">
 			<div class="top-line">
 			</div>

@@ -1,13 +1,14 @@
-<br />
-<div class="div_filters_container">
-	<div class="div_filters_entry">
-		<a href="<? $link_base; ?>/wiki/">&#8672; Back to Wiki Home</a>
-	</div>
-</div>
+
 <h2>Organized Operations</h2>
 <div id="TEXT">
 
 	<div id="rankStructure_main">
+		<div class="div_filters_container">
+			<div class="div_filters_entry">
+				<a href="<? $link_base; ?>/wiki/">&#8672; Back to Wiki Home</a>
+			</div>
+		</div>		
+		<br />
 		<div class="table_header_block">
 		</div>
 		<div class="unit_details_container">

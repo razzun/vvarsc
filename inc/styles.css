@@ -70,7 +70,7 @@ nav
 	margin-right: auto;
 	position: relative;
 	display: table;
-	width: 100%;
+	width: 95%;
 }
 
 #nav_player_info {
@@ -749,8 +749,10 @@ table.tbmem a:hover {
 	-moz-transition: all .5s ease 0s;
 }
 
-.roleRequirements:hover .qual_block_container {
+.roleRequirements:hover .qual_block,
+.roleRequirements:hover .qual_block:hover .blkBackground35 {
 	filter: blur(2px);
+	background-color: rgba(0,0,0,0.75) !important;
 }
 
 .qual_block_container:hover {
@@ -761,8 +763,11 @@ table.tbmem a:hover {
 	filter: none;
 }
 
-.roleRequirements:hover .qual_block_container:hover {
+.roleRequirements:hover .qual_block:hover,
+.roleRequirements:hover .qual_block:hover .blkBackground35
+{
 	filter: none;
+	background-color: rgba(0,0,0,0.35) !important;
 }
 
 .qual_block {
@@ -781,6 +786,7 @@ table.tbmem a:hover {
 	max-width: 320px;
 	vertical-align: top;
 	text-align: left;
+	cursor: pointer;
 }
 
 .player_qual_row_name strong{
@@ -1497,8 +1503,8 @@ img {
 	padding-right: 4px;
 	border-top: 1px solid rgba(220, 160, 0, 0.5);
 	border-bottom: 1px solid rgba(220, 160, 0, 0.5);
-	background-color: rgba(0, 0, 0, 0.65);
-	border-spacing: 0px 8px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-spacing: 0px 4px;
 }
 
 .tbinfo_shipTitle {
@@ -1511,7 +1517,7 @@ img {
 	padding-right: 32px;
 	padding-left: 8px;
 	padding-top: 2px;
-	padding-bottom: 4px;
+	padding-bottom: 2px;
 }
 
 .tbinfo_shipTitle_selected
@@ -1571,7 +1577,7 @@ img {
 	-o-transition: all 0.4s ease;
 }
 
-#operations_menu_container, #missions_menu_container
+#operations_menu_container, #missions_menu_container, #sideBar_container
 {
 	position: fixed;
 	z-index: 101;
@@ -1969,7 +1975,7 @@ img {
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
 	-o-transition: all 0.2s ease;
-	padding-bottom: 8px;
+	padding-bottom: 4px;
 	position: relative;
 }
 
@@ -3858,7 +3864,7 @@ img.fleet:after {
 }
 
 .units_main_container {
-	width: 90%;
+	width: 95%;
 	margin: auto;
 }
 
@@ -4518,21 +4524,6 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 1199px) {
-	.roleRequirements {
-		display: inline-table;
-		max-width: 100%;
-		border-left: none;
-		border-right: none;
-		white-space: normal;
-	}
-	.roleRequirements:hover .qual_block_container {
-		filter: none;
-	}	
-	
-	.qual_block_container {
-		display: inline-block;
-		vertical-align: top;
-	}
 	
 	.player_ships_entry {
 		width: 35%;
@@ -4586,6 +4577,23 @@ img.fleet:after {
 }
 
 @media only screen and (max-width: 1023px) {
+	/*Moved from 1199px*/
+	.roleRequirements {
+		display: inline-table;
+		max-width: 100%;
+		border-left: none;
+		border-right: none;
+		white-space: normal;
+	}
+	.roleRequirements:hover .qual_block_container {
+		filter: none;
+	}	
+	
+	.qual_block_container {
+		display: inline-block;
+		vertical-align: top;
+	}
+	/*--------------------------*/
 
 	.player_ships_entry {
 		width: 40%;

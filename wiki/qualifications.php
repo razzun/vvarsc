@@ -198,15 +198,15 @@
     });
 </script>
 
-<br />
-<div class="div_filters_container">
-	<div class="div_filters_entry">
-		<a href="?page=wiki">&#8672; Back to Wiki Home</a>
-	</div>
-</div>
 <h2 id="MainPageHeaderText">Qualifications</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
+		<div class="div_filters_container">
+			<div class="div_filters_entry">
+				<a href="?page=wiki">&#8672; Back to Wiki Home</a>
+			</div>
+		</div>
+		<br />
 		<div id="adminQualificationsTable" class="unit_description_container">
 			<div class="top-line">
 			</div>

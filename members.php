@@ -309,9 +309,9 @@
 	Star Citizen Fleet Roster
 </h2>
 <br />
-<? echo $display_selectors; ?>
 <div id="TEXT">
 	<div class="divinfo_container">
+		<? echo $display_selectors; ?>
 		<h3>
 			<? echo $master_div_name; ?>
 		</h3>
