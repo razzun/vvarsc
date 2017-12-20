@@ -80,7 +80,7 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">None</li>
+					<li style="color: #FFF;">Recruit</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
@@ -152,12 +152,14 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF;">Trainee</li>
+					<li style="color: #FFF;">All Non-Leadership Flight Roles</li>
+					<li style="color: #FFF;">All Non-Leadership Marine Roles</li>
 				</ul>
 				<p style="
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					Advancement for a new Member from E-2 to E-3 can be attained immediately following the completion of the minimum two-week Vetting and Evaluation Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet. Existing members of the VVarMachine Gaming Community who enlist in the Fleet will start at this rank.
+					Advancement for a new Member from E-2 to E-3 can be attained immediately following the completion of the minimum two-week Basic Training Process, after which the new Recruit becomes a full-fledged member of the VVAR Community and Fleet. Existing members of the VVarMachine Gaming Community who enlist in the Fleet will start at this rank. Members at E-3 belonging to a unit, and who have quickly earned all the required qualifications for an established organizational role, can be assigned to said role at E-3, and can expect an automatic promotion to E-4 following TIG/TIS requirements being fulfilled.
 					<br />
 					<br />
 					NOTE: Because advancement beyond E-3 requires registration with a Unit, many casual members will choose to stay at this rank.
@@ -232,14 +234,14 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					E-4 is the first of the NCO Ranks. This rank signifies a Member's formal induction into a permanent Unit or Division, and the beginning of their qualification phase towards further promotion. E-4s are the backbone of the VVarMachine Fleet - they can perform any non-leadership Role within their Squadron or Platoon.
+					E-4 is the first of the NCO Ranks. This rank signifies a Member's formal induction into an official organizational role within their unit, and the beginning of their path towards further promotion. E-4s are the backbone of the VVarMachine Fleet - they can perform any non-leadership Role within their Squadron or Platoon.
 					<br />
 					<br />
 					<strong>Advancement from E-3 to E-4 requires the following:</strong>
 					<ol>
 						<li>Minimum 1 Month Time-in-Service (TIS) with the Fleet</li>
 						<li>Minimum 2 Weeks Time-in-Grade (TIG) for their unit at E-3</li>
-						<li>Attainment of the Level 1 Certification in their Unit's Primary Qualification Area</li>
+						<li>Attainment of all required Qualifications and assignment to an established Organizational Role within their unit.</li>
 						<li>Promotion Approval by their Unit's Commanding Officer (CO)</li>
 					</ol>
 				</p>
