@@ -207,8 +207,12 @@
 			if ($currentRankOrder != $previousRankOrder)
 			{
 				$display_div .= "
-					<br />
-					<br />
+					<div class=\"spacer_2px\">
+					</div>
+					<div class=\"two-line-separator-grey\" style=\"opacity: 0.75;\">
+					</div>
+					<div class=\"spacer_2px\">
+					</div>
 				";
 			}
 		}

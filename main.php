@@ -37,7 +37,8 @@
 	<div align="center">
 		<p>
 			<h3>Featured Video</h3>
-			<iframe width="640" height="360" src="https://www.youtube.com/embed/I5HvHtsOnXA" frameborder="0" allowfullscreen></iframe>
+			<a href="https://www.youtube.com/watch?v=I5HvHtsOnXA" target="_blank"><img src="images/featured_video.jpg" alt=""></a>
+			<!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/I5HvHtsOnXA" frameborder="0" allowfullscreen></iframe> -->
 		</p>
 	</div>	
 </div>

@@ -17,8 +17,7 @@
 			on lk.CategoryID = q.qualification_categoryID
 		where q.IsActive = 1
 		order by
-			lk.CategoryName
-			,q.qualification_name
+			q.qualification_name
 	";
 	
 	$qualifications_query_results = $connection->query($qualifications_query);
