@@ -75,6 +75,7 @@
 					<strong>Entering the PayGrade of OC and beginning the Officer-in-Training Program requires the following:</strong>
 					<ol>
 						<li>Minimum 6 Months TIS for the Fleet</li>
+						<li>Minimum PayGrade of E-4, and assignment to an established organizational role within an active Unit</li>
 						<li>Initial Vote of Confidence by the Collective Officer Corps of the VVarMachine StarCitizen Fleet</li>
 					</ol>
 				</p>
