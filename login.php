@@ -19,12 +19,8 @@
 								<div id="TEXT">
 									<!--Login Section-->
 									<div class="col-md-6 col-md-offset-3">
-										<h4>
-											Log in with your credentials
-										</h4>
-										<br/>
 										<div class="block-margin-top">
-											  <?php 
+											<?php 
 
 												$errors = array(
 													1=>"Invalid user name or password, Try again",
@@ -39,11 +35,15 @@
 												if ($error_id != 0) {
 														echo '<p class="text-danger">'.$errors[$error_id].' </p>';
 													}
-											   ?>  
+											?>
+											<h4>
+												Log in with your credentials
+											</h4>
 											<form action="authenticate_v2.php" method="POST" class="form-signin col-md-8 col-md-offset-2" role="form">
-												<input type="text" name="username" class="form-control" placeholder="Username" onkeypress="entsub(this.form, this.form.password);" required autofocus>
+												<input type="text" name="username" class="form-control login-form" placeholder="Username" onkeypress="entsub(this.form, this.form.password);" required autofocus>
 												<br/>
-												<input id="password" type="password" name="password" class="form-control" placeholder="Password" onkeypress="entsub(this.form, this.form.password);" required>
+												<input id="password" type="password" name="password" class="form-control login-form" placeholder="Password" onkeypress="entsub(this.form, this.form.password);" required>
+												<br/>
 												<br/>
 												<? 
 													if (isset($_GET['rURL']) & $_GET['rURL'] != "/")
@@ -52,7 +52,7 @@
 														echo '<input id="url" type="hidden" name="url" value="'.$reqURL.'" />';
 													}
 												?>
-												<input type="submit" value="Submit"/>
+												<input class="login-form" type="submit" value="Submit"/>
 											</form>
 										</div>
 									</div>

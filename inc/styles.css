@@ -304,15 +304,28 @@ h3 {
 
 h4 {
 	margin: 0;
-	padding: 8px 0 8px 40px;
+	padding: 8px;
+	/*padding: 8px 0 8px 0px;*/
 	font-family: 'Electrolize',sans-serif;
 	font-weight: normal;
 	letter-spacing: .005em;
 	color: #FFF;
 	font-size: 12pt;
 	text-shadow: 0px 0px 4px #00E0FF, 0px 0px 12px #00A0B6;
-	margin-left: 5%;
 	font-style: italic;
+}
+
+.block-margin-top {
+	text-align: center;
+}
+
+.form-control {
+	
+}
+
+.login-form {
+	padding: 8px;
+	margin: 4px;
 }
 
 #TEXT
