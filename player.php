@@ -366,6 +366,8 @@
 					end as role_name
 					,roles.IsPrivate as role_isPrivate
 					,u.UnitID
+					,u.UnitLevel
+					,u.UnitDesignation
 					,case
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 						else u.UnitFullName
@@ -407,6 +409,8 @@
 					end as role_name
 					,roles.IsPrivate as role_isPrivate
 					,u.UnitID
+					,u.UnitLevel
+					,u.UnitDesignation
 					,case
 						when u.UnitFullName is null or u.UnitFullName = '' then u.UnitName
 						else u.UnitFullName
@@ -438,22 +442,39 @@
     		$role_name = $row['role_name'];
 			$role_isPrivate = $row['role_isPrivate'];
 			$UnitID = $row['UnitID'];
+			$UnitDesignation = $row['UnitDesignation'];
+			$UnitLevel = $row['UnitLevel'];
+			
 			$UnitName = $row['UnitName'];
 			$UnitEmblemImage = $row['UnitEmblemImage'];
+			
+			$full_role_name;
+			$full_unit_name;
+			
+			if ($UnitLevel = "Squadron" && $UnitDesignation != null
+				&& $UnitDesignation != "")
+			{
+				$full_unit_name = $UnitDesignation." ".substr($UnitName,6);
+				
+			}
+			else
+			{
+				$full_unit_name = $UnitName;
+			}
 			
 			if ($UnitEmblemImage == null || $UnitEmblemImage == '')
 			{
 				$UnitEmblemImage = $link_base."/images/logos/vvar-logo2.png";
-			}			
+			}		
 			
 			if ($role_name == NULL || $role_name == "n/a") {
 				$full_role_name = "- No Assigned Role -";
 			}
 			else
 			{
-				if ($UnitName != NULL)
+				if ($full_unit_name != NULL)
 				{
-					$full_role_name = $role_name."<br /><a href=\"".$link_base."/unit/".$UnitID."\"> ".$UnitName." </a>";
+					$full_role_name = $role_name."<br /><a href=\"".$link_base."/unit/".$UnitID."\"> ".$full_unit_name." </a>";
 				}
 				else
 				{
@@ -531,8 +552,7 @@
 				on mq.qualification_id = q.qualification_id
 				and mq.member_id = $player_id
 			order by
-				lk.CategoryName
-				,q.qualification_name
+				q.qualification_name
 		";
 		
 		$qualification_query_results = $connection->query($qualification_query);

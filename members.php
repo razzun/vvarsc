@@ -72,11 +72,19 @@
 				on r2.role_id = um.MemberRoleID
 			where m.mem_sc = 1
 				and m.mem_name <> 'guest'
+		";
+		if ($div_id == 1)
+		{
+			$div_query .= "and um.RowID is not null";
+		}
+		
+		$div_query .= "
 		) s1
 		order by
 			s1.rank_group_orderby
 			,s1.rank_orderby
-			,s1.mem_callsign";
+			,s1.mem_callsign
+		";
 	}
 		
 	$div_query_results = $connection->query($div_query);

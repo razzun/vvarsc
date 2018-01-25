@@ -13,12 +13,22 @@
 			,q.level1_reqs
 			,q.level2_reqs
 			,q.level3_reqs
+			,q.division_id
+			,case
+				when d.div_name = 'Logistics' then 'Naval Logistics Command'
+				when d.div_name = 'Command' then 'Fleet Command'
+				when d.div_name = 'Air Forces' then 'Naval Air Forces Command'
+				when d.div_name = 'Marine Forces' then 'Marine Forces Command'
+				when d.div_name = 'Special Warfare' then 'Naval Special Warfare Command'
+                else 'n/a'
+			end as div_name
 		from projectx_vvarsc2.qualifications q
 		join projectx_vvarsc2.LK_QualificationCategories lk
 			on lk.CategoryID = q.qualification_categoryID
+		left join projectx_vvarsc2.divisions d
+			on d.div_id = q.division_id
 		order by
-			lk.CategoryName
-			,q.qualification_name
+			q.qualification_name
 	";
 	
 	$qualifications_query_results = $connection->query($qualifications_query);
@@ -35,6 +45,8 @@
 		$qualLevel1Reqs = $row['level1_reqs'];
 		$qualLevel2Reqs = $row['level2_reqs'];
 		$qualLevel3Reqs = $row['level3_reqs'];
+		$qualDivID = $row['division_id'];
+		$qualDivName = $row['div_name'];
 		
 		$qualIsActiveDisplay = "";
 		$qualLevel1ReqsDisplay = "";
@@ -73,6 +85,8 @@
 				data-levelonereqs=\"$qualLevel1Reqs\"
 				data-leveltworeqs=\"$qualLevel2Reqs\"
 				data-levelthreereqs=\"$qualLevel3Reqs\"
+				data-divid=\"$qualDivID\"
+				data-divname=\"$qualDivName\"
 			>
 				<div class=\"\" style=\"
 					float: right;
@@ -149,6 +163,14 @@
 						Status
 						<br />
 						<strong>$qualIsActiveDisplay</strong>
+					</div>
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Managed By
+						<br />
+						<strong>$qualDivName</strong>
 					</div>				
 					<h4 style=\"
 						padding: 0px 8px 0px 8px;
@@ -236,6 +258,9 @@
 			dialog.find('#IsActive').find('option').prop('selected',false);
 			dialog.find('#IsActive').find('#IsActive-default').prop('selected',true);
 			
+			dialog.find('#DivisionID').find('option').prop('selected',false);
+			dialog.find('#DivisionID').find('#DivisionID-default').prop('selected',true);
+			
 			dialog.show();
 			overlay.show();
 			$('.adminTable').css({
@@ -258,6 +283,7 @@
 			var qualImage = $self.parent().parent().data("imageurl");
 			var qualCategoryID = $self.parent().parent().data("categoryid");
 			var isActive = $self.parent().parent().data("isactive");
+			var divID = $self.parent().parent().data("divid");
 			var level1reqs = $self.parent().parent().data("levelonereqs");
 			var level2reqs = $self.parent().parent().data("leveltworeqs");
 			var level3reqs = $self.parent().parent().data("levelthreereqs");
@@ -271,6 +297,9 @@
 			
 			dialog.find('#IsActive').find('option').prop('selected',false);
 			dialog.find('#IsActive').find('#IsActive-' + isActive).prop('selected',true);
+			
+			dialog.find('#DivisionID').find('option').prop('selected',false);
+			dialog.find('#DivisionID').find('#DivisionID-' + divID).prop('selected',true);
 			
 			dialog.find('#Level1Reqs').val(level1reqs).text();
 			dialog.find('#Level2Reqs').val(level2reqs).text();
@@ -298,7 +327,6 @@
 			var qualImage = $self.parent().parent().data("imageurl");
 			var qualCategoryID = $self.parent().parent().data("categoryid");
 			var isActive = $self.parent().parent().data("isactive");
-
 			
 			dialog.find('#ID').val(qualID).text();
 			dialog.find('#Name').val(qualName).text();
@@ -329,6 +357,7 @@
 			$('.adminDiaglogFormFieldset').find('#ShortName').val("").text();
 			$('.adminDiaglogFormFieldset').find('#DisplayName').val("").text();
 			$('.adminDiaglogFormFieldset').find('#IsPrivate').find('option').prop('selected',false);
+			$('.adminDiaglogFormFieldset').find('#DivisionID').find('option').prop('selected',false);
 			$('.adminDiaglogFormFieldset').find('#Order').val("").text();
 			
 			//Hide All Dialog Containers
@@ -439,6 +468,30 @@
 						</option>
 					</select>
 					
+					<label for="DivisionID" class="adminDialogInputLabel">
+						Managing Command
+					</label>
+					<select name="DivisionID" id="DivisionID" class="adminDialogDropDown" required>
+						<option selected="true" disabled="true" value="default" id="DivisionID-default">
+							--Select a Command--
+						</option>
+						<option value="1" id="DivisionID-1">
+							Fleet Command
+						</option>
+						<option value="2" id="DivisionID-2">
+							Naval Air Forces Command
+						</option>
+						<option value="3" id="DivisionID-3">
+							Marine Forces Command
+						</option>
+						<option value="4" id="DivisionID-4">
+							Naval Special Warfare Command
+						</option>
+						<option value="5" id="DivisionID-5">
+							Naval Logistics Command
+						</option>
+					</select>
+					
 					<label for="Level1Reqs" class="adminDialogInputLabel">
 						Requirements: Level 1
 					</label>
@@ -506,6 +559,30 @@
 						</option>
 						<option value="0" id="IsActive-0">
 							No
+						</option>
+					</select>
+					
+					<label for="DivisionID" class="adminDialogInputLabel">
+						Managing Command
+					</label>
+					<select name="DivisionID" id="DivisionID" class="adminDialogDropDown" required>
+						<option selected="true" disabled="true" value="default" id="DivisionID-default">
+							--Select a Command--
+						</option>
+						<option value="1" id="DivisionID-1">
+							Fleet Command
+						</option>
+						<option value="2" id="DivisionID-2">
+							Naval Air Forces Command
+						</option>
+						<option value="3" id="DivisionID-3">
+							Marine Forces Command
+						</option>
+						<option value="4" id="DivisionID-4">
+							Naval Special Warfare Command
+						</option>
+						<option value="5" id="DivisionID-5">
+							Naval Logistics Command
 						</option>
 					</select>
 					

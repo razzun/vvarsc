@@ -289,7 +289,6 @@ h2 {
 	text-shadow: 0px 0px 4px rgba(0, 224, 255, 0.8), 0px 0px 12px rgba(0, 160, 182, 0.9);
 	font-variant: small-caps;
 	display: inline-block;
-	margin-left: 5%;
 }
 
 h3 {
@@ -739,6 +738,7 @@ table.tbmem a:hover {
 	width: 100%;
 	font-style: italic;
 	font-size: 8pt;
+	color: #BBB;
 }
 
 .roleRequirements {
@@ -797,12 +797,11 @@ table.tbmem a:hover {
 	max-width: 320px;
 	vertical-align: top;
 	text-align: left;
-	cursor: pointer;
 }
 
 .player_qual_row_name strong{
-	color: #DDD;
-	text-shadow: 0px 0px 8px #CCA300;
+	color: #FFF;
+	/*text-shadow: 0px 0px 8px #CCA300;*/
 	font-size: 10pt;
 	font-style: normal;
 	font-variant: small-caps;
@@ -1501,7 +1500,7 @@ img {
 
 .tbinfo_container
 {
-	width: 95%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -2248,7 +2247,17 @@ img.fleet:after {
 	-o-transition: all 0.6s ease;
 }
 
-.cornerToggle.corner-top-left, .cornerToggle2.corner-top-left, .corner.corner-top-left, .corner2.corner-top-left{
+.corner3
+{
+	background-image: url("../images/misc/corner-background_white.png");
+	width: 8px;
+	height: 8px;
+	-webkit-transition: all 0.6s ease;
+	-moz-transition: all 0.6s ease;
+	-o-transition: all 0.6s ease;
+}
+
+.cornerToggle.corner-top-left, .cornerToggle2.corner-top-left, .corner.corner-top-left, .corner2.corner-top-left, .corner3.corner-top-left{
 	background-position: 0px 0px;
 	left: -1px;
 	top: -1px;
@@ -2256,7 +2265,7 @@ img.fleet:after {
 	display: block;
 }
 
-.cornerToggle.corner-top-right, .cornerToggle2.corner-top-right, .corner.corner-top-right, .corner2.corner-top-right {
+.cornerToggle.corner-top-right, .cornerToggle2.corner-top-right, .corner.corner-top-right, .corner2.corner-top-right , .corner3.corner-top-right{
 	background-position: -2px 0px;
 	right: -1px;
 	top: -1px;
@@ -2264,7 +2273,7 @@ img.fleet:after {
 	display: block;
 }
 
-.cornerToggle.corner-bottom-left, .cornerToggle2.corner-bottom-left, .corner.corner-bottom-left, .corner2.corner-bottom-left {
+.cornerToggle.corner-bottom-left, .cornerToggle2.corner-bottom-left, .corner.corner-bottom-left, .corner2.corner-bottom-left, .corner3.corner-bottom-left {
 	background-position: 0px -2px;
 	left: -1px;
 	bottom: -1px;
@@ -2272,7 +2281,7 @@ img.fleet:after {
 	display: block;
 }
 
-.cornerToggle.corner-bottom-right, .cornerToggle2.corner-bottom-right, .corner.corner-bottom-right, .corner2.corner-bottom-right {
+.cornerToggle.corner-bottom-right, .cornerToggle2.corner-bottom-right, .corner.corner-bottom-right, .corner2.corner-bottom-right, .corner3.corner-bottom-right {
 	background-position: -2px -2px;
 	right: -1px;
 	bottom: -1px;
@@ -2468,6 +2477,8 @@ img.fleet:after {
 	background-color: rgba(220, 160, 0, 0.65);
 	position: absolute;
 }
+
+
 .table_header_block2_long {
 	width: 180px;
 	height: 2px;
@@ -2504,6 +2515,13 @@ img.fleet:after {
 	background-color: rgba(10, 120, 140, 0.7);
 	margin-left: 192px;
 	margin-top: -2px;
+}
+
+.table_header_block6 {
+	width: 100px;
+	height: 2px;
+	background-color: rgba(200, 200, 200, 0.9);
+	position: absolute;
 }
 
 .tbinfo_zoomLevels_Container
@@ -2596,7 +2614,7 @@ img.fleet:after {
 
 /*------------------SHIPYARD.PHP------------------*/
 .yard_outer_container {
-	width: 95%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -3289,7 +3307,7 @@ img.fleet:after {
 /* ---------------Page: DivisionInfo--------------*/
 
 .divinfo_container {
-	width: 95%;
+	width: 100%;
 	margin: auto;	
 }
 
@@ -3872,7 +3890,7 @@ img.fleet:after {
 }
 
 .units_main_container {
-	width: 95%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -3910,10 +3928,10 @@ img.fleet:after {
 
 .units_tree_container {
 	height: 100%;
-	padding-top: 8px;
-	padding-bottom: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	padding-left: 28px;
-	padding-right: 6px;
+	padding-right: 8px;
 	border-top: 1px solid rgba(0, 153, 170, 0.9);
 	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
 	background-color: rgba(0, 0, 0, 0.65);
@@ -3922,28 +3940,34 @@ img.fleet:after {
 	background-position: left center;	
 }
 
+.tree_container_full {
+	border-top: 1px solid rgba(0, 153, 170, 0.9);
+	border-bottom: 1px solid rgba(0, 153, 170, 0.9);
+}
+
 .unitHierarchy {
 	margin-top: 4px;
 }
 
 .unitHierarchyHeader {
-	border-left: 2px solid #1F4858;
+	border-left: 2px solid #5F5F5F;
 	vertical-align: middle;
-	font-family: electrolize;
+	font-family: orbitron;
 	color: #EEE;
 	display: inline-table;
-	transition: all 0.4s ease 0s;
+	transition: all 0.2s ease 0s;
 	margin-top: 4px;
 	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
 }
 
 .unitHierarchyHeader_mainContainer {
-	border-bottom: 1px solid #1F4858;
-	border-right: 6px solid #1F4858;
+	border-bottom: 1px solid #5F5F5F;
+	border-right: 6px solid #5F5F5F;
 	display: table-cell;
 	width: 100%;
 	transition: all 0.2s ease 0s;
 	padding-left: 8px;
+	padding-right: 2px;
 	padding-bottom: 2px;
 	padding-top: 2px;
 	vertical-align: middle;
@@ -3969,7 +3993,6 @@ img.fleet:after {
 .unitHierarchyHeader_unitName {
 	width: 100%;
 	vertical-align: middle;
-	padding-left: 4px;
 }
 
 .unitHierarchyHeader_unitName a {
@@ -3991,6 +4014,43 @@ img.fleet:after {
 	float: right;
 	width: 35%;
 }
+
+.unitHierarchyImage {
+	height: 38px;
+	width: 38px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: none;
+	background: none;
+}
+
+/*Colors for NAVCOMs on Units Page*/
+.unitHierarchy_ {
+	background: none repeat scroll 0% 0% rgba(0,0,0,0.8);
+}
+
+.unitHierarchy_Command {
+	background: none repeat scroll 0% 0% rgba(80,50,0,0.25);
+}
+
+.unitHierarchy_AirForces {
+	background: none repeat scroll 0% 0% rgba(0,60,80,0.25);
+}
+
+.unitHierarchy_SpecWar {
+	background: none repeat scroll 0% 0% rgba(80,50,125,0.25);
+}
+
+.unitHierarchy_Marines {
+	background: none repeat scroll 0% 0% rgba(120,0,0,0.25);
+}
+
+.unitHierarchy_Logistics {
+	background: none repeat scroll 0% 0% rgba(0,80,20,0.25);
+}
+/*End Colors for NAVCOMs on Units Page*/
 
 .inactive {
 	color: RGBA(136, 136, 136, 0.7);
@@ -4018,6 +4078,7 @@ img.fleet:after {
 	font-size: 8pt;
 	margin-left: 16px;
 	margin-right: 4px;
+	font-family: electrolize;
 	/*background: url(../images/public-profile-box-title.png) repeat-x;
 	*/
 }
@@ -4047,14 +4108,14 @@ img.fleet:after {
 
 .unitHierarchyHeader_value_container a {
 	text-decoration: none;
-	color: #1F6585;
+	color: #DDD;
 	transition: all 0.2s ease 0s;
 	display: table-cell;
 	vertical-align: middle;	
 }
 
 .unitHierarchyHeader_value_container a:hover {
-	color: #DDD;
+	color: #EEE;
 }
 
 .unitHierarchyContent_rankTinyImage {
@@ -4069,53 +4130,52 @@ img.fleet:after {
 }
 
 .unitHierarchyHeader:hover {
-	border-left: 2px solid rgba(0, 194, 200, 0.9);
+	border-left: 2px solid rgba(200, 200, 200, 0.9);
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.25);
 }
 
 .unitHierarchyHeader:hover .unitHierarchyHeader_mainContainer {
-	border-right: 6px solid rgba(0, 194, 200, 0.9);
-	border-bottom: 1px solid rgba(0, 194, 200, 0.9);
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.3);
+	border-right: 6px solid rgba(200, 200, 200, 0.9);
+	border-bottom: 1px solid rgba(200, 200, 200, 0.9);
 }
 
 .unitHierarchy.unitHierarchyHeader:hover .unitHierarchy.unitHierarchyHeaderContent {
-	border-right: 6px solid rgba(0, 194, 200, 0.9);
-	border-bottom: 1px solid rgba(0, 194, 200, 0.9);
-	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.3);
+	border-right: 6px solid rgba(200, 200, 200, 0.9);
+	border-bottom: 1px solid rgba(200, 200, 200, 0.9);
 }
 
 .level0 {
-	font-size: 18pt;
+	font-size: 16pt;
 	background: url(../images/fading-bars.png);
 	padding-bottom: 4px;	
 }
 
 .level1 {
-	font-size: 16pt;
-}
-
-
-.level2 {
 	font-size: 14pt;
 }
 
 
-.level3 {
+.level2 {
 	font-size: 12pt;
+}
+
+
+.level3 {
+	font-size: 10pt;
 }
 
 
 .level4 {
-	font-size: 11pt;
+	font-size: 9pt;
 }
 
 
 .level5 {
-	font-size: 10pt;
+	font-size: 8pt;
 }
 
 .UnitLevelDepartment {
-	font-size: 12pt;
+	font-size: 10pt;
 }
 
 .adminTableContainer {
@@ -4511,6 +4571,10 @@ img.fleet:after {
 	padding-left: 0px;
 	padding-right: 0px;
 	background-image: url(../images/fading-bars.png);
+}
+
+.top-border-grey {
+	border-top: 1px solid rgba(200, 200, 200, 0.9);
 }
 
 @media only screen and (max-height: 799px) {

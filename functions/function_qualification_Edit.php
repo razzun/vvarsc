@@ -19,6 +19,7 @@
 	$CategoryID = "";
 	$Image = "";
 	$IsActive = "";
+	$DivisionID = "";
 	$Level1Reqs = "";
 	$Level2Reqs = "";
 	$Level3Reqs = "";
@@ -43,6 +44,10 @@
 	{
 		$IsActive = $_POST['IsActive'];
 	}
+	if (isset($_POST['DivisionID']))
+	{
+		$DivisionID = $_POST['DivisionID'];
+	}
 	if (isset($_POST['Level1Reqs']))
 	{
 		$Level1Reqs = mysqli_real_escape_string($connection, $_POST['Level1Reqs']);
@@ -62,6 +67,7 @@
 			,qualification_image = '$Image'
 			,qualification_categoryID = $CategoryID
 			,IsActive = $IsActive
+			,division_id = $DivisionID
 			,level1_reqs = '$Level1Reqs'
 			,level2_reqs = '$Level2Reqs'
 			,level3_reqs = '$Level3Reqs'

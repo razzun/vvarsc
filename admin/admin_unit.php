@@ -230,103 +230,100 @@
 	}
 	
 	//UnitRoles
-	if ($unitLevel == 'Squadron' || $unitLevel == 'Platoon')
+	//Query for UnitRoles Table
+	$unitRoles_query = "
+		select
+			ur.RowID
+			,ur.RoleID
+			,ro.role_name
+			,r1.rank_id as MinPayGradeID
+			,r1.rank_level as MinPayGrade
+			,r1.rank_abbr as MinPayGradeName
+			,r1.rank_tinyImage as MinPayGradeImage
+			,r2.rank_id as MaxPayGradeID
+			,r2.rank_level as MaxPayGrade
+			,r2.rank_abbr as MaxPayGradeName
+			,r2.rank_tinyImage as MaxPayGradeImage
+			,ur.IsActive
+		from projectx_vvarsc2.Units u
+		join projectx_vvarsc2.UnitRoles ur
+			on ur.UnitID = u.UnitID
+		join projectx_vvarsc2.roles ro
+			on ro.role_id = ur.RoleID
+		join projectx_vvarsc2.ranks r1
+			on r1.rank_id = ur.MinPayGrade
+		join projectx_vvarsc2.ranks r2
+			on r2.rank_id = ur.MaxPayGrade
+		where u.UnitID = '$unit_id'
+		order by
+			ro.role_orderBy	
+	";
+	
+	$unitRoles_query_results = $connection->query($unitRoles_query);
+	$displayUnitRoles = "";
+	
+	while(($row = $unitRoles_query_results->fetch_assoc()) != false)
 	{
-		//Query for UnitRoles Table
-		$unitRoles_query = "
-			select
-				ur.RowID
-				,ur.RoleID
-				,ro.role_name
-				,r1.rank_id as MinPayGradeID
-				,r1.rank_level as MinPayGrade
-				,r1.rank_abbr as MinPayGradeName
-				,r1.rank_tinyImage as MinPayGradeImage
-				,r2.rank_id as MaxPayGradeID
-				,r2.rank_level as MaxPayGrade
-				,r2.rank_abbr as MaxPayGradeName
-				,r2.rank_tinyImage as MaxPayGradeImage
-				,ur.IsActive
-			from projectx_vvarsc2.Units u
-			join projectx_vvarsc2.UnitRoles ur
-				on ur.UnitID = u.UnitID
-			join projectx_vvarsc2.roles ro
-				on ro.role_id = ur.RoleID
-			join projectx_vvarsc2.ranks r1
-				on r1.rank_id = ur.MinPayGrade
-			join projectx_vvarsc2.ranks r2
-				on r2.rank_id = ur.MaxPayGrade
-			where u.UnitID = '$unit_id'
-			order by
-				ro.role_orderBy	
+		$rowID = $row['RowID'];
+		$roleID = $row['RoleID'];
+		$roleName = $row['role_name'];
+		$minPayGradeID = $row['MinPayGradeID'];
+		$minPayGrade = $row['MinPayGrade'];
+		$minPayGradeName = $row['MinPayGradeName'];
+		$minPayGradeImage = $row['MinPayGradeImage'];
+		$maxPayGradeID = $row['MaxPayGradeID'];
+		$maxPayGrade = $row['MaxPayGrade'];
+		$maxPayGradeName = $row['MaxPayGradeName'];
+		$maxPayGradeImage = $row['MaxPayGradeImage'];
+		$isActive = $row['IsActive'];
+	
+		$displayUnitRoles .= "
+			<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
+				<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
+					$rowID
+				</td>
+				<td class=\"adminTableRowTD roleID\" data-roleid=\"$roleID\">
+					$roleID
+				</td>
+				<td class=\"adminTableRowTD\" data-rolename=\"$roleName\">
+					$roleName
+				</td>
+				<td class=\"adminTableRowTD minRank\" data-minpaygrade=\"$minPayGradeID\">
+					<div class=\"clickableRow_memRank_inner\">
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
+						<div class=\"rank_image_text\">
+							$minPayGradeName ($minPayGrade)
+						</div>
+					</div>
+				</td>
+				<td class=\"adminTableRowTD maxRank\" data-maxpaygrade=\"$maxPayGradeID\">
+					<div class=\"clickableRow_memRank_inner\">
+						<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
+						<div class=\"rank_image_text\">
+							$maxPayGradeName ($maxPayGrade)
+						</div>
+					</div>
+				</td>
+				<td class=\"adminTableRowTD isActive\" data-isactive=\"$isActive\">
+					$isActive
+				</td>
+				<td class=\"adminTableRowTD\">
 		";
-		
-		$unitRoles_query_results = $connection->query($unitRoles_query);
-		$displayUnitRoles = "";
-		
-		while(($row = $unitRoles_query_results->fetch_assoc()) != false)
-		{
-			$rowID = $row['RowID'];
-			$roleID = $row['RoleID'];
-			$roleName = $row['role_name'];
-			$minPayGradeID = $row['MinPayGradeID'];
-			$minPayGrade = $row['MinPayGrade'];
-			$minPayGradeName = $row['MinPayGradeName'];
-			$minPayGradeImage = $row['MinPayGradeImage'];
-			$maxPayGradeID = $row['MaxPayGradeID'];
-			$maxPayGrade = $row['MaxPayGrade'];
-			$maxPayGradeName = $row['MaxPayGradeName'];
-			$maxPayGradeImage = $row['MaxPayGradeImage'];
-			$isActive = $row['IsActive'];
-		
-			$displayUnitRoles .= "
-				<tr class=\"adminTableRow\" data-unitid=\"$unit_id\">
-					<td class=\"adminTableRowTD rowID\" data-rowid=\"$rowID\">
-						$rowID
-					</td>
-					<td class=\"adminTableRowTD roleID\" data-roleid=\"$roleID\">
-						$roleID
-					</td>
-					<td class=\"adminTableRowTD\" data-rolename=\"$roleName\">
-						$roleName
-					</td>
-					<td class=\"adminTableRowTD minRank\" data-minpaygrade=\"$minPayGradeID\">
-						<div class=\"clickableRow_memRank_inner\">
-							<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$minPayGradeImage.png\" />
-							<div class=\"rank_image_text\">
-								$minPayGradeName ($minPayGrade)
-							</div>
-						</div>
-					</td>
-					<td class=\"adminTableRowTD maxRank\" data-maxpaygrade=\"$maxPayGradeID\">
-						<div class=\"clickableRow_memRank_inner\">
-							<img class=\"clickableRow_memRank_Image\" src=\"$link_base/images/ranks/TS3/$maxPayGradeImage.png\" />
-							<div class=\"rank_image_text\">
-								$maxPayGradeName ($maxPayGrade)
-							</div>
-						</div>
-					</td>
-					<td class=\"adminTableRowTD isActive\" data-isactive=\"$isActive\">
-						$isActive
-					</td>
-					<td class=\"adminTableRowTD\">
-			";
-					$displayUnitRoles .= "
-						
-						<a href=\"../admin/?page=admin_unitRole&pid=$rowID\">
-							Edit Qualifications
-						</a>
-						<button class=\"adminButton adminButtonEdit unitRole\" title=\"Edit Role\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
-						</button>
-						<button class=\"adminButton adminButtonDelete unitRole\" title=\"Remove Role\">
-							<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
-						</button>
-					</td>
-				</tr>
-			";
-		}	
-	}	
+				$displayUnitRoles .= "
+					
+					<a href=\"../admin/?page=admin_unitRole&pid=$rowID\">
+						Edit Qualifications
+					</a>
+					<button class=\"adminButton adminButtonEdit unitRole\" title=\"Edit Role\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_edit.png\">
+					</button>
+					<button class=\"adminButton adminButtonDelete unitRole\" title=\"Remove Role\">
+						<img height=\"20px\" class=\"adminButtonImage\" src=\"../images/misc/button_delete.png\">
+					</button>
+				</td>
+			</tr>
+		";
+	}
 	
 	//Query for UnitMembers Table
 	$unitMember_query = "

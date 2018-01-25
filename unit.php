@@ -5,7 +5,7 @@
 	$UnitID = strip_tags(isset($_GET['pid']) ? $_GET['pid'] : '');
 	
 	//Function For Generating Child-Unit List
-	function generate_list($array,$parent,$level,$realLevel)
+	function generate_list($array,$parent,$level,$realLevel,$unitID)
 	{
 		foreach ($array as $value)
 		{
@@ -17,6 +17,9 @@
 					$has_children=true;
 					if ($level == 0)
 						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 0px;">';
+					//else if ($level == 3 || $value['UnitLevel'] == "Department")
+					else if ($level == 3 && $unitID == 1)
+						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 32px;">';
 					else
 						echo '<div class="unitHierarchy level'.$level.' UnitLevel'.$value['UnitLevel'].'" style="margin-left: 8px;">';
 					
@@ -25,12 +28,15 @@
 				}
 
 				#Unit Header
-				echo '<div class="unitHierarchyHeader">';
+				if ($unitID == 1)
+					echo '<div class="unitHierarchyHeader unitHierarchy_'.$value['DivisionName'].'">';
+				else
+					echo '<div class="unitHierarchyHeader '.$unitID.'">';
 					#If This Is Lowest-Level Unit, Don't Display Expand-Arrow
 					if ($value['UnitLevel'] != "Squadron" && $value['UnitLevel'] != "Platoon" && $value['UnitLevel'] != "QRF" && $value['UnitLevel'] != "Department")
 					{
 						echo '<div class="unitHierarchy_arrowContainer"  style="display:table-cell; vertical-align:middle;">';
-							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/SC_Button01.png" />';
+							echo '<img class="unitHierarchy_row_header_arrow" align="center" src="'.$link_base.'/images/misc/SC_Button02.png" />';
 						echo '</div>';
 					}
 					else
@@ -48,7 +54,7 @@
 						else
 							$temp_unitEmblemImage = $value['UnitEmblemImage'];
 							
-						echo '<div class="shipDetails_ownerInfo_tableRow_ImgContainer" style="height: 38px;	width: 38px; padding-left:8px; padding-right:0px; padding-top:2px; padding-bottom:2px; border:none; background:none;">';
+						echo '<div class="shipDetails_ownerInfo_tableRow_ImgContainer unitHierarchyImage">';
 						
 						if ($value['IsActive'] == "Active")
 							echo '<img class="divinfo_rankImg" align="center" style="height:30px;width:30px;vertical-align: middle;"src="'.$temp_unitEmblemImage.'" />';
@@ -148,7 +154,7 @@
 				
 				#Child-Units
 				echo '<div class="unitHierarchyChildren">';
-				generate_list($array,$value['UnitID'],$level,$realLevel);
+				generate_list($array,$value['UnitID'],$level,$realLevel,$unitID);
 				echo '</div>';
 			}
 
@@ -470,12 +476,16 @@
 		
 
 		$display_details .= "
-		<div class=\"play\" style=\"width: 100%; padding:0;\">				
+		<div class=\"play\" style=\"
+			width: 100%;
+			padding:0;
+			background: none;
+		\">				
 			<div class=\"pavatar\" style=\"
 				padding-top: 8px;
 				width: 240px;
 			\">
-				<div class=\"pavatar_image_container\">
+				<div class=\"pavatar_image_container\" style=\"background-color: rgba(0,0,0,0.35);\">
 					<div class=\"corner corner-top-left\">
 					</div>
 					<div class=\"corner corner-top-right\">
@@ -484,7 +494,7 @@
 					</div>
 					<div class=\"corner corner-bottom-right\">
 					</div>
-					<img height=\"200\" width=\"200\" alt=\"<? echo $mem_name; ?>\" src=\"$unitEmblemImage\" />
+					<img height=\"200\" width=\"200\" alt=\"$mem_name\" src=\"$unitEmblemImage\" />
 				</div>
 			</div>
 			<div class=\"p_info responsiveRow\" style=\"width: 100%; vertical-align: top\">
@@ -723,7 +733,14 @@
 							,u.UnitShortName
 							,u.UnitCallsign
 							,u.DivisionID
-							,d.div_name
+							,case
+								when d.div_name = 'Command' then d.div_name
+								when d.div_name = 'Air Forces' then 'AirForces'
+								when d.div_name = 'Special Warfare' then 'SpecWar'
+								when d.div_name = 'Marine Forces' then 'Marines'
+								when d.div_name = 'Logistics' then d.div_name
+								else ''
+							end as div_name
 							,u.IsActive
 							,CASE
 								when u.IsActive = 1 then 'Active'
@@ -878,13 +895,12 @@
 		
 		$displayUnitRoleRequirements = "";
 		
-		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
-			&& mysqli_num_rows($unitQual_query_results) > 0)
+		if(mysqli_num_rows($unitQual_query_results) > 0)			
 		{
 			$displayUnitRoleRequirements .= "
 				<br />
 				<h3>
-					Role Requirements
+					Roles
 				</h3>
 				<div class=\"table_header_block\">
 				</div>
@@ -1095,8 +1111,8 @@
 			}
 			$previousGroup = $currentGroup;
 		}
-		if(($unitLevel == "Squadron" || $unitLevel == "Platoon")
-			&& mysqli_num_rows($unitQual_query_results) > 0)
+		
+		if(mysqli_num_rows($unitQual_query_results) > 0)
 		{
 			//Close Last Group
 			if ($qualName != null)
@@ -1116,8 +1132,12 @@
 					</div>
 				";		
 			}
-		}			
-		
+		}		
+		//Clear Role Requirements for other unit types
+		if($unitLevel != "Squadron" && $unitLevel != "Platoon")
+		{
+			$displayUnitRoleRequirements = "";
+		}
 		
 		$unitShipsQuery = "
 			select
@@ -1403,7 +1423,7 @@
 		<? echo $displayUnitShips ?>
 		
 		<? echo $displayChildren1 ?>
-		<? generate_list($units,$UnitID,($depth + 1),0); ?>
+		<? generate_list($units,$UnitID,($depth + 1),0,$UnitID); ?>
 		<? echo $displayChildren2 ?>
 
 	</div>

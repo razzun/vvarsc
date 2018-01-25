@@ -36,6 +36,8 @@
 		left join projectx_vvarsc2.LK_QualificationCategories lk
 			on lk.CategoryID = q.qualification_categoryID
 		where ur.RowID = $UnitRoleID
+		order by
+			q.qualification_name
 	";
 	
 	$UnitRoleQuals_query_results = $connection->query($UnitRoleQuals_query);

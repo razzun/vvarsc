@@ -12,9 +12,28 @@
 			,q.level1_reqs
 			,q.level2_reqs
 			,q.level3_reqs
+			,q.division_id
+			,case
+				when d.div_name = 'Logistics' then 'Naval Logistics Command'
+				when d.div_name = 'Command' then 'Fleet Command'
+				when d.div_name = 'Air Forces' then 'Naval Air Forces Command'
+				when d.div_name = 'Marine Forces' then 'Marine Forces Command'
+				when d.div_name = 'Special Warfare' then 'Naval Special Warfare Command'
+                else 'n/a'
+			end as div_name_display
+			,case
+				when d.div_name = 'Command' then d.div_name
+				when d.div_name = 'Air Forces' then 'AirForces'
+				when d.div_name = 'Special Warfare' then 'SpecWar'
+				when d.div_name = 'Marine Forces' then 'Marines'
+				when d.div_name = 'Logistics' then d.div_name
+				else ''
+			end as div_code
 		from projectx_vvarsc2.qualifications q
 		join projectx_vvarsc2.LK_QualificationCategories lk
 			on lk.CategoryID = q.qualification_categoryID
+		left join projectx_vvarsc2.divisions d
+			on d.div_id = q.division_id
 		where q.IsActive = 1
 		order by
 			q.qualification_name
@@ -34,6 +53,9 @@
 		$qualLevel1Reqs = $row['level1_reqs'];
 		$qualLevel2Reqs = $row['level2_reqs'];
 		$qualLevel3Reqs = $row['level3_reqs'];
+		$qualDivID = $row['division_id'];
+		$qualDivName = $row['div_name_display'];
+		$qualDivCode = $row['div_code'];
 		
 		$qualIsActiveDisplay = "";
 		$qualLevel1ReqsDisplay = "";
@@ -61,9 +83,9 @@
 			$qualLevel3ReqsDisplay = $qualLevel3Reqs;
 	
 		$displayQualifications .= "
-			<div class=\"table_header_block\">
+			<div class=\"table_header_block6\">
 			</div>
-			<div class=\"yard_filters\" style=\"margin-bottom: 16px;\"
+			<div class=\"yard_filters top-border-grey unitHierarchy_$qualDivCode\" style=\"margin-bottom: 16px;\"
 				data-id=\"$qualID\"
 				data-name=\"$qualName\"
 				data-categoryid=\"$qualCategoryID\"
@@ -83,7 +105,7 @@
 					display: table;
 					padding-bottom: 4px;
 				\">
-					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"../images/misc/SC_Button01.png\" align=\"middle\">
+					<img class=\"shipyard_mainTable_row_header_arrow\" style=\"display: table-cell;\" src=\"../images/misc/SC_Button02.png\" align=\"middle\">
 					<div class=\"player_qual_row_name\" style=\"
 						margin-top:8px;
 						margin-bottom:8px;
@@ -109,14 +131,15 @@
 							width: 38px;
 							padding-left: 0px;
 							padding-right: 0px;
+							background: none;
 						\">
-							<div class=\"corner corner-top-left\">
+							<div class=\"corner3 corner-top-left\">
 							</div>
-							<div class=\"corner corner-top-right\">
+							<div class=\"corner3 corner-top-right\">
 							</div>
-							<div class=\"corner corner-bottom-left\">
+							<div class=\"corner3 corner-bottom-left\">
 							</div>
-							<div class=\"corner corner-bottom-right\">
+							<div class=\"corner3 corner-bottom-right\">
 							</div>
 							<img class=\"divinfo_rankImg\" align=\"center\" style=\"height:30px;width:30px;\"src=\"../images/qualifications/$qualImage\" />					
 						</div>
@@ -128,7 +151,15 @@
 						Status
 						<br />
 						<strong>$qualIsActiveDisplay</strong>
-					</div>				
+					</div>		
+					<div class=\"player_qual_row_name\" style=\"
+						margin-bottom:8px;
+						padding-left:8px;
+					\">
+						Managed By
+						<br />
+						<strong>$qualDivName</strong>
+					</div>		
 					<h4 style=\"
 						padding: 0px 8px 0px 8px;
 						margin-left: 0;
@@ -197,7 +228,7 @@
     });
 </script>
 
-<h2 id="MainPageHeaderText">Qualifications</h2>
+<h2 id="MainPageHeaderText">Active Qualifications</h2>
 <div id="TEXT">
 	<div id="adminManuTableContainer" class="adminTableContainer">
 		<div class="div_filters_container">

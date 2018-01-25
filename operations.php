@@ -31,6 +31,7 @@
 		$displayMainActionButtons = "
 			<div id=\"MainActionButtons\" style=\"
 				display: table-cell;
+				padding-left: 8px;
 			\">
 				<button id=\"ButtonEditToggle\" class=\"adminButton adminButtonEdit\" title=\"Edit Toggle\"style=\"
 					margin-left: 0px;
