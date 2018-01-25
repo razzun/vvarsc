@@ -134,7 +134,8 @@
 			}
 			else
 			{
-				$DisplayMemberBio = $MemberBio;
+				$DisplayMemberBio = strip_tags($MemberBio, '<a><b><i><s><u>');
+				/*$DisplayMemberBio = strip_tags_and_attrs($MemberBio, array("html", "body", "a", "b", "i", "s", "u"), array("href", "target"));*/
 			}
 			
     		if ($shm_lti == 1) {
