@@ -335,8 +335,14 @@
 					<td class=\"player_ships_entry_ship\">
 						<div class=\"player_ships_entry_ship_inner\">
 							<div class=\"player_ships_entry_ship_inner_imageContainer\">
-								<a href=\"$link_base/ship/$ship_id\" >
-									<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
+								<a href=\"$link_base/ship/$ship_id\" >";
+								if ($ship_silo != null)
+								{
+									$display_player_ships .= "
+										<img class=\"player_fleet\" align=\"center\" src=\"$link_base/images/silo_topDown/$ship_silo\" />
+									";
+								}
+								$display_player_ships .= "	
 								</a>
 							</div>
 						</div>

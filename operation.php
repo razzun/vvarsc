@@ -861,7 +861,7 @@
 					
 					$display_opUnitShipMembers_list_edit = "";
 					if ($canEdit
-						&& ($opUnitShipsListItem_MemberCount < $opUnitShipsListItem_ShipMaxCrew)
+						//&& ($opUnitShipsListItem_MemberCount < $opUnitShipsListItem_ShipMaxCrew)
 						)
 					{
 						$display_opUnitShipMembers_list_edit = "

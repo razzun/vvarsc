@@ -416,6 +416,7 @@
 				}
 				else
 				{
+					$UnitIndex = 1;
 					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
 					{
 						$callSign = $opUnitsListItem_UnitCallSign.' 1';
