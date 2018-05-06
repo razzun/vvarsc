@@ -885,6 +885,7 @@
 			join projectx_vvarsc2.ranks r2
 				on r2.rank_id = ur.MaxPayGrade
 			where ur.UnitID = $UnitID
+				and ur.IsActive = 1
 			order by
 				r.role_orderby desc
 				,r.role_name
