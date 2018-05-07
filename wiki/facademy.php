@@ -26,13 +26,13 @@
 				</div>
 				<h4 class="WikiH4">Online Documents/Websites</h4>
 				<div class="WikiText">
-					<a href="?page=fac-bfm" target="_top">Combat Tactics</a>
+					<a href="?page=fac-bfm" target="_top">Combat Tactics</a> (PDF)
 					<br />
-					<a href="?page=fac-sos" target="_top">Space-Ops Strategy Guide</a>
+					<a href="?page=fac-sos" target="_top">Space-Ops Strategy Guide</a> (PDF)
 					<br />
-					<a href="?page=fac-scm" target="_top">Space Combat</a>
+					<a href="?page=fac-scm" target="_top">Space Combat</a> (PDF)
 					<br />
-					<a href="?page=fac-l1vf" target="_top">VVarMachine Level 1 VF Comms</a>
+					<a href="?page=fac-l1vf" target="_top">VVarMachine Level 1 VF Comms</a> (PDF)
 					<br />
 					<a href="https://www.sctraininghub.com/" target="_blank">Star Citizen Training Hub</a>
 					<br />
@@ -73,7 +73,7 @@
 				<h4 class="WikiH4">Images</h4>
 				<h5 class="WikiH5">Port Olisar Holding Pattern</h5>
 				<div class="WikiText">
-					<img width="800" height="599" src="/academt/holding_pattern.jpg">
+					<img width="800" height="599" src="academy/holding_pattern.jpg">
 				</div>
 			</div>		
 		</div>
