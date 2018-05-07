@@ -59,6 +59,25 @@
 										$content = "unitStructure.php";
 										break;
 									
+									/*******************/
+									/** Academy Pages **/
+									/*******************/		
+									case "fac-bfm":
+										$content = "fac-bfm.php";
+										break;
+									
+									case "fac-sos":
+										$content = "fac-sos.php";
+										break;
+										
+									case "fac-scm":
+										$content = "fac-scm.php";
+										break;
+										
+									case "fac-l1vf":
+										$content = "fac-l1vf.php";
+										break;
+									
 									/******************/
 									/** Error Pages **/
 									/******************/		
