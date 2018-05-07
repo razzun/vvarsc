@@ -21,6 +21,8 @@
 			<p>
 				<strong>Awards - </strong> View Awards available for Members.
 				</br>
+				<strong>Flight Academy - </strong> Flight Academy resources.
+				</br>
 				<strong>Formations - </strong> Dynamic 4-ship Flight Formations Viewer.
 				</br>
 				<!--

@@ -34,6 +34,10 @@
 									case "formations":
 										$content = "formations.php";
 										break;
+										
+									case "facademy":
+										$content = "facademy.php";
+										break;
 									
 									case "marineTeams":
 										$content = "marineTeams.php";

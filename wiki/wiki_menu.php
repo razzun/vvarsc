@@ -9,6 +9,7 @@
 	</div>	
     <ul>
 		<li><a href="?page=awards">Awards</a></li>
+		<li><a href="?page=facademy">Flight Academy</a></li>
 		<li><a href="?page=formations">Flight Formations</a></li>
 		<!--
         <li><a href="?page=marineTeams">Marine Squad/Team Organization</a></li>
