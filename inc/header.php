@@ -37,6 +37,17 @@
 		";
 	}
 	
+	if ($infoSecLevelID > 1)
+	{
+		$display_calLinks .= "
+			<div class=\"nav_entry\">
+				<div class=\"nav_entry_inner\">
+					<a class=\"navbar_inner\" href=\"/calendar/\">Calendar</a>
+				</div>
+			</div>
+		";
+	}
+	
 	if ($role == 'officer' || $role == 'admin')
 	{
 		$display_officerLinks .= "
@@ -126,6 +137,7 @@
 						<a class="navbar_inner" href="/missions/">Missions</a>
 					</div>
 				</div>
+				<? echo $display_calLinks; ?>
 				<? echo $display_officerLinks; ?>
 				<div class="nav_entry">
 					<div class="nav_entry_inner">

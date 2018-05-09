@@ -89,6 +89,10 @@
 										$content = "mission.php";
 										break;
 										
+									case "calendar":
+										$content = "calendar.php";
+										break;
+										
 									case "missions":
 										$content = "missions.php";
 										break;
