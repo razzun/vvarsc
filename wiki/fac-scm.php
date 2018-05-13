@@ -1,5 +1,5 @@
 
-<h2>Flight Academy - Space-Ops Strategy</h2>
+<h2>Flight Academy - SCM Space Combat</h2>
 <div id="TEXT">
 	<div id="rankStructure_main">
 		<div class="div_filters_container">
@@ -11,7 +11,7 @@
 		<div class="table_header_block">
 		</div>
 		<div class="unit_details_container">
-			<h3 id="MilDivOrganization" style="padding-left: 4px; margin-left: 0">Space-Ops Strategy</h3>
+			<h3 id="MilDivOrganization" style="padding-left: 4px; margin-left: 0">SCM Space Combat</h3>
 			<div class="shipDetails_info1_table_ship_desc" style="font-style: normal">
 				<div class="corner corner-top-left">
 				</div>
@@ -22,9 +22,12 @@
 				<div class="corner corner-bottom-right">
 				</div>
 				<!--<div class="WikiText">-->
-					<?php
-						echo "<iframe src=\"academy\Space-OpsStrategy.pdf\" width=\"100%\" style=\"height:800px\"></iframe>";
-						?>
+				<?php
+					echo "<center><iframe src=\"academy\SCM_Primer_v2.pdf\" style=\"border:none; width:96%;\" class=\"myIframe\"></iframe></center>";
+				?>
+				<script type="text/javascript" language="javascript"> 
+					$('.myIframe').css('height', $(window).height()-430+'px');
+				</script>
 				<!--</div>-->
 			</div>		
 		</div>
