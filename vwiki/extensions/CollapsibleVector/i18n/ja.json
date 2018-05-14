@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fryed-peach",
+			"Shirayuki",
+			"Whym",
+			"青子守歌"
+		]
+	},
+	"collapsiblevector": "ベクター外装用ユーザーインターフェイス改良",
+	"collapsiblevector-desc": "ベクター外装の使用時にユーザーインターフェイスを強化する",
+	"collapsiblevector-collapsiblenav-preference": "ベクター外装のナビゲーションで、項目の折り畳みを有効にする",
+	"collapsiblevector-collapsiblenav-more": "他の言語",
+	"collapsiblevector-noexperiments-preference": "開発中の機能から自分を除外"
+}

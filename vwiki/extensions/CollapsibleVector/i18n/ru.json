@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Base",
+			"G0rn",
+			"Ignatus",
+			"KPu3uC B Poccuu",
+			"Kaganer",
+			"MaxSem",
+			"Александр Сигачёв"
+		]
+	},
+	"collapsiblevector": "Улучшения интерфейса для темы «Векторное»",
+	"collapsiblevector-desc": "Улучшает пользовательский интерфейс для темы оформления «Векторное»",
+	"collapsiblevector-collapsiblenav-preference": "Разрешить сворачивать блоки в левом меню в теме «Векторное»",
+	"collapsiblevector-collapsiblenav-more": "Больше языков",
+	"collapsiblevector-noexperiments-preference": "Не предлагать экспериментальные возможности"
+}

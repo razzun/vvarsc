@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"collapsiblevector": "Gwelliannau i'r rhyngwyneb ar gyfer Vector",
+	"collapsiblevector-desc": "Yn gwella ar y rhyngwyneb yn y wedd Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Galluogi crebachu'r ddewislen lywio yn y wedd Vector",
+	"collapsiblevector-collapsiblenav-more": "Rhagor o ieithoedd",
+	"collapsiblevector-noexperiments-preference": "Peidio â'm cynnwys mewn arbrofion ar y nodweddion"
+}

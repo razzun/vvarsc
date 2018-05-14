@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"usergroups": "Käyttäjäryhmien hallinta",
+	"usergroupnameexists-error": "Et voi luoda uutta käyttäjäryhmää tällä nimellä, koska se on jo olemassa.",
+	"usergroups-createnew": "(luo uusi...)",
+	"usergroups-editgroup-delete": "Poista tämä käyttäjäryhmä <span class=\"important\" style=\"color:red\">(<strong>Varoitus</strong>: Tämä on peruuttamatonta. Uudelleenluodaksesi tämän luokan, sinun täytyy[[Special:UserGroups/new|tehdä uusi]].)</span>",
+	"usergroups-editgroup-desc": "Valitse käyttäjä pudotusvalikosta alla, tai luo omasi \"luo uusi...\" -valinnalla.",
+	"usergroups-editgroup-newgroup": "Syötä nimi uudelle käyttäjäryhmälle:",
+	"usergroups-editgroup-reason": "Syy:",
+	"usergroups-editgroup-revoke": "Aseta tämä käyttäjäryhmä kumoamisen sijaan myöntämään käyttöoikeuksia",
+	"usergroups-editgroup-save": "Tallenna muutokset",
+	"usergroups-editgroup-userrights": "Kaikki käytettävissä olevat käyttöoikeudet",
+	"usergroups-log-name": "Käyttäjäryhmien loki",
+	"usergroups-log-none": "(ei mitään)",
+	"usergroups-log-revoke": "kumoamisen syy",
+	"action-modifygroups": "muokkaa käyttäjäryhmiä",
+	"invalidusergroupname-title": "Virheellinen käyttäjäryhmän nimi",
+	"invalidusergroupname-error": "Nimi jonka syötit uudelle käyttäjäryhmälle on virheellinen.\n\n[[Special:UserGroups|Takaisin]].",
+	"nosuchusergroup": "Täällä ei ole käyttäjäryhmää \"$1\". Haluaisitko kenties [[Special:UserGroups/new|luoda]] tämän uuden käyttäjäryhmän?",
+	"right-modifygroups": "Luo, muokkaa ja poista käyttäjäryhmiä",
+	"logentry-usergroups-create": "$1 {{GENDER:$2|loi}} uuden $7käyttäjäryhmän \"$4\" sisältäen: $5",
+	"logentry-usergroups-delete": "$1 {{GENDER:$2|poisti}} käyttäjäryhmän \"$4\".",
+	"logentry-usergroups-modify": "$1 {{GENDER:$2|muokkasi}} käyttäjäryhmää \"$4\". $7Lisätty $5; Poistettu $6"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Red Winged Duck"
+		]
+	},
+	"collapsiblevector": "Удасканаленьні інтэрфэйсу для тэмы Vector",
+	"collapsiblevector-desc": "Паляпшае інтэрфэйс карыстальніка для тэмы афармленьня Vector",
+	"collapsiblevector-collapsiblenav-preference": "Дазволіць згортваць элемэнты бакавога мэню ў тэме Vector",
+	"collapsiblevector-collapsiblenav-more": "Болей моваў",
+	"collapsiblevector-noexperiments-preference": "Выключыць мяне з экспэрымэнтальных функцыяў"
+}

@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"AS",
+			"Base",
+			"Microcell",
+			"Olvin",
+			"Prima klasy4na",
+			"Ата"
+		]
+	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
+	"collapsiblevector": "Удосконалення інтерфейсу користувача за допомогою «векторного» оформлення",
+	"collapsiblevector-desc": "Покращує інтерфейс користувача для оформлення «Вектор»",
+	"collapsiblevector-collapsiblenav-preference": "Дозволити згортання бічного меню в оформленні «Векторне»",
+	"collapsiblevector-collapsiblenav-more": "Інші мови",
+	"collapsiblevector-noexperiments-preference": "Відмовитись від випробування технічних експериментів"
+}

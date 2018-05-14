@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Farras",
+			"Irwangatot",
+			"IvanLanin",
+			"Kenrick95"
+		]
+	},
+	"collapsiblevector": "Meningkatkan UI untuk Vector",
+	"collapsiblevector-desc": "Meningkatkan elemen pada antarmuka penguna dari kulit Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Aktifkan fungsi menu navigasi kiri yang dapat ditampilkan pada kulit Vektor",
+	"collapsiblevector-collapsiblenav-more": "Lebih banyak bahasa",
+	"collapsiblevector-noexperiments-preference": "Kecualikan saya dari percobaan fitur"
+}

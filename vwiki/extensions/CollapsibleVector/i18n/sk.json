@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Helix84",
+			"Teslaton"
+		]
+	},
+	"collapsiblevector": "Vylepšenia použ. rozhrania Vector",
+	"collapsiblevector-desc": "Vylepšuje prvky používateľského rozhrania témy vzhľady Vector",
+	"collapsiblevector-collapsiblenav-preference": "Povoliť zbaľovanie položiek v navigačnom menu v téme vzhľadu Vector",
+	"collapsiblevector-collapsiblenav-more": "Ďalšie jazyky",
+	"collapsiblevector-noexperiments-preference": "Vylúčiť ma z budúcich experimentov"
+}

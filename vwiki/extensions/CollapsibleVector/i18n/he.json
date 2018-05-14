@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Guycn2"
+		]
+	},
+	"collapsiblevector": "שיפורים בממשק עבור עיצוב וקטור",
+	"collapsiblevector-desc": "שיפור ממשק המשתמש בעת שימוש בעיצוב וקטור",
+	"collapsiblevector-collapsiblenav-preference": "אפשרות לקיפול פריטים בתפריט הימני בעיצוב וקטור",
+	"collapsiblevector-collapsiblenav-more": "שפות נוספות",
+	"collapsiblevector-noexperiments-preference": "איני רוצה לנסות תכונות חדשות"
+}

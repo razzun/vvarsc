@@ -138,8 +138,31 @@ wfLoadSkin( 'Vector' );
 wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'PdfHandler' );
 wfLoadExtension( 'WikiEditor' );
-
+$wgDefaultUserOptions['usebetatoolbar'] = 1;
+$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
+$wgDefaultUserOptions['wikieditor-preview'] = 1;
+$wgDefaultUserOptions['wikieditor-publish'] = 1;
 
 # End of automatically generated settings.
 # Add more configuration options below.
+wfLoadExtension( 'ImageMap' );
+wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Nuke' );
+wfLoadExtension( 'Renameuser' );
+wfLoadExtension( 'DynamicPageList' );
+wfLoadExtension( 'Tabber' );
+wfLoadExtension( 'MsUpload' );
+wfLoadExtension( 'CollapsibleVector' );
+#wfLoadExtension( 'Purge' );
+wfLoadExtension( 'CheckUser' );
+#wfLoadExtension( 'DeleteBatch' );
+#wfLoadExtension( 'UserFunctions' );
+wfLoadExtension( 'DynamicSidebar' );
+wfLoadExtension( 'MsCalendar' );
 
+# Old Style Extensions
+require_once "$IP/extensions/Tabs/Tabs.php";
+require_once "$IP/extensions/PageTools/PageTools.php";
+#require_once "$IP/extensions/Purge/Purge.php";
+require_once "$IP/extensions/UserGroups/UserGroups.php";
+require_once "$IP/extensions/Widgets/Widgets.php";

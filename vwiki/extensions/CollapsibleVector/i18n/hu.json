@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tacsipacsi"
+		]
+	},
+	"collapsiblevector": "Vector felhasználói felület javítása",
+	"collapsiblevector-desc": "Javítja a felhasználói felületet Vector felület használatakor",
+	"collapsiblevector-collapsiblenav-preference": "Elemek összecsukásának engedélyezése a Vector felület oldalsávján",
+	"collapsiblevector-collapsiblenav-more": "További nyelvek",
+	"collapsiblevector-noexperiments-preference": "Kimaradás a kísérleti funkciókból"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mormegil"
+		]
+	},
+	"collapsiblevector": "Vylepšení uživatelského rozhraní pro Vektor",
+	"collapsiblevector-desc": "Vylepšuje uživatelské rozhraní při užití vzhledu Vektor",
+	"collapsiblevector-collapsiblenav-preference": "Povolit sbalování položek v navigačním menu ve vzhledu Vektor",
+	"collapsiblevector-collapsiblenav-more": "Další jazyky",
+	"collapsiblevector-noexperiments-preference": "Neúčastnit se experimentů s novými funkcemi"
+}

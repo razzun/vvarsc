@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Anton008",
+			"Excaliboor",
+			"SpeedyGonsales"
+		]
+	},
+	"collapsiblevector": "Poboljšanja sučelja stila Vektor",
+	"collapsiblevector-desc": "Poboljšava elemente korisničkog sučelja stila Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Omogući sklopivi lijevi navigacijski izbornik za Vektor stil",
+	"collapsiblevector-collapsiblenav-more": "Više jezika",
+	"collapsiblevector-noexperiments-preference": "Isključi me iz daljnjih eksperimentiranja"
+}

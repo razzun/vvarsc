@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mikullovci11",
+			"Olsi"
+		]
+	},
+	"collapsiblevector": "Përmirësime UI për Vector",
+	"collapsiblevector-desc": "Përmirësime në elementet e ndërfaqes së përdoruesit të pamjes Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Aktivizoni mbylljen e artikujve në menunë e navigimit në pamjen Vector",
+	"collapsiblevector-collapsiblenav-more": "Gjuhët tjera"
+}

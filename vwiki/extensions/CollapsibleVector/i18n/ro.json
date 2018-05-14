@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minisarm"
+		]
+	},
+	"collapsiblevector": "Îmbunătățiri de interfață pentru Vector",
+	"collapsiblevector-desc": "Îmbunătățește interfața cu utilizatorul atunci când se utilizează tema Vector",
+	"collapsiblevector-collapsiblenav-preference": "Permite restrângerea elementelor din bara laterală în tema Vector",
+	"collapsiblevector-collapsiblenav-more": "Mai multe limbi",
+	"collapsiblevector-noexperiments-preference": "Exclude-mă de la experimentele viitoare"
+}

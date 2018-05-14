@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vitorvicentevalente"
+		]
+	},
+	"collapsiblevector": "Melhorias na interface do tema Vector",
+	"collapsiblevector-desc": "Melhora a interface de utilizador ao usar o tema Vector",
+	"collapsiblevector-collapsiblenav-preference": "Permite mostrar/ocultar os itens da barra lateral do tema Vector",
+	"collapsiblevector-collapsiblenav-more": "Mais idiomas",
+	"collapsiblevector-noexperiments-preference": "Excluir-me das experiências de funcionalidades"
+}

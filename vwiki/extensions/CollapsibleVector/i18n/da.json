@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Froztbyte",
+			"Peter Alberti",
+			"Sarrus",
+			"Sir48"
+		]
+	},
+	"collapsiblevector": "Forbedringer af brugerfladen til Vector",
+	"collapsiblevector-desc": "Forbedrer brugerfladen, når Vector-udseendet er i brug.",
+	"collapsiblevector-collapsiblenav-preference": "Aktiver sammenklapning af sidemenuen i Vector-udseendet",
+	"collapsiblevector-collapsiblenav-more": "Flere sprog",
+	"collapsiblevector-noexperiments-preference": "Udeluk mig fra funktionseksperimenter"
+}

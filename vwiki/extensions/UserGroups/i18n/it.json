@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"PeppeAeco",
+			"Beta16",
+			"Selven"
+		]
+	},
+	"usergroups": "Gestione dei gruppi utente",
+	"usergroupnameexists-error": "Non è possibile creare un nuovo gruppo utenti con questo nome poiché esiste già.",
+	"usergroups-createnew": "(crea nuovo...)",
+	"usergroups-editgroup-newgroup": "Inserire il nome del tuo nuovo gruppo utente:",
+	"usergroups-editgroup-reason": "Motivo:",
+	"usergroups-editgroup-save": "Salva le modifiche",
+	"usergroups-editgroup-userrights": "Tutte le autorizzazioni disponibili",
+	"usergroups-log-name": "Gruppi utente",
+	"usergroups-log-none": "(nessuno)",
+	"usergroups-log-revoke": "revoca tipo",
+	"usergroups-log-revoke-switchon": "Cambiato in tipo revocato;",
+	"usergroups-log-revoke-switchoff": "Cambiato in tipo non revocato;",
+	"action-modifygroups": "modificare i gruppi di utenti",
+	"invalidusergroupname-title": "Nome gruppo utente non valido",
+	"invalidusergroupname-error": "Il nome inserito per il nuovo gruppo utente non è valido.\n\n[[Special:UserGroups|Ritorna]].",
+	"nosuchusergroup": "Non è stato trovato alcun gruppo utente chiamato \"$1\". Vuoi forse [[Special:UserGroups/new|creare]] questo nuovo gruppo utente?",
+	"right-modifygroups": "Crea, modifica e cancella gruppi di utenti",
+	"logentry-usergroups-create": "$1 {{GENDER:$2|ha creato}} un nuovo $7gruppo utente \"$4\", contenente: $5",
+	"logentry-usergroups-delete": "$1 {{GENDER:$2|ha cancellato}} il gruppo utente \"$4\".",
+	"logentry-usergroups-modify": "$1 {{GENDER:$2|ha modificato}} il gruppo \"$4\". $7Ha aggiunto $5; Ha rimosso $6"
+}

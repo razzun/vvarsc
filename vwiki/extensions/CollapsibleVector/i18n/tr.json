@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Trevor Parscal"
+		]
+	},
+	"collapsiblevector": "Vector için kullanıcı arabirimi iyileştirmeleri",
+	"collapsiblevector-desc": "Vector görünümünün kullanıcı arayüzü bileşenlerini geliştirir",
+	"collapsiblevector-collapsiblenav-preference": "Vector temasında kenar çubuğundaki ögelerin daraltılmasını etkinleştir",
+	"collapsiblevector-collapsiblenav-more": "Diğer diller",
+	"collapsiblevector-noexperiments-preference": "Beni gelecekteki deneylere dahil etme"
+}

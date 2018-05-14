@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
+	"collapsiblevector": "Vector皮肤的用户界面改进",
+	"collapsiblevector-desc": "提高使用Vector皮肤的用户界面",
+	"collapsiblevector-collapsiblenav-preference": "在Vector皮肤的侧边栏启用折叠项目",
+	"collapsiblevector-collapsiblenav-more": "更多语言",
+	"collapsiblevector-noexperiments-preference": "将我从功能实验中排除"
+}

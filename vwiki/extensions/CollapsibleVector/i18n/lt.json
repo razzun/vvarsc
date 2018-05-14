@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eitvys200"
+		]
+	},
+	"collapsiblevector": "Vector vartotojo sąsajos pagerinimas",
+	"collapsiblevector-desc": "Pagerina vartotojo sąsają naudojant Vector išvaizdą",
+	"collapsiblevector-collapsiblenav-preference": "Leidžia suskleisti Vector išvaizdos šoninės juostos elementus",
+	"collapsiblevector-collapsiblenav-more": "Daugiau kalbų",
+	"collapsiblevector-noexperiments-preference": "Pašalinti mane iš ateities eksperimentų"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Juanpabl"
+		]
+	},
+	"collapsiblevector": "Milloras d'a interficie ta Vector",
+	"collapsiblevector-desc": "Milloras en os elementos d'interficie d'usuario de l'aparencia Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Activar a opción de plegar os menús de navegación en l'aparencia Vector",
+	"collapsiblevector-collapsiblenav-more": "Más luengas",
+	"collapsiblevector-noexperiments-preference": "Excluir-me d'as caracteristicas experimentals"
+}

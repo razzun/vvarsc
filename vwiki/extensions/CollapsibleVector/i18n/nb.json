@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"collapsiblevector": "Grensesnittforbedringer for Vector",
+	"collapsiblevector-desc": "Forbedrer brukergrensesnittet når man bruker Vector-drakta",
+	"collapsiblevector-collapsiblenav-preference": "Slå på sammenlegging av elementer i sidemenyen i Vector-drakta",
+	"collapsiblevector-collapsiblenav-more": "Flere språk",
+	"collapsiblevector-noexperiments-preference": "Utelukk meg fra eksperimentelle funksjoner"
+}

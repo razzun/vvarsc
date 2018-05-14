@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dead3y3",
+			"Geraki",
+			"Glavkos",
+			"Απεργός"
+		]
+	},
+	"collapsiblevector": "βελτιώσεις στο UI για το Vector",
+	"collapsiblevector-desc": "Παρέχει βελτίωση στα στοιχεία διεπαφής χρήστη του skin Vector.",
+	"collapsiblevector-collapsiblenav-preference": "Ενεργοποίηση πτυσσόμενων ενοτήτων στο μενού πλοήγησης με το θέμα Vector",
+	"collapsiblevector-collapsiblenav-more": "Περισσότερες γλώσσες",
+	"collapsiblevector-noexperiments-preference": "Εξαιρέστε με από την λειτουργία πειραμάτων"
+}

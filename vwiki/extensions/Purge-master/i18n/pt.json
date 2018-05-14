@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"555\r * @author Hamilton Abreu\r * @author Malafaya\r * @author McDutchie\r */\r",
+			"Hamilton Abreu"
+		]
+	},
+	"purge": "Purgar",
+	"descriptionmsg": "Adiciona um separador \"purgar\" a todas as páginas normais, permitindo uma purga rápida da ''cache''",
+	"purge-failed": "A purga falhou"
+}

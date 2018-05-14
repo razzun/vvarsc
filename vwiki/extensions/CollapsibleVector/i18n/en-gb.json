@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"collapsiblevector": "UI improvements for Vector",
+	"collapsiblevector-desc": "Enhances the user interface when using the Vector skin",
+	"collapsiblevector-collapsiblenav-preference": "Enable collapsing of items in the sidebar in Vector skin",
+	"collapsiblevector-collapsiblenav-more": "More languages",
+	"collapsiblevector-noexperiments-preference": "Exclude me from feature experiments"
+}

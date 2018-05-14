@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo",
+			"Elisardojm"
+		]
+	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
+	"collapsiblevector": "Melloras na interface de usuario para Vector",
+	"collapsiblevector-desc": "Mellora a interface de usuario cando se usa o tema Vector",
+	"collapsiblevector-collapsiblenav-preference": "Permitir pregar os menús de navegación da aparencia Vector",
+	"collapsiblevector-collapsiblenav-more": "Máis linguas",
+	"collapsiblevector-noexperiments-preference": "Excluirme das funcionalidades experimentais"
+}

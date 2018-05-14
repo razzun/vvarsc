@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Daemorris",
+			"Everton137",
+			"Giro720",
+			"Helder.wiki",
+			"Raylton P. Sousa"
+		]
+	},
+	"collapsiblevector": "Melhorias da IU do Vector",
+	"collapsiblevector-desc": "Melhora a interface do usuário do tema Vector",
+	"collapsiblevector-collapsiblenav-preference": "Ativar o ocultamento de itens no menu de navegação no tema Vector",
+	"collapsiblevector-collapsiblenav-more": "Mais idiomas",
+	"collapsiblevector-noexperiments-preference": "Excluir-me da experimentação de funcionalidades"
+}

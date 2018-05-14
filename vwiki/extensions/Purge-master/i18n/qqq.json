@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Kghbln",
+			"Purodha",
+			"Siebrand",
+			"The Evil IP address"
+		]
+	},
+	"purge": "Displayed as a label in the action menu.\n{{Identical|Purge}}",
+	"descriptionmsg": "{{desc|name=Purge|url=https://www.mediawiki.org/wiki/Extension:Purge}}\n\"purge\" refers to {{msg-mw|purge}}.",
+	"purge-failed": "Displayed when the POST request to purge did not succeed."
+}

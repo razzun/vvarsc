@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01",
+			"Rancher"
+		]
+	},
+	"usergroups": "Управљање корисничким групама",
+	"usergroups-desc": "Омогућава детаљније управљање правима која можете доделити корисничким групама.",
+	"usergroupnameexists-error": "Корисничка група већ постоји.",
+	"usergroups-createnew": "(направи нову…)",
+	"usergroups-editgroup-delete": "Брисање корисничке групе <span class=\"important\" style=\"color:red\">(<strong>Упозорење</strong>: Ова радња је неповратна. Да бисте поново креирали ову класу, морате [[Special:UserGroups/new|направити нову групу]].)</span>",
+	"usergroups-editgroup-desc": "Изаберите корисничку групу са падајућег менија испод или креирајте нову помоћу опције „направи нову“.",
+	"usergroups-editgroup-newgroup": "Унесите име нове корисничке групе:",
+	"usergroups-editgroup-reason": "Разлог:",
+	"usergroups-editgroup-revoke": "Подеси корисничку групу тако да одузима уместо што додељује права",
+	"usergroups-editgroup-save": "Сачувај измене",
+	"usergroups-editgroup-userrights": "Све доступне дозволе",
+	"usergroups-log-name": "Дневник корисничких група",
+	"usergroups-log-header": "Овај дневник садржи измене у корисничким правима сваке групе.",
+	"usergroups-log-none": "(нема)",
+	"usergroups-log-revoke": "одузимање",
+	"usergroups-log-revoke-switchon": "Промењено на одузимање;",
+	"usergroups-log-revoke-switchoff": "Промењено на додељивање;",
+	"action-modifygroups": "промена корисничких група",
+	"invalidusergroupname-title": "Неисправно име корисничке групе",
+	"invalidusergroupname-error": "Наведено име нове корисничке групе је неисправно.\n\n[[Special:UserGroups|Назад]].",
+	"nosuchusergroup": "Није пронађена корисничка група под именом „$1“. Да ли сте желели да [[Special:UserGroups/new|направите]] нову корисничку групу?",
+	"right-modifygroups": "прављење, промена и брисање корисничких група",
+	"logentry-usergroups-create": "$1 је {{GENDER:$2|направио|направила}} нову $7корисничку групу „$4“ која садржи: $5",
+	"logentry-usergroups-delete": "$1 је {{GENDER:$2|обрисао|обрисала}} корисничку групу „$4“.",
+	"logentry-usergroups-modify": "$1 је {{GENDER:$2|изменио|изменила}} корисничку групу „$4“. $7Додато $5; Уклоњено $6"
+}

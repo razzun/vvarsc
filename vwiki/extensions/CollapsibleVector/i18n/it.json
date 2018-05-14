@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16",
+			"F. Cosoleto",
+			"Una giornata uggiosa '94"
+		]
+	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
+	"collapsiblevector": "Miglioramenti all'interfaccia utente per Vector",
+	"collapsiblevector-desc": "Potenzia l'interfaccia utente quando si usa il tema Vector",
+	"collapsiblevector-collapsiblenav-preference": "Abilita la compressione degli elementi nella barra laterale per il tema Vector",
+	"collapsiblevector-collapsiblenav-more": "Altre lingue",
+	"collapsiblevector-noexperiments-preference": "Escludimi dalle funzionalità sperimentali"
+}

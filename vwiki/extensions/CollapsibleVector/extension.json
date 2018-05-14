@@ -1,0 +1,66 @@
+{
+	"name": "CollapsibleVector",
+	"namemsg": "collapsiblevector-extensionname",
+	"version": "0.1.10",
+	"author": [
+		"Paladox"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:CollapsibleVector",
+	"descriptionmsg": "collapsiblevector-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"DefaultUserOptions": {
+		"collapsiblevector-collapsiblenav": 1,
+		"collapsiblevector-noexperiments": 0
+	},
+	"MessagesDirs": {
+		"CollapsibleVector": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"CollapsibleVectorHooks": "CollapsibleVector.hooks.php"
+	},
+	"ResourceModules": {
+		"ext.collapsiblevector.collapsibleNav": {
+			"scripts": "modules/ext.collapsiblevector.collapsibleNav.js",
+			"styles": "modules/ext.collapsiblevector.collapsibleNav.less",
+			"messages": [
+				"collapsiblevector-collapsiblenav-more"
+			],
+			"dependencies": [
+				"jquery.client",
+				"jquery.cookie",
+				"jquery.tabIndex"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "CollapsibleVector"
+	},
+	"Hooks": {
+		"BeforePageDisplay": [
+			"CollapsibleVectorHooks::beforePageDisplay"
+		],
+		"GetPreferences": [
+			"CollapsibleVectorHooks::getPreferences"
+		],
+		"ResourceLoaderGetConfigVars": [
+			"CollapsibleVectorHooks::resourceLoaderGetConfigVars"
+		],
+		"MakeGlobalVariablesScript": [
+			"CollapsibleVectorHooks::makeGlobalVariablesScript"
+		]
+	},
+	"config": {
+		"CollapsibleVectorFeatures": {
+			"collapsiblenav": {
+				"global": false,
+				"user": true
+			},
+			"_merge_strategy": "array_plus_2d"
+		}
+	},
+	"manifest_version": 1
+}
