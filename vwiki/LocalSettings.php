@@ -50,7 +50,7 @@ $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
-## Database settings
+## Primary Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "localhost";
 $wgDBname = "projectx_vwiki";
@@ -130,18 +130,20 @@ $wgDefaultSkin = "vector";
 # The following skins were automatically enabled:
 wfLoadSkin( 'Vector' );
 
+# External Images
+$wgAllowExternalImagesFrom = array( 'http://127.0.0.1/', 'http://vvarmachine.com', 'https://sc.vvarmachine.com', '67.222.41.15');
+
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtensions('ExtensionName');
 # to LocalSettings.php. Check specific extension documentation for more details.
 # The following extensions were automatically enabled:
 wfLoadExtension( 'ConfirmEdit' );
-wfLoadExtension( 'PdfHandler' );
 wfLoadExtension( 'WikiEditor' );
-$wgDefaultUserOptions['usebetatoolbar'] = 1;
-$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
-$wgDefaultUserOptions['wikieditor-preview'] = 1;
-$wgDefaultUserOptions['wikieditor-publish'] = 1;
+	$wgDefaultUserOptions['usebetatoolbar'] = 1;
+	$wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
+	$wgDefaultUserOptions['wikieditor-preview'] = 1;
+	$wgDefaultUserOptions['wikieditor-publish'] = 1;
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -159,6 +161,10 @@ wfLoadExtension( 'CheckUser' );
 #wfLoadExtension( 'UserFunctions' );
 wfLoadExtension( 'DynamicSidebar' );
 wfLoadExtension( 'MsCalendar' );
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'PDFEmbed' );
+	$wgPdfEmbed['width'] = 800;
+	$wgPdfEmbed['height'] = 1090;
 
 # Old Style Extensions
 require_once "$IP/extensions/Tabs/Tabs.php";
@@ -166,3 +172,9 @@ require_once "$IP/extensions/PageTools/PageTools.php";
 #require_once "$IP/extensions/Purge/Purge.php";
 require_once "$IP/extensions/UserGroups/UserGroups.php";
 require_once "$IP/extensions/Widgets/Widgets.php";
+require_once "$IP/extensions/ExternalData/ExternalData.php";
+	$edgDBServer['SC'] = "localhost";
+	$edgDBServerType['SC'] = "mysql";
+	$edgDBName['SC'] = "projectx_vvarsc2";
+	$edgDBUser['SC'] = "projectx_vwiki";
+	$edgDBPass['SC'] = "y5~q[T\$Fw6rh{Oe9@q";
