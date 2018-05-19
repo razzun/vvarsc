@@ -53,9 +53,9 @@ $wgEmailAuthentication = true;
 ## Primary Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "localhost";
-$wgDBname = "projectx_vwiki";
-$wgDBuser = "projectx_vwiki";
-$wgDBpassword = "y5~q[T\$Fw6rh{Oe9@q";
+$wgDBname = "";
+$wgDBuser = "";
+$wgDBpassword = "";
 
 # MySQL specific settings
 $wgDBprefix = "vwiki_";
@@ -175,6 +175,6 @@ require_once "$IP/extensions/Widgets/Widgets.php";
 require_once "$IP/extensions/ExternalData/ExternalData.php";
 	$edgDBServer['SC'] = "localhost";
 	$edgDBServerType['SC'] = "mysql";
-	$edgDBName['SC'] = "projectx_vvarsc2";
-	$edgDBUser['SC'] = "projectx_vwiki";
-	$edgDBPass['SC'] = "y5~q[T\$Fw6rh{Oe9@q";
+	$edgDBName['SC'] = "";
+	$edgDBUser['SC'] = "";
+	$edgDBPass['SC'] = "";
