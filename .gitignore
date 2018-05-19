@@ -59,3 +59,4 @@ error_log
 razTest.php
 .sonar/
 sonar-project.properties
+LocalSettings.php
