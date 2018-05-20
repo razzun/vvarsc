@@ -19,16 +19,14 @@
 		</div>		
 		<div id="adminMainText">
 			<p>
-				<strong>Awards - </strong> View Awards available for Members.
+				<? echo $displayWikiMenuDesc ?>
+				
+				<!--<strong>Awards - </strong> View Awards available for Members.
 				</br>
 				<strong>Flight Academy - </strong> Flight Academy resources.
 				</br>
 				<strong>Formations - </strong> Dynamic 4-ship Flight Formations Viewer.
 				</br>
-				<!--
-				<strong>Marine Squad/Team Organization - </strong> Outlining the details of Squad and Team organization for Marine Special Warfare Teams during Operations.
-				</br>
-				-->
 				<strong>Officer Training Program - </strong> Link to Google Document outlining OIT Program for Officer Candidates.
 				</br>
 				<strong>Organized Operations - </strong> Information pertaining to the planning and execution of Military and Economic Operations in the Persistent Universe.
@@ -38,7 +36,7 @@
 				<strong>Ranks - </strong> Information regarding the member ranking system used in the VVarMachine Fleet.
 				</br>
 				<strong>Unit Organizational Structure - </strong> Information defining the different types of units within the VVarMachine Fleet.
-				</br>
+				</br>-->
 			</p>
 		</div>
 	</div>
