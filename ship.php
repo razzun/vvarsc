@@ -515,6 +515,32 @@
 						r2.role_orderby
 					limit 1
 				) as role_name
+				,(
+					select
+						CASE
+							when rc.RatingCode is not null 
+								and ra.rank_suffix is not null then CONCAT(rc.RatingCode, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, with Unit Override of RatingCode for Role
+							when r2.rating_designation is not null 
+								and ra.rank_suffix is not null then CONCAT(r2.rating_designation, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, without Override of RatingCode
+							else CONCAT(ra.rank_abbr, ' ', m2.mem_callsign) ##For Officers, un-assigned members, and Enlisted Marines
+						end
+					from projectx_vvarsc2.members m2
+					join projectx_vvarsc2.ranks ra
+						on ra.rank_id = m2.ranks_rank_id
+					left join projectx_vvarsc2.UnitMembers um
+						on m2.mem_id = um.MemberID
+					left join projectx_vvarsc2.UnitRoles ur
+						on ur.UnitID = um.UnitID
+						and ur.RoleID = um.MemberRoleID
+					left join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+					left join projectx_vvarsc2.RatingCodes rc
+						on rc.RatingCode = ur.RatingCodeOverride
+					where m2.mem_id = m.mem_id
+					order by
+						r2.role_orderby
+				limit 1
+				) as FullTitle	
 			from projectx_vvarsc2.ships s
 			join projectx_vvarsc2.ships_has_members shm
 				on shm.ships_ship_id = s.ship_id
@@ -561,6 +587,7 @@
 			$mem_avatar = $row2['mem_avatar_link'];
 			$mem_role = $row2['role_name'];
 			$mem_CreatedOn = $row2['mem_CreatedOn'];
+			$full_title = $row2['FullTitle'];
 			
 			if ($div_name == "n/a") {
 				$div_name = "No Division Assigned";
@@ -591,7 +618,7 @@
 							</div>
 							<div class=\"shipDetails_ownerInfo_tableRow_memInfoContainer\">
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo1\">
-									<a href=\"$link_base/player/$mem_id\" target=\"_top\">$mem_name</a>
+									<a href=\"$link_base/player/$mem_id\" target=\"_top\">$full_title</a>
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo3\">
 									$mem_role

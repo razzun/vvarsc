@@ -15,7 +15,14 @@
 	$loggedInPlayerName = $_SESSION['sess_username'];
     
     if(is_numeric($player_id)) {
-    	$play_query = "SELECT
+		$player_query = "
+		
+		";
+		
+		
+		$mem_title = "";
+	
+    	$playerShips_query = "SELECT
 			members.mem_id
 			,members.mem_id as player_id
     	    ,members.mem_name
@@ -48,27 +55,54 @@
 			,shm.rowID AS ship_vvarID
 			,shm.shm_assetName
 			,ships.ship_asset_designationCode
+			,(
+				select
+					CASE
+						when rc.RatingCode is not null 
+							and ra.rank_suffix is not null then CONCAT(rc.RatingCode, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, with Unit Override of RatingCode for Role
+						when r2.rating_designation is not null 
+							and ra.rank_suffix is not null then CONCAT(r2.rating_designation, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, without Override of RatingCode
+						else CONCAT(ra.rank_abbr, ' ', m2.mem_callsign) ##For Officers, un-assigned members, and Enlisted Marines
+					end
+				from projectx_vvarsc2.members m2
+				join projectx_vvarsc2.ranks ra
+					on ra.rank_id = m2.ranks_rank_id
+				left join projectx_vvarsc2.UnitMembers um
+					on m2.mem_id = um.MemberID
+				left join projectx_vvarsc2.UnitRoles ur
+					on ur.UnitID = um.UnitID
+					and ur.RoleID = um.MemberRoleID
+				left join projectx_vvarsc2.roles r2
+					on r2.role_id = um.MemberRoleID
+				left join projectx_vvarsc2.RatingCodes rc
+					on rc.RatingCode = ur.RatingCodeOverride
+				where m2.mem_id = members.mem_id
+				order by
+					r2.role_orderby
+			limit 1
+			) as FullTitle
         FROM projectx_vvarsc2.members
-    		LEFT JOIN projectx_vvarsc2.ships_has_members shm
-    			ON members.mem_id=shm.members_mem_id
-    		LEFT JOIN projectx_vvarsc2.ships
-    			ON shm.ships_ship_id = ships.ship_id
-    		LEFT JOIN projectx_vvarsc2.manufacturers
-    			ON ships.manufacturers_manu_id = manufacturers.manu_id
-    		JOIN projectx_vvarsc2.ranks
-    			ON members.ranks_rank_id = ranks.rank_id
-    		left JOIN projectx_vvarsc2.divisions d
-    			ON members.divisions_div_id = d.div_id
-        WHERE members.mem_sc = 1 AND members.mem_id = $player_id
+		JOIN projectx_vvarsc2.ranks
+			ON members.ranks_rank_id = ranks.rank_id
+		LEFT JOIN projectx_vvarsc2.ships_has_members shm
+			ON members.mem_id=shm.members_mem_id
+		LEFT JOIN projectx_vvarsc2.ships
+			ON shm.ships_ship_id = ships.ship_id
+		LEFT JOIN projectx_vvarsc2.manufacturers
+			ON ships.manufacturers_manu_id = manufacturers.manu_id
+		left JOIN projectx_vvarsc2.divisions d
+			ON members.divisions_div_id = d.div_id
+        WHERE members.mem_sc = 1
+			AND members.mem_id = $player_id
         ORDER BY manufacturers.manu_name,ships.ship_name";
     	
-        $play_query_results = $connection->query($play_query);
+        $playerShips_query_results = $connection->query($playerShips_query);
 		
 		$total_ship_value = 0;
 		$display_player_ships = "";
 		$ship_count = 0;
     	
-    	while(($row = $play_query_results->fetch_assoc()) != false) {
+    	while(($row = $playerShips_query_results->fetch_assoc()) != false) {
     	    $mem_id = $row['mem_id'];
     	    $mem_name = $row['mem_name'];
     		$mem_callsign = $row['mem_callsign'];
@@ -102,6 +136,7 @@
 			$MemberBio = $row['member_bio'];
 			$MembershipType = $row['membership_type'];
 			$displayMembershipType = "";
+			$full_title = $row['FullTitle'];
 			
 			if ($MembershipType == 1)
 			{
@@ -1136,7 +1171,7 @@
 						width: 100%;
 						padding-left: 0px;
 					">
-						Citizen Dossier - <? echo $mem_callsign; ?>
+						<? echo $full_title; ?>
 					</div>
 					<div class="pavatar_image_container">
 						<div class="corner corner-top-left">

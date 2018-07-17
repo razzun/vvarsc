@@ -17,6 +17,7 @@
 			,s1.role_name as mem_role_info
 			,s1.div_name as mem_div_info
 			,s1.rank_orderby
+			,s1.FullTitle
 		from
 		(
 		";
@@ -61,6 +62,32 @@
 						r2.role_orderby
 					limit 1
 				) as div_name
+				,(
+					select
+						CASE
+							when rc.RatingCode is not null 
+								and ra.rank_suffix is not null then CONCAT(rc.RatingCode, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, with Unit Override of RatingCode for Role
+							when r2.rating_designation is not null 
+								and ra.rank_suffix is not null then CONCAT(r2.rating_designation, ra.rank_suffix, ' ', m2.mem_callsign) ##For Navy Enlisted, without Override of RatingCode
+							else CONCAT(ra.rank_abbr, ' ', m2.mem_callsign) ##For Officers, un-assigned members, and Enlisted Marines
+						end
+					from projectx_vvarsc2.members m2
+					join projectx_vvarsc2.ranks ra
+						on ra.rank_id = m2.ranks_rank_id
+					left join projectx_vvarsc2.UnitMembers um
+						on m2.mem_id = um.MemberID
+					left join projectx_vvarsc2.UnitRoles ur
+						on ur.UnitID = um.UnitID
+						and ur.RoleID = um.MemberRoleID
+					left join projectx_vvarsc2.roles r2
+						on r2.role_id = um.MemberRoleID
+					left join projectx_vvarsc2.RatingCodes rc
+						on rc.RatingCode = ur.RatingCodeOverride
+					where m2.mem_id = m.mem_id
+					order by
+						r2.role_orderby
+				limit 1
+				) as FullTitle			
 			from projectx_vvarsc2.members m
 			left join projectx_vvarsc2.divisions d
 				on d.div_id = m.divisions_div_id
@@ -164,6 +191,7 @@
 		$mem_rank_info = $row['mem_rank_info'];
 		$mem_div_info = $row['mem_div_info'];
 		$rank_orderby = $row['rank_orderby'];
+		$full_title = $row['FullTitle'];
 		
 		$currentGroup = $rank_name;
 		$currentRankOrder = $rank_orderby;
@@ -286,7 +314,7 @@
 									<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
 								</div>
 								<div class=\"divinfo_memAvatar_textOverlay_memName\">
-									$mem_name_info
+									$full_title
 								</div>	
 								<div class=\"divinfo_memAvatar_textOverlay_memRole\">
 									$mem_role_info
