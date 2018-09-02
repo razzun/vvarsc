@@ -12,6 +12,7 @@
 	
 	require_once('../dbconn/dbconn.php');
 	require_once('../functions/security/function_csprng.php');
+	require_once('../functions/security/function_hash_password.php');
 	
 	session_start();
 
@@ -22,8 +23,10 @@
 	$Division = "";
 	$MembershipType = "";
 	$InfoSecLevel = "";
+	$Status = "";
 	$NewPassword = csprng(16);
-	$NewHashedPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
+	$NewHashedPassword = hash_password($NewPassword);
+	//$NewHashedPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
 	
 	if (isset($_POST['VVarID']))
 	{
@@ -53,11 +56,16 @@
 	{
 		$InfoSecLevel = $_POST['InfoSecLevel'];
 	}
+	if (isset($_POST['Status']))
+	{
+		$Status = $_POST['Status'];
+	}
 	
 	$q = "INSERT into projectx_vvarsc2.members (
 				mem_name
 				,mem_callsign
 				,mem_sc
+				,mem_status
 				,mem_gint
 				,mem_avatar_link
 				,ranks_rank_id
@@ -74,6 +82,7 @@
 				'$Name'
 				,'$Callsign'
 				,'1'
+				,'$Status'
 				,null
 				,'default'
 				,'$Rank'

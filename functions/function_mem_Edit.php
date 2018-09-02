@@ -21,6 +21,7 @@
 	$Division = "";
 	$MembershipType = "";
 	$InfoSecLevel = "";
+	$Status = "";
 	 
 	if(isset($_POST['ID']))
 	{
@@ -50,6 +51,10 @@
 	{
 		$InfoSecLevel = $_POST['InfoSecLevel'];
 	}
+	if (isset($_POST['Status']))
+	{
+		$Status = $_POST['Status'];
+	}
 	 
 	$q = "UPDATE projectx_vvarsc2.members set
 			mem_name = '$Name'
@@ -57,6 +62,7 @@
 			,divisions_div_id = '$Division'
 			,membership_type = '$MembershipType'
 			,InfoSecLevelID = '$InfoSecLevel'
+			,mem_status = '$Status'
 			,vvar_id = '$VVarID'
 		where mem_id = '$ID'
 	";

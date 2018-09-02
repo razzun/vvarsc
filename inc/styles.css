@@ -4073,6 +4073,10 @@ img.fleet:after {
 	opacity: 0.25;
 }
 
+.image_inactive2 {
+	opacity: 0.4;
+}
+
 .unitHierarchyHeaderContent {
 	margin-left: 48px;
 	margin-bottom: 4px;

@@ -11,6 +11,7 @@
 			,s1.rank_groupImage as rank_image
 			,s1.rank_groupTinyImage as rank_tinyImage
 			,s1.mem_id as mem_id_info
+			,s1.mem_status
 			,s1.mem_callsign as mem_name_info
 			,s1.rank_tinyImage as mem_rank_info
 			,s1.mem_avatar_link as mem_avatar_info
@@ -32,6 +33,7 @@
 				,m.mem_id
 				,m.mem_callsign
 				,m.mem_avatar_link
+				,m.mem_status
 				,(
 					select
 						case
@@ -185,6 +187,7 @@
 		$rank_image = $row['rank_image'];
 		$rank_tinyImage = $row['rank_tinyImage'];
 		$mem_id_info = $row['mem_id_info'];
+		$mem_status = $row['mem_status'];
 		$mem_name_info = $row['mem_name_info'];
 		$mem_avatar_info = $row['mem_avatar_info'];
 		$mem_role_info = $row['mem_role_info'];
@@ -257,37 +260,46 @@
 		if ($mem_div_info == "Command")
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_comm";
 		}
 		//Logistics
 		else if ($mem_div_info == "Logistics")
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_logistics\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_logistics";
 		}
 		//Air Forces
 		else if ($mem_div_info == "Air Forces")
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_airForces\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_airForces";
 		}
 		//Marines
 		else if ($mem_div_info == "Marine Forces")
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_marines\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_marines";
 		}
 		//Special Warfare
 		else if ($mem_div_info == "Special Warfare")
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_specialWarfare\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell divinfo_specialWarfare";
 		}	
 		//No Assignment
 		else
 		{
 			$display_div .= "
-				<div class=\"divinfo_tableCell_membersTable_tableCell\">";
+				<div class=\"divinfo_tableCell_membersTable_tableCell";
+		}
+		
+		if ($mem_status == "Inactive")
+		{
+			$display_div .= " image_inactive2\">";
+		}
+		else
+		{
+			$display_div .= "\">";
 		}
 		
 		$display_div .= "
@@ -314,7 +326,8 @@
 									<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
 								</div>
 								<div class=\"divinfo_memAvatar_textOverlay_memName\">
-									$full_title
+									<!--$full_title-->
+									$mem_name_info
 								</div>	
 								<div class=\"divinfo_memAvatar_textOverlay_memRole\">
 									$mem_role_info

@@ -7,6 +7,7 @@
 			,m.mem_name
 			,m.mem_callsign
 			,m.membership_type
+			,m.mem_status
 			,r.rank_id
 			,r.rank_level
 			,r.rank_name
@@ -40,6 +41,7 @@
 		$memName = $row['mem_name'];
 		$memEmail = $row['mem_email'];
 		$memCallsign = $row['mem_callsign'];
+		$memStatus = $row['mem_status'];
 		$memRankID = $row['rank_id'];
 		$memRankLevel = $row['rank_level'];
 		$memRankName = $row['rank_name'];
@@ -75,6 +77,7 @@
 				data-memtype=\"$membershipType\"
 				data-infoseclevel=\"$infoSecLevelID\"
 				data-email=\"$memEmail\"
+				data-memstatus=\"$memStatus\"
 			>
 				<div class=\"\" style=\"
 					float: right;
@@ -157,15 +160,14 @@
 					\">
 						VVAR PlayerName
 						<br />
-						<strong>$memName</strong>
+						<a href=\"../player/$memID\" target=\"_blank\"><strong>$memName</strong></a>
 					</div>
 					<div class=\"player_qual_row_name\" style=\"
 						margin-bottom:8px;
 						padding-left:8px;
 					\">
-						VVAR MemberID
-						<br />
-						<strong>$memVVarID</strong>
+						VVAR Database MemberID
+						<br /><strong>$memVVarID</strong>
 					</div>
 					<div class=\"player_qual_row_name\" style=\"
 						margin-bottom:8px;
@@ -173,16 +175,8 @@
 					\">
 						Status
 						<br />
-						<strong>Active</strong>
-					</div>	
-					<div class=\"player_qual_row_name\" style=\"
-						margin-bottom:8px;
-						padding-left:8px;
-					\">
-						Division
-						<br />
-						<strong>$memDivisionName</strong>
-					</div>	
+						<strong>$memStatus</strong>
+					</div>
 					<div class=\"player_qual_row_name\" style=\"
 						margin-bottom:8px;
 						padding-left:8px;
@@ -290,6 +284,7 @@
 			dialog.find('#Division').find('#Division-default').prop('selected',true);
 			dialog.find('#MembershipType').find('#MembershipType-default').prop('selected',true);
 			dialog.find('#InfoSecLevel').find('#InfoSecLevel-default').prop('selected',true);
+			dialog.find('#Status').find('#Status-default').prop('selected',true);
 			
 			dialog.show();
 			overlay.show();
@@ -314,6 +309,7 @@
 			var memDivisionInfo = $self.parent().parent().data("divinfo");
 			var memTypeInfo = $self.parent().parent().data("memtype");
 			var memInfoSecLevelInfo = $self.parent().parent().data("infoseclevel");
+			var memStatusLevel = $self.parent().parent().data("memstatus");
 			
 			dialog.find('#ID').val(memID).text();
 			dialog.find('#VVarID').val(vvarID).text();
@@ -322,6 +318,9 @@
 			
 			dialog.find('#Division').find('option').prop('selected',false);
 			dialog.find('#Division').find('#' + memDivisionInfo).prop('selected',true);
+			
+			dialog.find('#Status').find('option').prop('selected',false);
+			dialog.find('#Status').find('#Status-' + memStatusLevel).prop('selected',true);
 			
 			dialog.find('#MembershipType').find('option').prop('selected',false);
 			dialog.find('#MembershipType').find('#MembershipType-' + memTypeInfo).prop('selected',true);
@@ -559,14 +558,22 @@
 						<? echo $displayRanks ?>
 					</select>
 					
-					<label for="Division" class="adminDialogInputLabel">
-						Division
+					<label for="Status" class="adminDialogInputLabel">
+						Status
 					</label>
-					<select name="Division" id="Division" class="adminDialogDropDown" required>
-						<option selected disabled value="default" id="Division-default">
-							- Select a Division -
-						</option>	
-						<? echo $displayDivisions ?>
+					<select name="Status" id="Status" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="Status-default">
+							- Select a Status -
+						</option>
+						<option value="Active" id="Status-Active">
+							Active
+						</option>
+						<option value="Active Reserve" id="Status-Active Reserve">
+							Active Reserve
+						</option>
+						<option value="Inactive" id="Status-Inactive">
+							Inactive
+						</option>
 					</select>
 					<label for="MembershipType" class="adminDialogInputLabel">
 						MembershipType
@@ -638,12 +645,24 @@
 					</label>
 					<input type="text" name="Callsign" id="Callsign" value="" class="adminDialogTextInput" required>
 					
-					<label for="Division" class="adminDialogInputLabel">
-						Division
+					<label for="Status" class="adminDialogInputLabel">
+						Status
 					</label>
-					<select name="Division" id="Division" class="adminDialogDropDown">
-						<? echo $displayDivisions ?>
+					<select name="Status" id="Status" class="adminDialogDropDown" required>
+						<option selected disabled value="default" id="Status-default">
+							- Select a Status -
+						</option>
+						<option value="Active" id="Status-Active">
+							Active
+						</option>
+						<option value="Active Reserve" id="Status-Active Reserve">
+							Active Reserve
+						</option>
+						<option value="Inactive" id="Status-Inactive">
+							Inactive
+						</option>
 					</select>
+					
 					<label for="MembershipType" class="adminDialogInputLabel">
 						MembershipType
 					</label>

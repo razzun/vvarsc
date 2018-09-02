@@ -27,6 +27,7 @@
 			,members.mem_id as player_id
     	    ,members.mem_name
     		,members.mem_callsign
+			,members.mem_status
     		,members.mem_avatar_link
 			,members.membership_type
 			,TRIM(LEADING '\t' from members.member_bio) as member_bio
@@ -107,6 +108,7 @@
     	    $mem_name = $row['mem_name'];
     		$mem_callsign = $row['mem_callsign'];
     		$mem_avatar_link = $row['mem_avatar_link'];
+			$mem_status = $row['mem_status'];
     		$mem_createdOn = $row['MemberCreatedOn'];
 			$rank_id = $row['rank_id'];
     		$rank_groupName = $row['rank_groupName'];
@@ -1257,8 +1259,11 @@
 								<div class="player_qual_row_name noPadding">
 									Membership Type: <strong><? echo $displayMembershipType; ?></strong>
 								</div>
-								<div class="player_qual_row_name noPadding" style="margin-bottom: 4px;">
+								<div class="player_qual_row_name noPadding">
 									Ships Owned: <strong><? echo $ship_count; ?></strong>
+								</div>
+								<div class="player_qual_row_name noPadding" style="margin-bottom: 4px;">
+									Status: <strong><? echo $mem_status; ?></strong>
 								</div>
 							</div>
 						</div>
