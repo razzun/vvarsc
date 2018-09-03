@@ -2506,7 +2506,7 @@
 		
 		//Hide the Operations Menu
 		$('#operations_menu_container').css({
-			left: '-1000%'
+			left: '-10000%'
 		});
 		
 		//un-Blur the Main Page
@@ -2529,7 +2529,7 @@
 		
 		//Hide the Operations Menu
 		$('#missions_menu_container').css({
-			left: '-1000%'
+			left: '-10000%'
 		});
 		
 		//un-Blur the Main Page
@@ -2552,6 +2552,17 @@
 <script>
 	//Hide all Admin Buttons on Page Load
 	$(document).ready(function() {
+		
+		//Hide the Operations Menu
+		$('#operations_menu_container').css({
+			left: '-10000%'
+		});
+		
+		//Hide the Operations Menu
+		$('#missions_menu_container').css({
+			left: '-10000%'
+		});
+		
 		var enableEdit = "<? echo $MaintainEdit; ?>";
 		
 		if (enableEdit == 'true')

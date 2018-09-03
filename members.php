@@ -122,10 +122,28 @@
 	$display_selectors = "";
 	
 	$master_div_name = "Rank View - All Members";
+	if ($div_id == 0)
 	$display_selectors .= "
 		<div class=\"div_filters_container\">
 			<div class=\"div_filters_entry div_filters_selected\">
 				<a href=\"/members/0\">All Members</a>
+			</div>
+			<div class=\"div_filters_entry div_filters\">
+				<a href=\"/members/1\">Assigned Members</a>
+			</div>
+			<div class=\"div_filters_entry\">
+				<a href=\"/membersList\">List View</a>
+			</div>
+		</div>
+	";
+	if ($div_id == 1)
+	$display_selectors .= "
+		<div class=\"div_filters_container\">
+			<div class=\"div_filters_entry div_filters\">
+				<a href=\"/members/0\">All Members</a>
+			</div>
+			<div class=\"div_filters_entry div_filters_selected\">
+				<a href=\"/members/1\">Assigned Members</a>
 			</div>
 			<div class=\"div_filters_entry\">
 				<a href=\"/membersList\">List View</a>
@@ -133,47 +151,9 @@
 		</div>
 	";
 	
-	/*
-	if ($div_id == 2) {
-		$master_div_name = "Division View - Economy";
-		$display_selectors .= "
-			<div class=\"div_filters_container\">
-				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/3\">Military</a>
-				</div>
-				<div class=\"div_filters_entry div_filters_selected\">
-					<a href=\"/divisions/2\">Economy</a>
-				</div>
-				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/0\">All Members</a>
-				</div>
-				<div class=\"div_filters_entry\">
-					<a href=\"/members\">List View</a>
-				</div>
-			</div>
-		";
-	}
-
-	if ($div_id == 3) {
-		$master_div_name = "Division View - Military";
-		$display_selectors .= "
-			<div class=\"div_filters_container\">
-				<div class=\"div_filters_entry div_filters_selected\">
-					<a href=\"/divisions/3\">Military</a>
-				</div>
-				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/2\">Economy</a>
-				</div>
-				<div class=\"div_filters_entry\">
-					<a href=\"/divisions/0\">All Members</a>
-				</div>
-				<div class=\"div_filters_entry\">
-					<a href=\"/members\">List View</a>
-				</div>
-			</div>
-		";
-	}
-	*/
+	$separateInactive = false;
+	if ($div_id == 1)
+		$separateInactive = true;
 		
 	$previousGroup = "";
 	$currentGroup = "";
@@ -293,7 +273,7 @@
 				<div class=\"divinfo_tableCell_membersTable_tableCell";
 		}
 		
-		if ($mem_status == "Inactive")
+		if ($separateInactive == true && $mem_status == "Inactive")
 		{
 			$display_div .= " image_inactive2\">";
 		}
@@ -326,8 +306,8 @@
 									<img class=\"divinfo_memAvatarRankTinyImg\" align=\"center\" alt=\"$rank_name\" src=\"$link_base/images/ranks/TS3/$mem_rank_info.png\"/>
 								</div>
 								<div class=\"divinfo_memAvatar_textOverlay_memName\">
-									<!--$full_title-->
-									$mem_name_info
+									$full_title
+									<!--$mem_name_info-->
 								</div>	
 								<div class=\"divinfo_memAvatar_textOverlay_memRole\">
 									$mem_role_info

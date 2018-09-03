@@ -82,7 +82,7 @@
 				'$Name'
 				,'$Callsign'
 				,'1'
-				,'$Status'
+				,'Active'
 				,null
 				,'default'
 				,'$Rank'

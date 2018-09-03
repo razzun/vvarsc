@@ -3500,6 +3500,7 @@ img.fleet:after {
 	border: 1px solid #CEA300;
 	border-left: 2px solid #CEA300;
 	box-shadow: 0px 0px 20px rgba(206, 163, 0, 0.5);
+	opacity: 1;
 }
 
 .divinfo_memAvatarContainer {
@@ -3528,7 +3529,6 @@ img.fleet:after {
 	padding-right: 2px;
 	color: #DDD;
 	text-shadow: 0px 0px 8px #00A0B6;
-	font-weight: normal;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	font-size: 9pt;
@@ -3536,7 +3536,7 @@ img.fleet:after {
 	white-space: nowrap;
 	display: table-cell;
 	vertical-align: middle;
-	max-width: 100px;
+	max-width: 110px;
 }
 
 .divinfo_memAvatar_textOverlay_memRole {

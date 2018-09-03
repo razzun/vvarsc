@@ -224,6 +224,7 @@
 					,d.div_name
 					,um.mem_id
 					,um.mem_callsign as mem_name
+					,um.mem_status
 					,um.rank_name
 					,um.rank_abbr
 					,um.rank_image
@@ -249,6 +250,7 @@
 						,r2.IsPrivate
 						,r.rank_orderby
 						,m.mem_callsign
+						,m.mem_status
 						,r.rank_abbr
 						,r.rank_image
 						,r.rank_tinyImage
@@ -324,6 +326,7 @@
 					,d.div_name
 					,um.mem_id
 					,um.mem_callsign as mem_name
+					,um.mem_status
 					,um.rank_name
 					,um.rank_abbr
 					,um.rank_image
@@ -349,6 +352,7 @@
 						,r2.IsPrivate
 						,r.rank_orderby
 						,m.mem_callsign
+						,m.mem_status
 						,r.rank_abbr
 						,r.rank_image
 						,r.rank_tinyImage
@@ -437,6 +441,7 @@
 			$mem_name = $row1['mem_name'];
 			$mem_role = $row1['role_name'];
 			$mem_role_isPrivate = $row1['role_isPrivate'];
+			$mem_status = $row1['mem_status'];
 			$mem_assigned_date = $row1['MemberAssigned'];
 			$mem_id = $row1['mem_id'];
 			$full_title = $row1['FullTitle'];
@@ -510,7 +515,8 @@
 									Assigned $mem_assigned_date
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo5\">
-									$rank_abbr  // $rank_level
+									<!--$rank_abbr | $rank_level-->
+									Status: <strong>$mem_status</strong>
 								</div>
 							</div>
 						</td>

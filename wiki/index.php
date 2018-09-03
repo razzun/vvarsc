@@ -83,7 +83,7 @@
 									/** Wiki Links **/
 									/*****************/
 
-									// print $displayWikiMenuSwitch;
+									//$displayWikiMenuSwitch;
 									case "awards":
 										$content = "awards.php";
 										break;
