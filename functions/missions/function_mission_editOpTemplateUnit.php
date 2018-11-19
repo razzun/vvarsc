@@ -18,6 +18,7 @@
 	$MissionUnitType = "";
 	$UnitID = "";
 	$OpUnitObjectives = "";
+	$OpUnitCallsign = "";
 	 
 	if(isset($_POST['OpTemplateID']))
 	{
@@ -39,12 +40,17 @@
 	{
 		$OpUnitObjectives = mysqli_real_escape_string($connection, $_POST['OpUnitObjectives']);
 	}
+	if(isset($_POST['OpUnitCallsign']))
+	{
+		$OpUnitCallsign = mysqli_real_escape_string($connection, $_POST['OpUnitCallsign']);
+	}
 	 
 	$_SESSION['maintain_edit'] = 'true';
 	$q = "
 		UPDATE projectx_vvarsc2.MissionUnits set
 			UnitID = SUBSTRING('$UnitID',(LOCATE('_','$UnitID') + 1),LENGTH('$UnitID'))
 			,MissionUnitObjectives = '$OpUnitObjectives'
+			,Callsign = '$OpUnitCallsign'
 		where MissionUnitID = '$MissionUnitID'
 			and MissionID = '$MissionID'
 	";

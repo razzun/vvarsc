@@ -495,6 +495,7 @@
 				m.mem_id
 				,m.mem_callsign as mem_name
 				,m.mem_avatar_link
+				,m.mem_status
 				,DATE_FORMAT(DATE(m.CreatedOn),'%d %b %Y') as mem_CreatedOn
 				,r.rank_abbr
 				,r.rank_image
@@ -588,6 +589,7 @@
 			$mem_role = $row2['role_name'];
 			$mem_CreatedOn = $row2['mem_CreatedOn'];
 			$full_title = $row2['FullTitle'];
+			$mem_status = $row2['mem_status'];
 			
 			if ($div_name == "n/a") {
 				$div_name = "No Division Assigned";
@@ -627,7 +629,7 @@
 									Enlisted $mem_CreatedOn
 								</div>
 								<div class=\"shipDetails_ownerInfo_tableRow_memInfo5\">
-									$rank_abbr // $rank_level
+									Status: <strong>$mem_status</strong>
 								</div>
 							</div>
 						</td>

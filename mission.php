@@ -366,6 +366,15 @@
 				,ou.PackageNumber
 				,u.UnitCallSign as UnitCallSign
 				,ou.CallSign as OpUnitCallsign
+                ,( select
+						CONCAT(s.ship_asset_designationCode, '-', shm.rowID) as CapitalAssetDesignation
+                    from projectx_vvarsc2.ships_has_members shm
+                    join projectx_vvarsc2.ships s
+						on s.ship_id = shm.ships_ship_id
+                    where shm_assetName = ou.Callsign
+                ) as CapitalAssetDesignation
+				,(select COUNT(1) from projectx_vvarsc2.MissionShips ms
+					where ms.MissionUnitID = ou.MissionUnitID) as ShipCount
 			from projectx_vvarsc2.MissionUnits ou
 			join projectx_vvarsc2.Units u
 				on u.UnitID = ou.UnitID
@@ -396,6 +405,7 @@
 			$opUnitsListItem_PackageNumber = $row3['PackageNumber'];
 			$opUnitsListItem_UnitCallSign = $row3['UnitCallSign'];
 			$opUnitsListItem_OpUnitCallsign = $row3['OpUnitCallsign'];
+			$CapitalAssetDesignation = $row3['CapitalAssetDesignation'];
 			
 			$callSign = "";
 			//Callsign Logic for Squadrons
@@ -455,6 +465,10 @@
 					}
 				}
 			}
+			else if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship')
+			{
+				$callSign = $opUnitsListItem_OpUnitCallsign;
+			}
 			//Callsign Logic for all other Unit Types
 			else
 			{
@@ -482,12 +496,14 @@
 					data-unittype=$opUnitsListItem_UnitType
 					data-supportairflight=$opUnitsListItem_Support_AirFlight
 					data-supportgroundteam=$opUnitsListItem_Support_GroundTeam
+					data-callsign=$opUnitsListItem_UnitCallSign
 				>
 			";
 			
 			$display_opUnit_edit = "";
 			if ($canEdit &&
-				($opUnitsListItem_UnitType == 'Squadron' or $opUnitsListItem_UnitType== 'Platoon'))
+				($opUnitsListItem_UnitType == 'Squadron' or $opUnitsListItem_UnitType== 'Platoon'
+					or $opUnitsListItem_OpUnitTypeDescription == 'Capital Ship'))
 			{
 				$display_opUnit_edit = "
 					<div id=\"OpUnitsButtons_$opUnitsListItem_OpUnitID\" style=\"
@@ -533,7 +549,28 @@
 							vertical-align: middle;
 						\">
 							$opUnitsListItem_OpUnitTypeDescription
-						</h5>
+						</h5>";
+						if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
+							$callSign != null)
+						{
+							$display_opUnits_list .= "
+						<div class=\"OperationText_Hideable\"style=\"
+							padding-left: 8px;
+							padding-right: 8px;
+							margin: 0;
+							font-style: italic;
+							display: table-cell;
+							vertical-align: middle;
+						\">
+							<strong style=\"
+							color: #DDD;
+							text-shadow: 0px 0px 4px #00E0FF;
+							\">VMNS $callSign</strong>
+						</div>";
+						}
+						else if ($callSign != null)
+						{
+								$display_opUnits_list .= "
 						<div class=\"OperationText_Hideable\"style=\"
 							padding-left: 8px;
 							padding-right: 8px;
@@ -546,13 +583,34 @@
 							color: #DDD;
 							text-shadow: 0px 0px 4px #00E0FF;
 							\">$callSign</strong>
-						</div>						
+						</div>";						
+						}
+					$display_opUnits_list .= "
 					</div>
 					<div class=\"shipyard_mainTable_row_content\" style=\"
 						padding-top: 0px;
 						border-top: none;
 						width: 100%;
-					\">
+					\">";
+						if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
+							$callSign != null)
+						{
+						$display_opUnits_list .= "
+						<div class=\"WikiText OperationText\" style=\"
+							margin-left: 8px;
+							background: none;
+						\">
+							Asset Registration & Callsign: 
+							<strong style=\"
+								color: #DDD;
+								font-style: italic;
+								text-shadow: 0px 0px 4px #00E0FF;
+							\">$CapitalAssetDesignation // VMNS $callSign</strong>
+						</div>";
+						}
+						else if ($callSign != null)
+						{
+						$display_opUnits_list .= "
 						<div class=\"WikiText OperationText\" style=\"
 							margin-left: 8px;
 							background: none;
@@ -564,8 +622,8 @@
 								font-style: italic;
 								text-shadow: 0px 0px 4px #00E0FF;
 							\">$callSign</strong>
-						</div>
-			";
+						</div>";						
+						}
 			
 			//Objectives for Unit
 			if ($opUnitsListItem_OpUnitObjectives != null && $opUnitsListItem_OpUnitObjectives != "")
@@ -919,7 +977,7 @@
 						$full_ship_name = $opUnitShipsListItem_ShipName;
 					}
 
-					if ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == '')
+					if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship' && ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == ''))
 					{
 						$opUnitShipsListItem_ShipCallsign = $callSign.'-'.$shipIndex;
 					}
@@ -973,6 +1031,10 @@
 										</div>
 										<div class=\"corner2 corner-bottom-right\">
 										</div>
+								";
+								if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship')
+								{
+									$display_opUnit_ships_list .= "
 										<table class=\"tooltip_shipTable2\" style=\"
 											width: auto;
 											padding-left: 4px;
@@ -992,7 +1054,9 @@
 												</td>
 											</tr>
 										</table>
-					";
+									";								
+								}
+
 					
 					$display_opUnitShipMembers_list_edit = "";
 					if ($canEdit
@@ -1568,6 +1632,11 @@
 					<? echo $displayOrgUnitsSelectors ?>
 				</select>
 				
+				<label for="OpUnitCallsign" id="OpUnitCallsignLabel" class="adminDialogInputLabel">
+					Callsign Override
+				</label>				
+				<input type="text" name="OpUnitCallsign" id="OpUnitCallsign" value="" class="adminDialogTextInput">
+				
 				<label for="OpUnitObjectives" id="OpUnitObjectivesLabel" class="adminDialogInputLabel">
 					Unit Objectives
 				</label>
@@ -2037,6 +2106,7 @@
 			var unitID = $self.parent().parent().data("unitid");
 			var unitType = $self.parent().parent().data("unittype");
 			var opUnitObjectives = $self.parent().parent().find('.OpUnitObjectives').text();
+			var opUnitCallsign = $self.parent().parent().data("callsign");
 			
 			
 			dialog.find('#OpUnitObjectives').show();
@@ -2046,6 +2116,7 @@
 			dialog.find('#OpTemplateUnitID').val(opUnitID).text();
 			dialog.find('#OpTemplateUnitType').val(opUnitType).text();
 			dialog.find('#OpUnitObjectives').val(opUnitObjectives).text();
+			dialog.find('#OpUnitCallsign').val(opUnitCallsign).text();
 			
 			dialog.find('select').find('option').prop('selected',false);
 			dialog.find('#UnitID').find('#UnitID-' + unitID).prop('selected',true);
