@@ -496,7 +496,7 @@
 					data-unittype=$opUnitsListItem_UnitType
 					data-supportairflight=$opUnitsListItem_Support_AirFlight
 					data-supportgroundteam=$opUnitsListItem_Support_GroundTeam
-					data-callsign=$opUnitsListItem_UnitCallSign
+					data-callsign=\"$opUnitsListItem_OpUnitCallsign\"
 				>
 			";
 			
@@ -551,7 +551,7 @@
 							$opUnitsListItem_OpUnitTypeDescription
 						</h5>";
 						if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
-							$callSign != null)
+							$callSign != null && $CapitalAssetDesignation != null)
 						{
 							$display_opUnits_list .= "
 						<div class=\"OperationText_Hideable\"style=\"
@@ -566,6 +566,24 @@
 							color: #DDD;
 							text-shadow: 0px 0px 4px #00E0FF;
 							\">VMNS $callSign</strong>
+						</div>";
+						}
+						else if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
+							$callSign != null)
+						{
+							$display_opUnits_list .= "
+						<div class=\"OperationText_Hideable\"style=\"
+							padding-left: 8px;
+							padding-right: 8px;
+							margin: 0;
+							font-style: italic;
+							display: table-cell;
+							vertical-align: middle;
+						\">
+							<strong style=\"
+							color: #DDD;
+							text-shadow: 0px 0px 4px #00E0FF;
+							\">$callSign</strong>
 						</div>";
 						}
 						else if ($callSign != null)
@@ -593,7 +611,7 @@
 						width: 100%;
 					\">";
 						if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
-							$callSign != null)
+							$callSign != null && $CapitalAssetDesignation != null)
 						{
 						$display_opUnits_list .= "
 						<div class=\"WikiText OperationText\" style=\"
@@ -606,6 +624,22 @@
 								font-style: italic;
 								text-shadow: 0px 0px 4px #00E0FF;
 							\">$CapitalAssetDesignation // VMNS $callSign</strong>
+						</div>";
+						}
+						else if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
+							$callSign != null)
+						{
+						$display_opUnits_list .= "
+						<div class=\"WikiText OperationText\" style=\"
+							margin-left: 8px;
+							background: none;
+						\">
+							Callsign: 
+							<strong style=\"
+								color: #DDD;
+								font-style: italic;
+								text-shadow: 0px 0px 4px #00E0FF;
+							\">$callSign</strong>
 						</div>";
 						}
 						else if ($callSign != null)

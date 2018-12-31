@@ -439,7 +439,7 @@
 					data-unittype=$opUnitsListItem_UnitType
 					data-supportairflight=$opUnitsListItem_Support_AirFlight
 					data-supportgroundteam=$opUnitsListItem_Support_GroundTeam
-					data-callsign=$opUnitsListItem_OpUnitCallsign
+					data-callsign=\"$opUnitsListItem_OpUnitCallsign\"
 				>
 			";
 			
@@ -497,7 +497,7 @@
 						width: 100%;
 					\">";
 						if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
-							$callSign != null)
+							$callSign != null && $CapitalAssetDesignation != null)
 						{
 						$display_opUnits_list .= "
 						<div class=\"WikiText OperationText\" style=\"
@@ -512,6 +512,22 @@
 							\">$CapitalAssetDesignation // VMNS $callSign</strong>
 						</div>";
 						}
+						else if ($opUnitsListItem_OpUnitTypeDescription == 'Capital Ship' &&
+							$callSign != null)
+						{
+						$display_opUnits_list .= "
+						<div class=\"WikiText OperationText\" style=\"
+							margin-left: 8px;
+							background: none;
+						\">
+							Callsign: 
+							<strong style=\"
+								color: #DDD;
+								font-style: italic;
+								text-shadow: 0px 0px 4px #00E0FF;
+							\">$callSign</strong>
+						</div>";
+						}						
 						else if ($callSign != null)
 						{
 						$display_opUnits_list .= "

@@ -5,6 +5,8 @@
 			s.ship_id
 			,m.manu_shortName
 			,s.ship_name
+            ,s.ship_model_designation
+            ,s.ship_model_visible
 		from projectx_vvarsc2.ships s
 		join projectx_vvarsc2.manufacturers m
 			on m.manu_id = s.manufacturers_manu_id
@@ -21,11 +23,24 @@
 		$ShipID = $row['ship_id'];
 		$ManuName = $row['manu_shortName'];
 		$ShipName = $row['ship_name'];
+		$ModelDesignation = $row['ship_model_designation'];
+		$ModelVisible = $row['ship_model_visible'];
 	
+		if ($ModelDesignation != null && $ModelVisible == 1)
+		{
+		$displayGetAllShipsSelectors .= "
+			<option value=\"$ShipID\" id=\"ShipID-$ShipID\">
+				$ManuName - $ModelDesignation $ShipName
+			</option>
+		";
+		}
+		else
+		{
 		$displayGetAllShipsSelectors .= "
 			<option value=\"$ShipID\" id=\"ShipID-$ShipID\">
 				$ManuName - $ShipName
 			</option>
-		";	
+		";
+		}
 	}
 ?>
