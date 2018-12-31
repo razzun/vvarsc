@@ -13,7 +13,13 @@ RewriteEngine on
 #RewriteMap memmap txt:/www/vvarnc/vvarsc/map.txt
 
 # get variables in this order, [object], [object,action], [object,action,selection]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteRule ^([^/\.]+)/?$ /index.php?page=$1 [L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 RewriteRule ^([^/\.]+)/([^/\.]+)/?$ /index.php?page=$1&pid=$2 [L]
 #RewriteRule ^([^/\.]+)/admin/?$ /admin/index.php?page=$1&pid=$2 [L]
 #RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/?$ /index.php?object=$1&action=$2&selection=$3 [L,NC,QSA]

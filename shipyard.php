@@ -145,9 +145,11 @@
 					<div class=\"shipyard_mainTable_row_content\">
 						<img class=\"shipyard_mainTable_row_shipImage\" alt=\"$ship_name2\" src=\"$link_base/images/ship_large/$ship_image_link2\" />
 						<br />
+<!--
 						<div class=\"shipyard_mainTable_row_shipOwners\">
 							Fleet Ship-Count: $ship_count 
 						</div>
+-->
 						<div class=\"shipyard_mainTable_row_shipDesc_container\">
 							<div class=\"shipyard_mainTable_row_shipDesc\">
 								<div class=\"corner corner-top-left\">

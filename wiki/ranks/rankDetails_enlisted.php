@@ -393,9 +393,9 @@
 					margin-top: 0
 				">
 					<li style="color: #FFF;">Flight Leader</li>
-					<li style="color: #FFF;">Assistant Squadron Leader</li>
+					<li style="color: #FFF;">Squadron Chief</li>
 					<li style="color: #FFF;">Squad Leader</li>
-					<li style="color: #FFF;">Assistant Platoon Leader</li>
+					<li style="color: #FFF;">Platoon Sergeant</li>
 					<li style="color: #FFF;">Office Assistant Roles</li>
 				</ul>
 				<p style="
@@ -479,10 +479,10 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Squadron Chief / Assistant Squadron Leader</li>
-					<li style="color: #FFF;">Air Wing Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Platoon Sergeant / Assistant Platoon Leader</li>
-					<li style="color: #FFF;">Combat Team Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Squadron Chief</li>
+					<li style="color: #FFF;">Air Wing Chief</li>
+					<li style="color: #FFF;">Platoon Sergeant</li>
+					<li style="color: #FFF;">Combat Team Sergeant</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
 				<p style="
@@ -566,9 +566,9 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Air Wing Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Combat Team Senior Enlisted Advisor</li>
-					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Air Wing Chief</li>
+					<li style="color: #FFF;">Combat Team Sergeant</li>
+					<li style="color: #FFF;">Naval Command Enlisted Advisor</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>
 				<p style="
@@ -649,7 +649,8 @@
 				<ul style="
 					margin-top: 0
 				">
-					<li style="color: #FFF;">Command Senior Enlisted Advisor</li>
+					<li style="color: #FFF;">Naval Command Enlisted Advisor</li>
+					<li style="color: #FFF;">Fleet Enlisted Advisor</li>
 					<li style="color: #FFF;">Fleet Senior Enlisted Advisor (E-9 variant FMCPO used here)</li>
 					<li style="color: #FFF;">Office Chief Roles</li>
 				</ul>

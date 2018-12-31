@@ -530,7 +530,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-7 is the first of the Flag Officer Ranks, held by the the most senior NAVCOM COs.
+					O-7 is the first of the Flag Officer Ranks, held by the the most senior Naval Command COs, and members serving in Fleet-level administrative roles.
 					<br />
 					<br />
 					<strong>Advancement from O-6 to O-7 requires the following:</strong>
@@ -706,7 +706,7 @@
 					padding-left: 12px;
 					font-size: 10pt
 				">
-					O-10 is highest rank in the Fleet, held only by the Fleet's Commanding Officer.
+					O-10 is highest rank in the Fleet, held by the Fleet Commanding Officer.
 				</p>
 			</div>
 		</div>

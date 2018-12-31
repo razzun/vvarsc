@@ -914,7 +914,12 @@
 		
 		$unitQualificationsQuery = "
 			select
-				r.role_name
+				##r.role_name
+				CASE
+					when rc.RatingCode is not null	then CONCAT(r.role_name, ' (', rc.RatingCode, ')')
+					when r.rating_designation is not null then CONCAT(r.role_name, ' (', r.rating_designation, ')')
+					else r.role_name
+				end as role_name
 				,lk.CategoryName
 				,q.qualification_name
 				,q.qualification_image
@@ -931,6 +936,7 @@
 				,r2.rank_level as MaxPayGrade
 				,r2.rank_abbr as MaxPayGradeName
 				,r2.rank_tinyImage as MaxPayGradeImage
+                ,r.rating_designation
 			from projectx_vvarsc2.UnitRoles ur
 			left join projectx_vvarsc2.UnitQualifications uq
 				on uq.UnitID = ur.UnitID
@@ -945,6 +951,8 @@
 				on r1.rank_id = ur.MinPayGrade
 			join projectx_vvarsc2.ranks r2
 				on r2.rank_id = ur.MaxPayGrade
+			left join projectx_vvarsc2.RatingCodes rc
+				on rc.RatingCode = ur.RatingCodeOverride
 			where ur.UnitID = $UnitID
 				and ur.IsActive = 1
 			order by
@@ -1046,7 +1054,7 @@
 				//Open New Group
 				$displayUnitRoleRequirements .= "
 					<div class=\"qual_block_container\">
-						<div class=\"qual_block blkBackground35\">
+						<div class=\"qual_block blkBackground35\" style=\"white-space: normal\">
 							<div class=\"corner corner-top-left\">
 							</div>
 							<div class=\"corner corner-top-right\">
@@ -1063,6 +1071,9 @@
 									margin-top: 0;
 									text-align: center;
 									padding-left: 0;
+									width: 75%;
+									margin-left: auto;
+									margin-right: auto;
 								\">
 									$roleName
 								</div>

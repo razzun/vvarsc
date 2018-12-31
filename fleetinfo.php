@@ -41,16 +41,14 @@
 						FROM projectx_vvarsc2.ships s
 						JOIN projectx_vvarsc2.manufacturers man
 							on man.manu_id = s.manufacturers_manu_id
-						RIGHT JOIN projectx_vvarsc2.ships_has_members shm
+						JOIN projectx_vvarsc2.ships_has_members shm
 							ON shm.ships_ship_id = s.ship_id
-						LEFT JOIN projectx_vvarsc2.ship_extended_data sed
-							ON sed.ships_ship_id = s.ship_id
-						LEFT JOIN projectx_vvarsc2.ShipStats_v2 ss
+						JOIN projectx_vvarsc2.ShipStats_v2 ss
 							on ss.ShipID = s.ship_id
 						JOIN projectx_vvarsc2.members m
 							ON shm.members_mem_id = m.mem_id
 							AND m.mem_sc = 1
-						JOIN projectx_vvarsc2.divisions d
+						left JOIN projectx_vvarsc2.divisions d
 							ON d.div_id = m.divisions_div_id
 						JOIN projectx_vvarsc2.ranks r
 							ON r.rank_id = m.ranks_rank_id
@@ -618,12 +616,10 @@
 <!--Script for Re-Sizing Images-->
 <script>
 	$(document).ready(function() {
-	
-		/*
+		
 		$('#MainWebsiteInner').css({
 			"max-width" : 'none'
 		});
-		*/
 	
 		var imageClass = $('.fleet');
 		
@@ -754,7 +750,6 @@
 
 <!--Script to Show/Hide The Right-Hand-Detail Elements-->
 <script>
-
 	$(document).ready(function() {
 		
 		//Items to set HTML Contents for Default
@@ -819,7 +814,6 @@
 			e.stopPropagation();
 		});
 	});
-
 </script>
 
 <!-- Script for changing background image-->

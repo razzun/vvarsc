@@ -1,5 +1,5 @@
-# Use PHP5.4 as default
-# AddHandler application/x-httpd-php54 .php
+# Use PHP56 as default
+AddHandler application/x-httpd-php56 .php
 
 # Disable directory transversal
 # For security reasons, Option all cannot be overridden.

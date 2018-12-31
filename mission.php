@@ -977,7 +977,7 @@
 						$full_ship_name = $opUnitShipsListItem_ShipName;
 					}
 
-					if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship' && ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == ''))
+					if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship' && $opUnitsListItem_OpUnitTypeDescription != 'Marine Squad' && ($opUnitShipsListItem_ShipCallsign == null || $opUnitShipsListItem_ShipCallsign == ''))
 					{
 						$opUnitShipsListItem_ShipCallsign = $callSign.'-'.$shipIndex;
 					}
@@ -1032,7 +1032,7 @@
 										<div class=\"corner2 corner-bottom-right\">
 										</div>
 								";
-								if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship')
+								if ($opUnitsListItem_OpUnitTypeDescription != 'Capital Ship' && $opUnitsListItem_OpUnitTypeDescription != 'Marine Squad' )
 								{
 									$display_opUnit_ships_list .= "
 										<table class=\"tooltip_shipTable2\" style=\"

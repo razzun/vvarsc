@@ -420,7 +420,7 @@
 				FROM projectx_vvarsc2.members
 				JOIN projectx_vvarsc2.ranks
 					ON members.ranks_rank_id = ranks.rank_id
-				JOIN projectx_vvarsc2.divisions d
+				LEFT JOIN projectx_vvarsc2.divisions d
 					ON members.divisions_div_id = d.div_id
 				LEFT JOIN projectx_vvarsc2.UnitMembers um
 					on um.MemberID = members.mem_id
@@ -463,7 +463,7 @@
 				FROM projectx_vvarsc2.members
 				JOIN projectx_vvarsc2.ranks
 					ON members.ranks_rank_id = ranks.rank_id
-				JOIN projectx_vvarsc2.divisions d
+				LEFT JOIN projectx_vvarsc2.divisions d
 					ON members.divisions_div_id = d.div_id
 				LEFT JOIN projectx_vvarsc2.UnitMembers um
 					on um.MemberID = members.mem_id
