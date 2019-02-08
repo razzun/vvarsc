@@ -13,7 +13,7 @@
 		<!--
         <li><a href="?page=marineTeams">Marine Squad/Team Organization</a></li>
 		-->
-        <li><a href="https://docs.google.com/document/d/1IgS0uZcUaxvuKbpLtBE3UQMpUD3dBJbu9_nsJGRyhaQ/edit?usp=sharing" target="_blank">Officer Training Program</a></li>
+        <li><a href="https://docs.google.com/document/d/1KQnXtktLm0BEFjy0RbognLl0ZTGiGWu9p6XjjGAfpsY/edit?usp=sharing" target="_blank">Officer Training Program</a></li>
         <li><a href="?page=operations">Organized Operations</a></li>
         <li><a href="?page=qual">Qualifications</a></li>
         <li><a href="?page=ranks">Ranks</a></li>
