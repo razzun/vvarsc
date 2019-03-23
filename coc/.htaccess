@@ -1,0 +1,10 @@
+
+RewriteEngine on
+
+AddHandler application/x-httpd-php70 .php
+RewriteCond %{HTTP_HOST} ^coc\.sc\.vvarmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.coc\.sc\.vvarmachine\.com$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ "https\:\/\/docs\.google\.com\/document\/d\/1amBcQ\-uXKTDE4b4wu6U6RbExqlWsL0zCRMKwXN0ieW0\/$1" [R=301,L]
