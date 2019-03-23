@@ -1,8 +1,0 @@
-{
-	"@metadata": {
-		"authors": [
-			"Mbrt"
-		]
-	},
-	"logentry-usergroups-modify": "$1 {{GENDER:$2|mengubah}} pengguna \"$4\". $7menambahkan $5; Menghapus $6"
-}

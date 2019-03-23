@@ -9,14 +9,12 @@
 <?
 	$wikiMenu_query = "select * from sc_view_wikiMenu";
 	
-	$wikiMenu_query_results = $connection->query($wikiMenu_query);
+	$wikiMenu_query_results = $connection->query($awards_query);
 	$displayWikiMenu = "";
 	$displayWikiMenuDesc = "";
 	$displayWikiMenuSwitch = "";
-	$wmIntExtDisp = "";
-	$wmActiveDisp = "";
 	
-	while(($row = $wikiMenu_query_results->fetch_assoc()) != false)
+	while(($row = $awards_query_results->fetch_assoc()) != false)
 	{
 		$wmID = $row['wmID'];
 		$wmName = $row['wmName'];
@@ -28,21 +26,23 @@
 		$wmIntExt = $row['wmIntExt'];
 		$wmActive = $row['wmActive'];
 		
-		if ($wmIntExt == 1)
-			$wmIntExtDisp = "External";
+		if ($wmIntExt == 0)
+			$wmIntExt = "Internal";
 		else
-			$wmIntExtDisp = "Internal";
+			$wmIntExt = "External";
 		
 		if ($wmActive == 1)
-			$wmActiveDisp = "Yes";
+			$wmActive = "Yes";
 		else
-			$wmActiveDisp = "No";
+			$wmActive = "No";
 		
-		if ($wmIntExt == 1) {
+		
+		if ($wmIntExt == "External" {
 			$displayWikiMenu .= "
 				<li><a href =\"$wmLink\" target=\"_blank\">$wmName</a></li>
 			";
-		} else {
+		}
+		else {
 			$displayWikiMenu .= "
 				<li><a href =\"$wmLink\">$wmName</a></li>
 			";
@@ -52,11 +52,11 @@
 			<strong>$wmName - </strong> $wmDesc <br />
 		";
 		
-		$displayWikiMenuSwitch .= '
-			case "' . $wmSwitchName . '":
-			$content = "' . $wmSwitchLink . '";
+		$displayWikiMenuSwitch .= "
+			case \"$wmSwitchName\":
+			$content = \"$wmSwitchLink\";
 			break;
-		';
+		";
 	};
 ?>
 <html>
@@ -82,39 +82,38 @@
 									/*****************/
 									/** Wiki Links **/
 									/*****************/
-
-									//$displayWikiMenuSwitch;
-									case "awards":
-										$content = "awards.php";
-										break;
+									<? echo $displayWikiMenuSwitch ?>
+									// case "awards":
+										// $content = "awards.php";
+										// break;
 										
-									case "formations":
-										$content = "formations.php";
-										break;
+									// case "formations":
+										// $content = "formations.php";
+										// break;
 										
-									case "facademy":
-										$content = "facademy.php";
-										break;
+									// case "facademy":
+										// $content = "facademy.php";
+										// break;
 									
-									case "marineTeams":
-										$content = "marineTeams.php";
-										break;
+									// case "marineTeams":
+										// $content = "marineTeams.php";
+										// break;
 										
-									case "operations":
-										$content = "operations.php";
-										break;
+									// case "operations":
+										// $content = "operations.php";
+										// break;
 										
-									case "ranks":
-										$content = "rankStructure.php";
-										break;
+									// case "ranks":
+										// $content = "rankStructure.php";
+										// break;
 										
-									case "qual":
-										$content = "qualifications.php";
-										break;
+									// case "qual":
+										// $content = "qualifications.php";
+										// break;
 										
-									case "units":
-										$content = "unitStructure.php";
-										break;
+									// case "units":
+										// $content = "unitStructure.php";
+										// break;
 									
 									/*******************/
 									/** Academy Pages **/
