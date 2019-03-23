@@ -352,8 +352,8 @@
 			$ShipCount = $row3['ShipCount'];
 			
 			$callSign = "";
-			//Callsign Logic for Squadrons
-			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF')
+			//Callsign Logic
+			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF'|| $opUnitsListItem_UnitType == 'Platoon')
 			{
 				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
@@ -377,34 +377,6 @@
 					else
 					{
 						$callSign = $opUnitsListItem_OpUnitCallsign;
-					}
-				}
-			}
-			//Callsign Logic for Platoons
-			else if ($opUnitsListItem_UnitType == 'Platoon')
-			{
-				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
-				if ($CurrentUnitID == $opUnitsListItem_UnitID)
-				{
-					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
-					{
-						$UnitIndex++;
-						$callSign = ($opUnitsListItem_UnitCallSign.'-'.$UnitIndex);
-					}
-					else
-					{
-						$callSign = ($opUnitsListItem_OpUnitCallsign.'-'.$UnitIndex);
-					}
-				}
-				else
-				{
-					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
-					{
-						$callSign = $opUnitsListItem_UnitCallSign.'-1';
-					}
-					else
-					{
-						$callSign = $opUnitsListItem_OpUnitCallsign.'-1';
 					}
 				}
 			}
@@ -1419,17 +1391,14 @@
 					<option selected disabled value="default" id="PlayerCount-default">
 						- Select # of Players -
 					</option>
-					<option value="1" id="PlayerCount-1">
-						1
-					</option>
-					<option value="2" id="PlayerCount-2">
-						2
-					</option>
 					<option value="4" id="PlayerCount-4">
 						4
 					</option>
-					<option value="6" id="PlayerCount-6">
-						6
+					<option value="7" id="PlayerCount-7">
+						7
+					</option>
+					<option value="10" id="PlayerCount-10">
+						10
 					</option>
 				</select>
 				

@@ -408,8 +408,8 @@
 			$CapitalAssetDesignation = $row3['CapitalAssetDesignation'];
 			
 			$callSign = "";
-			//Callsign Logic for Squadrons
-			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF')
+			//Callsign Logic
+			if ($opUnitsListItem_UnitType == 'Squadron' || $opUnitsListItem_UnitType == 'QRF' || $opUnitsListItem_UnitType == 'Platoon')
 			{
 				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
 				if ($CurrentUnitID == $opUnitsListItem_UnitID)
@@ -430,34 +430,6 @@
 					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
 					{
 						$callSign = $opUnitsListItem_UnitCallSign.' 1';
-					}
-					else
-					{
-						$callSign = $opUnitsListItem_OpUnitCallsign;
-					}
-				}
-			}
-			//Callsign Logic for Platoons
-			else if ($opUnitsListItem_UnitType == 'Platoon')
-			{
-				//If Previous OrgUnit is same as Current OrgUnit, change callsign to be unique.
-				if ($CurrentUnitID == $opUnitsListItem_UnitID)
-				{
-					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
-					{
-						$UnitIndex++;
-						$callSign = ($opUnitsListItem_UnitCallSign.'-'.$UnitIndex);
-					}
-					else
-					{
-						$callSign = ($opUnitsListItem_OpUnitCallsign.'-'.$UnitIndex);
-					}
-				}
-				else
-				{
-					if ($opUnitsListItem_OpUnitCallsign == null || $opUnitsListItem_OpUnitCallsign == '')
-					{
-						$callSign = $opUnitsListItem_UnitCallSign.'-1';
 					}
 					else
 					{

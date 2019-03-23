@@ -194,14 +194,12 @@ function fullscreenFix(){
 		$(".fullscreen").addClass('overflow');
 	}
 	
-	/*
     $('.content-b').each(function(i){
         if($(this).innerHeight() > h)
 		{
 			$(this).closest('.fullscreen').addClass("overflow");
         }
     });
-	*/
 }
 $(window).resize(fullscreenFix);
 fullscreenFix();
