@@ -95,7 +95,7 @@
 			ON members.divisions_div_id = d.div_id
         WHERE members.mem_sc = 1
 			AND members.mem_id = $player_id
-        ORDER BY manufacturers.manu_name,ships.ship_name";
+        ORDER BY manufacturers.manu_name,ships.ship_pname,ships.ship_name";
     	
         $playerShips_query_results = $connection->query($playerShips_query);
 		
@@ -1074,12 +1074,16 @@
 			select
 				s.ship_id
 				,m.manu_shortName
-				,s.ship_name
+                ,case
+					when s.ship_model_designation is not null and s.ship_model_visible = 1 then CONCAT(s.ship_model_designation, ' ', s.ship_name)
+                    else s.ship_name
+				end as ship_name
 			from projectx_vvarsc2.ships s
 			join projectx_vvarsc2.manufacturers m
 				on m.manu_id = s.manufacturers_manu_id
 			order by
 				m.manu_name
+                ,s.ship_pname
 				,s.ship_name
 		";
 		

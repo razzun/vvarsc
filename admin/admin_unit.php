@@ -477,16 +477,20 @@
 	
 	/*SHIPS QUERY FOR DROPDOWN MENU*/
 	$ships_query = "
-		select
-			s.ship_id
-			,m.manu_shortName
-			,s.ship_name
-		from projectx_vvarsc2.ships s
-		join projectx_vvarsc2.manufacturers m
-			on m.manu_id = s.manufacturers_manu_id
-		order by
-			m.manu_name
-			,s.ship_name
+			select
+				s.ship_id
+				,m.manu_shortName
+                ,case
+					when s.ship_model_designation is not null and s.ship_model_visible = 1 then CONCAT(s.ship_model_designation, ' ', s.ship_name)
+                    else s.ship_name
+				end as ship_name
+			from projectx_vvarsc2.ships s
+			join projectx_vvarsc2.manufacturers m
+				on m.manu_id = s.manufacturers_manu_id
+			order by
+				m.manu_name
+                ,s.ship_pname
+				,s.ship_name
 	";
 	
 	$ships_query_results = $connection->query($ships_query);
