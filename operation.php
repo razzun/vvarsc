@@ -1391,14 +1391,17 @@
 					<option selected disabled value="default" id="PlayerCount-default">
 						- Select # of Players -
 					</option>
+					<option value="1" id="PlayerCount-1">
+						1
+					</option>
+					<option value="2" id="PlayerCount-2">
+						2
+					</option>
+					<option value="3" id="PlayerCount-3">
+						3
+					</option>
 					<option value="4" id="PlayerCount-4">
 						4
-					</option>
-					<option value="7" id="PlayerCount-7">
-						7
-					</option>
-					<option value="10" id="PlayerCount-10">
-						10
 					</option>
 				</select>
 				
